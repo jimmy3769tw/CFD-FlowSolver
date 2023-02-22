@@ -1,32 +1,23 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
+*.DS_Store
+*.exe
 *.mod
 *.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
+*/mx_out
 # Executables
 *.exe
 *.out
 *.app
+*/mx
+*.sh
+*_
+*.cmake
+*.marks
+*.make
+*.txt
+*.o
+*/Information
+*.q
+*.x
+*.pc
+*.csv
+tests/matrix/build/*
