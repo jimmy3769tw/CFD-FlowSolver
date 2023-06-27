@@ -108,8 +108,9 @@ namespace projection_method {
       pressure_mat_.CalMatB(intermediate_vel_, simu_.tva.GetDt(), local_domain_);
       auto [iters, error] =
           pressure_solver_(pressure_mat_.mat_b, pressure_mat_.x_result);
+     
       if(mpi_tool_.IsMaster()) {
-      std::cout << simu_.tva.GetLoop() << "\t [iters, error]\t" << iters << '\t' << error << std::endl;
+        std::cout << simu_.tva.GetLoop() << "\t [iters, error]\t" << iters << '\t' << error << std::endl;
       }
 
       pressure_mat_.ConvertResultToPressure(pressure_, local_domain_);
@@ -119,7 +120,10 @@ namespace projection_method {
                              vel_, local_domain_, *grid_);
 
       UpdateAllVelocityOnBoundary(local_domain_, vel_, pressure_, *grid_);
+
+      // ! Do not 
       // BC_staggered_copy(global_domain_, vel_, intermediate_vel_, grid_);
+      // ! Do not 
 
       if (simu_.tva.IsWritingTime()) {
       mpi_tool_.Barrier()
@@ -128,6 +132,7 @@ namespace projection_method {
           .CollectToMaster(vel_.w)
           .CollectToMaster(pressure_.p)
           .Barrier();
+
       if (mpi_tool_.IsMaster()) {
         WriteQfile(dfib_, simu_, pressure_, vel_, *grid_);
         }

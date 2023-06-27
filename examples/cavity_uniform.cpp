@@ -1,10 +1,11 @@
-#include "../inc/backend/physical_variables.hpp"
-#include "../inc/backend/simulation.hpp"
-#include "../inc/grid/structured_grid.hpp"
-#include "../inc/grid/uniform_structured_grid.hpp"
-#include "../inc/run/run_cpu_mpi.hpp"
-#include "../inc/run/run_cpu.hpp"
-#include "../inc/run/run_cpu_mpi.hpp"
+#include "backend/physical_variables.hpp"
+#include "backend/simulation.hpp"
+#include "grid/structured_grid.hpp"
+#include "grid/uniform_structured_grid.hpp"
+#include "run/run_cpu_mpi.hpp"
+#include "run/run_cpu.hpp"
+#include "run/run_cpu_mpi.hpp"
+
 int main(int argc, char **argv) {  
   Simulation simu;
   simu.SetArgcArgv(argc, argv);

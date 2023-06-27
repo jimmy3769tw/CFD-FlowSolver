@@ -12,7 +12,6 @@
 #define BC_1_W_NEUMANN
 #define BC_1_P_NEUMANN
 
-
 // y
 
 #define BC_2_U_NEUMANN

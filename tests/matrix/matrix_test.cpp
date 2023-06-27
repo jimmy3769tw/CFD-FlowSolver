@@ -1,14 +1,13 @@
 #include <gtest/gtest.h>
 
-#include "../../cfd_mx/inc/matrix/csr_sparse_mat.hpp"
-#include "../../cfd_mx/inc/matrix/ell_sparse_mat.hpp"
-#include "../../cfd_mx/inc/matrix/solver/bicgstab.hpp"
-#include "../../cfd_mx/inc/matrix/solver/bicgstab_restart.hpp"
+#include "matrix/csr_sparse_mat.hpp"
+#include "matrix/ell_sparse_mat.hpp"
+#include "matrix/solver/bicgstab.hpp"
+#include "matrix/solver/bicgstab_restart.hpp"
 #include "../validation_tool/l2norm_validation.hpp"
-#include "GetRandomVector.hpp"
+#include "../validation_tool/random_vector.hpp"
 #include "io_2d_plot3d.hpp"
 #include "poisson.hpp"
-
 namespace {  
 class CsrMatTest : public ::testing::Test {
 };
@@ -21,6 +20,7 @@ TEST(CsrMatTest, resize_row_col) {
     EXPECT_EQ(matA.row(), 4);
     EXPECT_EQ(matA.col(), 3);
 }
+
 
 TEST(CsrMatTest, get_csr) {
   mat::CsrMat<double> matA;
