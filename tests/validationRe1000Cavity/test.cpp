@@ -19,7 +19,7 @@ TEST(re1000, test1) {
 
   grid.bc_selector.CavityFlow();
     
-
+    
   projection_method::CpuOpenMp projection_method(simu, grid);
   projection_method.solve();
   auto validation = get<5>(ReadQfile(grid, "P3D40.q"));
