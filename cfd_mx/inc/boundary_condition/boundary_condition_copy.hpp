@@ -97,7 +97,11 @@ bool BC_updateSlid(const CalDomain& location, StaggeredVelocity& vel,
                    StructuredGrid& grid) {
   auto ii = [&](auto& i, auto& j, auto& k) { return grid.icel(i, j, k); };
 
-  auto [num, dir] = getNumDIr();
+  // auto [num, dir] = getNumDIr();
+
+  auto num = grid.bc_selector.num;
+  auto dir = grid.bc_selector.dir;
+
 
 
   std::vector<int> b0_g = {1, 0}, b0_c = {2, 3, 4},

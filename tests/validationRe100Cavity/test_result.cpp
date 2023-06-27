@@ -12,7 +12,9 @@ TEST(re100, test1) {
   UniformStructuredGrid grid(40, 40, 40);
   grid.setLen(1, 1, 1).Init();
 
-
+  grid.bc_selector.CavityFlow();
+    
+  
   auto validation = get<5>(ReadQfile(grid, "P3D19.q"));
   auto result = get<5>(ReadQfile(grid, "mx_out/P3D19.q"));
 

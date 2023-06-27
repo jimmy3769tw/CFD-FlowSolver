@@ -1,7 +1,4 @@
 
-
-
-
 namespace solver{
     using namespace std;
 
@@ -9,8 +6,6 @@ namespace solver{
     class cg
     {
         public:
-
-        cg(){ }
 
         cg(matrixT & lhs_mat){ init(lhs_mat);}
 
@@ -127,22 +122,22 @@ namespace solver{
 
             beta = mu / nu;
 
-            for (int i = 0 ; i < m ;++i )
+            for (int i = 0 ; i < m ;++i ) {
                 p_[i] = r_[i] + beta *p_[i];
-
+            }
 
             nu = mu;
-
         }
         return std::make_pair( iter, std::sqrt(iter) / norm0);
     }
+}  // namespace cg
+
+
+
+template<typename T>
+inline std::pair<int, double> ELL_matrix<T>::npc_cg(
+    std::vector <double> &B,
+    std::vector <double> &x
+){
+
 }
-
-
-    template<typename T>
-    inline std::pair<int, double> ELL_matrix<T>::npc_cg(
-        std::vector <double> &B,
-        std::vector <double> &x
-    ){
-
-    }

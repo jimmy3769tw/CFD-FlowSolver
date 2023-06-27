@@ -5,39 +5,16 @@
 #include "../backend/physical_variables.hpp"
 #include "../grid/structured_grid.hpp"
 
-auto getNumDIr() {
-  vector<vector<double> > num(6, vector<double>(3, 0.0));
-  vector<vector<double> > dir(6, vector<double>(3, 0.0));
-
-  // #include "ChannelFlow.hpp"
-  // #include "FLOWpassing.hpp"
-
-#include "cavity.hpp"
-
-  /*
-  *                    y=1_____________
-  *                    / |           /|
-  *                  /   | [3]     /  |
-  *                /_____|_______/    |
-  *                |     |    [5|     |
-  *                | [0] |      | [1] |
-  *                |     |Y     |     |
-  *    x=y=z=0     |     |__x___|_____| x=1
-  *                |   z/       |    /
-  *                |  /    [2]  |  /
-  *                |/___________|/
-  *               z=1
-  !               !  Neumann     du/dn = 0
-  !               !  Dirichlet   u = 1
-  !               !  no_slip     u = 0
-  */
-  return std::make_pair(num, dir);
-}
 
 void UpdateAllVelocityOnBoundary(const CalDomain& location,
                                  StaggeredVelocity& vel, Pressure& pre,
                                  StructuredGrid& grid) {
-  auto [num, dir] = getNumDIr();
+//   auto [num, dir] = getNumDIr();
+  auto num = grid.bc_selector.num;
+  auto dir = grid.bc_selector.dir;
+
+
+
 #pragma omp parallel firstprivate(location) shared(grid)
   {
     auto nx = grid.nx;

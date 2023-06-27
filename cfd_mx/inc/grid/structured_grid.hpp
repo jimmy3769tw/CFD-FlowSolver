@@ -10,6 +10,9 @@
 #include <tuple>
 #include <vector>
 
+
+#include "boundary_condition/boundary_condition_selector.hpp"
+
 using namespace std;
 
 // namespace::structureGrid
@@ -202,6 +205,7 @@ class StructuredGrid {
     return true;
   }
 
+  BoundaryConditionSelector bc_selector;
 };
 
 // void checkgC() {

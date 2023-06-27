@@ -11,6 +11,9 @@ int main(int argc, char **argv) {
   simu.SetArgcArgv(argc, argv);
       UniformStructuredGrid grid(40, 40, 40);
   grid.setLen(1, 1, 1).Init();
+  
+  grid.bc_selector.CavityFlow();
+
   simu.SetReynoldsNumber(100.0)
       .tva.SetDt(0.001)
       .SetWritingDt(1)

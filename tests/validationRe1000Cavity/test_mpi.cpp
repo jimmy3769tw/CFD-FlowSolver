@@ -1,10 +1,10 @@
 #include <gtest/gtest.h>
 
-#include "../../cfd_mx/inc/backend/simulation.hpp"
-#include "../../cfd_mx/inc/grid/structured_grid.hpp"
-#include "../../cfd_mx/inc/grid/uniform_structured_grid.hpp"
-#include "../../cfd_mx/inc/io/plot3d/read_qfile.hpp"
-#include "../../cfd_mx/inc/run/run_cpu_mpi.hpp"
+#include "backend/simulation.hpp"
+#include "grid/structured_grid.hpp"
+#include "grid/uniform_structured_grid.hpp"
+#include "io/plot3d/read_qfile.hpp"
+#include "run/run_cpu_mpi.hpp"
 #include "../validation_tool/l2norm_validation.hpp"
 
 TEST(re100, test1) {
@@ -15,6 +15,9 @@ TEST(re100, test1) {
       .tva.SetDt(0.001)
       .SetWritingDt(1)
       .SetTerminalTime(2);
+
+  grid.bc_selector.CavityFlow();
+    
   projection_method::CpuOpenMpMpi projection_method(simu, grid);
   projection_method.solve();
   auto validation = get<5>(ReadQfile(grid, "P3D40.q"));

@@ -16,6 +16,10 @@ TEST(re1000, test1) {
       .tva.SetDt(0.001)
       .SetWritingDt(1)
       .SetTerminalTime(2);
+
+  grid.bc_selector.CavityFlow();
+    
+
   projection_method::CpuOpenMp projection_method(simu, grid);
   projection_method.solve();
   auto validation = get<5>(ReadQfile(grid, "P3D40.q"));
