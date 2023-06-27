@@ -4,6 +4,15 @@
 #include <string>
 #include <vector>
 #include "time_variance_authority.hpp"
+
+
+struct IniCondition{
+  double u = double();
+  double v = double();
+  double w = double();
+}
+
+
 class Simulation {
  public:
   std::vector<std::string> io_string;
@@ -40,6 +49,17 @@ class Simulation {
 
   auto GetArgv() { return argv_; }
 
+
+  IniCondition ini_condition;
+
+  Simulation& SetVelocityInitialCondition(double u, double v, double w) {
+    ini_condition.u = u;
+    ini_condition.v = v;
+    ini_condition.w = w;
+    return *this;
+  }
+
+
  private:
   bool isSetRe_ = false;
   bool isSetBoundaryCondition_ = false;
@@ -52,6 +72,5 @@ class Simulation {
   double terminal_time_;
   int argc_;
   char **argv_;
-
 };
 

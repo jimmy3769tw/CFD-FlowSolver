@@ -21,11 +21,10 @@
 #include "mpi.h"
 #include "omp.h"
 
-
 // MpiTool(bool &reorder, int argc, char **argv, StructuredGrid &grid,
 //         CalDomain &domain)
 //     : grid_(&grid), domain_(domain) 
-  
+
     
 namespace projection_method {
   class CpuOpenMpMpi {
@@ -47,6 +46,8 @@ namespace projection_method {
           pressure_(Pressure(grid))
 
     {
+      vel_.FillVel(simu.ini_condition.u, simu.ini_condition.v, simu.ini_condition.w);
+
       if (mpi_tool_.IsMaster()) {
         CreatOutputFile();
         PrintIsOpenmpExist();
@@ -94,10 +95,10 @@ namespace projection_method {
     SolverType pressure_solver_;
 
     void CalProjectionMethod() {
-      // #if defined(TERBULENCE_SMAGORINSKY)
-      //       CalSmagorinskyModel(ShareM, simu_, vel_, t1, local_domain_,
-      //       *grid_);
-      // #endif
+    
+      #if defined(TERBULENCE_SMAGORINSKY)
+            CalSmagorinskyModel(ShareM, simu_, vel_, t1, local_domain_, *grid_);
+      #endif
 
       CalConvectionAndDiffusion(simu_, vel_, intermediate_vel_, local_domain_, *grid_);
       mpi_tool_.SendRecv(grid_->no_ghost_cell, vel_.u)

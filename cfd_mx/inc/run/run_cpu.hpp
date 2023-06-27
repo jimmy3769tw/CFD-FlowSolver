@@ -33,13 +33,13 @@ class CpuOpenMp{
         pressure_(Pressure(grid)),
         pressure_mat_(PressureMat(grid)),
         global_domain_(grid) {
+    vel_.FillVel(simu.ini_condition.u, simu.ini_condition.v, simu.ini_condition.w);
     CreatOutputFile();
     PrintIsOpenmpExist();
     std::vector<int> grid_size{grid.nx, grid.ny, grid.nz};
     global_domain_.Init({1, 1, 1}, {0, 0, 0});
     int ompThreads = omp_get_max_threads();
     omp_set_num_threads(ompThreads);
-    double ui = 0.0, vi = 0.0, wi = 0.0;
     vel_ = intermediate_vel_ = vel_;
     csv::WriteCsvFile("Information/gA.csv", *grid_);
     plot3d::write_xfile(grid);
