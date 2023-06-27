@@ -1,3 +1,5 @@
+ALL: EXE
+
 OCL_FLAG = -lOpenCL
 
 STD_FLAG = -std=c++17
@@ -10,7 +12,6 @@ OPT = $(STD_FLAG) $(STD_FLAG)  -fopenmp -O3 -march=native
 # -------------------------------
 
 # CFLAGS= -std=c++17 -g -lOpenCL -fopenmp
-
 # OPT = -O3 -g -fopenmp -std=c++17 -march=native -mcmodel=large# for g++(debug)
 # OPT = -O3 -fopenmp -std=c++17 -march=native -mcmodel=large# for g++
 
@@ -101,8 +102,6 @@ config :
 
 nohup :
 	nohup ./mx &>> nohup.out &
-
-
 
 .PHONY: perf-test
 perf-test :

@@ -21,3 +21,7 @@
 *.pc
 *.csv
 tests/matrix/build/*
+cfd_mx/build/*
+cfd_mx/build
+cfd_mx/build/CMakeFiles/FindOpenMP/ompver_CXX.bin
+cfd_mx/build/CMakeFiles/FindOpenMP/ompver_C.bin
