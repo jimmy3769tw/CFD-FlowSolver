@@ -164,8 +164,6 @@ class ImmersedBoundary {
   std::vector<double> ValSum;
   std::vector<double> cylinderCenter;
 
-  double cylinderDimension;
-
  private:
   StructuredGrid* grid_;
   int yShift_ = grid_->cal_no_grid;

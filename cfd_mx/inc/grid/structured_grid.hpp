@@ -12,6 +12,8 @@
 
 
 #include "boundary_condition/boundary_condition_selector.hpp"
+#include "dfib/set_eta.hpp"
+
 
 using namespace std;
 
@@ -32,6 +34,10 @@ class StructuredGrid {
       : cal_nx(cal_nx), cal_ny(cal_ny), cal_nz(cal_nz) {
     resize();
   }
+
+  BoundaryConditionSelector bc_selector;
+
+  CalEtaFactory cal_eta_factory;
 
   StructuredGrid& setLen(int lx, int ly, int lz) {
     lx_ = lx;
@@ -205,7 +211,7 @@ class StructuredGrid {
     return true;
   }
 
-  BoundaryConditionSelector bc_selector;
+
 };
 
 // void checkgC() {
