@@ -1,6 +1,4 @@
 #pragma once
-#include "controlPanel.hpp"
-
 
 void Locality(
     Simulation& simu,

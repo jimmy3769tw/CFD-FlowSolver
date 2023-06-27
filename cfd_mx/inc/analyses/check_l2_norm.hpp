@@ -1,5 +1,6 @@
 #pragma once 
-#include"controlPanel.hpp"
+
+
 
 
 double CheckL2Norm(

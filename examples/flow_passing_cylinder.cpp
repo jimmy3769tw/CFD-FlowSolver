@@ -14,6 +14,11 @@ int main(int argc, char **argv) {
   grid.setLen(17, 12, 3).Init();
   grid.bc_selector.FlowPassing();
   
+  // grid.cal_eta_factory.SetCylinderZ()
+          // .SetCylinderCenter()
+          // .SetRadius(0.5)
+          // .SetSubGrid(100, 100);
+
 
   simu.SetReynoldsNumber(40.0)
       .tva.SetDt(0.001)

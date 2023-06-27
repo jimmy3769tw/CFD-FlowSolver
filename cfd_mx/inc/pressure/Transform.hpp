@@ -1,10 +1,6 @@
 #pragma once
 
-#include"controlPanel.hpp"
-
 // Pressure_transform_X_result(t1, Mx, gridA);
-
-
 void Pressure_transform_X_result_Dir(
     pressure &t1, 
     PressureMat &Mx ,
@@ -22,11 +18,6 @@ void Pressure_transform_X_result_Dir(
         }
     }
 }
-
-
-
-
-
 
 
 std::tuple<double , double> getMax(

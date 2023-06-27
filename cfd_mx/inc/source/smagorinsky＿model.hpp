@@ -1,5 +1,4 @@
 #pragma once
-#include"controlPanel.hpp"
 
 #ifdef TERBULENCE_SMAGORINSKY
 

@@ -1,5 +1,4 @@
 #pragma once
-# include "controlPanel.hpp"
 
 
 #include "omp.h"

@@ -2,8 +2,6 @@
 #include <string>
 #include <vector>
 
-#include "controlPanel.hpp"
-
 inline auto virtualF_Int(ImmersedBoundary& Dfib, CalDomain& Lo, grid& gA,
                          const int whichDirection) {
   if (Dfib.ValSum.size() < 3) Dfib.ValSum.resize(3);

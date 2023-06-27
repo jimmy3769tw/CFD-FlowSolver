@@ -1,5 +1,4 @@
 #pragma once
-#include"controlPanel.hpp"
 
 void getCentProfile(
     Simulation& simu,

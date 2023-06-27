@@ -20,16 +20,13 @@ namespace mat {
 template <typename T>
 class CsrMat : public SparseMat<T> {
  public:
-  using CsrVectorType = std::tuple<std::vector<int>, std::vector<int>,
-                              std::vector<T> >;  // <ptr, indices, values>
-
   CsrMat() : SparseMat<T>() {}
 
   CsrMat(int rows, int cols) : SparseMat<T>(rows, cols) { SelfConstruct(); }
 
   CsrMat(int n) : SparseMat<T>(n) { SelfConstruct(); }
 
-  CsrMat(CsrVectorType c) { Set(c); }
+  CsrMat(typename SparseMat<T>::CsrVectorType c) { Set(c); }
 
   void resize(int rows, int cols) {
     this->Construct(rows, cols);
@@ -51,7 +48,7 @@ class CsrMat : public SparseMat<T> {
     }
   }
 
-  void multiply_mpi(std::vector<T>& x, std::vector<T>& r) {
+  void MultiplyMpi(std::vector<T>& x, std::vector<T>& r) {
     this->mpi_.Allocate(x);
 #pragma omp parallel for shared(r, x)
     for (int i = this->mpi_.beg(); i < this->mpi_.end(); ++i) {
@@ -74,7 +71,7 @@ class CsrMat : public SparseMat<T> {
     ptr_.push_back(0);
   }
 
-  void Set(const CsrVectorType& csr) {
+  void Set(const typename SparseMat<T>::CsrVectorType& csr) {
     std::tie(ptr_, idx_, val_) = csr;
     auto len = ptr_.size() - 1;
     this->resize(len, len);
@@ -101,10 +98,9 @@ class CsrMat : public SparseMat<T> {
     std::cout << std::endl;
   }
 
-  CsrVectorType GetCsr() {
+  typename SparseMat<T>::CsrVectorType GetCsr() {
     return make_tuple(ptr_, idx_, val_);
   }
-
 
  private:
   vector<int> ptr_;

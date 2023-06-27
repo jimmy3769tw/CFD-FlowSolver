@@ -1,8 +1,6 @@
 #pragma once
 #include <cmath>
 
-#include "controlPanel.hpp"
-
 class CalEtaInterface {
  public:
   virtual void solver(phi::ImmersedBoundary& dfib, CalDomain& domain) = 0;

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "controlPanel.hpp"
 #include <string>
 #include <sstream>
 
