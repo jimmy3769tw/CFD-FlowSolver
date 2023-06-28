@@ -6,9 +6,9 @@ namespace mat{
 template <typename T>
 class SparseMat {
  public:
-  using CsrVectorType =
+  using CSR_type = 
       // <ptr, indices, values>
-      std::tuple<std::vector<int>, std::vector<int>, std::vector<T> >;
+      std::tuple< std::vector<int>, std::vector<int>, std::vector<T> >;
 
   SparseMat(int rows, int cols) { Construct(rows, cols); }
   SparseMat(int n) { Construct(n, n); }
@@ -38,8 +38,9 @@ class SparseMat {
     cols_ = cols;
   }
 
-  void InitMpi(MPI_Comm comm_world, std::vector<int> beg,
-                std::vector<int> end) {
+  void InitMpi(MPI_Comm comm_world, 
+              std::vector<int> beg,
+              std::vector<int> end) {
     mpi_.Init(comm_world, beg, end);
   }
 

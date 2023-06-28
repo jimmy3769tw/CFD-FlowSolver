@@ -37,7 +37,7 @@ class StructuredGrid {
 
   BoundaryConditionSelector bc_selector;
 
-  CalEtaFactory cal_eta_factory;
+  // CalEtaFactory cal_eta_factory;
 
   StructuredGrid& setLen(int lx, int ly, int lz) {
     lx_ = lx;
@@ -210,8 +210,6 @@ class StructuredGrid {
 
     return true;
   }
-
-
 };
 
 // void checkgC() {

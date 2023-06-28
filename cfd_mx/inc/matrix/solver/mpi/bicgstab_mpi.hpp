@@ -95,7 +95,7 @@ namespace solver{
         double norm_rhs = mpi_.L2Norm(rhs);
         // ---------------------
 
-        lhs_mat_.multiply_mpi(x, p_);
+        lhs_mat_.MultiplyMpi(x, p_);
 
         for(int i=mpi_.beg(); i<mpi_.end(); ++i)
             r_[i] = rhs[i] - p_[i];
@@ -125,14 +125,14 @@ namespace solver{
             for(int i=mpi_.beg(); i<mpi_.end(); ++i)
                 p_[i] = r_[i] + beta_ * (p_[i] - omega_ * v_[i]);
 
-            lhs_mat_.multiply_mpi(p_, v_);
+            lhs_mat_.MultiplyMpi(p_, v_);
 
             alpha_ = rho2_ / mpi_.InnerProduct(r2_, v_);
 
             for(int i=mpi_.beg(); i<mpi_.end(); ++i)
                 ss_[i] = r_[i] - alpha_ * v_[i];
 
-            lhs_mat_.multiply_mpi(ss_, t_);
+            lhs_mat_.MultiplyMpi(ss_, t_);
 
             omega_ = mpi_.InnerProduct(t_, ss_) / mpi_.InnerProduct(t_, t_);
 

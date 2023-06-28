@@ -1,9 +1,10 @@
 #pragma once
-#include "../grid/structured_grid.hpp"
+#include "grid/structured_grid.hpp"
 #include <iostream>
 #include <stdexcept>
 #include <string>
 #include <vector>
+
 inline void Fill(std::vector<double> &v, double val) {
   #pragma omp for schedule(static)
   for (size_t i = 0; i < v.size(); ++i) {
@@ -13,7 +14,9 @@ inline void Fill(std::vector<double> &v, double val) {
 
 class StaggeredVelocity {
   std::vector<double> viseff_;
+
  public:
+
   StaggeredVelocity(StructuredGrid &grid) : grid_(&grid) {
     resize(grid_->no_grid);
     viseff_.resize(grid_->cal_no_grid);

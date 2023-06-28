@@ -48,7 +48,7 @@ class EllMat : public SparseMat<T> {
       }
     }
 
-    void multiply_mpi(std::vector<T> & x, std::vector<T> & r) {
+    void MultiplyMpi(std::vector<T> & x, std::vector<T> & r) {
       this->mpi_.Allocate(x);
       for (auto i = this->mpi_.beg(); i < this->mpi_.end(); ++i) {
         const int pt = i * no_no_zero_;

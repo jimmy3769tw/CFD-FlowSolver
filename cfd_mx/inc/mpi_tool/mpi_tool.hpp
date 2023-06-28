@@ -35,8 +35,7 @@ class MpiTool{
       int cnt = nolayers * no_one_layer_;
       MakeItagCntCycle();
       int itag[2] = {itag_cnt++, itag_cnt++};
-      MPI_Request requests[4];
-      MPI_Status status[4];
+      MPI_Status status[2];
       // !`+`
       MPI_Send(&v[shift_send[0]], cnt, MPI_DOUBLE, left_neighborhood, itag[0],
                comm_world_);
@@ -47,7 +46,7 @@ class MpiTool{
       MPI_Send(&v[shift_send[1]], cnt, MPI_DOUBLE, right_neighborhood, itag[1],
                comm_world_);
       MPI_Recv(&v[shift_recv[1]], cnt, MPI_DOUBLE, left_neighborhood, itag[1],
-               comm_world_, status + 2);
+               comm_world_, status + 1);
       return *this;
     }
 
@@ -69,9 +68,8 @@ class MpiTool{
        MPI_Irecv(&v[shift_recv[1]], cnt, MPI_DOUBLE, left_neighborhood,
                  itag[1], comm_world_, requests + 3);
 
-       MPI_Status status[4];
-
-       MPI_Waitall(4, requests, status);
+      //  MPI_Status status[1];
+      //  MPI_Waitall(4, requests, status);
        return *this;
     }
 
@@ -81,12 +79,12 @@ class MpiTool{
        int cnt = nolayers * no_one_layer_;
        auto [shift_send, shift_recv] = GetSendRecvPosition(nolayers);
        MPI_Request requests[2];
-       MPI_Status status[4];
+      //  MPI_Status status[1];
        MPI_Isend(&v[shift_send[0]], cnt, MPI_DOUBLE, left_neighborhood,
                  itag[0], comm_world_, requests + 0);
        MPI_Irecv(&v[shift_recv[0]], cnt, MPI_DOUBLE, right_neighborhood,
                  itag[0], comm_world_, requests + 1);
-       MPI_Waitall(2, requests, status);
+      //  MPI_Waitall(2, requests, status);
        return *this;
    }
 
@@ -96,16 +94,16 @@ class MpiTool{
        int cnt = nolayers * no_one_layer_;
        auto [shift_send, shift_recv] = GetSendRecvPosition(nolayers);
        MPI_Request requests[2];
-       MPI_Status status[4];
+      //  MPI_Status status[1];
        MPI_Isend(&v[shift_send[1]], cnt, MPI_DOUBLE, right_neighborhood,
                  itag[1], comm_world_, requests + 0);
        MPI_Irecv(&v[shift_recv[1]], cnt, MPI_DOUBLE, left_neighborhood,
                  itag[1], comm_world_, requests + 1);
-       MPI_Waitall(2, requests, status);
+      //  MPI_Waitall(2, requests, status);
        return *this;
    }
 
-   MpiTool &BlockingSendRecvLeft(int nolayers, std::vector<double> &v) {
+   MpiTool &SendRecvLeft(int nolayers, std::vector<double> &v) {
        MakeItagCntCycle();
        int itag[2] = {itag_cnt++, itag_cnt++};
        int cnt = nolayers * no_one_layer_;
@@ -134,30 +132,32 @@ class MpiTool{
    MpiTool &CollectToMaster(std::vector<double> &v) {
             auto gc = grid_->no_ghost_cell;
             std::vector<int> itag;
-            MPI_Status status[size_];
-
+            MPI_Request requests[(size_ - 1) * 2];
             for (size_t i_rank = 1; i_rank < size_; ++i_rank) {
               MPI_Barrier(comm_world_);
               itag.push_back(i_rank*10);
               int shift =
-                  no_one_layer_ * (domain_->GetGlobal_x().start.at(i_rank));
+                  no_one_layer_ * (domain_->GetGlobal_x().start[i_rank]);
               int count =
-                  no_one_layer_ * (domain_->GetGlobal_x().len.at(i_rank));
+                  no_one_layer_ * (domain_->GetGlobal_x().len[i_rank]);
 
               if (i_rank == size_ - 1) {
                 count += no_one_layer_ * gc;
               }
 
               if (IsMaster()) {
-                MPI_Recv((void *)&v[shift], count, MPI_DOUBLE, i_rank,
-                         itag[i_rank-1], comm_world_, status + i_rank-1);
+                MPI_Irecv((void *)&v[shift], count, MPI_DOUBLE, i_rank,
+                          itag[i_rank - 1], comm_world_,
+                          requests + size_ + i_rank - 1);
               } else if (rank_ == i_rank) {
-                MPI_Send((void *)&v[shift], count, MPI_DOUBLE, master_,
-                         itag[i_rank-1], comm_world_);
+                MPI_Isend((void *)&v[shift], count, MPI_DOUBLE, master_,
+                          itag[i_rank - 1], comm_world_, requests + i_rank-1);
               }
 
             }
-           return *this;
+            // MPI_Status status[size_];
+            //  MPI_Waitall(size_, requests, status);
+            return *this;
    }
 
 

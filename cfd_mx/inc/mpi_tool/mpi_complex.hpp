@@ -3,6 +3,7 @@
 
 namespace mpi{
 class MpiComplex {
+
   MpiSelector(int argc, char** argv, int reorder = true) {
     MPI_Init(&argc, &argv);
     rank_ = mpi::GetRank();
@@ -38,10 +39,10 @@ class MpiComplex {
   int size_;
   int rank_;
   int coord_;
-  int left_neighborhood = -1;
-  int right_neighborhood = -1;
+  constexpr int left_neighborhood = -1;
+  constexpr int right_neighborhood = -1;
   MPI_Comm comm_world_;
-  const int master_ = 0;
+  constexpr int master_ = 0;
 
   void VirtualProcessTopology(bool reorder) {
     int number_of_dimension = 1;

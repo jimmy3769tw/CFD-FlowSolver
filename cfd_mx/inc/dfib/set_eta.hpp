@@ -1,29 +1,41 @@
-#pragma once
-#include <cmath>
+// #pragma once
+// #include <cmath>
 
-class CalEtaInterface {
- public:
-  virtual void solver(phi::ImmersedBoundary& dfib, CalDomain& domain) = 0;
-};
+// #include "backend/physical_variables.hpp" // immersedBoundary
+// #include "grid/structured_grid.hpp"
+// #include "backend/domain.hpp"
+// #include "set_eta_cylinder.hpp"
+
+// class CylinderZ;
+
+// class CalEtaInterface {
+//  public:
+//   virtual void solver(immersedBoundary& dfib, CalDomain& domain) = 0;
+// };
+// class CalEtaFactory {
+//   public:
+//   CalEtaFactory(){}
 
 
-class CalEtaFactory {
-  public:
-  CalEtaFactory(){};
+//   CalEtaFactory(StructuredGrid& grid) { 
+//     Init(grid); 
+//   }
 
-  CalEtaFactory(StructuredGrid& grid) { Init(grid); }
-  ~CalEtaFactory() {
-    delete cal_eta_imp_;
-  }
+//   ~CalEtaFactory() {
+//     delete cal_eta_imp_;
+//   }
 
-  CalEtaFactory& Init(StructuredGrid& grid) { grid_ = &grid; return *this; }
+//   CalEtaFactory& Init(StructuredGrid& grid) { 
+//     grid_ = &grid; 
+//     return *this; 
+//   }
 
-  CylinderZ& SetCylinderZ() {
-    cal_eta_imp_ = new CylinderZ(*grid_);
-    return *(CylinderZ*)cal_eta_imp_;
-  }
-  
-  CalEtaInterface* cal_eta_imp_ = nullptr;
+//   CylinderZ& SetCylinderZ() {
+//     cal_eta_imp_ = new CylinderZ(*grid_);
+//     return *(CylinderZ*)cal_eta_imp_;
+//   }
 
-  StructuredGrid* grid_;
-};
+// private:
+//   CalEtaInterface* cal_eta_imp_ = nullptr;
+//   StructuredGrid* grid_;
+// };

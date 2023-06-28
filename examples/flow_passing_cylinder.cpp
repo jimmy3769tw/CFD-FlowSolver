@@ -2,9 +2,7 @@
 #include "backend/simulation.hpp"
 #include "grid/structured_grid.hpp"
 #include "grid/parital_uniform_structured_gird.hpp"
-#include "run/run_cpu_mpi.hpp"
 #include "run/run_cpu.hpp"
-#include "run/run_cpu_mpi.hpp"
 
 int main(int argc, char **argv) {  
   Simulation simu;
@@ -13,7 +11,7 @@ int main(int argc, char **argv) {
   PartialUniformStructuredGrid grid(256, 80, 30);
   grid.setLen(17, 12, 3).Init();
   grid.bc_selector.FlowPassing();
-  
+
   // grid.cal_eta_factory.SetCylinderZ()
           // .SetCylinderCenter()
           // .SetRadius(0.5)
@@ -21,9 +19,9 @@ int main(int argc, char **argv) {
 
 
   simu.SetReynoldsNumber(40.0)
+      .SetVelocityInitialCondition(1, 0, 0)
       .tva.SetDt(0.001)
       .SetWritingDt(1)
-      .SetVelocityInitialCondition(1, 0, 0)
       .SetTerminalTime(40);
 
   projection_method::CpuOpenMp projection_method(simu, grid);

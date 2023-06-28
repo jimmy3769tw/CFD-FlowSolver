@@ -1,7 +1,6 @@
 
 #pragma once
 #include "structured_grid.hpp"
-
 class UniformStructuredGrid : public StructuredGrid {
   public:
    UniformStructuredGrid(int cal_nx, int cal_ny, int cal_nz)

@@ -10,8 +10,7 @@ struct IniCondition{
   double u = double();
   double v = double();
   double w = double();
-}
-
+};
 
 class Simulation {
  public:

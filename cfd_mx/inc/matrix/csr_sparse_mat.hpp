@@ -26,7 +26,7 @@ class CsrMat : public SparseMat<T> {
 
   CsrMat(int n) : SparseMat<T>(n) { SelfConstruct(); }
 
-  CsrMat(typename SparseMat<T>::CsrVectorType c) { Set(c); }
+  CsrMat(typename SparseMat<T>::CSR_type c) { Set(c); }
 
   void resize(int rows, int cols) {
     this->Construct(rows, cols);
@@ -71,7 +71,7 @@ class CsrMat : public SparseMat<T> {
     ptr_.push_back(0);
   }
 
-  void Set(const typename SparseMat<T>::CsrVectorType& csr) {
+  void Set(const typename SparseMat<T>::CSR_type& csr) {
     std::tie(ptr_, idx_, val_) = csr;
     auto len = ptr_.size() - 1;
     this->resize(len, len);
@@ -98,7 +98,7 @@ class CsrMat : public SparseMat<T> {
     std::cout << std::endl;
   }
 
-  typename SparseMat<T>::CsrVectorType GetCsr() {
+  typename SparseMat<T>::CSR_type GetCsr() {
     return make_tuple(ptr_, idx_, val_);
   }
 

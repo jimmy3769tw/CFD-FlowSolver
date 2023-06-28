@@ -3,7 +3,8 @@
 
 bool CopyVelocityOnBoundary(const CalDomain& location,
                             const StaggeredVelocity& old_vel,
-                            StaggeredVelocity& curr_vel, StructuredGrid& grid) {
+                            StaggeredVelocity& curr_vel, 
+                            StructuredGrid& grid) {
   int nx = grid.nx;
   int ny = grid.ny;
   int nz = grid.nz;

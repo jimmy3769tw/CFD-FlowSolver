@@ -7,7 +7,8 @@
 
 
 void UpdateAllVelocityOnBoundary(const CalDomain& location,
-                                 StaggeredVelocity& vel, Pressure& pre,
+                                 StaggeredVelocity& vel, 
+                                 Pressure& pre,
                                  StructuredGrid& grid) {
 //   auto [num, dir] = getNumDIr();
   auto num = grid.bc_selector.num;
