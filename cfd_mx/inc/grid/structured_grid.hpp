@@ -1,9 +1,7 @@
 #pragma once
 #include <dirent.h>
 #include <sys/types.h>
-
 #include <cmath>
-#include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -14,14 +12,11 @@
 #include "boundary_condition/boundary_condition_selector.hpp"
 #include "dfib/set_eta.hpp"
 
-
-using namespace std;
-
 // namespace::structureGrid
 class StructuredGrid {
  private:
   std::vector<double> delta_;
-  vector<string> direction_order_{"[X]", "[Y]", "[Z]"};
+  std::vector<std::string> direction_order_{"[X]", "[Y]", "[Z]"};
   bool isSetLen_ = false;
   std::string gridTypeName_;
   virtual void InitPos() = 0;
@@ -122,7 +117,7 @@ class StructuredGrid {
   template <typename T>
   std::tuple<int, int, int, int, int, int, int, int, int, int, int, int>
   Get12Nb(T& icel) {
-    return make_tuple(icel - ny_times_nz, icel + ny_times_nz, icel - nz,
+    return std::make_tuple(icel - ny_times_nz, icel + ny_times_nz, icel - nz,
                       icel + nz, icel - 1, icel + 1, icel - 2 * ny_times_nz,
                       icel + 2 * ny_times_nz, icel - 2 * nz, icel + 2 * nz,
                       icel - 2, icel + 2);

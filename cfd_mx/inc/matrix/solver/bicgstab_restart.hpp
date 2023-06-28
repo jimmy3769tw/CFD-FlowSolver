@@ -5,8 +5,6 @@
 #include "linear_solver.hpp"
 
 namespace solver {
-using namespace std;
-using namespace math;
 template <typename matrixT>
 class BicgstabRestart : public LinearSolver<matrixT> {
  public:
@@ -35,8 +33,8 @@ class BicgstabRestart : public LinearSolver<matrixT> {
     restartTol_ = pRestartFactor_ * this->tolerance_;
   }
 
-  inline std::tuple<int, double> solve(const vector<double>& rhs,
-                                       vector<double>& x) override {
+  inline std::tuple<int, double> solve(const std::vector<double>& rhs,
+                                       std::vector<double>& x) override {
     timestep_++;
     double r1r0 = 0, pre_r1r0 = 0, a = 0, w = 0, b = 0,
            norm0 = math::L2Norm(rhs);
@@ -133,14 +131,14 @@ class BicgstabRestart : public LinearSolver<matrixT> {
   double pRestartFactor_ = 1e-7,
          restartTol_ = pRestartFactor_ * this->tolerance_;
 
-  vector<double> r0_;
-  vector<double> r1_;
-  vector<double> p1_;
-  vector<double> s1_;
-  vector<double> ap_;
-  vector<double> as_;
-  vector<double> px1_;
-  vector<double> px2_;
+  std::vector<double> r0_;
+  std::vector<double> r1_;
+  std::vector<double> p1_;
+  std::vector<double> s1_;
+  std::vector<double> ap_;
+  std::vector<double> as_;
+  std::vector<double> px1_;
+  std::vector<double> px2_;
 
   size_t timestep_ = 0;
   size_t total_no_iters_ = 0, accumulativeResetMembers_ = 0, pResets_ = 0,

@@ -3,12 +3,12 @@
 namespace plot3d {
 
 auto write_xfile(StructuredGrid& grid) {
-   vector<vector<vector<float> > > x_out(
-      grid.cal_nx, vector<vector<float> >(grid.cal_ny, vector<float>(grid.cal_nz)));
-  vector<vector<vector<float> > > y_out(
-      grid.cal_nx, vector<vector<float> >(grid.cal_ny, vector<float>(grid.cal_nz)));
-  vector<vector<vector<float> > > z_out(
-      grid.cal_nx, vector<vector<float> >(grid.cal_ny, vector<float>(grid.cal_nz)));
+   std::vector<std::vector<std::vector<float> > > x_out(
+      grid.cal_nx, std::vector<std::vector<float> >(grid.cal_ny, std::vector<float>(grid.cal_nz)));
+  std::vector<std::vector<std::vector<float> > > y_out(
+      grid.cal_nx, std::vector<std::vector<float> >(grid.cal_ny, std::vector<float>(grid.cal_nz)));
+  std::vector<std::vector<std::vector<float> > > z_out(
+      grid.cal_nx, std::vector<std::vector<float> >(grid.cal_ny, std::vector<float>(grid.cal_nz)));
 
   int Nblock = 1, tempNX = grid.cal_nx, tempNY = grid.cal_ny, tempNZ = grid.cal_nz;
 

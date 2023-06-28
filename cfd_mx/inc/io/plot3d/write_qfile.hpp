@@ -30,7 +30,7 @@ void WriteQfile(ImmersedBoundary &dfib, Simulation &simu, Pressure &pressure,
   int temp_ny = grid.cal_ny;
   int temp_nz = grid.cal_nz;
 
-  string filename = "mx_out/P3D";
+  std::string filename = "mx_out/P3D";
 
   if (io < 10) {
     filename += "0";
@@ -38,8 +38,8 @@ void WriteQfile(ImmersedBoundary &dfib, Simulation &simu, Pressure &pressure,
 
   filename += std::to_string(io);
   filename += ".q";
-  file.open(filename, ofstream::binary);
-  cout << "(Output Plaot3D):" << io << endl;
+  file.open(filename, std::ofstream::binary);
+  std::cout << "(Output Plaot3D):" << io << std::endl;
 
   file.write((char *)(&no_block), sizeof(int));
   file.write((char *)(&temp_nx), sizeof(int));

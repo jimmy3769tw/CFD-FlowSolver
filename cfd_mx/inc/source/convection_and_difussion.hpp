@@ -3,12 +3,6 @@
 // #define CONVECTION_DIFUSSION_LUD
 // #define CONVECTION_DIFUSSION_UD
 
-using std::cout;
-using std::endl;
-using std::string;
-using std::vector;
-using std::make_pair;
-
 #include "../grid/structured_grid.hpp"
 #include "../backend/physical_variables.hpp"
 /*

@@ -20,7 +20,7 @@ class PartialUniformStructuredGrid : public StructuredGrid {
     PartialUniformConstruct(z_pos, lz_small, nz_small, offset_nz_small, lz_, nz);
   }
 
-  void PartialUniformConstruct(vector<double> &pos, const double small_len,
+  void PartialUniformConstruct(std::vector<double> &pos, const double small_len,
                                int small_grid, int offset_small_grid,
                                double total_len, int total_grid) {
     auto cal_grid = total_grid - 2 * this->no_ghost_cell;

@@ -1,9 +1,11 @@
 #pragma once
 #include <fstream>
+#include <string>
+#include <vector>
 
 #include "../../grid/structured_grid.hpp"
 namespace csv{
-bool WriteCsvFile(string filename, StructuredGrid& grid) {
+bool WriteCsvFile(std::string filename, StructuredGrid& grid) {
   std::ofstream file;
   auto nx = grid.nx;
   auto ny = grid.ny;

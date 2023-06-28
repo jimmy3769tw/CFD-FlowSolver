@@ -7,7 +7,6 @@
 #include <vector>
 #include "../mpi_tool/mpi_getter.hpp"
 #include "mpi.h"
-using namespace std;
 namespace mat {
 
 class MpiVectorTool {
@@ -34,7 +33,7 @@ class MpiVectorTool {
     std::vector<int> len(size_);
     std::vector<int> start(size_);
     std::vector<int> end(size_);
-    cout << "size_" << size_;
+    std::cout << "size_" << size_;
     for (int i = 0; i < size_; i++) {
       len[i] = vec_size / size_;
     }
@@ -75,7 +74,7 @@ class MpiVectorTool {
     return temp_g;
   }
 
-  inline double InnerProduct(const vector<double> &a, const vector<double> &b) {
+  inline double InnerProduct(const std::vector<double> &a, const std::vector<double> &b) {
     double temp_l{0.0};
     auto A = a.data() + beg_;
     auto B = b.data() + beg_;
@@ -90,7 +89,7 @@ class MpiVectorTool {
 
   inline double L2Norm(const std::vector<double> &a) { return sqrt(InnerProduct(a, a)); }
 
-  inline void init(vector<double> &a, const double val) {
+  inline void init(std::vector<double> &a, const double val) {
     auto A = a.data() + beg_;
 #pragma omp parallel for simd default(none) firstprivate(A, val, len_) \
     schedule(static)
@@ -99,7 +98,7 @@ class MpiVectorTool {
     }
   }
 
-  inline void init(vector<double> &a, const vector<double> &b) {
+  inline void init(std::vector<double> &a, const std::vector<double> &b) {
     auto A = a.data() + beg_;
     auto B = b.data() + beg_;
 #pragma omp parallel for simd default(none) firstprivate(A, len_, B) \
@@ -109,7 +108,7 @@ class MpiVectorTool {
     }
   }
 
-  inline void zero(vector<double> &a) { init(a, 0.0); }
+  inline void zero(std::vector<double> &a) { init(a, 0.0); }
 
  private:
   bool empty_ = true;

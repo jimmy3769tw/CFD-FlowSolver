@@ -32,7 +32,7 @@ auto getCD_CL_mpi(
     if (simu.PID == 0)
     {
 
-    cout << "[cD, cL] : " << cD << ", " << cL << endl; 
+    cout << "[cD, cL] : " << cD << ", " << cL << std::endl; 
 
     std::ofstream file;
 

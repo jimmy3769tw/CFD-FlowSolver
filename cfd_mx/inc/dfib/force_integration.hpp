@@ -36,7 +36,7 @@ std::pair<double, double> noDelay_IO_CD_CL(Simulation& simu,
   auto cL = -2.0 * Dfib.ValSum[1] / area_cL;
 
   if (simu.PID == 0) {
-    cout << "[cD, cL] : " << cD << ", " << cL << endl;
+    std::cout << "[cD, cL] : " << cD << ", " << cL << std::endl;
 
     std::ofstream file;
 
@@ -44,7 +44,7 @@ std::pair<double, double> noDelay_IO_CD_CL(Simulation& simu,
 
     name += ".dat";
 
-    file.open(name, std::ios::out | ios::app);
+    file.open(name, std::ios::out | std::ios::app);
 
     std::string tab = " ";
 
@@ -65,7 +65,7 @@ std::pair<double, double> noDelay_IO_CD_CL(Simulation& simu,
     file.close();
   }
 
-  return make_pair(cD, cL);
+  return std::make_pair(cD, cL);
 }
 
 std::pair<double, double> Delay_IO_CD_CL(Simulation& simu, CalDomain& Lo,
@@ -106,7 +106,7 @@ std::pair<double, double> Delay_IO_CD_CL(Simulation& simu, CalDomain& Lo,
 
   if (!(IOfale)) {
     std::ofstream file;
-    file.open(name, std::ios::out | ios::app);
+    file.open(name, std::ios::out | std::ios::app);
     std::string tab = " ";
     for (int i = 1; i < simu.delayIO + 1; ++i)
       file << "\n"

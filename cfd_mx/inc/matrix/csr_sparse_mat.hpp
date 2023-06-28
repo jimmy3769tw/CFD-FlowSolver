@@ -10,11 +10,6 @@
 #include <vector>
 #include "sparse_mat.hpp"
 
-using std::vector;
-using std::cout;
-using std::endl;
-using std::tuple;
-
 namespace mat {
 
 template <typename T>
@@ -103,9 +98,9 @@ class CsrMat : public SparseMat<T> {
   }
 
  private:
-  vector<int> ptr_;
-  vector<int> idx_;
-  vector<T> val_;
+  std::vector<int> ptr_;
+  std::vector<int> idx_;
+  std::vector<T> val_;
 
   void SelfConstruct() { ptr_.resize(this->row() + 1); }
 };

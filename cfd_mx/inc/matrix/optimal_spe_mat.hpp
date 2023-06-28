@@ -3,7 +3,6 @@
 
 namespace mat
 {
-    using namespace std; 
     template<typename T>
     class SPE_matrix1
     {

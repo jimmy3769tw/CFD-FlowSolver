@@ -10,11 +10,6 @@
 #include "../math.hpp"
 
 namespace solver{
-
-    using namespace std;
-    using namespace math;
-    using namespace mat;
-
     template <typename matrixT>
     class BicgstabMpi : public LinearSolverMpi<matrixT> {
      public:
@@ -104,7 +99,7 @@ namespace solver{
 
         this->mpi_.Allocate(x);
 
-        return make_tuple(iters, norm);
+        return std::make_tuple(iters, norm);
       }
 
      private:

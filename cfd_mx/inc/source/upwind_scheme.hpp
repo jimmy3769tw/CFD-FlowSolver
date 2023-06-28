@@ -20,7 +20,7 @@ inline std::pair<double, double> CalUpwind(
     phi_N = phi[ic];
   }
 
-  return make_pair(phi_P, phi_N);
+  return std::make_pair(phi_P, phi_N);
 }
 // * ======================== Ud ========================
 
@@ -43,7 +43,7 @@ inline std::pair<double, double> CalLudSpanwise(
     phi_N = (phi[ic] + 0.5 * Ds[Idx] * (phi[ic] - phi[p]) / Di[Idx + 1]);
   }
 
-  return make_pair(phi_P, phi_N);
+  return std::make_pair(phi_P, phi_N);
 }
 
 inline std::pair<double, double> CalLudChordwise(
@@ -64,5 +64,5 @@ inline std::pair<double, double> CalLudChordwise(
     phi_N = (phi[ic] + 0.5 * Ds[Idx] * (phi[ic] - phi[p]) / Di[Idx + 1]);
   }
 
-  return make_pair(phi_P, phi_N);
+  return std::make_pair(phi_P, phi_N);
 }

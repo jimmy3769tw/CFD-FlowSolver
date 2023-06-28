@@ -30,7 +30,7 @@ std::pair<double, double> CalQuickSpanwise(
                                            ((phi[p] - phi[ic]) / Di[Idx + 1] -
                                             (phi[ic] - phi[n]) / Di[Idx]);
 
-  return make_pair(phi_P, phi_N);
+  return std::make_pair(phi_P, phi_N);
 }
 
 inline std::pair<double, double> CalQuickChordwise(
@@ -61,7 +61,7 @@ inline std::pair<double, double> CalQuickChordwise(
         0.125 * Ds[Idx - 1] * Ds[Idx - 1] / Di[Idx] *
             ((phi[p] - phi[ic]) / Ds[Idx] - (phi[ic] - phi[n]) / Ds[Idx - 1]);
   // ----------------------------------
-  return make_pair(phi_P, phi_N);
+  return std::make_pair(phi_P, phi_N);
 }
 
 // * ======================== Quick ========================

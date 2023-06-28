@@ -8,8 +8,6 @@
 #include "math.hpp"
 namespace solver {
 
-using namespace std;
-using namespace math;
 
 template <typename matrixT>
 class LinearSolver {
@@ -41,7 +39,7 @@ class LinearSolver {
   int iters_max_{3000};
   double InnerProduct(const std::vector<double>& rhs,
                       const std::vector<double>& x) {
-    return InnerProduct(rhs, x);
+    return math::InnerProduct(rhs, x);
   }
 };
 

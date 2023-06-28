@@ -10,10 +10,6 @@
 
 namespace solver {
 
-using namespace std;
-using namespace math;
-using namespace mat;
-
 template <typename MatType>
 class LinearSolverMpi {
  public:
@@ -54,7 +50,7 @@ class LinearSolverMpi {
     return mpi_.InnerProduct(rhs, x);
   }
   MatType lhs_mat_;
-  MpiVectorTool mpi_;
+  mat::MpiVectorTool mpi_;
 };
 
 }  // namespace solver

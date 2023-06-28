@@ -195,8 +195,8 @@ class MpiTool{
      }
 
      std::pair<std::vector<double>, std::vector<double>>  GetSendRecvPosition(int nolayers) {
-       vector<double> shift_send(2);
-       vector<double> shift_recv(2);
+       std::vector<double> shift_send(2);
+       std::vector<double> shift_recv(2);
        shift_send[0] = (domain_->x_start) * no_one_layer_;
        shift_recv[0] = (domain_->x_end) * no_one_layer_;
 
@@ -215,7 +215,7 @@ class MpiTool{
 //              << local_domain_.x_start << ", " << local_domain_.x_end << "},{ "
 //              << local_domain_.y_start << ", " << local_domain_.j_end << "},{ "
 //              << local_domain_.z_start << ", " << local_domain_.z_end << "}]"
-//              << endl;
+//              << std::endl;
 //       }
 //   }
 

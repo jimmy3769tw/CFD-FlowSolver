@@ -7,9 +7,7 @@
 #include<iostream>
 namespace math{
 
-    using namespace std;
-
-    inline void init(vector<double> &a, const double val) {
+    inline void init(std::vector<double> &a, const double val) {
       auto A = a.data();
       auto len = a.size();
 
@@ -19,7 +17,7 @@ namespace math{
         *(A + i) = val;
       }
     }
-    inline void init(vector<double> &a, const vector<double> &b) {
+    inline void init(std::vector<double> &a, const std::vector<double> &b) {
       size_t len = a.size();
       auto A = a.data();
       auto B = b.data();
@@ -30,12 +28,12 @@ namespace math{
         *(A + i) = *(B + i);
       }
     }
-    inline void copy(const vector<double> &a, vector<double> &b) { init(b, a); }
+    inline void copy(const std::vector<double> &a, std::vector<double> &b) { init(b, a); }
 
 
 
     inline double 
-    InnerProduct(const vector<double> & a, const vector<double> & b)
+    InnerProduct(const std::vector<double> & a, const std::vector<double> & b)
     {
         double r{0.0};
         auto len = a.size();
@@ -57,5 +55,5 @@ namespace math{
 
 
     inline void 
-    zero(vector<double> & a){  init(a, 0.0); }
+    zero(std::vector<double> & a){  init(a, 0.0); }
 }

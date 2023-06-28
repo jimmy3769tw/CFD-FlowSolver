@@ -6,7 +6,6 @@
 #include "../../mat_mpi_tool.hpp"
 
 namespace solver{
-    using namespace std;
     template<typename matrixT>
     class BicgstabRestartMpi
     {
@@ -36,8 +35,8 @@ namespace solver{
 
         void SetTolerance(double tolerance) { tol_ = tolerance;}
 
-        std::tuple<int, double> solve(const vector<double>& rhs,
-                                      vector<double>& x);
+        std::tuple<int, double> solve(const std::vector<double>& rhs,
+                                      std::vector<double>& x);
 
         std::tuple<int, double> operator()(const std::vector<double>& rhs,
                                            std::vector<double>& x) {
@@ -57,16 +56,16 @@ namespace solver{
                    restartTol_ = pRestartFactor_ * tol_;
             // ----------------------
 
-            vector<double> r0_;
-            vector<double> r1_;
-            vector<double> p1_;
-            vector<double> s1_;
-            vector<double> ap_;
-            vector<double> as_;
+            std::vector<double> r0_;
+            std::vector<double> r1_;
+            std::vector<double> p1_;
+            std::vector<double> s1_;
+            std::vector<double> ap_;
+            std::vector<double> as_;
 
             // ----------------------------
-            vector<double> px1_;
-            vector<double> px2_;
+            std::vector<double> px1_;
+            std::vector<double> px2_;
             // ----------------------------
 
                 
@@ -85,7 +84,7 @@ namespace solver{
     // ! main
     template <typename matrixT>
     inline std::tuple<int, double> BicgstabRestartMpi<matrixT>::solve(
-        const vector<double>& rhs, vector<double>& x) {
+        const std::vector<double>& rhs, std::vector<double>& x) {
             timestep_++;
             double r1r0 = 0, pre_r1r0 = 0, a = 0, w = 0, b = 0,
                    norm0 = mpi_.L2Norm(rhs);

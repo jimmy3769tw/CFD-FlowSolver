@@ -6,6 +6,7 @@
 #include "../../backend/simulation.hpp"
 #include "../../grid/structured_grid.hpp"
 #include <string>
+#include <fstream>
 
 auto ReadQfile(StructuredGrid &grid, std::string filename) {
   //*  prepare the data to read

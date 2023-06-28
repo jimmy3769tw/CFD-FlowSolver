@@ -138,7 +138,7 @@ class EllMat : public SparseMat<T> {
     }
 
     if (col >= this->col()) {
-      cout << col << " >= " << this->col() << std::endl;
+      std::cout << col << " >= " << this->col() << std::endl;
       throw std::invalid_argument("colIdx >= no_no_zero_ ");
     }
 
@@ -201,7 +201,7 @@ class EllMat : public SparseMat<T> {
     int i{0};
     // -----------------------------------
     for (auto v : a) {
-      cout << "i=" << i++ << ", " << v << "\n";
+      std::cout << "i=" << i++ << ", " << v << "\n";
     }
     // -----------------------------------
     return true;
@@ -209,33 +209,33 @@ class EllMat : public SparseMat<T> {
 
   template <typename T>
   inline void EllMat<T>::Show() {
-    cout << "   |val";
+    std::cout << "   |val";
     for (int i = 0; i < no_no_zero_; ++i) {
-      cout << std::setw(4) << "";
+      std::cout << std::setw(4) << "";
     }
 
-    cout << "    |Idx\n";
+    std::cout << "    |Idx\n";
 
     for (int i = 0; i < this->row(); ++i) {
       // ----------------------------------------
 
-      cout << std::setw(3) << i << "|";
+      std::cout << std::setw(3) << i << "|";
 
       // ----------------------------------------
       for (int j = 0; j < no_no_zero_; ++j) {
-        cout << std::setw(4) << val_[i * no_no_zero_ + j] << " ";
+        std::cout << std::setw(4) << val_[i * no_no_zero_ + j] << " ";
       }
       // ----------------------------------------
 
-      cout << "|";
+      std::cout << "|";
 
       // ----------------------------------------
       for (int j = 0; j < no_no_zero_; ++j) {
-        cout << std::setw(4) << idx_[i * no_no_zero_ + j] << " ";
+        std::cout << std::setw(4) << idx_[i * no_no_zero_ + j] << " ";
       }
       // ----------------------------------------
 
-      cout << std::endl;
+      std::cout << std::endl;
     }
   }
 

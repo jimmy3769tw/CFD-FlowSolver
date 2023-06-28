@@ -1,6 +1,5 @@
 
 #pragma once
-using std::vector;
 
 #include <vector>
 class HeatConduction{

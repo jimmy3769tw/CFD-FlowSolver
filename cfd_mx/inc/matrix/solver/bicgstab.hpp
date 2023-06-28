@@ -6,11 +6,8 @@
 #include "math.hpp"
 #include "linear_solver.hpp"
 
-using std::cout;
-
 namespace solver {
-using namespace std;
-using namespace math;
+
 
 template <typename MatType>
 class Bicgstab : public LinearSolver<MatType> {
@@ -38,7 +35,7 @@ class Bicgstab : public LinearSolver<MatType> {
     int iters{0};
     double norm{0};
 
-    double norm_rhs = L2Norm(rhs);
+    double norm_rhs = math::L2Norm(rhs);
 
     this->lhs_mat_.Multiply(x, p_);
 
@@ -58,13 +55,13 @@ class Bicgstab : public LinearSolver<MatType> {
       p_[i] = 0.0;
     }
 
-    norm = L2Norm(r_) / norm_rhs;
+    norm = math::L2Norm(r_) / norm_rhs;
 
     iters = 0;
     while (norm > this->tolerance_ && iters < this->iters_max_) {
       ++iters;
 
-      rho2_ = InnerProduct(r2_, r_);
+      rho2_ =  math::InnerProduct(r2_, r_);
 
       beta_ = (rho2_ / rho1_) * (alpha_ / omega_);
 
@@ -73,13 +70,13 @@ class Bicgstab : public LinearSolver<MatType> {
 
       this->lhs_mat_.Multiply(p_, v_);
 
-      alpha_ = rho2_ / InnerProduct(r2_, v_);
+      alpha_ = rho2_ / math::InnerProduct(r2_, v_);
 
       for (int i = 0; i < length_; ++i) ss_[i] = r_[i] - alpha_ * v_[i];
 
       this->lhs_mat_.Multiply(ss_, t_);
 
-      omega_ = InnerProduct(t_, ss_) / InnerProduct(t_, t_);
+      omega_ =  math::InnerProduct(t_, ss_) /  math::InnerProduct(t_, t_);
 
       for (int i = 0; i < length_; ++i)
         x[i] += alpha_ * p_[i] + omega_ * ss_[i];
@@ -90,11 +87,11 @@ class Bicgstab : public LinearSolver<MatType> {
 
       norm = 0;
 
-      norm = InnerProduct(r_, r_);
+      norm =  math::InnerProduct(r_, r_);
       norm = sqrt(norm) / norm_rhs;
     }
 
-    return make_tuple(iters, norm);
+    return std::make_tuple(iters, norm);
   }
 
  private:

@@ -1,6 +1,5 @@
 
 namespace solver{
-    using namespace std;
 
     template<typename matrixT>
     class cg
