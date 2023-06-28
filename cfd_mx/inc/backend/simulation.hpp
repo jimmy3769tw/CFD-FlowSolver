@@ -5,6 +5,7 @@
 #include <vector>
 #include "time_variance_authority.hpp"
 
+#include "dfib/set_eta.hpp"
 
 struct IniCondition{
   double u = double();

@@ -5,7 +5,7 @@
 auto getCD_CL_mpi(
     MPI_Comm & comm,
     Simulation& simu,
-    CalDomain& localDomain,
+    LocalDomain& localDomain,
     ImmersedBoundary& Dfib,
     grid& gA
 )

@@ -4,7 +4,7 @@
 void Pressure_transform_X_result_Dir(
     pressure &t1, 
     PressureMat &Mx ,
-    CalDomain& Lo,
+    LocalDomain& Lo,
     grid & gA
 ){
     #pragma omp parallel firstprivate(Lo)
@@ -22,7 +22,7 @@ void Pressure_transform_X_result_Dir(
 
 std::tuple<double , double> getMax(
     const std::vector<double> &x,
-    const CalDomain& Lo,
+    const LocalDomain& Lo,
     grid & gA
 ){
 
@@ -56,7 +56,7 @@ std::tuple<double , double> getMax(
 void Pressure_transform_x_Eigen(
     pressure &t1, 
     PressureMat &Mx ,
-    CalDomain& Lo,
+    LocalDomain& Lo,
     grid & gridA
 ){
     const auto [nx, ny , nz] = gridA.nxyz;

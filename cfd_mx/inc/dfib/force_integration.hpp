@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-inline auto virtualF_Int(ImmersedBoundary& Dfib, CalDomain& Lo, grid& gA,
+inline auto virtualF_Int(ImmersedBoundary& Dfib, LocalDomain& Lo, grid& gA,
                          const int whichDirection) {
   if (Dfib.ValSum.size() < 3) Dfib.ValSum.resize(3);
 
@@ -23,7 +23,7 @@ inline auto virtualF_Int(ImmersedBoundary& Dfib, CalDomain& Lo, grid& gA,
 }
 
 std::pair<double, double> noDelay_IO_CD_CL(Simulation& simu,
-                                           CalDomain& Lo,
+                                           LocalDomain& Lo,
                                            ImmersedBoundary& Dfib,
                                            grid& gA) {
   virtualF_Int(Dfib, Lo, gA, 0);
@@ -68,7 +68,7 @@ std::pair<double, double> noDelay_IO_CD_CL(Simulation& simu,
   return std::make_pair(cD, cL);
 }
 
-std::pair<double, double> Delay_IO_CD_CL(Simulation& simu, CalDomain& Lo,
+std::pair<double, double> Delay_IO_CD_CL(Simulation& simu, LocalDomain& Lo,
                                          ImmersedBoundary& Dfib,
                                          grid& gA) {
   std::string name = "Information/Time_cDcL";

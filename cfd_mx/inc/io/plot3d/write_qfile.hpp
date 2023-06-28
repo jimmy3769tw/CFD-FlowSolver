@@ -2,9 +2,9 @@
 #include <string>
 #include <sys/types.h>
 #include <dirent.h>
-#include "../../grid/structured_grid.hpp"
-#include "../../backend/physical_variables.hpp"
-#include "../../backend/simulation.hpp"
+#include "grid/structured_grid.hpp"
+#include "backend/physical_variables.hpp"
+#include "backend/simulation.hpp"
 
 void WriteQfile(ImmersedBoundary &dfib, Simulation &simu, Pressure &pressure,
                 StaggeredVelocity &curr_vel, StructuredGrid &grid) {

@@ -47,8 +47,7 @@ class BoundaryConditionSelector {
 #include "flow_passing.hpp"
   }
 
-  NumDirType
-  operator()() {
+  NumDirType operator()() {
     return std::make_pair(num, dir);
   }
 };

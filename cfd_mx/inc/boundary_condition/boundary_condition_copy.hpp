@@ -1,7 +1,7 @@
 #pragma once
 #include "boundary_condition.hpp"
 
-bool CopyVelocityOnBoundary(const CalDomain& location,
+bool CopyVelocityOnBoundary(const LocalDomain& location,
                             const StaggeredVelocity& old_vel,
                             StaggeredVelocity& curr_vel, 
                             StructuredGrid& grid) {
@@ -94,7 +94,7 @@ bool CopyVelocityOnBoundary(const CalDomain& location,
   return true;
 }
 
-bool BC_updateSlid(const CalDomain& location, StaggeredVelocity& vel,
+bool BC_updateSlid(const LocalDomain& location, StaggeredVelocity& vel,
                    StructuredGrid& grid) {
   auto ii = [&](auto& i, auto& j, auto& k) { return grid.icel(i, j, k); };
 

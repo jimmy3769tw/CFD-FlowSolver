@@ -3,8 +3,8 @@
 // #define CONVECTION_DIFUSSION_LUD
 // #define CONVECTION_DIFUSSION_UD
 
-#include "../grid/structured_grid.hpp"
-#include "../backend/physical_variables.hpp"
+#include "grid/structured_grid.hpp"
+#include "backend/physical_variables.hpp"
 /*
 * A present main , p is positve, n is negative, m is minus
 * In the quick shcemem and non-nuiform case, there are some diferent between A and B.
@@ -14,7 +14,7 @@
 
 void CalConvectionAndDiffusion(Simulation &simu, StaggeredVelocity &old_vel,
                                StaggeredVelocity &curr_vel,
-                               const CalDomain &location,
+                               const LocalDomain &location,
                                StructuredGrid &grid) {
   auto ii = [&](auto i, auto j, auto k) { return grid.icel(i, j, k); };
   const int nx = grid.nx, ny = grid.ny, nz = grid.nz;

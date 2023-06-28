@@ -3,7 +3,7 @@
 void getCentProfile(
     Simulation& simu,
     velocity& T3,
-    CalDomain& Lo,
+    LocalDomain& Lo,
     grid& gridA
 )
 {

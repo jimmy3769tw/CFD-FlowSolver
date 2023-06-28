@@ -1,24 +1,24 @@
 #pragma once
 #include <algorithm>
 
-#include "../backend/domain.hpp"
-#include "../backend/physical_variables.hpp"
-#include "../backend/print_openmp.hpp"
-#include "../backend/simulation.hpp"
-#include "../dfib/update_u_and_force.hpp"
-#include "../grid/structured_grid.hpp"
-#include "../io/csv/csv_structured_grid.hpp"
-#include "../io/io_tools.hpp"
-#include "../io/plot3d/write_qfile.hpp"
-#include "../io/plot3d/write_xfile.hpp"
-#include "../source/convection_and_difussion.hpp"
-#include "../boundary_condition/boundary_condition.hpp"
-#include "../boundary_condition/boundary_condition_copy.hpp"
-#include "../matrix/solver/bicgstab_restart.hpp"
-#include "../matrix/solver/bicgstab.hpp"
-#include "../pressure/pressure_mat.hpp"
-
+#include "backend/domain.hpp"
+#include "backend/physical_variables.hpp"
+#include "backend/print_openmp.hpp"
+#include "backend/simulation.hpp"
+#include "dfib/update_u_and_force.hpp"
+#include "grid/structured_grid.hpp"
+#include "io/csv/csv_structured_grid.hpp"
+#include "io/io_tools.hpp"
+#include "io/plot3d/write_qfile.hpp"
+#include "io/plot3d/write_xfile.hpp"
+#include "source/convection_and_difussion.hpp"
+#include "boundary_condition/boundary_condition.hpp"
+#include "boundary_condition/boundary_condition_copy.hpp"
+#include "matrix/solver/bicgstab_restart.hpp"
+#include "matrix/solver/bicgstab.hpp"
+#include "pressure/pressure_mat.hpp"
 #include "omp.h"
+
 using solverType = solver::BicgstabRestart<MatType>;
 
 namespace projection_method {
@@ -63,7 +63,7 @@ private :
   StaggeredVelocity vel_;
   StaggeredVelocity intermediate_vel_;
   Pressure pressure_;
-  CalDomain global_domain_;
+  LocalDomain global_domain_;
   ImmersedBoundary dfib_;
   PressureMat pressure_mat_;
   solverType pressure_solver_;
@@ -96,7 +96,9 @@ private :
   }
 
   void CreatEta() {
-    
+    if (grid_->cal_eta_imp) {
+      grid_->cal_eta_imp->solver(dfib_, global_domain_);
+    } 
   }
 };
 

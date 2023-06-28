@@ -2,7 +2,7 @@
 
 void Locality(
     Simulation& simu,
-    CalDomain& Lo,
+    LocalDomain& Lo,
     velocity& T0,
     velocity& T1,
     velocity& T3,

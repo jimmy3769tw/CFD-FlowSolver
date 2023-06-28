@@ -8,7 +8,7 @@ inline void GradientGauss(
     std::vector<double>& Dxm,
     std::vector<double>& Dym,
     std::vector<double>& Dzm,
-    CalDomain& Lo,
+    LocalDomain& Lo,
     grid& gridA
 ){
     const auto [nx, ny, nz, gC] = gridA.nxyzgC;
@@ -30,7 +30,7 @@ void CalSmagorinskyModel(
     Simulation& simu,
     velocity& TX,
     pressure& t1,
-    CalDomain& Lo,
+    LocalDomain& Lo,
     grid& gridA
 ){
     const double CS = 0.18;

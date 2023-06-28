@@ -21,7 +21,7 @@ class MpiTool{
      no_one_layer_ = grid.nz * grid.ny;
    }
 
-   void SetDomain(CalDomain& domain) {
+   void SetDomain(LocalDomain& domain) {
      domain_ = &domain;
    }
 
@@ -176,7 +176,7 @@ class MpiTool{
    int coord_;
    int left_neighborhood = -1;
    int right_neighborhood = -1;
-   CalDomain* domain_;
+   LocalDomain* domain_;
    int master_ = 0;
 
 

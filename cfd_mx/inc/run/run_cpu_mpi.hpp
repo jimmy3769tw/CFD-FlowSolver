@@ -22,7 +22,7 @@
 #include "omp.h"
 
 // MpiTool(bool &reorder, int argc, char **argv, StructuredGrid &grid,
-//         CalDomain &domain)
+//         LocalDomain &domain)
 //     : grid_(&grid), domain_(domain) 
 
     
@@ -41,8 +41,8 @@ namespace projection_method {
           mpi_tool_(mpi::MpiTool(simu.GetArgc(), simu.GetArgv(), grid)),
           dfib_(ImmersedBoundary(grid)),
           pressure_mat_(PressureMat(grid)),
-          local_domain_(CalDomain(grid)),
-          global_domain_(CalDomain(grid)),
+          local_domain_(LocalDomain(grid)),
+          global_domain_(LocalDomain(grid)),
           pressure_(Pressure(grid))
 
     {
@@ -88,8 +88,8 @@ namespace projection_method {
     StaggeredVelocity vel_;
     StaggeredVelocity intermediate_vel_;
     Pressure pressure_;
-    CalDomain global_domain_;
-    CalDomain local_domain_;
+    LocalDomain global_domain_;
+    LocalDomain local_domain_;
     ImmersedBoundary dfib_;
     PressureMat pressure_mat_;
     SolverType pressure_solver_;

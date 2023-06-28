@@ -2,11 +2,11 @@
 #include <utility>
 #include <vector>
 
-#include "../backend/physical_variables.hpp"
+#include "backend/physical_variables.hpp" // ImmersedBoundary
 #include "../grid/structured_grid.hpp"
 
 
-void UpdateAllVelocityOnBoundary(const CalDomain& location,
+void UpdateAllVelocityOnBoundary(const LocalDomain& location,
                                  StaggeredVelocity& vel, 
                                  Pressure& pre,
                                  StructuredGrid& grid) {

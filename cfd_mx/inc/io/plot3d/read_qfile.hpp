@@ -2,9 +2,9 @@
 #include <dirent.h>
 #include <sys/types.h>
 
-#include "../../backend/physical_variables.hpp"
-#include "../../backend/simulation.hpp"
-#include "../../grid/structured_grid.hpp"
+#include "backend/physical_variables.hpp"
+#include "backend/simulation.hpp"
+#include "grid/structured_grid.hpp"
 #include <string>
 #include <fstream>
 

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "../backend/physical_variables.hpp"
+#include "backend/physical_variables.hpp"
 #include "../backend/domain.hpp"
 #include "../grid/structured_grid.hpp"
 
 void UpdateForceAndVelocity(ImmersedBoundary& dfib, const double dt,
                             const Pressure& pressure, const StaggeredVelocity& old_vel,
-                            StaggeredVelocity& curr_vel, const CalDomain& location, StructuredGrid& grid) {
+                            StaggeredVelocity& curr_vel, const LocalDomain& location, StructuredGrid& grid) {
 
     auto nx = grid.nx;
     auto ny = grid.ny;
@@ -73,7 +73,7 @@ void UpdateForceAndVelocity(ImmersedBoundary& dfib, const double dt,
 }
 
 void RemoveVelocity(const ImmersedBoundary& dfib, StaggeredVelocity& vel,
-                    const CalDomain& location) {
+                    const LocalDomain& location) {
 #pragma omp parallel firstprivate(location)
     {
 #pragma omp for simd nowait

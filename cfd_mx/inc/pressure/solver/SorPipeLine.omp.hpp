@@ -8,7 +8,7 @@ bool SorPipeLine_omp(
     Simulation& simu,
     velocity& T1,
     pressure& t1,
-    CalDomain& Lo,
+    LocalDomain& Lo,
     grid& gA
 )
 {

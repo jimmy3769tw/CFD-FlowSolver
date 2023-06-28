@@ -8,7 +8,6 @@ auto get_Chronograph(
     ClockStruct& chron
 ){
 
-
     std::string A;
     std::string t = ", ";
     std::string n = "\n";

@@ -7,7 +7,7 @@ double CheckL2Norm(
     Simulation& simu,
     const velocity& A,
     const velocity& B,
-    CalDomain& Lo,
+    LocalDomain& Lo,
     grid& gA
 ){
     auto [nx, ny, nz , gC] = gA.nxyzgC;

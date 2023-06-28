@@ -7,10 +7,11 @@
 #include <string>
 #include <tuple>
 #include <vector>
-
+#include <memory>
 
 #include "boundary_condition/boundary_condition_selector.hpp"
-#include "dfib/set_eta.hpp"
+
+class CalEtaInterface;
 
 // namespace::structureGrid
 class StructuredGrid {
@@ -25,14 +26,14 @@ class StructuredGrid {
   double lx_, ly_, lz_;
 
  public:
-  StructuredGrid(int cal_nx, int cal_ny, int cal_nz)
+  explicit StructuredGrid(int cal_nx, int cal_ny, int cal_nz)
       : cal_nx(cal_nx), cal_ny(cal_ny), cal_nz(cal_nz) {
     resize();
   }
 
   BoundaryConditionSelector bc_selector;
 
-  // CalEtaFactory cal_eta_factory;
+  std::shared_ptr<CalEtaInterface> cal_eta_imp;
 
   StructuredGrid& setLen(int lx, int ly, int lz) {
     lx_ = lx;
@@ -41,6 +42,12 @@ class StructuredGrid {
     isSetLen_ = true;
     return *this;
   }
+  
+
+  std::tuple<double, double, double> GetLen(){
+    return std::make_tuple(lx_, ly_, lz_);
+  }
+
 
   void Init() {
     CheckParameter();
@@ -107,6 +114,18 @@ class StructuredGrid {
       z_cent_pos.at(k) =
           (z_pos.at(k + no_ghost_cell) + z_pos.at(k + no_ghost_cell + 1)) / 2.0;
     }
+  }
+
+  double& Xc(int i) {
+    x_cent_pos.at(i-no_ghost_cell);
+  }
+  
+  double& Yc(int i) {
+    y_cent_pos.at(i-no_ghost_cell);
+  }
+
+  double& Zc(int i) {
+    z_cent_pos.at(i-no_ghost_cell);
   }
 
   template <typename T>
@@ -242,3 +261,4 @@ class StructuredGrid {
 //     if (z_pos[k] >= z_pos[k + 1]) throw std::invalid_argument("z_pos[k]");
 //   }
 // }
+

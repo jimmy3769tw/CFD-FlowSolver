@@ -21,7 +21,7 @@ class PressureMat{
     mat_a.Set(GetCsrMat(grid));
   }
 
-  void ConvertResultToPressure(Pressure& pressure, const CalDomain& domain) {
+  void ConvertResultToPressure(Pressure& pressure, const LocalDomain& domain) {
 #pragma omp parallel for
     for (size_t i = domain.x_start; i < domain.x_end; ++i)
       for (size_t j = domain.y_start; j < domain.y_end; ++j)
@@ -30,7 +30,7 @@ class PressureMat{
         }
   }
 
-  void CalMatB(StaggeredVelocity& curr_vel, double dt,const CalDomain& domain) {
+  void CalMatB(StaggeredVelocity& curr_vel, double dt,const LocalDomain& domain) {
     double ddt = 1.0 / dt;
 
 #pragma omp parallel for
