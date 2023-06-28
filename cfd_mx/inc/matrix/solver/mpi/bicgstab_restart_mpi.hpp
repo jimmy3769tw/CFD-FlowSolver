@@ -34,14 +34,16 @@ namespace solver{
             px2_.resize(length_, 0.0);
         }
 
-        void setTolerance(double tolerance) { tol_ = tolerance;}
+        void SetTolerance(double tolerance) { tol_ = tolerance;}
 
-        std::pair<int, double> solve(const vector<double> & rhs, vector<double> & x); 
+        std::tuple<int, double> solve(const vector<double>& rhs,
+                                      vector<double>& x);
 
-        std::pair<int, double> operator ()(const std::vector<double> & rhs, std::vector<double> & x)
-        { return solve(rhs, x); }
+        std::tuple<int, double> operator()(const std::vector<double>& rhs,
+                                           std::vector<double>& x) {
+            return solve(rhs, x);
+        }
 
-        
         private:
             int length_;
             matrixT lhs_mat_;
@@ -81,35 +83,35 @@ namespace solver{
 
 
     // ! main
-    template<typename matrixT>
-    inline std::pair<int, double> 
-    BicgstabRestartMpi<matrixT>::solve( const vector<double> & rhs, vector<double> & x) {
+    template <typename matrixT>
+    inline std::tuple<int, double> BicgstabRestartMpi<matrixT>::solve(
+        const vector<double>& rhs, vector<double>& x) {
+            timestep_++;
+            double r1r0 = 0, pre_r1r0 = 0, a = 0, w = 0, b = 0,
+                   norm0 = mpi_.L2Norm(rhs);
 
-        timestep_ ++;
-        double
-            r1r0 = 0, pre_r1r0 = 0, a = 0, w = 0, b = 0, norm0 = mpi_.L2Norm(rhs);
+            lhs_mat_.MultiplyMpi(x, r0_);
 
-        lhs_mat_.multiply_mpi(x, r0_);
+            // ---------------------------
+            math::copy(px1_, px2_);
+            math::copy(x, px1_);
 
-        // ---------------------------
-        math::copy(px1_, px2_);
-        math::copy(x, px1_);
+#pragma omp parallel for default(none) shared(rhs, r0_)
+            for (int i = mpi_.beg(); i < mpi_.end(); ++i) {
+            r0_[i] = rhs[i] - r0_[i];
+            }
 
-        #pragma omp parallel for default(none) shared(rhs, r0_)
-        for(int i=mpi_.beg(); i<mpi_.end(); ++i)
-        { r0_[i] = rhs[i] - r0_[i]; }
+            math::copy(r0_, r1_);
+            math::copy(r0_, p1_);
+            // ---------------------------
 
-        math::copy(r0_, r1_);
-        math::copy(r0_, p1_);
-        // ---------------------------
+            r1r0 = mpi_.InnerProduct(r1_, r0_);
 
-        r1r0 = mpi_.InnerProduct(r1_, r0_);
+            int numIter_ = 0;
 
-        int numIter_ = 0;
+            while (true) {
 
-        while (true) {
-
-            lhs_mat_.multiply_mpi(p1_, ap_);
+            lhs_mat_.MultiplyMpi(p1_, ap_);
 
             a  = r1r0 / mpi_.InnerProduct(ap_, r0_);
 
@@ -118,7 +120,7 @@ namespace solver{
                 for (int i = mpi_.beg(); i < mpi_.end(); ++i) { s1_[i] = r1_[i] - a*ap_[i]; }
                 mpi_.Barrier();
 
-                lhs_mat_.multiply_mpi(s1_, as_);
+                lhs_mat_.MultiplyMpi(s1_, as_);
 
                 w = mpi_.InnerProduct(as_, s1_) / mpi_.InnerProduct(as_, as_);
 
@@ -180,7 +182,7 @@ namespace solver{
             ++totalNumIter_;
         }
         mpi_.Allocate(x);
-        return std::make_pair( numIter_, mpi_.L2Norm(r1_) / norm0);
+        return std::make_tuple(numIter_, mpi_.L2Norm(r1_) / norm0);
     }
 
 } // solver

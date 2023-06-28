@@ -29,8 +29,8 @@ TEST(OpenMPMatrixTest, Bicgstab) {
 
   auto resultA = heat_conduction.x;
   auto resultB = heat_conduction.x;
-  solverA.setTolerance(0.0001);
-  solverB.setTolerance(0.0001);
+  solverA.SetTolerance(0.0001);
+  solverB.SetTolerance(0.0001);
   solverA(heat_conduction.rhs, resultA);
   solverB(heat_conduction.rhs, resultB);
   EXPECT_TRUE(L2Norm(resultA, resultB) < 0.0001);
@@ -49,8 +49,8 @@ TEST(OpenMPMatrixTest, solver_bicgstabRe2) {
 
   auto resultA = heat_conduction.x;
   auto resultB = heat_conduction.x;
-  solverA.setTolerance(0.0001);
-  solverB.setTolerance(0.0001);
+  solverA.SetTolerance(0.0001);
+  solverB.SetTolerance(0.0001);
 
   solverA(heat_conduction.rhs, resultA);
   solverB(heat_conduction.rhs, resultB);

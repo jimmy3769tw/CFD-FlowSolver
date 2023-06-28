@@ -49,7 +49,7 @@ class CpuOpenMp{
 
   void solve(){
     pressure_solver_ = solverType(pressure_mat_.mat_a);
-    pressure_solver_.setTolerance(simu_.poisson_criteria);
+    pressure_solver_.SetTolerance(simu_.poisson_criteria);
     CreatEta();
     WriteQfile(dfib_, simu_, pressure_, vel_, *grid_);
     for (; !simu_.tva.IsLoopFinish(); simu_.tva.AddLoop()) {

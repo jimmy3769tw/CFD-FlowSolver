@@ -69,7 +69,7 @@ namespace projection_method {
 
     void solve() {
       pressure_solver_ = SolverType(pressure_mat_.mat_a);
-      pressure_solver_.setTolerance(simu_.poisson_criteria);
+      pressure_solver_.SetTolerance(simu_.poisson_criteria);
       CreatEta();
       if (mpi_tool_.IsMaster()) {
       WriteQfile(dfib_, simu_, pressure_, vel_, *grid_);

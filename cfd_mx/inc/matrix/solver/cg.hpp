@@ -26,7 +26,7 @@ namespace solver{
             return true;
         }
 
-        void setTolerance(double tolerance) { zeta_ = tolerance;}
+        void SetTolerance(double tolerance) { zeta_ = tolerance;}
 
         std::pair<int, double> solve(const vector<double> & rhs, vector<double> & x); 
 
