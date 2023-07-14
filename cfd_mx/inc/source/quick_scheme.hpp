@@ -7,7 +7,9 @@
 std::pair<double, double> CalQuickSpanwise(
     const double &Up, const double &Un, const int &pp, const int &p,
     const int &ic, const int &n, const int &nn, const std::vector<double> &Di,
-    const std::vector<double> &Ds, const int &Idx, std::vector<double> &phi) {
+    const std::vector<double> &Ds, 
+    const int &Idx, 
+    const std::vector<double> &phi) {
   double phi_P, phi_N;
 
   if (Up > 0.0)

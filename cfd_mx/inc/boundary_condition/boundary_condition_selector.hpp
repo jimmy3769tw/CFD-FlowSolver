@@ -39,6 +39,10 @@ class BoundaryConditionSelector {
 #include "cavity.hpp"
    }
 
+   auto CavityFlow2D() {
+#include "cavity_2d.hpp"
+   }
+
   auto ChannelFlow(){
 #include "channel_flow.hpp"
   }

@@ -1,6 +1,7 @@
 #include "backend/simulation.hpp"
 #include "grid/uniform_structured_grid.hpp"
 #include "run/run_cpu.hpp"
+#include "analyses/central_profile.hpp"
 
 int main(int argc, char **argv) {  
   Simulation simu;
@@ -8,10 +9,10 @@ int main(int argc, char **argv) {
       UniformStructuredGrid grid(40, 40, 40);
   grid.setLen(1, 1, 1).Init();
   
-  grid.bc_selector.CavityFlow();
+  grid.bc_selector.CavityFlow2D();
 
-  simu.SetReynoldsNumber(100.0)
-      .tva.SetDt(0.001)
+  simu.SetReynoldsNumber(1000.0)
+      .tva.SetDt(0.005)
       .SetWritingDt(1)
       .SetTerminalTime(40);
 

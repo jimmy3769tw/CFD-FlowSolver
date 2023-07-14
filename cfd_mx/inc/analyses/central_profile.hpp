@@ -1,86 +1,73 @@
 #pragma once
 
+#include <vector>
+
+#include "backend/physical_variables.hpp"
+
 void getCentProfile(
     Simulation& simu,
-    velocity& T3,
+    StaggeredVelocity& vel,
     LocalDomain& Lo,
-    grid& gridA
+    StructuredGrid& grid
 )
 {
-    auto [nx, ny, nz , gC] = gridA.nxyzgC;
+	static int io = 0;
+    
+    std::vector<double> y_plot(grid.cal_ny);
+    std::vector<double> x_plot(grid.cal_nx);
 
-	int io = simu.currentFile;
-
-        vector<double> uc(ny-4);
-        vector<double> vc(nx-4);
+    std::vector<double> y_plot_pos(grid.cal_ny);
+    std::vector<double> x_plot_pos(grid.cal_nx);
 
 
-        const int k1 = (gridA.nz - 4)/2;
-        const int k2 = (gridA.nz - 4)/2 - 1;
-		for (size_t j = 0;  j < ny-4; ++j) 
-		{
-            const int i = (gridA.nx - 4)/2;
+    const int k1 = (grid.cal_nz)/2  + grid.no_ghost_cell;
+    const int k2 = (grid.cal_nz)/2 - 1 + grid.no_ghost_cell;
 
-            const auto icelk1 = gridA.icel(i+2, j+2, k1+2);
+    const int j2 = (grid.cal_ny)/2 - 1 + grid.no_ghost_cell;
+    const int i2 = (grid.cal_nx)/2 - 1 + grid.no_ghost_cell;
 
-            const auto icelk2 = gridA.icel(i+2, j+2, k2+2);
 
-            const double buffer1 = (T3.u[icelk1-(ny*nz)] + T3.u[icelk1]);
+    // y plot
+    for (int j =  grid.no_ghost_cell;  j < grid.cal_ny+ grid.no_ghost_cell; ++j) {
+        y_plot[j-grid.no_ghost_cell] = ( vel.U(i2, j, k1) + vel.U(i2, j, k2)) / 2.0;
+        y_plot_pos[j-grid.no_ghost_cell] = grid.y_pos.at(j);
+    }
 
-            const double buffer2 = (T3.u[icelk2-(ny*nz)] + T3.u[icelk2]);
-			uc[j] = 0.125 * (buffer1 + buffer2);
-		}
+    for (int i = grid.no_ghost_cell;  i < grid.cal_nx+ grid.no_ghost_cell; ++i) {
+        x_plot[i-grid.no_ghost_cell] = (vel.V(i, j2, k1) + vel.V(i, j2, k2)) / 2.0;
+        x_plot_pos[i-grid.no_ghost_cell] = grid.x_pos.at(i);
+    }
 
-		for (size_t i = 0; i < nx-4; ++i)
-		{
-			// const int icelShift = (i+2)*nz*ny + (j+2)*nz + (k+2);
-            const int j = (gridA.ny - 4)/2;
-            const auto icelk1 = gridA.icel(i+2, j+2, k1+2);
 
-            const auto icelk2 = gridA.icel(i+2, j+2, k2+2);
-
-            const double bufferk1 = (T3.v[icelk1-(nz)] + T3.v[icelk1]);
-
-            const double bufferk2 = (T3.v[icelk2-(nz)] + T3.v[icelk2]);
-			vc[i] = 0.25 * (bufferk1 + bufferk2);
-		}
-
-        std::fstream file;
-        std::string filename = "Information/Uprofile/"; // Information/Uprofile/
-		filename += std::to_string(io);
-        filename += "_Uprofile";
-        int Reint = simu.Re;
-		filename += std::to_string(Reint);
-		filename += ".dat";
-        file.open(filename,std::ios::out);
-        {
-            file << "TITLE =\"present (u)\"" << std::endl;
-            file << "VARIABLES = \"Location(y)\",\"u-Velocity\""<< std::endl;
-            file << "ZONE T=\"present\"\t i= "<< nx-4 << std::endl;
-            for (size_t i =0 ; i < nx -4;i++)
-            {
-                file << gridA.Xc[i]  << '\t'<< uc[i] << std::endl;
-            }
+    std::fstream file;
+    std::string filename = "Information/"; // Information/Uprofile/
+    // filename += std::to_string(io);
+    filename += "x_plot_";
+    filename += "re_";
+    filename += std::to_string(int(simu.GetReynoldsNumber()));
+    filename += ".dat";
+    file.open(filename,std::ios::out);
+    {
+        for (size_t i = 0 ; i < x_plot.size(); i++) {
+            file << x_plot_pos.at(i)  << '\t'<< x_plot[i] << std::endl;
         }
-        file.close();
+    }
+    file.close();
 
-        std::fstream file2;
-        std::string filename2 = "Information/Vprofile/";
+    std::fstream file2;
+    std::string filename2 = "Information/";
 
-		filename2 += std::to_string(io);
-        filename2 += "_Vprofile";
-		filename2 += "Re_";
-		filename2 += std::to_string(Reint);
-		filename2 += ".dat";
-        file2.open(filename2,std::ios::out);
-        {
-            file2 << "TITLE =\"present (v)\"" << std::endl;
-            file2 << "VARIABLES = \"Location(x)\",\"v-Velocity\""<< std::endl;
-            file2 << "ZONE T=\"present\"\t i= "<< ny-4 << std::endl;
-            for (size_t j =0 ; j < ny -4;j++)
-            {
-                file2 << gridA.Yc[j] << '\t' << vc[j] << std::endl;
-            }
+    // filename2 += std::to_string(io);
+    filename2 += "y_plot_";
+    filename2 += "re_";
+    filename2 += std::to_string(int(simu.GetReynoldsNumber()));
+    filename2 += ".dat";
+    file2.open(filename2,std::ios::out);
+    {
+        for (size_t j = 0 ; j < y_plot.size(); j++) {
+            file2 << y_plot_pos.at(j) << '\t' << y_plot[j] << std::endl;
         }
-        file2.close();
+    }
+    file2.close();
+    io++;
 }

@@ -18,6 +18,8 @@
 #include "matrix/solver/bicgstab.hpp"
 #include "pressure/pressure_mat.hpp"
 #include "omp.h"
+#include "analyses/central_profile.hpp"
+#include "source/smagorinsky_model.hpp"
 
 using solverType = solver::BicgstabRestart<MatType>;
 
@@ -69,10 +71,8 @@ private :
   solverType pressure_solver_;
 
   void CalProjectionMethod() {
-    // #if defined(TERBULENCE_SMAGORINSKY)
-    //       CalSmagorinskyModel(ShareM, simu_, vel_, t1, global_domain_,
-    //       *grid_);
-    // #endif
+
+    // CalSmagorinskyModel(simu_, vel_, global_domain_, *grid_);
 
     CalConvectionAndDiffusion(simu_, vel_, intermediate_vel_, global_domain_, *grid_);
 
@@ -85,7 +85,6 @@ private :
     UpdateForceAndVelocity(dfib_, simu_.tva.GetDt(), pressure_, intermediate_vel_, vel_,
                            global_domain_, *grid_);
 
-    vel_ = vel_;
 
     UpdateAllVelocityOnBoundary(global_domain_, vel_, pressure_, *grid_);
     // BC_staggered_copy(global_domain_, vel_, intermediate_vel_, grid_);
@@ -93,6 +92,7 @@ private :
     if (simu_.tva.IsWritingTime()) {
       WriteQfile(dfib_, simu_, pressure_, vel_, *grid_);
     }
+    getCentProfile(simu_, vel_, global_domain_, *grid_);
   }
 
   void CreatEta() {

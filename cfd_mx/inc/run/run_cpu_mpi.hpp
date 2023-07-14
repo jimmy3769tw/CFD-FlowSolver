@@ -96,9 +96,7 @@ namespace projection_method {
 
     void CalProjectionMethod() {
     
-      #if defined(TERBULENCE_SMAGORINSKY)
-            CalSmagorinskyModel(ShareM, simu_, vel_, t1, local_domain_, *grid_);
-      #endif
+      // CalSmagorinskyModel(simu_, vel_, local_domain_, *grid_);
 
       CalConvectionAndDiffusion(simu_, vel_, intermediate_vel_, local_domain_, *grid_);
       mpi_tool_.SendRecv(grid_->no_ghost_cell, vel_.u)

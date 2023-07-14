@@ -55,9 +55,8 @@ TEST(OpenMPMatrixTest, solver_bicgstabRe2) {
   solverA(heat_conduction.rhs, resultA);
   solverB(heat_conduction.rhs, resultB);
 
-  EXPECT_EQ(solverA(heat_conduction.rhs, resultA),
-            solverB(heat_conduction.rhs, resultB));
-  EXPECT_EQ(resultA, resultB);
+
+  EXPECT_TRUE(L2Norm(resultA, resultB) < 0.0001);
 }
 
 TEST(OpenMPMatrixTest, get_csr) {

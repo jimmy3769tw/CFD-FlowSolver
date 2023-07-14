@@ -43,13 +43,12 @@ size_t PhysicalVal::icelCal(T i, T j, T k) const {
 // undefined reference to `unsigned long PhysicalVal::icel<int>(int, int, int) const'
 
 class StaggeredVelocity : public PhysicalVal{
-  std::vector<double> viseff_;
-
  public:
+  
   StaggeredVelocity(StructuredGrid &grid);
 
-  double &viseff(int i, int j, int k){
-    return viseff_[icelCal(i, j, k)];
+  double &VisEff(int i, int j, int k){
+    return vis_eff_[icelCal(i, j, k)];
   }
 
   std::vector<double> u, v, w;
@@ -105,13 +104,8 @@ class StaggeredVelocity : public PhysicalVal{
   auto GetGrid() {
     return grid_;
   }
-
  private:
-  void resize(size_t n) {
-    u.resize(n);
-    v.resize(n);
-    w.resize(n);
-  }
+  std::vector<double> vis_eff_;
 };
 
 class Pressure : public PhysicalVal{

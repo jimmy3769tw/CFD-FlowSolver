@@ -117,15 +117,15 @@ class StructuredGrid {
   }
 
   double& Xc(int i) {
-    x_cent_pos.at(i-no_ghost_cell);
+    return x_cent_pos.at(i-no_ghost_cell);
   }
   
   double& Yc(int i) {
-    y_cent_pos.at(i-no_ghost_cell);
+    return y_cent_pos.at(i-no_ghost_cell);
   }
 
   double& Zc(int i) {
-    z_cent_pos.at(i-no_ghost_cell);
+    return z_cent_pos.at(i-no_ghost_cell);
   }
 
   template <typename T>

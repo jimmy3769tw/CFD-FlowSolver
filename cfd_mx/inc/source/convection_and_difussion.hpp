@@ -1,6 +1,6 @@
 #pragma once
-#define CONVECTION_DIFUSSION_QUICK
-// #define CONVECTION_DIFUSSION_LUD
+// #define CONVECTION_DIFUSSION_QUICK
+#define CONVECTION_DIFUSSION_LUD
 // #define CONVECTION_DIFUSSION_UD
 
 #include "grid/structured_grid.hpp"
@@ -88,13 +88,9 @@ void CalConvectionAndDiffusion(Simulation &simu, StaggeredVelocity &old_vel,
 
         // ! -------------- diffusion term --------------
 
-        // #ifdef TERBULENCE_SMAGORINSKY
-        //     auto nu =  simu.GetNu() + old_vel.viseff(i, j, k);
-        // #else
-            auto nu = simu.GetNu();
-        // #endif
+        auto nu =  simu.GetNu() + old_vel.VisEff(i, j, k);
 
-         auto diffusion = nu*dt*(
+        auto diffusion = nu*dt*(
                     ( (old_vel.u[xp]-old_vel.u[ic]) / grid.dx[i+1] 
                     - (old_vel.u[ic]-old_vel.u[xm]) / grid.dx[i]   ) / grid.staggered_dx[i]+
                     ( (old_vel.u[yp]-old_vel.u[ic]) / grid.staggered_dy[j]   
@@ -172,11 +168,8 @@ void CalConvectionAndDiffusion(Simulation &simu, StaggeredVelocity &old_vel,
 
             // ! -------------- diffusion term --------------
 
-#ifdef TERBULENCE_SMAGORINSKY
-            const auto nu = simu.GetNu() + old_vel.viseff[grid.icelCal(i, j, k)];
-#else
-            const auto nu = simu.GetNu();
-#endif
+            const auto nu = simu.GetNu() + old_vel.VisEff(i, j, k);
+
             const double diffusion =
                 nu * dt *
                 (((old_vel.v[xp] - old_vel.v[ic]) / grid.staggered_dx[i] -
@@ -261,11 +254,8 @@ void CalConvectionAndDiffusion(Simulation &simu, StaggeredVelocity &old_vel,
             // * -------------- convection term --------------
 
             // * -------------- diffusion term --------------
-#ifdef TERBULENCE_SMAGORINSKY
-            auto nu = simu.GetNu() + old_vel.viseff[grid.icelCal(i, j, k)];
-#else
-            auto nu = simu.GetNu();
-#endif
+
+            auto nu = simu.GetNu() + old_vel.VisEff(i, j, k);
 
             const double diffusion =
                 nu * dt *

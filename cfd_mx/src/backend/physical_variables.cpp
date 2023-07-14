@@ -6,10 +6,11 @@ Pressure::Pressure(StructuredGrid& grid) : PhysicalVal(grid){
 
 StaggeredVelocity::StaggeredVelocity(StructuredGrid &grid) :
     PhysicalVal(grid) {
-    resize(grid_->no_grid);
-    viseff_.resize(grid_->cal_no_grid);
+    u.resize(grid.no_grid);
+    v.resize(grid.no_grid);
+    w.resize(grid.no_grid);
+    vis_eff_.resize(grid.cal_no_grid);
 }
-
 
 ImmersedBoundary::ImmersedBoundary(StructuredGrid& grid):
     PhysicalVal(grid) {
