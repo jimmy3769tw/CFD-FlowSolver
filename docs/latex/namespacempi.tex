@@ -1,0 +1,135 @@
+\doxysection{mpi Namespace Reference}
+\hypertarget{namespacempi}{}\label{namespacempi}\index{mpi@{mpi}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmpi_1_1_mpi_complex}{Mpi\+Complex}}
+\item 
+class \mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacempi_a279e6f8d67e95e5408cbf8685440c144}{Get\+Rank}} (MPI\+\_\+\+Comm word)
+\item 
+int \mbox{\hyperlink{namespacempi_ad5b31e1d84855c1a0d7bff0de7cd1cfb}{Get\+Rank}} ()
+\item 
+int \mbox{\hyperlink{namespacempi_ab978162719907ffc69169c4b38025dce}{Get\+Size}} ()
+\item 
+int \mbox{\hyperlink{namespacempi_ac15ec6ec5d1d2680ab68c7f6ebdf6611}{Get\+Size}} (MPI\+\_\+\+Comm word)
+\item 
+void \mbox{\hyperlink{namespacempi_ac683a9b3d2a622b69a8fcab182742b33}{Print\+Mpi\+Info}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacempi_ad5b31e1d84855c1a0d7bff0de7cd1cfb}\label{namespacempi_ad5b31e1d84855c1a0d7bff0de7cd1cfb} 
+\index{mpi@{mpi}!GetRank@{GetRank}}
+\index{GetRank@{GetRank}!mpi@{mpi}}
+\doxysubsubsection{\texorpdfstring{GetRank()}{GetRank()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int mpi\+::\+Get\+Rank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__getter_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{mpi__getter_8hpp_source}{mpi\+\_\+getter.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{int}\ rank;}
+\DoxyCodeLine{00013\ \ \ MPI\_Comm\_rank(MPI\_COMM\_WORLD,\ \&rank);}
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordflow}{return}\ rank;}
+\DoxyCodeLine{00015\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}, \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00021}{mat\+::\+Mpi\+Vector\+Tool\+::\+Init()}}, and \mbox{\hyperlink{mpi__tool_8hpp_source_l00015}{mpi\+::\+Mpi\+Tool\+::\+Mpi\+Tool()}}.
+
+\Hypertarget{namespacempi_a279e6f8d67e95e5408cbf8685440c144}\label{namespacempi_a279e6f8d67e95e5408cbf8685440c144} 
+\index{mpi@{mpi}!GetRank@{GetRank}}
+\index{GetRank@{GetRank}!mpi@{mpi}}
+\doxysubsubsection{\texorpdfstring{GetRank()}{GetRank()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int mpi\+::\+Get\+Rank (\begin{DoxyParamCaption}\item[{MPI\+\_\+\+Comm}]{word }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__getter_8hpp_source_l00005}{5}} of file \mbox{\hyperlink{mpi__getter_8hpp_source}{mpi\+\_\+getter.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00006\ \ \ \textcolor{keywordtype}{int}\ rank;}
+\DoxyCodeLine{00007\ \ \ MPI\_Comm\_rank(word,\ \&rank);}
+\DoxyCodeLine{00008\ \ \ \textcolor{keywordflow}{return}\ rank;}
+\DoxyCodeLine{00009\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacempi_ab978162719907ffc69169c4b38025dce}\label{namespacempi_ab978162719907ffc69169c4b38025dce} 
+\index{mpi@{mpi}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!mpi@{mpi}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int mpi\+::\+Get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__getter_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{mpi__getter_8hpp_source}{mpi\+\_\+getter.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00019\ \ \ MPI\_Comm\_size(MPI\_COMM\_WORLD,\ \&size);}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordflow}{return}\ size;}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}, \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00031}{mat\+::\+Mpi\+Vector\+Tool\+::\+Init()}}, \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00021}{mat\+::\+Mpi\+Vector\+Tool\+::\+Init()}}, and \mbox{\hyperlink{mpi__tool_8hpp_source_l00015}{mpi\+::\+Mpi\+Tool\+::\+Mpi\+Tool()}}.
+
+\Hypertarget{namespacempi_ac15ec6ec5d1d2680ab68c7f6ebdf6611}\label{namespacempi_ac15ec6ec5d1d2680ab68c7f6ebdf6611} 
+\index{mpi@{mpi}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!mpi@{mpi}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int mpi\+::\+Get\+Size (\begin{DoxyParamCaption}\item[{MPI\+\_\+\+Comm}]{word }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__getter_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{mpi__getter_8hpp_source}{mpi\+\_\+getter.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00025\ \ \ MPI\_Comm\_size(word,\ \&size);}
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordflow}{return}\ size;}
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacempi_ac683a9b3d2a622b69a8fcab182742b33}\label{namespacempi_ac683a9b3d2a622b69a8fcab182742b33} 
+\index{mpi@{mpi}!PrintMpiInfo@{PrintMpiInfo}}
+\index{PrintMpiInfo@{PrintMpiInfo}!mpi@{mpi}}
+\doxysubsubsection{\texorpdfstring{PrintMpiInfo()}{PrintMpiInfo()}}
+{\footnotesize\ttfamily void mpi\+::\+Print\+Mpi\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_print_mpi_infor_8hpp_source_l00005}{5}} of file \mbox{\hyperlink{_print_mpi_infor_8hpp_source}{Print\+Mpi\+Infor.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00006\ \ \ \textcolor{keywordtype}{char}\ name[1024];}
+\DoxyCodeLine{00007\ \ \ \textcolor{keywordtype}{int}\ length\ =\ 1024,\ minor;}
+\DoxyCodeLine{00008\ \ \ MPI\_Get\_processor\_name(name,\ \&length);}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \textcolor{keywordtype}{int}\ major;}
+\DoxyCodeLine{00011\ \ \ MPI\_Get\_version(\&major,\ \&minor);}
+\DoxyCodeLine{00012\ \ \ \textcolor{comment}{//\ MPI\_Request\ req[10];}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nMPI\ Version\ "{}}\ <<\ major\ <<\ \textcolor{stringliteral}{"{}."{}}\ <<\ minor\ <<\ std::endl;}
+\DoxyCodeLine{00015\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}This\ Project\ is\ from\ "{}}\ <<\ name\ <<\ std::endl;}
+\DoxyCodeLine{00016\ \}}
+
+\end{DoxyCode}

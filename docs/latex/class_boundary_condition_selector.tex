@@ -1,0 +1,192 @@
+\doxysection{Boundary\+Condition\+Selector Class Reference}
+\hypertarget{class_boundary_condition_selector}{}\label{class_boundary_condition_selector}\index{BoundaryConditionSelector@{BoundaryConditionSelector}}
+
+
+{\ttfamily \#include $<$boundary\+\_\+condition\+\_\+selector.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_boundary_condition_selector_afb389f1fdb35c97a8988aadd5caa5352}{Boundary\+Condition\+Selector}} ()
+\item 
+auto \mbox{\hyperlink{class_boundary_condition_selector_a97044d84efdc30aa12fd8acc95f7d087}{Cavity\+Flow}} ()
+\item 
+auto \mbox{\hyperlink{class_boundary_condition_selector_ab73c67b61a43977f3c58dbf9816db4e9}{Cavity\+Flow2D}} ()
+\item 
+auto \mbox{\hyperlink{class_boundary_condition_selector_a838a2fa83730be958d94945a8f9256dd}{Channel\+Flow}} ()
+\item 
+auto \mbox{\hyperlink{class_boundary_condition_selector_a827f90275d2a3e3272de869397a46266}{Flow\+Passing}} ()
+\item 
+\mbox{\hyperlink{boundary__condition__selector_8hpp_ab1d70a157bc44b46752fe0158286d42c}{Num\+Dir\+Type}} \mbox{\hyperlink{class_boundary_condition_selector_a942dad9a21281649d4a5c4304dc941da}{operator()}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_boundary_condition_selector_af416d258d8031c8cf8f21408e0cf9dd2}{num}}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{class_boundary_condition_selector_a9b2cbd6127739554e8bdc778cdb5b3f1}{dir}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{boundary__condition__selector_8hpp_source}{boundary\+\_\+condition\+\_\+selector.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_boundary_condition_selector_afb389f1fdb35c97a8988aadd5caa5352}\label{class_boundary_condition_selector_afb389f1fdb35c97a8988aadd5caa5352} 
+\index{BoundaryConditionSelector@{BoundaryConditionSelector}!BoundaryConditionSelector@{BoundaryConditionSelector}}
+\index{BoundaryConditionSelector@{BoundaryConditionSelector}!BoundaryConditionSelector@{BoundaryConditionSelector}}
+\doxysubsubsection{\texorpdfstring{BoundaryConditionSelector()}{BoundaryConditionSelector()}}
+{\footnotesize\ttfamily Boundary\+Condition\+Selector\+::\+Boundary\+Condition\+Selector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{boundary__condition__selector_8hpp_source}{boundary\+\_\+condition\+\_\+selector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_boundary_condition_selector_a9b2cbd6127739554e8bdc778cdb5b3f1}{dir}}.resize(6,\ std::vector<double>(3,\ 0.0));}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_boundary_condition_selector_af416d258d8031c8cf8f21408e0cf9dd2}{num}}.resize(6,\ std::vector<double>(3,\ 0.0));}
+\DoxyCodeLine{00036\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00030}{dir}}, and \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00029}{num}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_boundary_condition_selector_a97044d84efdc30aa12fd8acc95f7d087}\label{class_boundary_condition_selector_a97044d84efdc30aa12fd8acc95f7d087} 
+\index{BoundaryConditionSelector@{BoundaryConditionSelector}!CavityFlow@{CavityFlow}}
+\index{CavityFlow@{CavityFlow}!BoundaryConditionSelector@{BoundaryConditionSelector}}
+\doxysubsubsection{\texorpdfstring{CavityFlow()}{CavityFlow()}}
+{\footnotesize\ttfamily auto Boundary\+Condition\+Selector\+::\+Cavity\+Flow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{boundary__condition__selector_8hpp_source}{boundary\+\_\+condition\+\_\+selector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cavity_8hpp}{cavity.hpp}}"{}}}
+\DoxyCodeLine{00040\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{validation_re100_cavity_2test_8cpp_source_l00011}{TEST()}}, and \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{TEST()}}.
+
+\Hypertarget{class_boundary_condition_selector_ab73c67b61a43977f3c58dbf9816db4e9}\label{class_boundary_condition_selector_ab73c67b61a43977f3c58dbf9816db4e9} 
+\index{BoundaryConditionSelector@{BoundaryConditionSelector}!CavityFlow2D@{CavityFlow2D}}
+\index{CavityFlow2D@{CavityFlow2D}!BoundaryConditionSelector@{BoundaryConditionSelector}}
+\doxysubsubsection{\texorpdfstring{CavityFlow2D()}{CavityFlow2D()}}
+{\footnotesize\ttfamily auto Boundary\+Condition\+Selector\+::\+Cavity\+Flow2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{boundary__condition__selector_8hpp_source}{boundary\+\_\+condition\+\_\+selector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cavity__2d_8hpp}{cavity\_2d.hpp}}"{}}}
+\DoxyCodeLine{00044\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_boundary_condition_selector_a838a2fa83730be958d94945a8f9256dd}\label{class_boundary_condition_selector_a838a2fa83730be958d94945a8f9256dd} 
+\index{BoundaryConditionSelector@{BoundaryConditionSelector}!ChannelFlow@{ChannelFlow}}
+\index{ChannelFlow@{ChannelFlow}!BoundaryConditionSelector@{BoundaryConditionSelector}}
+\doxysubsubsection{\texorpdfstring{ChannelFlow()}{ChannelFlow()}}
+{\footnotesize\ttfamily auto Boundary\+Condition\+Selector\+::\+Channel\+Flow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{boundary__condition__selector_8hpp_source}{boundary\+\_\+condition\+\_\+selector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{channel__flow_8hpp}{channel\_flow.hpp}}"{}}}
+\DoxyCodeLine{00048\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_boundary_condition_selector_a827f90275d2a3e3272de869397a46266}\label{class_boundary_condition_selector_a827f90275d2a3e3272de869397a46266} 
+\index{BoundaryConditionSelector@{BoundaryConditionSelector}!FlowPassing@{FlowPassing}}
+\index{FlowPassing@{FlowPassing}!BoundaryConditionSelector@{BoundaryConditionSelector}}
+\doxysubsubsection{\texorpdfstring{FlowPassing()}{FlowPassing()}}
+{\footnotesize\ttfamily auto Boundary\+Condition\+Selector\+::\+Flow\+Passing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{boundary__condition__selector_8hpp_source}{boundary\+\_\+condition\+\_\+selector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{flow__passing_8hpp}{flow\_passing.hpp}}"{}}}
+\DoxyCodeLine{00052\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_boundary_condition_selector_a942dad9a21281649d4a5c4304dc941da}\label{class_boundary_condition_selector_a942dad9a21281649d4a5c4304dc941da} 
+\index{BoundaryConditionSelector@{BoundaryConditionSelector}!operator()@{operator()}}
+\index{operator()@{operator()}!BoundaryConditionSelector@{BoundaryConditionSelector}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{boundary__condition__selector_8hpp_ab1d70a157bc44b46752fe0158286d42c}{Num\+Dir\+Type}} Boundary\+Condition\+Selector\+::operator() (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{boundary__condition__selector_8hpp_source}{boundary\+\_\+condition\+\_\+selector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(\mbox{\hyperlink{class_boundary_condition_selector_af416d258d8031c8cf8f21408e0cf9dd2}{num}},\ \mbox{\hyperlink{class_boundary_condition_selector_a9b2cbd6127739554e8bdc778cdb5b3f1}{dir}});}
+\DoxyCodeLine{00056\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00030}{dir}}, and \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00029}{num}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_boundary_condition_selector_a9b2cbd6127739554e8bdc778cdb5b3f1}\label{class_boundary_condition_selector_a9b2cbd6127739554e8bdc778cdb5b3f1} 
+\index{BoundaryConditionSelector@{BoundaryConditionSelector}!dir@{dir}}
+\index{dir@{dir}!BoundaryConditionSelector@{BoundaryConditionSelector}}
+\doxysubsubsection{\texorpdfstring{dir}{dir}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$double$>$ $>$ Boundary\+Condition\+Selector\+::dir}
+
+
+
+Definition at line \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{boundary__condition__selector_8hpp_source}{boundary\+\_\+condition\+\_\+selector.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00033}{Boundary\+Condition\+Selector()}}, \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00054}{operator()()}}, and \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}.
+
+\Hypertarget{class_boundary_condition_selector_af416d258d8031c8cf8f21408e0cf9dd2}\label{class_boundary_condition_selector_af416d258d8031c8cf8f21408e0cf9dd2} 
+\index{BoundaryConditionSelector@{BoundaryConditionSelector}!num@{num}}
+\index{num@{num}!BoundaryConditionSelector@{BoundaryConditionSelector}}
+\doxysubsubsection{\texorpdfstring{num}{num}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$double$>$ $>$ Boundary\+Condition\+Selector\+::num}
+
+
+
+Definition at line \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{boundary__condition__selector_8hpp_source}{boundary\+\_\+condition\+\_\+selector.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00033}{Boundary\+Condition\+Selector()}}, \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00054}{operator()()}}, and \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/boundary\+\_\+condition/\mbox{\hyperlink{boundary__condition__selector_8hpp}{boundary\+\_\+condition\+\_\+selector.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,245 @@
+\doxysection{Local\+Domain Class Reference}
+\hypertarget{class_local_domain}{}\label{class_local_domain}\index{LocalDomain@{LocalDomain}}
+
+
+{\ttfamily \#include $<$domain.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_local_domain_a38e3ca5dbaa24e326eed8cb64e8f2194}{Local\+Domain}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\item 
+void \mbox{\hyperlink{class_local_domain_ac68412c580480687954bf288211e8738}{Init}} (std\+::vector$<$ int $>$ dims, std\+::vector$<$ int $>$ rank)
+\item 
+std\+::pair$<$ std\+::vector$<$ int $>$, std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_local_domain_a674dcc8241efdc13a1db5af7d1d63914}{Get\+One\+Dim\+Start\+End}} ()
+\item 
+\mbox{\hyperlink{class_global_domain}{Global\+Domain}} \mbox{\hyperlink{class_local_domain_a4e126b1f08d70026399ffa5a29bafa1f}{Get\+Global\+\_\+x}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\+\_\+start}}
+\item 
+int \mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\+\_\+start}}
+\item 
+int \mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\+\_\+start}}
+\item 
+int \mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\+\_\+end}}
+\item 
+int \mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\+\_\+end}}
+\item 
+int \mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\+\_\+end}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_local_domain_a38e3ca5dbaa24e326eed8cb64e8f2194}\label{class_local_domain_a38e3ca5dbaa24e326eed8cb64e8f2194} 
+\index{LocalDomain@{LocalDomain}!LocalDomain@{LocalDomain}}
+\index{LocalDomain@{LocalDomain}!LocalDomain@{LocalDomain}}
+\doxysubsubsection{\texorpdfstring{LocalDomain()}{LocalDomain()}}
+{\footnotesize\ttfamily Local\+Domain\+::\+Local\+Domain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{domain_8cpp_source}{domain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ grid\_(\&grid),}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ global\_x\_(\mbox{\hyperlink{class_global_domain}{GlobalDomain}}\{grid\}),}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ global\_y\_(\mbox{\hyperlink{class_global_domain}{GlobalDomain}}\{grid\}),}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ global\_z\_(\mbox{\hyperlink{class_global_domain}{GlobalDomain}}\{grid\})\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_local_domain_a4e126b1f08d70026399ffa5a29bafa1f}\label{class_local_domain_a4e126b1f08d70026399ffa5a29bafa1f} 
+\index{LocalDomain@{LocalDomain}!GetGlobal\_x@{GetGlobal\_x}}
+\index{GetGlobal\_x@{GetGlobal\_x}!LocalDomain@{LocalDomain}}
+\doxysubsubsection{\texorpdfstring{GetGlobal\_x()}{GetGlobal\_x()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_global_domain}{Global\+Domain}} Local\+Domain\+::\+Get\+Global\+\_\+x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \{\ \textcolor{keywordflow}{return}\ global\_x\_;\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{mpi__tool_8hpp_source_l00132}{mpi\+::\+Mpi\+Tool\+::\+Collect\+To\+Master()}}.
+
+\Hypertarget{class_local_domain_a674dcc8241efdc13a1db5af7d1d63914}\label{class_local_domain_a674dcc8241efdc13a1db5af7d1d63914} 
+\index{LocalDomain@{LocalDomain}!GetOneDimStartEnd@{GetOneDimStartEnd}}
+\index{GetOneDimStartEnd@{GetOneDimStartEnd}!LocalDomain@{LocalDomain}}
+\doxysubsubsection{\texorpdfstring{GetOneDimStartEnd()}{GetOneDimStartEnd()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::vector$<$ int $>$, std\+::vector$<$ int $>$ $>$ Local\+Domain\+::\+Get\+One\+Dim\+Start\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{domain_8cpp_source}{domain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{int}\ slid\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a2719ee13fe32bd2950cff826c856eef2}{cal\_ny\_times\_nz}};}
+\DoxyCodeLine{00037\ \textcolor{keyword}{auto}\ beg\ =\ global\_x\_.\mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}};}
+\DoxyCodeLine{00038\ \textcolor{keyword}{auto}\ end\ =\ global\_x\_.\mbox{\hyperlink{class_global_domain_a957897b05a8981b4768f7b864e532122}{end}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&x\ :\ beg)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ x\ -\/=\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&x\ :\ end)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ x\ -\/=\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{00045\ \}}
+\DoxyCodeLine{00046\ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&x\ :\ beg)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ x\ *=\ slid;}
+\DoxyCodeLine{00048\ \}}
+\DoxyCodeLine{00049\ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&x\ :\ end)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ x\ *=\ slid;}
+\DoxyCodeLine{00051\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keywordflow}{return}\ std::make\_pair(beg,\ end);}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00063}{Structured\+Grid\+::cal\+\_\+ny\+\_\+times\+\_\+nz}}, \mbox{\hyperlink{domain_8hpp_source_l00014}{Global\+Domain\+::end}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{Structured\+Grid\+::no\+\_\+ghost\+\_\+cell}}, and \mbox{\hyperlink{domain_8hpp_source_l00013}{Global\+Domain\+::start}}.
+
+
+
+Referenced by \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}.
+
+\Hypertarget{class_local_domain_ac68412c580480687954bf288211e8738}\label{class_local_domain_ac68412c580480687954bf288211e8738} 
+\index{LocalDomain@{LocalDomain}!Init@{Init}}
+\index{Init@{Init}!LocalDomain@{LocalDomain}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Local\+Domain\+::\+Init (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{dims,  }\item[{std\+::vector$<$ int $>$}]{rank }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{domain_8cpp_source}{domain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ global\_x\_.\mbox{\hyperlink{class_global_domain_aa8e860fc7ebe37b743bfae013ec23628}{DivideDomain}}(dims[0],\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}});}
+\DoxyCodeLine{00023\ \ \ \ \ global\_y\_.\mbox{\hyperlink{class_global_domain_aa8e860fc7ebe37b743bfae013ec23628}{DivideDomain}}(dims[1],\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}});}
+\DoxyCodeLine{00024\ \ \ \ \ global\_z\_.\mbox{\hyperlink{class_global_domain_aa8e860fc7ebe37b743bfae013ec23628}{DivideDomain}}(dims[2],\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}});}
+\DoxyCodeLine{00025\ \ \ \ \ InitLocal(rank[0],\ rank[1],\ rank[2]);}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+nz}}, and \mbox{\hyperlink{domain_8cpp_source_l00004}{Global\+Domain\+::\+Divide\+Domain()}}.
+
+
+
+Referenced by \mbox{\hyperlink{run__cpu_8hpp_source_l00029}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::\+Cpu\+Open\+Mp()}}, and \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_local_domain_a85bd90711f78af744bae30e52241d018}\label{class_local_domain_a85bd90711f78af744bae30e52241d018} 
+\index{LocalDomain@{LocalDomain}!x\_end@{x\_end}}
+\index{x\_end@{x\_end}!LocalDomain@{LocalDomain}}
+\doxysubsubsection{\texorpdfstring{x\_end}{x\_end}}
+{\footnotesize\ttfamily int Local\+Domain\+::x\+\_\+end}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{check__l2__norm_8hpp_source_l00006}{Check\+L2\+Norm()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00024}{Pressure\+Mat\+::\+Convert\+Result\+To\+Pressure()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{_transform_8hpp_source_l00023}{get\+Max()}}, \mbox{\hyperlink{_inition__condition_8hpp_source_l00003}{Locality()}}, \mbox{\hyperlink{_transform_8hpp_source_l00004}{Pressure\+\_\+transform\+\_\+\+X\+\_\+result\+\_\+\+Dir()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00075}{Remove\+Velocity()}}, \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}, \mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp_source_l00004}{Sor\+Pipe\+Line\+\_\+mpi\+\_\+hybrid\+\_\+omp()}}, \mbox{\hyperlink{_sor_pipe_line_8omp_8hpp_source_l00006}{Sor\+Pipe\+Line\+\_\+omp()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, and \mbox{\hyperlink{force__integration_8hpp_source_l00005}{virtual\+F\+\_\+\+Int()}}.
+
+\Hypertarget{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}\label{class_local_domain_a47ac8bc4ed8a90613309ddced1869785} 
+\index{LocalDomain@{LocalDomain}!x\_start@{x\_start}}
+\index{x\_start@{x\_start}!LocalDomain@{LocalDomain}}
+\doxysubsubsection{\texorpdfstring{x\_start}{x\_start}}
+{\footnotesize\ttfamily int Local\+Domain\+::x\+\_\+start}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{check__l2__norm_8hpp_source_l00006}{Check\+L2\+Norm()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00024}{Pressure\+Mat\+::\+Convert\+Result\+To\+Pressure()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{_transform_8hpp_source_l00023}{get\+Max()}}, \mbox{\hyperlink{_inition__condition_8hpp_source_l00003}{Locality()}}, \mbox{\hyperlink{_transform_8hpp_source_l00004}{Pressure\+\_\+transform\+\_\+\+X\+\_\+result\+\_\+\+Dir()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00075}{Remove\+Velocity()}}, \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}, \mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp_source_l00004}{Sor\+Pipe\+Line\+\_\+mpi\+\_\+hybrid\+\_\+omp()}}, \mbox{\hyperlink{_sor_pipe_line_8omp_8hpp_source_l00006}{Sor\+Pipe\+Line\+\_\+omp()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, and \mbox{\hyperlink{force__integration_8hpp_source_l00005}{virtual\+F\+\_\+\+Int()}}.
+
+\Hypertarget{class_local_domain_ab829648563fa006676434a7e9ca478d0}\label{class_local_domain_ab829648563fa006676434a7e9ca478d0} 
+\index{LocalDomain@{LocalDomain}!y\_end@{y\_end}}
+\index{y\_end@{y\_end}!LocalDomain@{LocalDomain}}
+\doxysubsubsection{\texorpdfstring{y\_end}{y\_end}}
+{\footnotesize\ttfamily int Local\+Domain\+::y\+\_\+end}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{check__l2__norm_8hpp_source_l00006}{Check\+L2\+Norm()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00024}{Pressure\+Mat\+::\+Convert\+Result\+To\+Pressure()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{_transform_8hpp_source_l00023}{get\+Max()}}, \mbox{\hyperlink{_inition__condition_8hpp_source_l00003}{Locality()}}, \mbox{\hyperlink{_transform_8hpp_source_l00004}{Pressure\+\_\+transform\+\_\+\+X\+\_\+result\+\_\+\+Dir()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00075}{Remove\+Velocity()}}, \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}, \mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp_source_l00004}{Sor\+Pipe\+Line\+\_\+mpi\+\_\+hybrid\+\_\+omp()}}, \mbox{\hyperlink{_sor_pipe_line_8omp_8hpp_source_l00006}{Sor\+Pipe\+Line\+\_\+omp()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, and \mbox{\hyperlink{force__integration_8hpp_source_l00005}{virtual\+F\+\_\+\+Int()}}.
+
+\Hypertarget{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}\label{class_local_domain_af8a435144ad06a2bb6a290a341dab55e} 
+\index{LocalDomain@{LocalDomain}!y\_start@{y\_start}}
+\index{y\_start@{y\_start}!LocalDomain@{LocalDomain}}
+\doxysubsubsection{\texorpdfstring{y\_start}{y\_start}}
+{\footnotesize\ttfamily int Local\+Domain\+::y\+\_\+start}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{check__l2__norm_8hpp_source_l00006}{Check\+L2\+Norm()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00024}{Pressure\+Mat\+::\+Convert\+Result\+To\+Pressure()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{_transform_8hpp_source_l00023}{get\+Max()}}, \mbox{\hyperlink{_inition__condition_8hpp_source_l00003}{Locality()}}, \mbox{\hyperlink{_transform_8hpp_source_l00004}{Pressure\+\_\+transform\+\_\+\+X\+\_\+result\+\_\+\+Dir()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00075}{Remove\+Velocity()}}, \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}, \mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp_source_l00004}{Sor\+Pipe\+Line\+\_\+mpi\+\_\+hybrid\+\_\+omp()}}, \mbox{\hyperlink{_sor_pipe_line_8omp_8hpp_source_l00006}{Sor\+Pipe\+Line\+\_\+omp()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, and \mbox{\hyperlink{force__integration_8hpp_source_l00005}{virtual\+F\+\_\+\+Int()}}.
+
+\Hypertarget{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}\label{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c} 
+\index{LocalDomain@{LocalDomain}!z\_end@{z\_end}}
+\index{z\_end@{z\_end}!LocalDomain@{LocalDomain}}
+\doxysubsubsection{\texorpdfstring{z\_end}{z\_end}}
+{\footnotesize\ttfamily int Local\+Domain\+::z\+\_\+end}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{check__l2__norm_8hpp_source_l00006}{Check\+L2\+Norm()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00024}{Pressure\+Mat\+::\+Convert\+Result\+To\+Pressure()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{_transform_8hpp_source_l00023}{get\+Max()}}, \mbox{\hyperlink{_inition__condition_8hpp_source_l00003}{Locality()}}, \mbox{\hyperlink{_transform_8hpp_source_l00004}{Pressure\+\_\+transform\+\_\+\+X\+\_\+result\+\_\+\+Dir()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00075}{Remove\+Velocity()}}, \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}, \mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp_source_l00004}{Sor\+Pipe\+Line\+\_\+mpi\+\_\+hybrid\+\_\+omp()}}, \mbox{\hyperlink{_sor_pipe_line_8omp_8hpp_source_l00006}{Sor\+Pipe\+Line\+\_\+omp()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, and \mbox{\hyperlink{force__integration_8hpp_source_l00005}{virtual\+F\+\_\+\+Int()}}.
+
+\Hypertarget{class_local_domain_a7a4df338f67d20b9780e909913e93d10}\label{class_local_domain_a7a4df338f67d20b9780e909913e93d10} 
+\index{LocalDomain@{LocalDomain}!z\_start@{z\_start}}
+\index{z\_start@{z\_start}!LocalDomain@{LocalDomain}}
+\doxysubsubsection{\texorpdfstring{z\_start}{z\_start}}
+{\footnotesize\ttfamily int Local\+Domain\+::z\+\_\+start}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{check__l2__norm_8hpp_source_l00006}{Check\+L2\+Norm()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00024}{Pressure\+Mat\+::\+Convert\+Result\+To\+Pressure()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{_transform_8hpp_source_l00023}{get\+Max()}}, \mbox{\hyperlink{_inition__condition_8hpp_source_l00003}{Locality()}}, \mbox{\hyperlink{_transform_8hpp_source_l00004}{Pressure\+\_\+transform\+\_\+\+X\+\_\+result\+\_\+\+Dir()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00075}{Remove\+Velocity()}}, \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}, \mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp_source_l00004}{Sor\+Pipe\+Line\+\_\+mpi\+\_\+hybrid\+\_\+omp()}}, \mbox{\hyperlink{_sor_pipe_line_8omp_8hpp_source_l00006}{Sor\+Pipe\+Line\+\_\+omp()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, and \mbox{\hyperlink{force__integration_8hpp_source_l00005}{virtual\+F\+\_\+\+Int()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/backend/\mbox{\hyperlink{domain_8hpp}{domain.\+hpp}}\item 
+cfd\+\_\+mx/src/backend/\mbox{\hyperlink{domain_8cpp}{domain.\+cpp}}\end{DoxyCompactItemize}

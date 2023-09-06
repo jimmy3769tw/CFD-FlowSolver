@@ -1,0 +1,65 @@
+\doxysection{set\+\_\+eta\+\_\+cylinder.\+cpp}
+\hypertarget{set__eta__cylinder_8cpp_source}{}\label{set__eta__cylinder_8cpp_source}\index{cfd\_mx/src/dfib/set\_eta\_cylinder.cpp@{cfd\_mx/src/dfib/set\_eta\_cylinder.cpp}}
+\mbox{\hyperlink{set__eta__cylinder_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{set__eta__cylinder_8hpp}{dfib/set\_eta\_cylinder.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00003}\mbox{\hyperlink{class_cylinder_z_a0a749d83481aa6d57b3dff51e18f4ddb}{00003}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cylinder_z_a0a749d83481aa6d57b3dff51e18f4ddb}{CylinderZ::solver}}(\mbox{\hyperlink{class_immersed_boundary}{ImmersedBoundary}}\&\ dfib,\ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\&\ domain)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00004}00004\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}radius:\ "{}}\ <<\ radius\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00005}00005\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[no\_sub\_nx,\ no\_sub\_ny]\ "{}}\ <<\ no\_sub\_nx\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ no\_sub\_ny\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00006}00006\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[no\_sub\_nx,\ no\_sub\_ny]\ "{}}\ <<\ no\_sub\_nx\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ no\_sub\_ny\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00007}00007\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00009}00009\ \ \ \ \ std::vector<double>\ sdx(no\_sub\_nx\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00010}00010\ \ \ \ \ std::vector<double>\ sdy(no\_sub\_ny\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ domain.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ domain.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}};\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ dxg\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[i]\ /\ double(no\_sub\_nx);}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ domain.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ domain.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}};\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ grid\_2d\_diagonal\ =}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sqrt(std::pow(grid\_-\/>\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[i],\ 2)\ +\ std::pow(grid\_-\/>\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[j],\ 2))\ *\ 0.5;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ distance\ =\ sqrt(std::pow(grid\_-\/>\mbox{\hyperlink{class_structured_grid_a1eaa4df5936dec15c0ca13b7b11415f2}{Xc}}(i)\ -\/\ center\_x,\ 2)\ +}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::pow(grid\_-\/>\mbox{\hyperlink{class_structured_grid_a60e669ecf12f7dd1d17257101486c5ef}{Yc}}(j)\ -\/\ center\_y,\ 2));}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(distance\ -\/\ radius)\ <\ grid\_2d\_diagonal)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ eta\_cnt\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ dyg\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[j]\ /\ double(no\_sub\_ny);}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ ii\ =\ 0;\ ii\ <\ no\_sub\_nx\ +\ 1;\ ii++)}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ jj\ =\ 0;\ jj\ <\ no\_sub\_nx\ +\ 1;\ jj++)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sdy[jj]\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[j]\ +\ jj\ *\ dyg;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sdx[ii]\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[i]\ +\ ii\ *\ dxg;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ ii\ =\ 0;\ ii\ <\ no\_sub\_nx;\ ii++)}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ jj\ =\ 0;\ jj\ <\ no\_sub\_nx;\ jj++)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ distance\_sub\ =}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sqrt(std::pow((sdx[ii]\ +\ sdx[ii\ +\ 1])\ *\ 0.5\ -\/\ center\_x,\ 2)\ +}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::pow((sdy[jj]\ +\ sdy[jj\ +\ 1])\ *\ 0.5\ -\/\ center\_y,\ 2));}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distance\_sub\ <=\ radius)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++eta\_cnt;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ dfib.\mbox{\hyperlink{class_immersed_boundary_aeebacdcadece1a8a11d9fcdf61971671}{Eta}}(i,\ j,\ domain.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}})\ =}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double(eta\_cnt)\ /\ no\_sub\_nx\ /\ no\_sub\_ny;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (distance\ >\ radius)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ dfib.\mbox{\hyperlink{class_immersed_boundary_aeebacdcadece1a8a11d9fcdf61971671}{Eta}}(i,\ j,\ domain.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}})\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ dfib.\mbox{\hyperlink{class_immersed_boundary_aeebacdcadece1a8a11d9fcdf61971671}{Eta}}(i,\ j,\ domain.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}})\ =\ 1.;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ domain.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ domain.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}};\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ domain.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ domain.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}};\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ domain.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}}\ +\ 1;\ k\ <\ domain.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}};\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ dfib.\mbox{\hyperlink{class_immersed_boundary_aeebacdcadece1a8a11d9fcdf61971671}{Eta}}(i,\ j,\ k)\ =\ dfib.\mbox{\hyperlink{class_immersed_boundary_aeebacdcadece1a8a11d9fcdf61971671}{Eta}}(i,\ j,\ domain.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}});}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00057}00057\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00058}00058\ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8cpp_source_l00059}00059\ }
+
+\end{DoxyCode}

@@ -1,0 +1,50 @@
+\doxysection{cfd\+\_\+mx/inc/io/io\+\_\+tools.hpp File Reference}
+\hypertarget{io__tools_8hpp}{}\label{io__tools_8hpp}\index{cfd\_mx/inc/io/io\_tools.hpp@{cfd\_mx/inc/io/io\_tools.hpp}}
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include "{}../import/stl.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{io__tools_8hpp_ad260b2e85f87a72132c2334fd68658e4}{Creat\+Output\+File}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{io__tools_8hpp_ad260b2e85f87a72132c2334fd68658e4}\label{io__tools_8hpp_ad260b2e85f87a72132c2334fd68658e4} 
+\index{io\_tools.hpp@{io\_tools.hpp}!CreatOutputFile@{CreatOutputFile}}
+\index{CreatOutputFile@{CreatOutputFile}!io\_tools.hpp@{io\_tools.hpp}}
+\doxysubsubsection{\texorpdfstring{CreatOutputFile()}{CreatOutputFile()}}
+{\footnotesize\ttfamily void Creat\+Output\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{io__tools_8hpp_source_l00006}{6}} of file \mbox{\hyperlink{io__tools_8hpp_source}{io\+\_\+tools.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00007\ \ \ \textcolor{keywordflow}{if}\ (opendir(\textcolor{stringliteral}{"{}Information"{}})\ ==\ NULL)\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordflow}{if}\ (system(\textcolor{stringliteral}{"{}mkdir\ Information"{}})\ !=\ 0)\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Failed:\ Creat\ a\ output\ file"{}});}
+\DoxyCodeLine{00010\ \ \ \ \ \}}
+\DoxyCodeLine{00011\ \ \ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordflow}{if}\ (opendir(\textcolor{stringliteral}{"{}mx\_out"{}})\ ==\ NULL)\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{if}\ (system(\textcolor{stringliteral}{"{}mkdir\ mx\_out"{}})\ !=\ 0)\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Failed:\ Creat\ a\ output\ file"{}});}
+\DoxyCodeLine{00016\ \ \ \ \ \}}
+\DoxyCodeLine{00017\ \ \ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordflow}{if}\ (opendir(\textcolor{stringliteral}{"{}Information/Chronograph"{}})\ ==\ NULL)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (system(\textcolor{stringliteral}{"{}mkdir\ Information/Chronograph"{}})\ !=\ 0)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Failed:\ Creat\ a\ output\ file"{}});}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \}}
+\DoxyCodeLine{00024\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{run__cpu_8hpp_source_l00029}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::\+Cpu\+Open\+Mp()}}, and \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}.
+

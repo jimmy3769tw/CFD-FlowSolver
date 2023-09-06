@@ -1,0 +1,149 @@
+\doxysection{tests/matrix/matrix\+\_\+test\+\_\+amgcl.cpp File Reference}
+\hypertarget{matrix__test__amgcl_8cpp}{}\label{matrix__test__amgcl_8cpp}\index{tests/matrix/matrix\_test\_amgcl.cpp@{tests/matrix/matrix\_test\_amgcl.cpp}}
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include $<$amgcl/adapter/crs\+\_\+tuple.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/amg.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/backend/builtin.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/coarsening/smoothed\+\_\+aggregation.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/make\+\_\+solver.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/profiler.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/relaxation/gauss\+\_\+seidel.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/relaxation/spai0.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/solver/bicgstab.\+hpp$>$}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/matrix/csr\+\_\+sparse\+\_\+mat.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/matrix/ell\+\_\+sparse\+\_\+mat.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/matrix/solver/bicgstab.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/matrix/solver/bicgstab\+\_\+restart.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/mpi\+\_\+tool/mpi\+\_\+complex.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/mpi\+\_\+tool/mpi\+\_\+getter.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/mpi\+\_\+tool/mpi\+\_\+tool.\+hpp"{}}\newline
+{\ttfamily \#include "{}../validation\+\_\+tool/l2norm\+\_\+validation.\+hpp"{}}\newline
+{\ttfamily \#include "{}poisson.\+hpp"{}}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef amgcl\+::backend\+::builtin$<$ double $>$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a5796b270f3e609adfeaecc29c46fd6b1}{SBackend}}
+\item 
+typedef amgcl\+::backend\+::builtin$<$ double $>$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}}
+\item 
+typedef amgcl\+::make\+\_\+solver$<$ amgcl\+::amg$<$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}}, amgcl\+::coarsening\+::smoothed\+\_\+aggregation, amgcl\+::relaxation\+::gauss\+\_\+seidel $>$, amgcl\+::solver\+::bicgstab$<$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a5796b270f3e609adfeaecc29c46fd6b1}{SBackend}} $>$ $>$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_abdb438655bbcb29d230a3bb6f4d9cd3c}{Solver}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{matrix__test__amgcl_8cpp_a7222653dfe0aa43ea317f3d2e504b5b5}{TEST}} (csr\+\_\+mat, get\+\_\+csr)
+\item 
+int \mbox{\hyperlink{matrix__test__amgcl_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_heat_conduction}{Heat\+Conduction}} \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\+\_\+conduction}} (10)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128}\label{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128} 
+\index{matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}!PBackend@{PBackend}}
+\index{PBackend@{PBackend}!matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}}
+\doxysubsubsection{\texorpdfstring{PBackend}{PBackend}}
+{\footnotesize\ttfamily typedef amgcl\+::backend\+::builtin$<$double$>$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix__test__amgcl_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{matrix__test__amgcl_8cpp_source}{matrix\+\_\+test\+\_\+amgcl.\+cpp}}.
+
+\Hypertarget{matrix__test__amgcl_8cpp_a5796b270f3e609adfeaecc29c46fd6b1}\label{matrix__test__amgcl_8cpp_a5796b270f3e609adfeaecc29c46fd6b1} 
+\index{matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}!SBackend@{SBackend}}
+\index{SBackend@{SBackend}!matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}}
+\doxysubsubsection{\texorpdfstring{SBackend}{SBackend}}
+{\footnotesize\ttfamily typedef amgcl\+::backend\+::builtin$<$double$>$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a5796b270f3e609adfeaecc29c46fd6b1}{SBackend}}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix__test__amgcl_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{matrix__test__amgcl_8cpp_source}{matrix\+\_\+test\+\_\+amgcl.\+cpp}}.
+
+\Hypertarget{matrix__test__amgcl_8cpp_abdb438655bbcb29d230a3bb6f4d9cd3c}\label{matrix__test__amgcl_8cpp_abdb438655bbcb29d230a3bb6f4d9cd3c} 
+\index{matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}!Solver@{Solver}}
+\index{Solver@{Solver}!matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}}
+\doxysubsubsection{\texorpdfstring{Solver}{Solver}}
+{\footnotesize\ttfamily typedef amgcl\+::make\+\_\+solver$<$ amgcl\+::amg$<$\mbox{\hyperlink{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}}, amgcl\+::coarsening\+::smoothed\+\_\+aggregation, amgcl\+::relaxation\+::gauss\+\_\+seidel$>$, amgcl\+::solver\+::bicgstab$<$\mbox{\hyperlink{matrix__test__amgcl_8cpp_a5796b270f3e609adfeaecc29c46fd6b1}{SBackend}}$>$ $>$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_abdb438655bbcb29d230a3bb6f4d9cd3c}{Solver}}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix__test__amgcl_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{matrix__test__amgcl_8cpp_source}{matrix\+\_\+test\+\_\+amgcl.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{matrix__test__amgcl_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{matrix__test__amgcl_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}!main@{main}}
+\index{main@{main}!matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix__test__amgcl_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{matrix__test__amgcl_8cpp_source}{matrix\+\_\+test\+\_\+amgcl.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ testing::InitGoogleTest(\&argc,\ argv);}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordflow}{return}\ RUN\_ALL\_TESTS();}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+\Hypertarget{matrix__test__amgcl_8cpp_a7222653dfe0aa43ea317f3d2e504b5b5}\label{matrix__test__amgcl_8cpp_a7222653dfe0aa43ea317f3d2e504b5b5} 
+\index{matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{csr\+\_\+mat}]{,  }\item[{get\+\_\+csr}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix__test__amgcl_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{matrix__test__amgcl_8cpp_source}{matrix\+\_\+test\+\_\+amgcl.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{auto}\ data\ =\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}();}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{int}\ row\ =\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}}.size();}
+\DoxyCodeLine{00042\ \ \ std::vector<double>\ amgcl\_x\ =\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{00043\ \ \ std::vector<double>\ resultB\ =\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{auto}\ ptr\ =\ std::get<0>(data);\ \ \ \ \ \ \textcolor{comment}{//\ size\_t}}
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{auto}\ indices\ =\ std::get<1>(data);\ \ \textcolor{comment}{//\ szie\_t}}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{auto}\ values\ =\ std::get<2>(data);\ \ \ \textcolor{comment}{//\ double}}
+\DoxyCodeLine{00047\ \ \ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{auto}\ amgcl\_mat\ =\ std::tie(row,\ ptr,\ indices,\ values);}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{matrix__test__amgcl_8cpp_abdb438655bbcb29d230a3bb6f4d9cd3c}{Solver}}\ solve(amgcl\_mat);}
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{auto}\ [iters,\ error]\ =\ solve(amgcl\_mat,\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ amgcl\_x);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matB;}
+\DoxyCodeLine{00053\ \ \ matB.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{00054\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart}{solver::BicgstabRestart<mat::CsrMat<double>}}>\ solverB(matB);}
+\DoxyCodeLine{00055\ \ \ solverB.SetTolerance(1.0e-\/9);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ solverB(\mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultB);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ EXPECT\_TRUE(\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(amgcl\_x,\ resultB)\ <\ 1.0e-\/6);}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{poisson_8hpp_source_l00054}{Heat\+Conduction\+::\+Get\+Csr()}}, \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\+\_\+conduction}}, \mbox{\hyperlink{l2norm__validation_8hpp_source_l00004}{L2\+Norm()}}, \mbox{\hyperlink{poisson_8hpp_source_l00058}{Heat\+Conduction\+::rhs}}, \mbox{\hyperlink{csr__sparse__mat_8hpp_source_l00069}{mat\+::\+Csr\+Mat$<$ T $>$\+::\+Set()}}, \mbox{\hyperlink{bicgstab__restart_8hpp_source_l00031}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$\+::\+Set\+Tolerance()}}, and \mbox{\hyperlink{poisson_8hpp_source_l00059}{Heat\+Conduction\+::x}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}\label{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b} 
+\index{matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}!heat\_conduction@{heat\_conduction}}
+\index{heat\_conduction@{heat\_conduction}!matrix\_test\_amgcl.cpp@{matrix\_test\_amgcl.cpp}}
+\doxysubsubsection{\texorpdfstring{heat\_conduction}{heat\_conduction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_heat_conduction}{Heat\+Conduction}} heat\+\_\+conduction(10) (\begin{DoxyParamCaption}\item[{10}]{ }\end{DoxyParamCaption})}
+
+
+
+Referenced by \mbox{\hyperlink{matrix__test__amgcl_8cpp_source_l00039}{TEST()}}.
+

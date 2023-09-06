@@ -1,0 +1,169 @@
+\doxysection{math Namespace Reference}
+\hypertarget{namespacemath}{}\label{namespacemath}\index{math@{math}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacemath_a0f790912b7db22862270254b6f36986a}{init}} (std\+::vector$<$ double $>$ \&a, const double val)
+\item 
+void \mbox{\hyperlink{namespacemath_a9152554ed78636bb66851b738ef88038}{init}} (std\+::vector$<$ double $>$ \&a, const std\+::vector$<$ double $>$ \&b)
+\item 
+void \mbox{\hyperlink{namespacemath_a333a4caf7df255df3d0fb5940444a916}{copy}} (const std\+::vector$<$ double $>$ \&a, std\+::vector$<$ double $>$ \&b)
+\item 
+double \mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{Inner\+Product}} (const std\+::vector$<$ double $>$ \&a, const std\+::vector$<$ double $>$ \&b)
+\item 
+double \mbox{\hyperlink{namespacemath_ad06f5b10b7545f42cbc6340a8e841709}{L2\+Norm}} (const std\+::vector$<$ double $>$ \&a)
+\item 
+void \mbox{\hyperlink{namespacemath_afcc389290dcbd32bd0ce78fb2a64acb3}{zero}} (std\+::vector$<$ double $>$ \&a)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacemath_a333a4caf7df255df3d0fb5940444a916}\label{namespacemath_a333a4caf7df255df3d0fb5940444a916} 
+\index{math@{math}!copy@{copy}}
+\index{copy@{copy}!math@{math}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily void math\+::copy (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{a,  }\item[{std\+::vector$<$ double $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{math_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{math_8hpp_source}{math.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{\ \mbox{\hyperlink{namespacemath_a0f790912b7db22862270254b6f36986a}{init}}(b,\ a);\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{math_8hpp_source_l00010}{init()}}.
+
+
+
+Referenced by \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00086}{solver\+::\+Bicgstab\+Restart\+Mpi$<$ matrix\+T $>$\+::solve()}}, and \mbox{\hyperlink{bicgstab__restart_8hpp_source_l00036}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$\+::solve()}}.
+
+\Hypertarget{namespacemath_a0f790912b7db22862270254b6f36986a}\label{namespacemath_a0f790912b7db22862270254b6f36986a} 
+\index{math@{math}!init@{init}}
+\index{init@{init}!math@{math}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void math\+::init (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{a,  }\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{math_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{math_8hpp_source}{math.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ A\ =\ a.data();}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ len\ =\ a.size();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ simd\ default(none)\ firstprivate(A,\ val,\ len)\ \(\backslash\)}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ schedule(static)}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ len;\ ++i)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ *(A\ +\ i)\ =\ val;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{math_8hpp_source_l00031}{copy()}}, and \mbox{\hyperlink{math_8hpp_source_l00058}{zero()}}.
+
+\Hypertarget{namespacemath_a9152554ed78636bb66851b738ef88038}\label{namespacemath_a9152554ed78636bb66851b738ef88038} 
+\index{math@{math}!init@{init}}
+\index{init@{init}!math@{math}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void math\+::init (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{a,  }\item[{const std\+::vector$<$ double $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{math_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{math_8hpp_source}{math.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ len\ =\ a.size();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ A\ =\ a.data();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ B\ =\ b.data();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ simd\ default(none)\ firstprivate(A,\ len,\ B)\ \(\backslash\)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ schedule(static)}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ len;\ ++i)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ *(A\ +\ i)\ =\ *(B\ +\ i);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}\label{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e} 
+\index{math@{math}!InnerProduct@{InnerProduct}}
+\index{InnerProduct@{InnerProduct}!math@{math}}
+\doxysubsubsection{\texorpdfstring{InnerProduct()}{InnerProduct()}}
+{\footnotesize\ttfamily double math\+::\+Inner\+Product (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{a,  }\item[{const std\+::vector$<$ double $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{math_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{math_8hpp_source}{math.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ r\{0.0\};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ len\ =\ a.size();}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ A\ =\ a.data();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ B\ =\ b.data();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#pragma\ omp\ parallel\ for\ simd\ reduction(+:r)\ default(none)\ \(\backslash\)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ firstprivate(A,\ B,\ len)\ schedule(static)}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i=0;\ i<len\ ;\ ++i)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \{\ \ r\ +=\ *(A+i)\ *\ *(B+i);\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{linear__solver_8hpp_source_l00040}{solver\+::\+Linear\+Solver$<$ matrix\+T $>$\+::\+Inner\+Product()}}, \mbox{\hyperlink{math_8hpp_source_l00053}{L2\+Norm()}}, \mbox{\hyperlink{bicgstab_8hpp_source_l00032}{solver\+::\+Bicgstab$<$ Mat\+Type $>$\+::solve()}}, and \mbox{\hyperlink{bicgstab__restart_8hpp_source_l00036}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$\+::solve()}}.
+
+\Hypertarget{namespacemath_ad06f5b10b7545f42cbc6340a8e841709}\label{namespacemath_ad06f5b10b7545f42cbc6340a8e841709} 
+\index{math@{math}!L2Norm@{L2Norm}}
+\index{L2Norm@{L2Norm}!math@{math}}
+\doxysubsubsection{\texorpdfstring{L2Norm()}{L2Norm()}}
+{\footnotesize\ttfamily double math\+::\+L2\+Norm (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{math_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{math_8hpp_source}{math.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ sqrt(\ \mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{InnerProduct}}(a,a)\ );\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{math_8hpp_source_l00036}{Inner\+Product()}}.
+
+
+
+Referenced by \mbox{\hyperlink{bicgstab_8hpp_source_l00032}{solver\+::\+Bicgstab$<$ Mat\+Type $>$\+::solve()}}, and \mbox{\hyperlink{bicgstab__restart_8hpp_source_l00036}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$\+::solve()}}.
+
+\Hypertarget{namespacemath_afcc389290dcbd32bd0ce78fb2a64acb3}\label{namespacemath_afcc389290dcbd32bd0ce78fb2a64acb3} 
+\index{math@{math}!zero@{zero}}
+\index{zero@{zero}!math@{math}}
+\doxysubsubsection{\texorpdfstring{zero()}{zero()}}
+{\footnotesize\ttfamily void math\+::zero (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{math_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{math_8hpp_source}{math.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \{\ \ \mbox{\hyperlink{namespacemath_a0f790912b7db22862270254b6f36986a}{init}}(a,\ 0.0);\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{math_8hpp_source_l00010}{init()}}.
+

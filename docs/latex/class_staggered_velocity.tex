@@ -1,0 +1,401 @@
+\doxysection{Staggered\+Velocity Class Reference}
+\hypertarget{class_staggered_velocity}{}\label{class_staggered_velocity}\index{StaggeredVelocity@{StaggeredVelocity}}
+
+
+{\ttfamily \#include $<$physical\+\_\+variables.\+hpp$>$}
+
+Inheritance diagram for Staggered\+Velocity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_staggered_velocity}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_staggered_velocity_a0f506181775c511ab0bbef7ab30d164b}{Staggered\+Velocity}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\item 
+double \& \mbox{\hyperlink{class_staggered_velocity_a072d759359be9f4eeba6be8a4c486461}{Vis\+Eff}} (int i, int j, int k)
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \& \mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}} (T i, T j, T k)
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \& \mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}} (T i, T j, T k)
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \& \mbox{\hyperlink{class_staggered_velocity_adb2f88931c3cca29866c5334bec50ee1}{W}} (T i, T j, T k)
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{class_staggered_velocity_a197efbe4785e67353a0732830207dd49}{U}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{class_staggered_velocity_a1da90d7c393336fcfe52ef900b914635}{V}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{class_staggered_velocity_a86ee98a11389c57d1042af4f1aa1e019}{W}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ double $>$ \& \mbox{\hyperlink{class_staggered_velocity_ab72a7ec275a43f92390a18fc311222d1}{U}} (T which\+Dim)
+\item 
+void \mbox{\hyperlink{class_staggered_velocity_acd6d6687719729dd2471c7d38a491390}{Fill\+Vel}} (double ui, double vi, double wi)
+\item 
+auto \mbox{\hyperlink{class_staggered_velocity_a84f11cda09212b4a12a0497c3d4cd57d}{Get\+Grid}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_physical_val}{Physical\+Val}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_physical_val_a7bae48cf70539f3c9d73e0c14ed2602f}{Physical\+Val}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_staggered_velocity_afb5848ce19415f798e8d57b85f8d7d57}{u}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_staggered_velocity_acc058b10021080e0d80c459251be2c7f}{v}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_staggered_velocity_abf894ea9fea0fbe62aea732c3cb94174}{w}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_physical_val}{Physical\+Val}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{class_physical_val_aba92f84eb9e0c541a5d6ba7f442a195e}{icel\+Cal}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}} (T i, T j, T k) const
+\item 
+void \mbox{\hyperlink{class_physical_val_a32c5025afe89e3f30aa97af45128b6bf}{Fill}} (std\+::vector$<$ double $>$ \&v, double val)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_physical_val}{Physical\+Val}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_staggered_velocity_a0f506181775c511ab0bbef7ab30d164b}\label{class_staggered_velocity_a0f506181775c511ab0bbef7ab30d164b} 
+\index{StaggeredVelocity@{StaggeredVelocity}!StaggeredVelocity@{StaggeredVelocity}}
+\index{StaggeredVelocity@{StaggeredVelocity}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{StaggeredVelocity()}{StaggeredVelocity()}}
+{\footnotesize\ttfamily Staggered\+Velocity\+::\+Staggered\+Velocity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{physical__variables_8cpp_source}{physical\+\_\+variables.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00008\ \ \ \ \ \mbox{\hyperlink{class_physical_val}{PhysicalVal}}(grid)\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_staggered_velocity_afb5848ce19415f798e8d57b85f8d7d57}{u}}.resize(grid.\mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\_grid}});}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_staggered_velocity_acc058b10021080e0d80c459251be2c7f}{v}}.resize(grid.\mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\_grid}});}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_staggered_velocity_abf894ea9fea0fbe62aea732c3cb94174}{w}}.resize(grid.\mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\_grid}});}
+\DoxyCodeLine{00012\ \ \ \ \ vis\_eff\_.resize(grid.\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}});}
+\DoxyCodeLine{00013\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00062}{Structured\+Grid\+::cal\+\_\+no\+\_\+grid}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00069}{Structured\+Grid\+::no\+\_\+grid}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{u}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{v}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{w}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_staggered_velocity_acd6d6687719729dd2471c7d38a491390}\label{class_staggered_velocity_acd6d6687719729dd2471c7d38a491390} 
+\index{StaggeredVelocity@{StaggeredVelocity}!FillVel@{FillVel}}
+\index{FillVel@{FillVel}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{FillVel()}{FillVel()}}
+{\footnotesize\ttfamily void Staggered\+Velocity\+::\+Fill\+Vel (\begin{DoxyParamCaption}\item[{double}]{ui,  }\item[{double}]{vi,  }\item[{double}]{wi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00098}{98}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{class_physical_val_a32c5025afe89e3f30aa97af45128b6bf}{Fill}}(\mbox{\hyperlink{class_staggered_velocity_afb5848ce19415f798e8d57b85f8d7d57}{u}},\ ui);}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{class_physical_val_a32c5025afe89e3f30aa97af45128b6bf}{Fill}}(\mbox{\hyperlink{class_staggered_velocity_acc058b10021080e0d80c459251be2c7f}{v}},\ vi);}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{class_physical_val_a32c5025afe89e3f30aa97af45128b6bf}{Fill}}(\mbox{\hyperlink{class_staggered_velocity_abf894ea9fea0fbe62aea732c3cb94174}{w}},\ wi);}
+\DoxyCodeLine{00102\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00023}{Physical\+Val\+::\+Fill()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{u}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{v}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{w}}.
+
+
+
+Referenced by \mbox{\hyperlink{run__cpu_8hpp_source_l00029}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::\+Cpu\+Open\+Mp()}}, and \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}.
+
+\Hypertarget{class_staggered_velocity_a84f11cda09212b4a12a0497c3d4cd57d}\label{class_staggered_velocity_a84f11cda09212b4a12a0497c3d4cd57d} 
+\index{StaggeredVelocity@{StaggeredVelocity}!GetGrid@{GetGrid}}
+\index{GetGrid@{GetGrid}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{GetGrid()}{GetGrid()}}
+{\footnotesize\ttfamily auto Staggered\+Velocity\+::\+Get\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\_}};}
+\DoxyCodeLine{00106\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00013}{Physical\+Val\+::grid\+\_\+}}.
+
+\Hypertarget{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}\label{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336} 
+\index{StaggeredVelocity@{StaggeredVelocity}!U@{U}}
+\index{U@{U}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{U()}{U()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \& Staggered\+Velocity\+::U (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_staggered_velocity_afb5848ce19415f798e8d57b85f8d7d57}{u}}[\mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}}(i,\ j,\ k)];}
+\DoxyCodeLine{00059\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00032}{Physical\+Val\+::icel()}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{u}}.
+
+
+
+Referenced by \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{central__profile_8hpp_source_l00007}{get\+Cent\+Profile()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00075}{Remove\+Velocity()}}, and \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}.
+
+\Hypertarget{class_staggered_velocity_a197efbe4785e67353a0732830207dd49}\label{class_staggered_velocity_a197efbe4785e67353a0732830207dd49} 
+\index{StaggeredVelocity@{StaggeredVelocity}!U@{U}}
+\index{U@{U}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{U()}{U()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto Staggered\+Velocity\+::U (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00072}{72}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_staggered_velocity_afb5848ce19415f798e8d57b85f8d7d57}{u}}[\mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}}(i,\ j,\ k)];}
+\DoxyCodeLine{00074\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00032}{Physical\+Val\+::icel()}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{u}}.
+
+\Hypertarget{class_staggered_velocity_ab72a7ec275a43f92390a18fc311222d1}\label{class_staggered_velocity_ab72a7ec275a43f92390a18fc311222d1} 
+\index{StaggeredVelocity@{StaggeredVelocity}!U@{U}}
+\index{U@{U}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{U()}{U()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ double $>$ \& Staggered\+Velocity\+::U (\begin{DoxyParamCaption}\item[{T}]{which\+Dim }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00087}{87}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (whichDim\ ==\ 0)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_staggered_velocity_afb5848ce19415f798e8d57b85f8d7d57}{u}};}
+\DoxyCodeLine{00090\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (whichDim\ ==\ 1)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_staggered_velocity_acc058b10021080e0d80c459251be2c7f}{v}};}
+\DoxyCodeLine{00092\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (whichDim\ ==\ 2)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_staggered_velocity_abf894ea9fea0fbe62aea732c3cb94174}{w}};}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}out\ of\ dimensions!"{}});}
+\DoxyCodeLine{00096\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{u}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{v}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{w}}.
+
+\Hypertarget{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}\label{class_staggered_velocity_a84a6565ddac26a98251453d89767426e} 
+\index{StaggeredVelocity@{StaggeredVelocity}!V@{V}}
+\index{V@{V}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{V()}{V()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto \& Staggered\+Velocity\+::V (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00062}{62}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_staggered_velocity_acc058b10021080e0d80c459251be2c7f}{v}}[\mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}}(i,\ j,\ k)];}
+\DoxyCodeLine{00064\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00032}{Physical\+Val\+::icel()}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{v}}.
+
+
+
+Referenced by \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{central__profile_8hpp_source_l00007}{get\+Cent\+Profile()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00075}{Remove\+Velocity()}}, and \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}.
+
+\Hypertarget{class_staggered_velocity_a1da90d7c393336fcfe52ef900b914635}\label{class_staggered_velocity_a1da90d7c393336fcfe52ef900b914635} 
+\index{StaggeredVelocity@{StaggeredVelocity}!V@{V}}
+\index{V@{V}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{V()}{V()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto Staggered\+Velocity\+::V (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00077}{77}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_staggered_velocity_acc058b10021080e0d80c459251be2c7f}{v}}[\mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}}(i,\ j,\ k)];}
+\DoxyCodeLine{00079\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00032}{Physical\+Val\+::icel()}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{v}}.
+
+\Hypertarget{class_staggered_velocity_a072d759359be9f4eeba6be8a4c486461}\label{class_staggered_velocity_a072d759359be9f4eeba6be8a4c486461} 
+\index{StaggeredVelocity@{StaggeredVelocity}!VisEff@{VisEff}}
+\index{VisEff@{VisEff}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{VisEff()}{VisEff()}}
+{\footnotesize\ttfamily double \& Staggered\+Velocity\+::\+Vis\+Eff (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ vis\_eff\_[\mbox{\hyperlink{class_physical_val_aba92f84eb9e0c541a5d6ba7f442a195e}{icelCal}}(i,\ j,\ k)];}
+\DoxyCodeLine{00052\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00038}{Physical\+Val\+::icel\+Cal()}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, and \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}.
+
+\Hypertarget{class_staggered_velocity_adb2f88931c3cca29866c5334bec50ee1}\label{class_staggered_velocity_adb2f88931c3cca29866c5334bec50ee1} 
+\index{StaggeredVelocity@{StaggeredVelocity}!W@{W}}
+\index{W@{W}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{W()}{W()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto \& Staggered\+Velocity\+::W (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00067}{67}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_staggered_velocity_abf894ea9fea0fbe62aea732c3cb94174}{w}}[\mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}}(i,\ j,\ k)];}
+\DoxyCodeLine{00069\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00032}{Physical\+Val\+::icel()}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{w}}.
+
+
+
+Referenced by \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00075}{Remove\+Velocity()}}, and \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}.
+
+\Hypertarget{class_staggered_velocity_a86ee98a11389c57d1042af4f1aa1e019}\label{class_staggered_velocity_a86ee98a11389c57d1042af4f1aa1e019} 
+\index{StaggeredVelocity@{StaggeredVelocity}!W@{W}}
+\index{W@{W}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{W()}{W()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double Staggered\+Velocity\+::W (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00082}{82}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_staggered_velocity_abf894ea9fea0fbe62aea732c3cb94174}{w}}[\mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}}(i,\ j,\ k)];}
+\DoxyCodeLine{00084\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00032}{Physical\+Val\+::icel()}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{w}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_staggered_velocity_afb5848ce19415f798e8d57b85f8d7d57}\label{class_staggered_velocity_afb5848ce19415f798e8d57b85f8d7d57} 
+\index{StaggeredVelocity@{StaggeredVelocity}!u@{u}}
+\index{u@{u}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{u}{u}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Staggered\+Velocity\+::u}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00098}{Fill\+Vel()}}, \mbox{\hyperlink{physical__variables_8cpp_source_l00007}{Staggered\+Velocity()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00057}{U()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00072}{U()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00087}{U()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_staggered_velocity_acc058b10021080e0d80c459251be2c7f}\label{class_staggered_velocity_acc058b10021080e0d80c459251be2c7f} 
+\index{StaggeredVelocity@{StaggeredVelocity}!v@{v}}
+\index{v@{v}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{v}{v}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Staggered\+Velocity\+::v}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00098}{Fill\+Vel()}}, \mbox{\hyperlink{physical__variables_8cpp_source_l00007}{Staggered\+Velocity()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00087}{U()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00062}{V()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00077}{V()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_staggered_velocity_abf894ea9fea0fbe62aea732c3cb94174}\label{class_staggered_velocity_abf894ea9fea0fbe62aea732c3cb94174} 
+\index{StaggeredVelocity@{StaggeredVelocity}!w@{w}}
+\index{w@{w}!StaggeredVelocity@{StaggeredVelocity}}
+\doxysubsubsection{\texorpdfstring{w}{w}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Staggered\+Velocity\+::w}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00098}{Fill\+Vel()}}, \mbox{\hyperlink{physical__variables_8cpp_source_l00007}{Staggered\+Velocity()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00087}{U()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00067}{W()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00082}{W()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/backend/\mbox{\hyperlink{physical__variables_8hpp}{physical\+\_\+variables.\+hpp}}\item 
+cfd\+\_\+mx/src/backend/\mbox{\hyperlink{physical__variables_8cpp}{physical\+\_\+variables.\+cpp}}\end{DoxyCompactItemize}

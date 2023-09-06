@@ -1,0 +1,78 @@
+\doxysection{Transform.\+hpp}
+\hypertarget{_transform_8hpp_source}{}\label{_transform_8hpp_source}\index{cfd\_mx/inc/pressure/Transform.hpp@{cfd\_mx/inc/pressure/Transform.hpp}}
+\mbox{\hyperlink{_transform_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Pressure\_transform\_X\_result(t1,\ Mx,\ gridA);}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00004}\mbox{\hyperlink{_transform_8hpp_a7dd2472b5eff9459e72292a164d82039}{00004}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_transform_8hpp_a7dd2472b5eff9459e72292a164d82039}{Pressure\_transform\_X\_result\_Dir}}(}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00005}00005\ \ \ \ \ pressure\ \&t1,\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00006}00006\ \ \ \ \ \mbox{\hyperlink{class_pressure_mat}{PressureMat}}\ \&Mx\ ,}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00007}00007\ \ \ \ \ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\&\ Lo,}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00008}00008\ \ \ \ \ grid\ \&\ gA}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00009}00009\ )\{}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ omp\ parallel\ firstprivate(Lo)}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#pragma\ omp\ for}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}};\ ++j)}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}};\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}};\ ++k)}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ t1.p[gA.icel(i,j,k)]\ =\ Mx.\mbox{\hyperlink{class_pressure_mat_a3d46ae1ed272a14183267a7230dc20ef}{x\_result}}[gA.icelDir(i,j,k)];}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00023}\mbox{\hyperlink{_transform_8hpp_a9e00dd867aa694dea7ba588c187d4eed}{00023}}\ std::tuple<double\ ,\ double>\ \mbox{\hyperlink{_transform_8hpp_a9e00dd867aa694dea7ba588c187d4eed}{getMax}}(}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\ \&x,}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\&\ Lo,}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00026}00026\ \ \ \ \ grid\ \&\ gA}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00027}00027\ )\{}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{double}\ maxVal\ =\ -\/\ 1.0e10;}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{double}\ minVal\ =\ 1.0e10;}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00032}00032\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ omp\ parallel\ firstprivate(Lo)\ reduction(max\ :\ maxVal)\ reduction\ (min\ :\ minVal)}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00033}00033\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00034}00034\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#pragma\ omp\ for}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}};\ ++j)}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}};\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}};\ ++k)}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (maxVal\ <\ x[gA.icelCal(i,j,k)])\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ maxVal\ =\ \ x[gA.icelCal(i,j,k)];\}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (minVal\ >\ x[gA.icelCal(i,j,k)])\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ minVal\ =\ \ x[gA.icelCal(i,j,k)];\}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(maxVal,\ minVal);}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00054}00054\ \textcolor{preprocessor}{\#ifdef\ EIGEN\_ON}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00056}00056\ \textcolor{keywordtype}{void}\ Pressure\_transform\_x\_Eigen(}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00057}00057\ \ \ \ \ pressure\ \&t1,\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{class_pressure_mat}{PressureMat}}\ \&Mx\ ,}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\&\ Lo,}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00060}00060\ \ \ \ \ grid\ \&\ gridA}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00061}00061\ )\{}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00062}00062\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ [nx,\ ny\ ,\ nz]\ =\ gridA.nxyz;}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}};\ ++j)}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}};\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}};\ ++k)}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00067}00067\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ t1.p[gridA.icel(i,j,k)]\ =\ Mx.x\_Eigen[gridA.icelCal(i,j,k)];}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_transform_8hpp_source_l00072}00072\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

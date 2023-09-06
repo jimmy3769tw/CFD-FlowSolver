@@ -1,0 +1,42 @@
+\doxysection{test\+\_\+mpi.\+cpp}
+\hypertarget{validation_re100_cavity_2test__mpi_8cpp_source}{}\label{validation_re100_cavity_2test__mpi_8cpp_source}\index{tests/validationRe100Cavity/test\_mpi.cpp@{tests/validationRe100Cavity/test\_mpi.cpp}}
+\mbox{\hyperlink{validation_re100_cavity_2test__mpi_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <gtest/gtest.h>}}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{simulation_8hpp}{backend/simulation.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structured__grid_8hpp}{grid/structured\_grid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{uniform__structured__grid_8hpp}{grid/uniform\_structured\_grid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{read__qfile_8hpp}{io/plot3d/read\_qfile.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{run__cpu__mpi_8hpp}{run/run\_cpu\_mpi.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}../validation\_tool/l2norm\_validation.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00009}\mbox{\hyperlink{validation_re100_cavity_2test__mpi_8cpp_a08ff81a162ea7b89166201e6ae084563}{00009}}\ \mbox{\hyperlink{validation_re1000_cavity_2test__mpi_8cpp_a08ff81a162ea7b89166201e6ae084563}{TEST}}(re100,\ test1)\ \{}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00010}00010\ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\ simu;}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00011}00011\ \ \ \mbox{\hyperlink{class_uniform_structured_grid}{UniformStructuredGrid}}\ grid(40,\ 40,\ 40);}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00012}00012\ \ \ grid.\mbox{\hyperlink{class_structured_grid_af5c5e23afdbb860cdde6514f3a4a8018}{setLen}}(1,\ 1,\ 1).\mbox{\hyperlink{class_structured_grid_a7651877adb83186632553e1e47ae2fa2}{Init}}();}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00013}00013\ \ \ simu.\mbox{\hyperlink{class_simulation_a525da8e9bae1d64dfb07f1de474be047}{SetReynoldsNumber}}(100.0)}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00014}00014\ \ \ \ \ \ \ .\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_a30e93689cb329e0fc515266b639f1c7a}{SetDt}}(0.001)}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00015}00015\ \ \ \ \ \ \ .\mbox{\hyperlink{class_time_variance_authority_a78ee6630c0b3c7d5251d6cff62026983}{SetWritingDt}}(1)}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00016}00016\ \ \ \ \ \ \ .\mbox{\hyperlink{class_time_variance_authority_a0e6c2d297508505bf8e3e0fa0cba42e5}{SetTerminalTime}}(19);}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00017}00017\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00018}00018\ \ \ grid.\mbox{\hyperlink{class_structured_grid_a18eff7a16d28c0aded4a6ed364067ebb}{bc\_selector}}.\mbox{\hyperlink{class_boundary_condition_selector_a97044d84efdc30aa12fd8acc95f7d087}{CavityFlow}}();}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00019}00019\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00020}00020\ \ \ }
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00021}00021\ \ \ \mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp_mpi}{projection\_method::CpuOpenMpMpi}}\ \mbox{\hyperlink{namespaceprojection__method}{projection\_method}}(simu,\ grid);}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00022}00022\ \ \ \mbox{\hyperlink{namespaceprojection__method}{projection\_method}}.solve();}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00023}00023\ \ \ \textcolor{keyword}{auto}\ validation\ =\ get<5>(\mbox{\hyperlink{read__qfile_8hpp_a80d09382f3c6298d513f877f6dd61a52}{ReadQfile}}(grid,\ \textcolor{stringliteral}{"{}P3D19.q"{}}));}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00024}00024\ \ \ \textcolor{keyword}{auto}\ result\ =\ get<5>(\mbox{\hyperlink{read__qfile_8hpp_a80d09382f3c6298d513f877f6dd61a52}{ReadQfile}}(grid,\ \textcolor{stringliteral}{"{}mx\_out/P3D19.q"{}}));}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00026}00026\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ result.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{auto}\ l2norm\ =\ \mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(validation[i],\ result[i]);}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00028}00028\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}l2norm:\ "{}}\ <<\ l2norm\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00029}00029\ \ \ \ \ EXPECT\_TRUE(l2norm\ <\ 1.0e-\/6);}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00030}00030\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00033}\mbox{\hyperlink{validation_re100_cavity_2test__mpi_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{00033}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{validation_re1000_cavity_2test__mpi_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00034}00034\ \ \ testing::InitGoogleTest(\&argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00035}00035\ \ \ \textcolor{keywordflow}{return}\ RUN\_ALL\_TESTS();}
+\DoxyCodeLine{\Hypertarget{validation_re100_cavity_2test__mpi_8cpp_source_l00036}00036\ \}}
+
+\end{DoxyCode}

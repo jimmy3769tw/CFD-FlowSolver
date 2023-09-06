@@ -1,0 +1,52 @@
+\doxysection{linear\+\_\+solver.\+hpp}
+\hypertarget{linear__solver_8hpp_source}{}\label{linear__solver_8hpp_source}\index{cfd\_mx/inc/matrix/solver/linear\_solver.hpp@{cfd\_mx/inc/matrix/solver/linear\_solver.hpp}}
+\mbox{\hyperlink{linear__solver_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <numeric>}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{math_8hpp}{math.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00009}00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesolver}{solver}}\ \{}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00012}00012\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ matrixT>}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00013}\mbox{\hyperlink{classsolver_1_1_linear_solver}{00013}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsolver_1_1_linear_solver}{LinearSolver}}\ \{}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00014}00014\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00015}\mbox{\hyperlink{classsolver_1_1_linear_solver_aaf7a0ba705302fc8dc9c2795024fe008}{00015}}\ \ \ \mbox{\hyperlink{classsolver_1_1_linear_solver_aaf7a0ba705302fc8dc9c2795024fe008}{LinearSolver}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00017}\mbox{\hyperlink{classsolver_1_1_linear_solver_ae6b162c2e6a567fc0b72cfef9230c4b5}{00017}}\ \ \ \mbox{\hyperlink{classsolver_1_1_linear_solver_ae6b162c2e6a567fc0b72cfef9230c4b5}{LinearSolver}}(matrixT\&\ lhs\_mat)\ \{\ \mbox{\hyperlink{classsolver_1_1_linear_solver_a06cad797874373694b16809a61887b26}{construct}}(lhs\_mat);\ \}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00019}\mbox{\hyperlink{classsolver_1_1_linear_solver_a93d4eafccfb65d56255e7c000b9aaa81}{00019}}\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classsolver_1_1_linear_solver_a93d4eafccfb65d56255e7c000b9aaa81}{\string~LinearSolver}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00021}\mbox{\hyperlink{classsolver_1_1_linear_solver_a06cad797874373694b16809a61887b26}{00021}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsolver_1_1_linear_solver_a06cad797874373694b16809a61887b26}{construct}}(\textcolor{keyword}{const}\ matrixT\&\ lhs\_mat)\ \{\ \mbox{\hyperlink{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce}{lhs\_mat\_}}\ =\ lhs\_mat;\ \}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00023}\mbox{\hyperlink{classsolver_1_1_linear_solver_aa775a3b06c65eedc5618bf75be98c134}{00023}}\ \ \ \textcolor{keywordtype}{void}\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classsolver_1_1_linear_solver_aa775a3b06c65eedc5618bf75be98c134}{SetTolerance}}(\textcolor{keywordtype}{double}\ tolerance)\ \{\ \mbox{\hyperlink{classsolver_1_1_linear_solver_a42c60219796ef9676d5c71f11f39fcc5}{tolerance\_}}\ =\ tolerance;\ \}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00025}\mbox{\hyperlink{classsolver_1_1_linear_solver_af8b281cce1dc38306916519629b12c97}{00025}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsolver_1_1_linear_solver_af8b281cce1dc38306916519629b12c97}{SetMaxIters}}(\textcolor{keywordtype}{int}\ niters)\ \{\}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00027}00027\ \ \ \textcolor{comment}{//\ return\ iters,\ error}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00028}\mbox{\hyperlink{classsolver_1_1_linear_solver_afe2952917021d439028b569f2ce5398e}{00028}}\ \ \ std::tuple<int,\ double>\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classsolver_1_1_linear_solver_afe2952917021d439028b569f2ce5398e}{solve}}(\textcolor{keyword}{const}\ std::vector<double>\&\ rhs,}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\&\ x)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00031}\mbox{\hyperlink{classsolver_1_1_linear_solver_a801c5d38d430bb268385b0f8032adf18}{00031}}\ \ \ std::tuple<int,\ double>\ \mbox{\hyperlink{classsolver_1_1_linear_solver_a801c5d38d430bb268385b0f8032adf18}{operator()}}(\textcolor{keyword}{const}\ std::vector<double>\&\ rhs,}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\&\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classsolver_1_1_linear_solver_afe2952917021d439028b569f2ce5398e}{solve}}(rhs,\ x);}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00034}00034\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00036}00036\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00037}\mbox{\hyperlink{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce}{00037}}\ \ \ matrixT\ \mbox{\hyperlink{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce}{lhs\_mat\_}};}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00038}\mbox{\hyperlink{classsolver_1_1_linear_solver_a42c60219796ef9676d5c71f11f39fcc5}{00038}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classsolver_1_1_linear_solver_a42c60219796ef9676d5c71f11f39fcc5}{tolerance\_}}\{1e-\/5\};}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00039}\mbox{\hyperlink{classsolver_1_1_linear_solver_a653bc47bc35768ba93e2840762913f98}{00039}}\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classsolver_1_1_linear_solver_a653bc47bc35768ba93e2840762913f98}{iters\_max\_}}\{3000\};}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00040}\mbox{\hyperlink{classsolver_1_1_linear_solver_a551bf5c4443b636637c342a693937263}{00040}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classsolver_1_1_linear_solver_a551bf5c4443b636637c342a693937263}{InnerProduct}}(\textcolor{keyword}{const}\ std::vector<double>\&\ rhs,}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{math::InnerProduct}}(rhs,\ x);}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00043}00043\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00044}00044\ \};}
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{linear__solver_8hpp_source_l00046}00046\ \}\ \ \textcolor{comment}{//\ namespace\ solver}}
+
+\end{DoxyCode}

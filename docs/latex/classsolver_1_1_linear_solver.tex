@@ -1,0 +1,302 @@
+\doxysection{solver\+::Linear\+Solver\texorpdfstring{$<$}{<} matrixT \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classsolver_1_1_linear_solver}{}\label{classsolver_1_1_linear_solver}\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+
+
+{\ttfamily \#include $<$linear\+\_\+solver.\+hpp$>$}
+
+Inheritance diagram for solver\+::Linear\+Solver\texorpdfstring{$<$}{<} matrixT \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsolver_1_1_linear_solver}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsolver_1_1_linear_solver_aaf7a0ba705302fc8dc9c2795024fe008}{Linear\+Solver}} ()
+\item 
+\mbox{\hyperlink{classsolver_1_1_linear_solver_ae6b162c2e6a567fc0b72cfef9230c4b5}{Linear\+Solver}} (matrixT \&lhs\+\_\+mat)
+\item 
+virtual \mbox{\hyperlink{classsolver_1_1_linear_solver_a93d4eafccfb65d56255e7c000b9aaa81}{\texorpdfstring{$\sim$}{\string~}\+Linear\+Solver}} ()
+\item 
+void \mbox{\hyperlink{classsolver_1_1_linear_solver_a06cad797874373694b16809a61887b26}{construct}} (const matrixT \&lhs\+\_\+mat)
+\item 
+virtual void \mbox{\hyperlink{classsolver_1_1_linear_solver_aa775a3b06c65eedc5618bf75be98c134}{Set\+Tolerance}} (double tolerance)
+\item 
+void \mbox{\hyperlink{classsolver_1_1_linear_solver_af8b281cce1dc38306916519629b12c97}{Set\+Max\+Iters}} (int niters)
+\item 
+virtual std\+::tuple$<$ int, double $>$ \mbox{\hyperlink{classsolver_1_1_linear_solver_afe2952917021d439028b569f2ce5398e}{solve}} (const std\+::vector$<$ double $>$ \&rhs, std\+::vector$<$ double $>$ \&x)=0
+\item 
+std\+::tuple$<$ int, double $>$ \mbox{\hyperlink{classsolver_1_1_linear_solver_a801c5d38d430bb268385b0f8032adf18}{operator()}} (const std\+::vector$<$ double $>$ \&rhs, std\+::vector$<$ double $>$ \&x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classsolver_1_1_linear_solver_a551bf5c4443b636637c342a693937263}{Inner\+Product}} (const std\+::vector$<$ double $>$ \&rhs, const std\+::vector$<$ double $>$ \&x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+matrixT \mbox{\hyperlink{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce}{lhs\+\_\+mat\+\_\+}}
+\item 
+double \mbox{\hyperlink{classsolver_1_1_linear_solver_a42c60219796ef9676d5c71f11f39fcc5}{tolerance\+\_\+}} \{1e-\/5\}
+\item 
+int \mbox{\hyperlink{classsolver_1_1_linear_solver_a653bc47bc35768ba93e2840762913f98}{iters\+\_\+max\+\_\+}} \{3000\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename matrixT$>$\newline
+class solver\+::\+Linear\+Solver$<$ matrix\+T $>$}
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classsolver_1_1_linear_solver_aaf7a0ba705302fc8dc9c2795024fe008}\label{classsolver_1_1_linear_solver_aaf7a0ba705302fc8dc9c2795024fe008} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!LinearSolver@{LinearSolver}}
+\index{LinearSolver@{LinearSolver}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{LinearSolver()}{LinearSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+\mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::\+Linear\+Solver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{classsolver_1_1_linear_solver_ae6b162c2e6a567fc0b72cfef9230c4b5}\label{classsolver_1_1_linear_solver_ae6b162c2e6a567fc0b72cfef9230c4b5} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!LinearSolver@{LinearSolver}}
+\index{LinearSolver@{LinearSolver}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{LinearSolver()}{LinearSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+\mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::\+Linear\+Solver (\begin{DoxyParamCaption}\item[{matrixT \&}]{lhs\+\_\+mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \{\ \mbox{\hyperlink{classsolver_1_1_linear_solver_a06cad797874373694b16809a61887b26}{construct}}(lhs\_mat);\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{linear__solver_8hpp_source_l00021}{solver\+::\+Linear\+Solver$<$ matrix\+T $>$\+::construct()}}.
+
+\Hypertarget{classsolver_1_1_linear_solver_a93d4eafccfb65d56255e7c000b9aaa81}\label{classsolver_1_1_linear_solver_a93d4eafccfb65d56255e7c000b9aaa81} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!````~LinearSolver@{\texorpdfstring{$\sim$}{\string~}LinearSolver}}
+\index{````~LinearSolver@{\texorpdfstring{$\sim$}{\string~}LinearSolver}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LinearSolver()}{\string~LinearSolver()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+virtual \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classsolver_1_1_linear_solver}{Linear\+Solver}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsolver_1_1_linear_solver_a06cad797874373694b16809a61887b26}\label{classsolver_1_1_linear_solver_a06cad797874373694b16809a61887b26} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!construct@{construct}}
+\index{construct@{construct}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+void \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::construct (\begin{DoxyParamCaption}\item[{const matrixT \&}]{lhs\+\_\+mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \{\ \mbox{\hyperlink{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce}{lhs\_mat\_}}\ =\ lhs\_mat;\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{linear__solver_8hpp_source_l00037}{solver\+::\+Linear\+Solver$<$ matrix\+T $>$\+::lhs\+\_\+mat\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{linear__solver_8hpp_source_l00017}{solver\+::\+Linear\+Solver$<$ matrix\+T $>$\+::\+Linear\+Solver()}}.
+
+\Hypertarget{classsolver_1_1_linear_solver_a551bf5c4443b636637c342a693937263}\label{classsolver_1_1_linear_solver_a551bf5c4443b636637c342a693937263} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!InnerProduct@{InnerProduct}}
+\index{InnerProduct@{InnerProduct}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{InnerProduct()}{InnerProduct()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+double \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::\+Inner\+Product (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{rhs,  }\item[{const std\+::vector$<$ double $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{math::InnerProduct}}(rhs,\ x);}
+\DoxyCodeLine{00043\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{math_8hpp_source_l00036}{math\+::\+Inner\+Product()}}.
+
+\Hypertarget{classsolver_1_1_linear_solver_a801c5d38d430bb268385b0f8032adf18}\label{classsolver_1_1_linear_solver_a801c5d38d430bb268385b0f8032adf18} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+std\+::tuple$<$ int, double $>$ \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::operator() (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{rhs,  }\item[{std\+::vector$<$ double $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classsolver_1_1_linear_solver_afe2952917021d439028b569f2ce5398e}{solve}}(rhs,\ x);}
+\DoxyCodeLine{00034\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classsolver_1_1_linear_solver_afe2952917021d439028b569f2ce5398e}{solver\+::\+Linear\+Solver$<$ matrix\+T $>$\+::solve()}}.
+
+\Hypertarget{classsolver_1_1_linear_solver_af8b281cce1dc38306916519629b12c97}\label{classsolver_1_1_linear_solver_af8b281cce1dc38306916519629b12c97} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!SetMaxIters@{SetMaxIters}}
+\index{SetMaxIters@{SetMaxIters}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{SetMaxIters()}{SetMaxIters()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+void \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::\+Set\+Max\+Iters (\begin{DoxyParamCaption}\item[{int}]{niters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{classsolver_1_1_linear_solver_aa775a3b06c65eedc5618bf75be98c134}\label{classsolver_1_1_linear_solver_aa775a3b06c65eedc5618bf75be98c134} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!SetTolerance@{SetTolerance}}
+\index{SetTolerance@{SetTolerance}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{SetTolerance()}{SetTolerance()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+virtual void \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::\+Set\+Tolerance (\begin{DoxyParamCaption}\item[{double}]{tolerance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_aaf7d57ea70b27435f8b62d7e0103d5dc}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$}}, and \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_aaf7d57ea70b27435f8b62d7e0103d5dc}{solver\+::\+Bicgstab\+Restart$<$ Mat\+Type $>$}}.
+
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \{\ \mbox{\hyperlink{classsolver_1_1_linear_solver_a42c60219796ef9676d5c71f11f39fcc5}{tolerance\_}}\ =\ tolerance;\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{linear__solver_8hpp_source_l00038}{solver\+::\+Linear\+Solver$<$ matrix\+T $>$\+::tolerance\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00043}{TEST()}}, and \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00087}{TEST()}}.
+
+\Hypertarget{classsolver_1_1_linear_solver_afe2952917021d439028b569f2ce5398e}\label{classsolver_1_1_linear_solver_afe2952917021d439028b569f2ce5398e} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!solve@{solve}}
+\index{solve@{solve}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+virtual std\+::tuple$<$ int, double $>$ \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::solve (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{rhs,  }\item[{std\+::vector$<$ double $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classsolver_1_1_bicgstab_aedc3f56775bc40aa5f035addd2058c16}{solver\+::\+Bicgstab$<$ Mat\+Type $>$}}, \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_aa8ee9841c6e639303e9576cffef1d92e}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$}}, and \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_aa8ee9841c6e639303e9576cffef1d92e}{solver\+::\+Bicgstab\+Restart$<$ Mat\+Type $>$}}.
+
+
+
+Referenced by \mbox{\hyperlink{linear__solver_8hpp_source_l00031}{solver\+::\+Linear\+Solver$<$ matrix\+T $>$\+::operator()()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classsolver_1_1_linear_solver_a653bc47bc35768ba93e2840762913f98}\label{classsolver_1_1_linear_solver_a653bc47bc35768ba93e2840762913f98} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!iters\_max\_@{iters\_max\_}}
+\index{iters\_max\_@{iters\_max\_}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{iters\_max\_}{iters\_max\_}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+int \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::iters\+\_\+max\+\_\+ \{3000\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{3000\};}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{bicgstab__restart_8hpp_source_l00036}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$\+::solve()}}.
+
+\Hypertarget{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce}\label{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!lhs\_mat\_@{lhs\_mat\_}}
+\index{lhs\_mat\_@{lhs\_mat\_}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{lhs\_mat\_}{lhs\_mat\_}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+matrixT \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::lhs\+\_\+mat\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{linear__solver_8hpp_source_l00021}{solver\+::\+Linear\+Solver$<$ matrix\+T $>$\+::construct()}}, \mbox{\hyperlink{bicgstab__restart_8hpp_source_l00019}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$\+::init()}}, and \mbox{\hyperlink{bicgstab__restart_8hpp_source_l00036}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$\+::solve()}}.
+
+\Hypertarget{classsolver_1_1_linear_solver_a42c60219796ef9676d5c71f11f39fcc5}\label{classsolver_1_1_linear_solver_a42c60219796ef9676d5c71f11f39fcc5} 
+\index{solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}!tolerance\_@{tolerance\_}}
+\index{tolerance\_@{tolerance\_}!solver::LinearSolver$<$ matrixT $>$@{solver::LinearSolver$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{tolerance\_}{tolerance\_}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+double \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver}}$<$ matrixT $>$\+::tolerance\+\_\+ \{1e-\/5\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{linear__solver_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{linear__solver_8hpp_source}{linear\+\_\+solver.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \{1e-\/5\};}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{linear__solver_8hpp_source_l00023}{solver\+::\+Linear\+Solver$<$ matrix\+T $>$\+::\+Set\+Tolerance()}}, \mbox{\hyperlink{bicgstab__restart_8hpp_source_l00031}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$\+::\+Set\+Tolerance()}}, and \mbox{\hyperlink{bicgstab__restart_8hpp_source_l00036}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$\+::solve()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/matrix/solver/\mbox{\hyperlink{linear__solver_8hpp}{linear\+\_\+solver.\+hpp}}\end{DoxyCompactItemize}

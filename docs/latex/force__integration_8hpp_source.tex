@@ -1,0 +1,127 @@
+\doxysection{force\+\_\+integration.\+hpp}
+\hypertarget{force__integration_8hpp_source}{}\label{force__integration_8hpp_source}\index{cfd\_mx/inc/dfib/force\_integration.hpp@{cfd\_mx/inc/dfib/force\_integration.hpp}}
+\mbox{\hyperlink{force__integration_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00005}\mbox{\hyperlink{force__integration_8hpp_a566129820fa75cd875d948c71b58485f}{00005}}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{force__integration_8hpp_a566129820fa75cd875d948c71b58485f}{virtualF\_Int}}(\mbox{\hyperlink{class_immersed_boundary}{ImmersedBoundary}}\&\ Dfib,\ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\&\ Lo,\ grid\&\ gA,}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00006}00006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ whichDirection)\ \{}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00007}00007\ \ \ \textcolor{keywordflow}{if}\ (Dfib.\mbox{\hyperlink{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5}{ValSum}}.size()\ <\ 3)\ Dfib.\mbox{\hyperlink{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5}{ValSum}}.resize(3);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00009}00009\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ptr\ =\ gA.iceltotCal\ *\ whichDirection;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00010}00010\ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ firstprivate(Lo,\ ptr)\ reduction(+\ :\ sum)}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00013}00013\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}};\ ++j)}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00015}00015\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}};\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}};\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00016}00016\ \ \ \ \ \ \ \ \ sum\ +=\ Dfib.\mbox{\hyperlink{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb}{f}}[ptr\ +\ gA.icelCal(i,\ j,\ k)]\ *}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (gA.Dx[i]\ *\ gA.Dy[j]\ *\ gA.Dz[k]);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00018}00018\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00020}00020\ \ \ Dfib.\mbox{\hyperlink{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5}{ValSum}}[whichDirection]\ =\ sum;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00022}00022\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00025}\mbox{\hyperlink{force__integration_8hpp_a53fca5e88a388eaad22edb4a964fcbd0}{00025}}\ std::pair<double,\ double>\ \mbox{\hyperlink{force__integration_8hpp_a53fca5e88a388eaad22edb4a964fcbd0}{noDelay\_IO\_CD\_CL}}(\mbox{\hyperlink{class_simulation}{Simulation}}\&\ simu,}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\&\ Lo,}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_immersed_boundary}{ImmersedBoundary}}\&\ Dfib,}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ grid\&\ gA)\ \{}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00029}00029\ \ \ \mbox{\hyperlink{force__integration_8hpp_a566129820fa75cd875d948c71b58485f}{virtualF\_Int}}(Dfib,\ Lo,\ gA,\ 0);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00030}00030\ \ \ \mbox{\hyperlink{force__integration_8hpp_a566129820fa75cd875d948c71b58485f}{virtualF\_Int}}(Dfib,\ Lo,\ gA,\ 1);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00032}00032\ \ \ \textcolor{keyword}{auto}\ area\_cD\ =\ gA.lz;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00033}00033\ \ \ \textcolor{keyword}{auto}\ area\_cL\ =\ gA.lz;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00035}00035\ \ \ \textcolor{keyword}{auto}\ cD\ =\ -\/2.0\ *\ Dfib.\mbox{\hyperlink{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5}{ValSum}}[0]\ /\ area\_cD;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00036}00036\ \ \ \textcolor{keyword}{auto}\ cL\ =\ -\/2.0\ *\ Dfib.\mbox{\hyperlink{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5}{ValSum}}[1]\ /\ area\_cL;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00038}00038\ \ \ \textcolor{keywordflow}{if}\ (simu.PID\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00039}00039\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[cD,\ cL]\ :\ "{}}\ <<\ cD\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cL\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00041}00041\ \ \ \ \ std::ofstream\ file;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00043}00043\ \ \ \ \ std::string\ name\ =\ \textcolor{stringliteral}{"{}Information/Time\_cDcL"{}};}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00045}00045\ \ \ \ \ name\ +=\ \textcolor{stringliteral}{"{}.dat"{}};}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00047}00047\ \ \ \ \ file.open(name,\ std::ios::out\ |\ std::ios::app);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00049}00049\ \ \ \ \ std::string\ tab\ =\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (simu.loop\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00052}00052\ \ \ \ \ \ \ std::vector<std::string>\ variables;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00053}00053\ \ \ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}simulation\ time"{}});}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00054}00054\ \ \ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}C<sub>D</sub>"{}});}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00055}00055\ \ \ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}C<sub>L</sub>"{}});}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00057}00057\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}TITLE\ \ \ \ \ =\ \(\backslash\)"{}\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}VARIABLES\ =\ \(\backslash\)"{}"{}}\ <<\ variables.at(0)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}"{}}\ <<\ variables.at(1)}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}"{}}\ <<\ variables.at(2)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}ZONE\ T=\(\backslash\)"{}"{}}\ <<\ simu.ZONE()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00063}00063\ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}\ <<\ simu.getSimuTime()\ <<\ tab\ <<\ cD\ <<\ tab\ <<\ cL;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00065}00065\ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00066}00066\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00068}00068\ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(cD,\ cL);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00071}\mbox{\hyperlink{force__integration_8hpp_acf26cd405dbe082f7a624d01907db4b1}{00071}}\ std::pair<double,\ double>\ \mbox{\hyperlink{force__integration_8hpp_acf26cd405dbe082f7a624d01907db4b1}{Delay\_IO\_CD\_CL}}(\mbox{\hyperlink{class_simulation}{Simulation}}\&\ simu,\ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\&\ Lo,}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_immersed_boundary}{ImmersedBoundary}}\&\ Dfib,}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ grid\&\ gA)\ \{}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00074}00074\ \ \ std::string\ name\ =\ \textcolor{stringliteral}{"{}Information/Time\_cDcL"{}};}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00075}00075\ \ \ name\ +=\ \textcolor{stringliteral}{"{}.dat"{}};}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00077}00077\ \ \ \mbox{\hyperlink{force__integration_8hpp_a566129820fa75cd875d948c71b58485f}{virtualF\_Int}}(Dfib,\ Lo,\ gA,\ 0);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00078}00078\ \ \ \mbox{\hyperlink{force__integration_8hpp_a566129820fa75cd875d948c71b58485f}{virtualF\_Int}}(Dfib,\ Lo,\ gA,\ 1);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00080}00080\ \ \ \textcolor{keyword}{auto}\ area\_cD\ =\ gA.lz;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00081}00081\ \ \ \textcolor{keyword}{auto}\ area\_cL\ =\ gA.lz;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00083}00083\ \ \ \textcolor{keyword}{auto}\ dragCoefficient\ =\ -\/2.0\ *\ Dfib.\mbox{\hyperlink{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5}{ValSum}}[0]\ /\ area\_cD;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00084}00084\ \ \ \textcolor{keyword}{auto}\ liftCoefficient\ =\ -\/2.0\ *\ Dfib.\mbox{\hyperlink{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5}{ValSum}}[1]\ /\ area\_cL;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00086}00086\ \ \ simu.dragCoefficient[simu.loop\ \%\ simu.delayIO]\ =\ dragCoefficient;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00087}00087\ \ \ simu.liftCoefficient[simu.loop\ \%\ simu.delayIO]\ =\ liftCoefficient;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00089}00089\ \ \ \textcolor{keywordtype}{bool}\ IOfale\ =\ simu.loop\ \%\ simu.delayIO;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00091}00091\ \ \ \textcolor{keywordflow}{if}\ (simu.PID\ !=\ 0)\ \textcolor{keywordflow}{return}\ make\_pair(dragCoefficient,\ liftCoefficient);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00093}00093\ \ \ \textcolor{keywordflow}{if}\ (simu.loop\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00094}00094\ \ \ \ \ std::ofstream\ file;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00095}00095\ \ \ \ \ file.open(name,\ std::ios::out\ |\ ios::app);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00096}00096\ \ \ \ \ std::vector<std::string>\ variables;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00097}00097\ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}simulation\ time"{}});}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00098}00098\ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}C<sub>D</sub>"{}});}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00099}00099\ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}C<sub>L</sub>"{}});}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00101}00101\ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}TITLE\ \ \ \ \ =\ \(\backslash\)"{}\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}VARIABLES\ =\ \(\backslash\)"{}"{}}\ <<\ variables.at(0)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}"{}}\ <<\ variables.at(1)}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}"{}}\ <<\ variables.at(2)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}ZONE\ T=\(\backslash\)"{}"{}}\ <<\ simu.ZONE()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00105}00105\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00107}00107\ \ \ \textcolor{keywordflow}{if}\ (!(IOfale))\ \{}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00108}00108\ \ \ \ \ std::ofstream\ file;}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00109}00109\ \ \ \ \ file.open(name,\ std::ios::out\ |\ std::ios::app);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00110}00110\ \ \ \ \ std::string\ tab\ =\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ simu.delayIO\ +\ 1;\ ++i)}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00112}00112\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ <<\ simu.getSimuTime()\ <<\ tab}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ <<\ simu.dragCoefficient[simu.loop\ \%\ simu.delayIO]\ <<\ tab}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ <<\ simu.liftCoefficient[simu.loop\ \%\ simu.delayIO];}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00117}00117\ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00118}00118\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00120}00120\ \ \ \textcolor{keywordflow}{return}\ make\_pair(dragCoefficient,\ liftCoefficient);}
+\DoxyCodeLine{\Hypertarget{force__integration_8hpp_source_l00121}00121\ \}}
+
+\end{DoxyCode}

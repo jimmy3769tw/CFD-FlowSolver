@@ -1,0 +1,43 @@
+\doxysection{io\+\_\+2d\+\_\+plot3d.\+hpp}
+\hypertarget{io__2d__plot3d_8hpp_source}{}\label{io__2d__plot3d_8hpp_source}\index{tests/matrix/io\_2d\_plot3d.hpp@{tests/matrix/io\_2d\_plot3d.hpp}}
+\mbox{\hyperlink{io__2d__plot3d_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \#include\ <fstream>\ \ //\ file\ output}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00006}00006\ \textcolor{comment}{//\ void\ file(std::string\ fileN,\ std::vector<double>\ \&result,\ int\ nx,\ int\ ny)\ \{}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00007}00007\ \textcolor{comment}{//\ \ \ auto\ dx\ =\ 1/nx;}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00008}00008\ \textcolor{comment}{//\ \ \ auto\ dy\ =\ 1/ny;}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00010}00010\ \textcolor{comment}{//\ \ \ std::vector<double>\ X(nx\ +\ 1,\ 0),\ Y(ny\ +\ 1,\ 0);}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00012}00012\ \textcolor{comment}{//\ \ \ for\ (int\ i\ =\ 1;\ i\ <\ nx\ +\ 1;\ ++i)\ X[i]\ =\ X[i\ -\/\ 1]\ +\ dx;}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00014}00014\ \textcolor{comment}{//\ \ \ for\ (int\ i\ =\ 1;\ i\ <\ ny\ +\ 1;\ ++i)\ Y[i]\ =\ Y[i\ -\/\ 1]\ +\ dy;}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ std::ofstream\ fileQ;}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00018}00018\ \textcolor{comment}{//\ \ \ fileQ.precision(std::numeric\_limits<double>::digits10\ +\ 2);}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00020}00020\ \textcolor{comment}{//\ \ \ fileQ.open(fileN);}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00022}00022\ \textcolor{comment}{//\ \ \ fileQ\ <<\ "{}TITLE=\ \(\backslash\)"{}2D\ Navier-\/Stokes\ Solution\(\backslash\)"{}"{}}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00023}00023\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ <<\ "{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00024}00024\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ <<\ "{}VARIABLES=\ x,\ y,\ z,\ T"{}}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00025}00025\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ <<\ "{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00026}00026\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ <<\ "{}ZONE\ T=\ \(\backslash\)"{}Single\ Zone\(\backslash\)"{}"{}}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00027}00027\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ <<\ "{},\ I="{}\ <<\ std::to\_string(nx)\ <<\ "{},\ J="{}\ <<\ std::to\_string(ny)\ <<\ "{},\ K=1"{}}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00028}00028\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ <<\ "{},\ F=POINT"{}}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00029}00029\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ <<\ "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00031}00031\ \textcolor{comment}{//\ \ \ for\ (int\ j\ =\ 0;\ j\ <\ ny;\ ++j)\ \{}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00032}00032\ \textcolor{comment}{//\ \ \ \ \ for\ (int\ i\ =\ 0;\ i\ <\ nx;\ ++i)\ \{}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00033}00033\ \textcolor{comment}{//\ \ \ \ \ \ \ fileQ\ <<\ X.at(i)\ <<\ "{}\(\backslash\)t"{}\ <<\ Y.at(j)\ <<\ "{}\(\backslash\)t"{}\ <<\ 0.0\ <<\ "{}\(\backslash\)t"{}}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00034}00034\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ result.at(i\ *\ ny\ +\ j)\ <<\ "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00035}00035\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00036}00036\ \textcolor{comment}{//\ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{io__2d__plot3d_8hpp_source_l00037}00037\ \textcolor{comment}{//\ \}}}
+
+\end{DoxyCode}

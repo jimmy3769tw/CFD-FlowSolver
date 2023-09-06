@@ -1,0 +1,79 @@
+\doxysection{central\+\_\+profile.\+hpp}
+\hypertarget{central__profile_8hpp_source}{}\label{central__profile_8hpp_source}\index{cfd\_mx/inc/analyses/central\_profile.hpp@{cfd\_mx/inc/analyses/central\_profile.hpp}}
+\mbox{\hyperlink{central__profile_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physical__variables_8hpp}{backend/physical\_variables.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00007}\mbox{\hyperlink{central__profile_8hpp_ae97909c635128ebbff18d2e1bebcd73a}{00007}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{central__profile_8hpp_ae97909c635128ebbff18d2e1bebcd73a}{getCentProfile}}(}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\&\ simu,}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{class_staggered_velocity}{StaggeredVelocity}}\&\ vel,}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\&\ Lo,}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\&\ grid}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00012}00012\ )}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ io\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00015}00015\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00016}00016\ \ \ \ \ std::vector<double>\ y\_plot(grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}});}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00017}00017\ \ \ \ \ std::vector<double>\ x\_plot(grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}});}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00019}00019\ \ \ \ \ std::vector<double>\ y\_plot\_pos(grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}});}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00020}00020\ \ \ \ \ std::vector<double>\ x\_plot\_pos(grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}});}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ k1\ =\ (grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}})/2\ \ +\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ k2\ =\ (grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}})/2\ -\/\ 1\ +\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ j2\ =\ (grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}})/2\ -\/\ 1\ +\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ i2\ =\ (grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}})/2\ -\/\ 1\ +\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ y\ plot}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ \ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ \ j\ <\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}}+\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ y\_plot[j-\/grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}]\ =\ (\ vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i2,\ j,\ k1)\ +\ vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i2,\ j,\ k2))\ /\ 2.0;}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ y\_plot\_pos[j-\/grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}]\ =\ grid.\mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}.at(j);}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ \ i\ <\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}}+\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ x\_plot[i-\/grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}]\ =\ (vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i,\ j2,\ k1)\ +\ vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i,\ j2,\ k2))\ /\ 2.0;}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ x\_plot\_pos[i-\/grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}]\ =\ grid.\mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}.at(i);}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00042}00042\ \ \ \ \ std::fstream\ file;}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00043}00043\ \ \ \ \ std::string\ filename\ =\ \textcolor{stringliteral}{"{}Information/"{}};\ \textcolor{comment}{//\ Information/Uprofile/}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ filename\ +=\ std::to\_string(io);}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00045}00045\ \ \ \ \ filename\ +=\ \textcolor{stringliteral}{"{}x\_plot\_"{}};}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00046}00046\ \ \ \ \ filename\ +=\ \textcolor{stringliteral}{"{}re\_"{}};}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00047}00047\ \ \ \ \ filename\ +=\ std::to\_string(\textcolor{keywordtype}{int}(simu.\mbox{\hyperlink{class_simulation_a2baf0eae5a9ba6683c7d4b158d216bdd}{GetReynoldsNumber}}()));}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00048}00048\ \ \ \ \ filename\ +=\ \textcolor{stringliteral}{"{}.dat"{}};}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00049}00049\ \ \ \ \ file.open(filename,std::ios::out);}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00050}00050\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0\ ;\ i\ <\ x\_plot.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ file\ <<\ x\_plot\_pos.at(i)\ \ <<\ \textcolor{charliteral}{'\(\backslash\)t'}<<\ x\_plot[i]\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00055}00055\ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00057}00057\ \ \ \ \ std::fstream\ file2;}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00058}00058\ \ \ \ \ std::string\ filename2\ =\ \textcolor{stringliteral}{"{}Information/"{}};}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//\ filename2\ +=\ std::to\_string(io);}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00061}00061\ \ \ \ \ filename2\ +=\ \textcolor{stringliteral}{"{}y\_plot\_"{}};}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00062}00062\ \ \ \ \ filename2\ +=\ \textcolor{stringliteral}{"{}re\_"{}};}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00063}00063\ \ \ \ \ filename2\ +=\ std::to\_string(\textcolor{keywordtype}{int}(simu.\mbox{\hyperlink{class_simulation_a2baf0eae5a9ba6683c7d4b158d216bdd}{GetReynoldsNumber}}()));}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00064}00064\ \ \ \ \ filename2\ +=\ \textcolor{stringliteral}{"{}.dat"{}};}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00065}00065\ \ \ \ \ file2.open(filename2,std::ios::out);}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00066}00066\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0\ ;\ j\ <\ y\_plot.size();\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ file2\ <<\ y\_plot\_pos.at(j)\ <<\ \textcolor{charliteral}{'\(\backslash\)t'}\ <<\ y\_plot[j]\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00071}00071\ \ \ \ \ file2.close();}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00072}00072\ \ \ \ \ io++;}
+\DoxyCodeLine{\Hypertarget{central__profile_8hpp_source_l00073}00073\ \}}
+
+\end{DoxyCode}

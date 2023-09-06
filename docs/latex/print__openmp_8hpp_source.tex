@@ -1,0 +1,18 @@
+\doxysection{print\+\_\+openmp.\+hpp}
+\hypertarget{print__openmp_8hpp_source}{}\label{print__openmp_8hpp_source}\index{cfd\_mx/inc/backend/print\_openmp.hpp@{cfd\_mx/inc/backend/print\_openmp.hpp}}
+\mbox{\hyperlink{print__openmp_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <unistd.h>}\ \ \textcolor{comment}{//\ for\ print\ pid}}
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00004}\mbox{\hyperlink{print__openmp_8hpp_aa709c56e270fdd66da7b460d3d5458d7}{00004}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{print__openmp_8hpp_aa709c56e270fdd66da7b460d3d5458d7}{PrintIsOpenmpExist}}()\ \{}
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00005}00005\ \ \ printf(\textcolor{stringliteral}{"{}pid:\ \%d\(\backslash\)n"{}},\ getpid());}
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00007}00007\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}OpenMP:\ "{}}\ <<\ \_OPENMP\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00009}00009\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Your\ compiler\ does\ not\ support\ OpenMP."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00011}00011\ \ \ printf(\textcolor{stringliteral}{"{}pid:\ \%d\(\backslash\)n"{}},\ getpid());}
+\DoxyCodeLine{\Hypertarget{print__openmp_8hpp_source_l00012}00012\ \}}
+
+\end{DoxyCode}

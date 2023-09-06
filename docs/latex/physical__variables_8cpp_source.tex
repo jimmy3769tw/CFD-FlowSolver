@@ -1,0 +1,28 @@
+\doxysection{physical\+\_\+variables.\+cpp}
+\hypertarget{physical__variables_8cpp_source}{}\label{physical__variables_8cpp_source}\index{cfd\_mx/src/backend/physical\_variables.cpp@{cfd\_mx/src/backend/physical\_variables.cpp}}
+\mbox{\hyperlink{physical__variables_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physical__variables_8hpp}{backend/physical\_variables.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00003}\mbox{\hyperlink{class_pressure_ae4803401f36400e0790de0f546910b6c}{00003}}\ \mbox{\hyperlink{class_pressure_ae4803401f36400e0790de0f546910b6c}{Pressure::Pressure}}(\mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\&\ grid)\ :\ \mbox{\hyperlink{class_physical_val}{PhysicalVal}}(grid)\{}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00004}00004\ \ \ \ \ \mbox{\hyperlink{class_pressure_aed42bb81b78185a0323339242169d7f6}{p}}.resize(grid.\mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\_grid}});}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00005}00005\ \}}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00007}\mbox{\hyperlink{class_staggered_velocity_a0f506181775c511ab0bbef7ab30d164b}{00007}}\ \mbox{\hyperlink{class_staggered_velocity_a0f506181775c511ab0bbef7ab30d164b}{StaggeredVelocity::StaggeredVelocity}}(\mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\ \&grid)\ :}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{class_physical_val}{PhysicalVal}}(grid)\ \{}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{class_staggered_velocity_afb5848ce19415f798e8d57b85f8d7d57}{u}}.resize(grid.\mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\_grid}});}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{class_staggered_velocity_acc058b10021080e0d80c459251be2c7f}{v}}.resize(grid.\mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\_grid}});}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{class_staggered_velocity_abf894ea9fea0fbe62aea732c3cb94174}{w}}.resize(grid.\mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\_grid}});}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00012}00012\ \ \ \ \ vis\_eff\_.resize(grid.\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}});}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00013}00013\ \}}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00015}\mbox{\hyperlink{class_immersed_boundary_ac60f5e5736d999fda26eb9da73294edf}{00015}}\ \mbox{\hyperlink{class_immersed_boundary_ac60f5e5736d999fda26eb9da73294edf}{ImmersedBoundary::ImmersedBoundary}}(\mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\&\ grid):}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{class_physical_val}{PhysicalVal}}(grid)\ \{}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{class_immersed_boundary_a6e64d44d2ae6364fdc6c131fea6c15ab}{eta}}.resize(\mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\_}}-\/>\mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\_grid}});}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb}{f}}.resize(\mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\_}}-\/>\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}}\ *\ 3);}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00019}00019\ \ \ \ \ yShift\_\ =\ \mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\_}}-\/>\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}};}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00020}00020\ \ \ \ \ zShift\_\ =\ 2\ *\ \mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\_}}-\/>\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}};}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{physical__variables_8cpp_source_l00022}00022\ }
+
+\end{DoxyCode}

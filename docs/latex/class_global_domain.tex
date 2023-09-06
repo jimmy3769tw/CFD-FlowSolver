@@ -1,0 +1,200 @@
+\doxysection{Global\+Domain Class Reference}
+\hypertarget{class_global_domain}{}\label{class_global_domain}\index{GlobalDomain@{GlobalDomain}}
+
+
+{\ttfamily \#include $<$domain.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_global_domain_a6955d3ccc65d1cef02c6b53aa0dd05c4}{Global\+Domain}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\item 
+void \mbox{\hyperlink{class_global_domain_a74d6591484e914f2ef89fa7ef185a553}{resize}} (int size)
+\item 
+void \mbox{\hyperlink{class_global_domain_a97a7329467299a8e0a014887f156e7cc}{Divide\+Len}} (int dims, int n)
+\item 
+void \mbox{\hyperlink{class_global_domain_aa8e860fc7ebe37b743bfae013ec23628}{Divide\+Domain}} (int dims, int n)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_global_domain_a957897b05a8981b4768f7b864e532122}{end}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{len}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00009}{9}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_global_domain_a6955d3ccc65d1cef02c6b53aa0dd05c4}\label{class_global_domain_a6955d3ccc65d1cef02c6b53aa0dd05c4} 
+\index{GlobalDomain@{GlobalDomain}!GlobalDomain@{GlobalDomain}}
+\index{GlobalDomain@{GlobalDomain}!GlobalDomain@{GlobalDomain}}
+\doxysubsubsection{\texorpdfstring{GlobalDomain()}{GlobalDomain()}}
+{\footnotesize\ttfamily Global\+Domain\+::\+Global\+Domain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ :\ grid\_(\&grid)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_global_domain_aa8e860fc7ebe37b743bfae013ec23628}\label{class_global_domain_aa8e860fc7ebe37b743bfae013ec23628} 
+\index{GlobalDomain@{GlobalDomain}!DivideDomain@{DivideDomain}}
+\index{DivideDomain@{DivideDomain}!GlobalDomain@{GlobalDomain}}
+\doxysubsubsection{\texorpdfstring{DivideDomain()}{DivideDomain()}}
+{\footnotesize\ttfamily void Global\+Domain\+::\+Divide\+Domain (\begin{DoxyParamCaption}\item[{int}]{dims,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{domain_8cpp_source}{domain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00005\ \ \ \ \textcolor{keywordflow}{if}\ (dims\ ==\ 0)\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}DivideDomain\ !!!!\(\backslash\)n"{}});}
+\DoxyCodeLine{00007\ \ \ \ \}}
+\DoxyCodeLine{00008\ \ \ \ \mbox{\hyperlink{class_global_domain_a74d6591484e914f2ef89fa7ef185a553}{resize}}(dims);}
+\DoxyCodeLine{00009\ \ \ \ \mbox{\hyperlink{class_global_domain_a97a7329467299a8e0a014887f156e7cc}{DivideLen}}(dims,\ n);}
+\DoxyCodeLine{00010\ \ \ \ \mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}}[0]\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{00011\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ dims;\ i++)\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}}[i]\ =\ \mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}}[i\ -\/\ 1]\ +\ \mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{len}}[i\ -\/\ 1];}
+\DoxyCodeLine{00013\ \ \ \ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ dims;\ i++)\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \mbox{\hyperlink{class_global_domain_a957897b05a8981b4768f7b864e532122}{end}}[i]\ =\ \mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}}[i]\ +\ \mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{len}}[i];}
+\DoxyCodeLine{00017\ \ \ \ \}}
+\DoxyCodeLine{00018\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{domain_8hpp_source_l00023}{Divide\+Len()}}, \mbox{\hyperlink{domain_8hpp_source_l00014}{end}}, \mbox{\hyperlink{domain_8hpp_source_l00015}{len}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{Structured\+Grid\+::no\+\_\+ghost\+\_\+cell}}, \mbox{\hyperlink{domain_8hpp_source_l00017}{resize()}}, and \mbox{\hyperlink{domain_8hpp_source_l00013}{start}}.
+
+
+
+Referenced by \mbox{\hyperlink{domain_8cpp_source_l00021}{Local\+Domain\+::\+Init()}}.
+
+\Hypertarget{class_global_domain_a97a7329467299a8e0a014887f156e7cc}\label{class_global_domain_a97a7329467299a8e0a014887f156e7cc} 
+\index{GlobalDomain@{GlobalDomain}!DivideLen@{DivideLen}}
+\index{DivideLen@{DivideLen}!GlobalDomain@{GlobalDomain}}
+\doxysubsubsection{\texorpdfstring{DivideLen()}{DivideLen()}}
+{\footnotesize\ttfamily void Global\+Domain\+::\+Divide\+Len (\begin{DoxyParamCaption}\item[{int}]{dims,  }\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ dims;\ ++i)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{len}}[i]\ =\ (n\ -\/\ n\ \%\ dims)\ /\ (dims);}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n\ \%\ dims;\ ++i)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{len}}[i]\ +=\ 1;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{domain_8hpp_source_l00015}{len}}.
+
+
+
+Referenced by \mbox{\hyperlink{domain_8cpp_source_l00004}{Divide\+Domain()}}.
+
+\Hypertarget{class_global_domain_a74d6591484e914f2ef89fa7ef185a553}\label{class_global_domain_a74d6591484e914f2ef89fa7ef185a553} 
+\index{GlobalDomain@{GlobalDomain}!resize@{resize}}
+\index{resize@{resize}!GlobalDomain@{GlobalDomain}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void Global\+Domain\+::resize (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{len}}.resize(size);}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_global_domain_a957897b05a8981b4768f7b864e532122}{end}}.resize(size);}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}}.resize(size);}
+\DoxyCodeLine{00021\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{domain_8hpp_source_l00014}{end}}, \mbox{\hyperlink{domain_8hpp_source_l00015}{len}}, and \mbox{\hyperlink{domain_8hpp_source_l00013}{start}}.
+
+
+
+Referenced by \mbox{\hyperlink{domain_8cpp_source_l00004}{Divide\+Domain()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_global_domain_a957897b05a8981b4768f7b864e532122}\label{class_global_domain_a957897b05a8981b4768f7b864e532122} 
+\index{GlobalDomain@{GlobalDomain}!end@{end}}
+\index{end@{end}!GlobalDomain@{GlobalDomain}}
+\doxysubsubsection{\texorpdfstring{end}{end}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Global\+Domain\+::end}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{domain_8cpp_source_l00004}{Divide\+Domain()}}, \mbox{\hyperlink{domain_8cpp_source_l00035}{Local\+Domain\+::\+Get\+One\+Dim\+Start\+End()}}, and \mbox{\hyperlink{domain_8hpp_source_l00017}{resize()}}.
+
+\Hypertarget{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}\label{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377} 
+\index{GlobalDomain@{GlobalDomain}!len@{len}}
+\index{len@{len}!GlobalDomain@{GlobalDomain}}
+\doxysubsubsection{\texorpdfstring{len}{len}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Global\+Domain\+::len}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{mpi__tool_8hpp_source_l00132}{mpi\+::\+Mpi\+Tool\+::\+Collect\+To\+Master()}}, \mbox{\hyperlink{domain_8cpp_source_l00004}{Divide\+Domain()}}, \mbox{\hyperlink{domain_8hpp_source_l00023}{Divide\+Len()}}, and \mbox{\hyperlink{domain_8hpp_source_l00017}{resize()}}.
+
+\Hypertarget{class_global_domain_a825fa97318b473df13f944655c5e91cb}\label{class_global_domain_a825fa97318b473df13f944655c5e91cb} 
+\index{GlobalDomain@{GlobalDomain}!start@{start}}
+\index{start@{start}!GlobalDomain@{GlobalDomain}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Global\+Domain\+::start}
+
+
+
+Definition at line \mbox{\hyperlink{domain_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{domain_8hpp_source}{domain.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{mpi__tool_8hpp_source_l00132}{mpi\+::\+Mpi\+Tool\+::\+Collect\+To\+Master()}}, \mbox{\hyperlink{domain_8cpp_source_l00004}{Divide\+Domain()}}, \mbox{\hyperlink{domain_8cpp_source_l00035}{Local\+Domain\+::\+Get\+One\+Dim\+Start\+End()}}, and \mbox{\hyperlink{domain_8hpp_source_l00017}{resize()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/backend/\mbox{\hyperlink{domain_8hpp}{domain.\+hpp}}\item 
+cfd\+\_\+mx/src/backend/\mbox{\hyperlink{domain_8cpp}{domain.\+cpp}}\end{DoxyCompactItemize}

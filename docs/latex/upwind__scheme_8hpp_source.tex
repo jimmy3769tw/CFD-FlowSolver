@@ -1,0 +1,74 @@
+\doxysection{upwind\+\_\+scheme.\+hpp}
+\hypertarget{upwind__scheme_8hpp_source}{}\label{upwind__scheme_8hpp_source}\index{cfd\_mx/inc/source/upwind\_scheme.hpp@{cfd\_mx/inc/source/upwind\_scheme.hpp}}
+\mbox{\hyperlink{upwind__scheme_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <utility>}\ \ \textcolor{comment}{//\ std::pair,\ std::make\_pair}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00004}00004\ \textcolor{comment}{//\ !\ ========================\ Ud\ ========================}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00005}\mbox{\hyperlink{upwind__scheme_8hpp_a58d51a49b46fb9f1e539bb265e7be970}{00005}}\ \textcolor{keyword}{inline}\ std::pair<double,\ double>\ \mbox{\hyperlink{upwind__scheme_8hpp_a58d51a49b46fb9f1e539bb265e7be970}{CalUpwind}}(}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00006}00006\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&Up,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&Un,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&p,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&ic,}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00007}00007\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&n,\ std::vector<double>\ \&Di,\ std::vector<double>\ \&Ds,}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&Idx,\ std::vector<double>\ \&phi)\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00009}00009\ \ \ \textcolor{keywordtype}{double}\ phi\_P,\ phi\_N;}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00011}00011\ \ \ \textcolor{keywordflow}{if}\ (Up\ >\ 0.0)\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00012}00012\ \ \ \ \ phi\_P\ =\ phi[ic];}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00013}00013\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00014}00014\ \ \ \ \ phi\_P\ =\ phi[p];}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00015}00015\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00017}00017\ \ \ \textcolor{keywordflow}{if}\ (Un\ >\ 0.0)\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00018}00018\ \ \ \ \ phi\_N\ =\ phi[n];}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00019}00019\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00020}00020\ \ \ \ \ phi\_N\ =\ phi[ic];}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00021}00021\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00023}00023\ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(phi\_P,\ phi\_N);}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00025}00025\ \textcolor{comment}{//\ *\ ========================\ Ud\ ========================}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00027}00027\ \textcolor{comment}{//\ !\ ========================\ Lud\ ========================}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00028}\mbox{\hyperlink{upwind__scheme_8hpp_a661ee1f57e43b8743fc78bf072db242d}{00028}}\ \textcolor{keyword}{inline}\ std::pair<double,\ double>\ \mbox{\hyperlink{upwind__scheme_8hpp_a661ee1f57e43b8743fc78bf072db242d}{CalLudSpanwise}}(}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&Up,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&Un,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&pp,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&p,}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&ic,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&n,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&nn,\ \textcolor{keyword}{const}\ std::vector<double>\ \&Di,}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\ \&Ds,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&Idx,\ std::vector<double>\ \&phi)\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00032}00032\ \ \ \textcolor{keywordtype}{double}\ phi\_P,\ phi\_N;}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00034}00034\ \ \ \textcolor{keywordflow}{if}\ (Up\ >\ 0.0)\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00035}00035\ \ \ \ \ phi\_P\ =\ (phi[ic]\ +\ 0.5\ *\ Ds[Idx]\ *\ (phi[ic]\ -\/\ phi[n])\ /\ Di[Idx]);}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00036}00036\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00037}00037\ \ \ \ \ phi\_P\ =\ (phi[p]\ +\ 0.5\ *\ Ds[Idx\ +\ 1]\ *\ (phi[p]\ -\/\ phi[pp])\ /\ Di[Idx\ +\ 1]);}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00038}00038\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00040}00040\ \ \ \textcolor{keywordflow}{if}\ (Un\ >\ 0.0)\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00041}00041\ \ \ \ \ phi\_N\ =\ (phi[n]\ +\ 0.5\ *\ Ds[Idx\ -\/\ 1]\ *\ (phi[n]\ -\/\ phi[nn])\ /\ Di[Idx\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00042}00042\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00043}00043\ \ \ \ \ phi\_N\ =\ (phi[ic]\ +\ 0.5\ *\ Ds[Idx]\ *\ (phi[ic]\ -\/\ phi[p])\ /\ Di[Idx\ +\ 1]);}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00044}00044\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00046}00046\ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(phi\_P,\ phi\_N);}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00049}\mbox{\hyperlink{upwind__scheme_8hpp_aa116285d1f0fb1907370956813919c1c}{00049}}\ \textcolor{keyword}{inline}\ std::pair<double,\ double>\ \mbox{\hyperlink{upwind__scheme_8hpp_aa116285d1f0fb1907370956813919c1c}{CalLudChordwise}}(}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&Up,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&Un,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&pp,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&p,}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&ic,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&n,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&nn,\ \textcolor{keyword}{const}\ std::vector<double>\ \&Di,}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\ \&Ds,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&Idx,\ std::vector<double>\ \&phi)\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00053}00053\ \ \ \textcolor{keywordtype}{double}\ phi\_P,\ phi\_N;}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00055}00055\ \ \ \textcolor{keywordflow}{if}\ (Up\ >\ 0.0)\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00056}00056\ \ \ \ \ phi\_P\ =\ (phi[ic]\ +\ 0.5\ *\ Ds[Idx]\ *\ (phi[ic]\ -\/\ phi[n])\ /\ Di[Idx]);}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00057}00057\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00058}00058\ \ \ \ \ phi\_P\ =\ (phi[p]\ +\ 0.5\ *\ Ds[Idx\ +\ 1]\ *\ (phi[p]\ -\/\ phi[pp])\ /\ Di[Idx\ +\ 1]);}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00059}00059\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00061}00061\ \ \ \textcolor{keywordflow}{if}\ (Un\ >\ 0.0)\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00062}00062\ \ \ \ \ phi\_N\ =\ (phi[n]\ +\ 0.5\ *\ Ds[Idx\ -\/\ 1]\ *\ (phi[n]\ -\/\ phi[nn])\ /\ Di[Idx\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00063}00063\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00064}00064\ \ \ \ \ phi\_N\ =\ (phi[ic]\ +\ 0.5\ *\ Ds[Idx]\ *\ (phi[ic]\ -\/\ phi[p])\ /\ Di[Idx\ +\ 1]);}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00065}00065\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00067}00067\ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(phi\_P,\ phi\_N);}
+\DoxyCodeLine{\Hypertarget{upwind__scheme_8hpp_source_l00068}00068\ \}}
+
+\end{DoxyCode}

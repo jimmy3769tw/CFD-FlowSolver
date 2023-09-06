@@ -1,0 +1,288 @@
+\doxysection{Time\+Variance\+Authority Class Reference}
+\hypertarget{class_time_variance_authority}{}\label{class_time_variance_authority}\index{TimeVarianceAuthority@{TimeVarianceAuthority}}
+
+
+{\ttfamily \#include $<$time\+\_\+variance\+\_\+authority.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{class_time_variance_authority_af075e1d566655fdc2667ca7008c54341}{Get\+Time}} ()
+\item 
+auto \mbox{\hyperlink{class_time_variance_authority_a0e6c2d297508505bf8e3e0fa0cba42e5}{Set\+Terminal\+Time}} (double terminal\+\_\+time)
+\item 
+\mbox{\hyperlink{class_time_variance_authority}{Time\+Variance\+Authority}} \& \mbox{\hyperlink{class_time_variance_authority_a30e93689cb329e0fc515266b639f1c7a}{Set\+Dt}} (double t)
+\item 
+\mbox{\hyperlink{class_time_variance_authority}{Time\+Variance\+Authority}} \& \mbox{\hyperlink{class_time_variance_authority_a78ee6630c0b3c7d5251d6cff62026983}{Set\+Writing\+Dt}} (double writing\+\_\+dt)
+\item 
+double \mbox{\hyperlink{class_time_variance_authority_a1348c4ca631a700ec9354f9b3f676f28}{Get\+Percentage\+Of\+Writing}} ()
+\item 
+auto \mbox{\hyperlink{class_time_variance_authority_acd9b1260ec98d9e1b5bddcca1944c849}{Get\+File\+No}} ()
+\item 
+bool \mbox{\hyperlink{class_time_variance_authority_a26bf9fe7df6845aa323e40650f392053}{Is\+Writing\+Time}} ()
+\item 
+void \mbox{\hyperlink{class_time_variance_authority_a035684e3e9277b52ec73be73c2221362}{Add\+Loop}} ()
+\item 
+bool \mbox{\hyperlink{class_time_variance_authority_ac5a83e4d494641e20fd80bdd72c2220c}{Is\+Loop\+Finish}} ()
+\item 
+\mbox{\hyperlink{class_time_variance_authority}{Time\+Variance\+Authority}} \& \mbox{\hyperlink{class_time_variance_authority_a05669a72a085603259deaca27e3f0640}{Set\+Time}} (double t)
+\item 
+auto \mbox{\hyperlink{class_time_variance_authority_a44cbc769fa48c3f0e6f3dc0867848460}{Get\+Dt}} ()
+\item 
+auto \mbox{\hyperlink{class_time_variance_authority_a5f7ea092949bcfb26a8971222fee0678}{Get\+Loop}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00005}{5}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_time_variance_authority_a035684e3e9277b52ec73be73c2221362}\label{class_time_variance_authority_a035684e3e9277b52ec73be73c2221362} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!AddLoop@{AddLoop}}
+\index{AddLoop@{AddLoop}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{AddLoop()}{AddLoop()}}
+{\footnotesize\ttfamily void Time\+Variance\+Authority\+::\+Add\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ time\_\ +=\ dt\_;}
+\DoxyCodeLine{00038\ \ \ \ \ loop\_++;}
+\DoxyCodeLine{00039\ \ \ \ \ dt\_\ =\ dt\_next\_;}
+\DoxyCodeLine{00040\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{run__cpu_8hpp_source_l00052}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::solve()}}, and \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00054}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::solve()}}.
+
+\Hypertarget{class_time_variance_authority_a44cbc769fa48c3f0e6f3dc0867848460}\label{class_time_variance_authority_a44cbc769fa48c3f0e6f3dc0867848460} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!GetDt@{GetDt}}
+\index{GetDt@{GetDt}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{GetDt()}{GetDt()}}
+{\footnotesize\ttfamily auto Time\+Variance\+Authority\+::\+Get\+Dt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \{\ \textcolor{keywordflow}{return}\ dt\_;\}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}.
+
+\Hypertarget{class_time_variance_authority_acd9b1260ec98d9e1b5bddcca1944c849}\label{class_time_variance_authority_acd9b1260ec98d9e1b5bddcca1944c849} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!GetFileNo@{GetFileNo}}
+\index{GetFileNo@{GetFileNo}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{GetFileNo()}{GetFileNo()}}
+{\footnotesize\ttfamily auto Time\+Variance\+Authority\+::\+Get\+File\+No (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \{\ \textcolor{keywordflow}{return}\ cnt\_file\_;\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_time_variance_authority_a5f7ea092949bcfb26a8971222fee0678}\label{class_time_variance_authority_a5f7ea092949bcfb26a8971222fee0678} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!GetLoop@{GetLoop}}
+\index{GetLoop@{GetLoop}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{GetLoop()}{GetLoop()}}
+{\footnotesize\ttfamily auto Time\+Variance\+Authority\+::\+Get\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \{\textcolor{keywordflow}{return}\ loop\_;\}}
+
+\end{DoxyCode}
+\Hypertarget{class_time_variance_authority_a1348c4ca631a700ec9354f9b3f676f28}\label{class_time_variance_authority_a1348c4ca631a700ec9354f9b3f676f28} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!GetPercentageOfWriting@{GetPercentageOfWriting}}
+\index{GetPercentageOfWriting@{GetPercentageOfWriting}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{GetPercentageOfWriting()}{GetPercentageOfWriting()}}
+{\footnotesize\ttfamily double Time\+Variance\+Authority\+::\+Get\+Percentage\+Of\+Writing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \{\ \textcolor{keywordflow}{return}\ (time\_\ /\ writing\_dt\_);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_time_variance_authority_af075e1d566655fdc2667ca7008c54341}\label{class_time_variance_authority_af075e1d566655fdc2667ca7008c54341} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!GetTime@{GetTime}}
+\index{GetTime@{GetTime}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{GetTime()}{GetTime()}}
+{\footnotesize\ttfamily auto Time\+Variance\+Authority\+::\+Get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00007}{7}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{\ \textcolor{keywordflow}{return}\ time\_;\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_time_variance_authority_ac5a83e4d494641e20fd80bdd72c2220c}\label{class_time_variance_authority_ac5a83e4d494641e20fd80bdd72c2220c} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!IsLoopFinish@{IsLoopFinish}}
+\index{IsLoopFinish@{IsLoopFinish}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{IsLoopFinish()}{IsLoopFinish()}}
+{\footnotesize\ttfamily bool Time\+Variance\+Authority\+::\+Is\+Loop\+Finish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ time\_\ >\ terminal\_time\_+dt\_;}
+\DoxyCodeLine{00044\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{run__cpu_8hpp_source_l00052}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::solve()}}, and \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00054}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::solve()}}.
+
+\Hypertarget{class_time_variance_authority_a26bf9fe7df6845aa323e40650f392053}\label{class_time_variance_authority_a26bf9fe7df6845aa323e40650f392053} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!IsWritingTime@{IsWritingTime}}
+\index{IsWritingTime@{IsWritingTime}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{IsWritingTime()}{IsWritingTime()}}
+{\footnotesize\ttfamily bool Time\+Variance\+Authority\+::\+Is\+Writing\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{auto}\ time\_file\_next\ =\ writing\_time\_\ +\ writing\_dt\_;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (time\_\ >=\ time\_file\_next)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ cnt\_file\_++;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ writing\_time\_\ +=\ writing\_dt\_;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00032\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_time_variance_authority_a30e93689cb329e0fc515266b639f1c7a}\label{class_time_variance_authority_a30e93689cb329e0fc515266b639f1c7a} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!SetDt@{SetDt}}
+\index{SetDt@{SetDt}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{SetDt()}{SetDt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_time_variance_authority}{Time\+Variance\+Authority}} \& Time\+Variance\+Authority\+::\+Set\+Dt (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ dt\_\ =\ t;}
+\DoxyCodeLine{00015\ \ \ \ \ IniTimeRecoding();}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00017\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{validation_re100_cavity_2test_8cpp_source_l00011}{TEST()}}, and \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{TEST()}}.
+
+\Hypertarget{class_time_variance_authority_a0e6c2d297508505bf8e3e0fa0cba42e5}\label{class_time_variance_authority_a0e6c2d297508505bf8e3e0fa0cba42e5} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!SetTerminalTime@{SetTerminalTime}}
+\index{SetTerminalTime@{SetTerminalTime}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{SetTerminalTime()}{SetTerminalTime()}}
+{\footnotesize\ttfamily auto Time\+Variance\+Authority\+::\+Set\+Terminal\+Time (\begin{DoxyParamCaption}\item[{double}]{terminal\+\_\+time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ terminal\_time\_\ =\ terminal\_time;}
+\DoxyCodeLine{00010\ \ \ \ \ loop\_max\_\ =\ terminal\_time\_\ /\ dt\_;}
+\DoxyCodeLine{00011\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{validation_re100_cavity_2test_8cpp_source_l00011}{TEST()}}, and \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{TEST()}}.
+
+\Hypertarget{class_time_variance_authority_a05669a72a085603259deaca27e3f0640}\label{class_time_variance_authority_a05669a72a085603259deaca27e3f0640} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!SetTime@{SetTime}}
+\index{SetTime@{SetTime}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{SetTime()}{SetTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_time_variance_authority}{Time\+Variance\+Authority}} \& Time\+Variance\+Authority\+::\+Set\+Time (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ time\_\ =\ t;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00049\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_time_variance_authority_a78ee6630c0b3c7d5251d6cff62026983}\label{class_time_variance_authority_a78ee6630c0b3c7d5251d6cff62026983} 
+\index{TimeVarianceAuthority@{TimeVarianceAuthority}!SetWritingDt@{SetWritingDt}}
+\index{SetWritingDt@{SetWritingDt}!TimeVarianceAuthority@{TimeVarianceAuthority}}
+\doxysubsubsection{\texorpdfstring{SetWritingDt()}{SetWritingDt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_time_variance_authority}{Time\+Variance\+Authority}} \& Time\+Variance\+Authority\+::\+Set\+Writing\+Dt (\begin{DoxyParamCaption}\item[{double}]{writing\+\_\+dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{time__variance__authority_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{time__variance__authority_8hpp_source}{time\+\_\+variance\+\_\+authority.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ writing\_dt\_\ =\ writing\_dt;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00022\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{validation_re100_cavity_2test_8cpp_source_l00011}{TEST()}}, and \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{TEST()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/backend/\mbox{\hyperlink{time__variance__authority_8hpp}{time\+\_\+variance\+\_\+authority.\+hpp}}\end{DoxyCompactItemize}

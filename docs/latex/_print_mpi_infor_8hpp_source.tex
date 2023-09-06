@@ -1,0 +1,23 @@
+\doxysection{Print\+Mpi\+Infor.\+hpp}
+\hypertarget{_print_mpi_infor_8hpp_source}{}\label{_print_mpi_infor_8hpp_source}\index{cfd\_mx/inc/mpi\_tool/PrintMpiInfor.hpp@{cfd\_mx/inc/mpi\_tool/PrintMpiInfor.hpp}}
+\mbox{\hyperlink{_print_mpi_infor_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}mpi.h"{}}}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00004}00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacempi}{mpi}}\ \{}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00005}\mbox{\hyperlink{namespacempi_ac683a9b3d2a622b69a8fcab182742b33}{00005}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacempi_ac683a9b3d2a622b69a8fcab182742b33}{PrintMpiInfo}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00006}00006\ \ \ \textcolor{keywordtype}{char}\ name[1024];}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00007}00007\ \ \ \textcolor{keywordtype}{int}\ length\ =\ 1024,\ minor;}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00008}00008\ \ \ MPI\_Get\_processor\_name(name,\ \&length);}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00010}00010\ \ \ \textcolor{keywordtype}{int}\ major;}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00011}00011\ \ \ MPI\_Get\_version(\&major,\ \&minor);}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00012}00012\ \ \ \textcolor{comment}{//\ MPI\_Request\ req[10];}}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00014}00014\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nMPI\ Version\ "{}}\ <<\ major\ <<\ \textcolor{stringliteral}{"{}."{}}\ <<\ minor\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00015}00015\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}This\ Project\ is\ from\ "{}}\ <<\ name\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{_print_mpi_infor_8hpp_source_l00017}00017\ \}\ \ \textcolor{comment}{//\ namespace\ mpi}}
+
+\end{DoxyCode}

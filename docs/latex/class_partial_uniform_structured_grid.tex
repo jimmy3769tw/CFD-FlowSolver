@@ -1,0 +1,159 @@
+\doxysection{Partial\+Uniform\+Structured\+Grid Class Reference}
+\hypertarget{class_partial_uniform_structured_grid}{}\label{class_partial_uniform_structured_grid}\index{PartialUniformStructuredGrid@{PartialUniformStructuredGrid}}
+
+
+{\ttfamily \#include $<$parital\+\_\+uniform\+\_\+structured\+\_\+gird.\+hpp$>$}
+
+Inheritance diagram for Partial\+Uniform\+Structured\+Grid\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_partial_uniform_structured_grid}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_partial_uniform_structured_grid_ab7676d63688cbcc34438c84f5e9cec4a}{Partial\+Uniform\+Structured\+Grid}} (int \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\+\_\+nx}}, int \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}}, int \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_structured_grid}{Structured\+Grid}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_structured_grid_a1187e14f9ad1a09a0524725927cb6735}{Structured\+Grid}} (int \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\+\_\+nx}}, int \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}}, int \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}})
+\item 
+\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \& \mbox{\hyperlink{class_structured_grid_af5c5e23afdbb860cdde6514f3a4a8018}{set\+Len}} (int lx, int ly, int lz)
+\item 
+std\+::tuple$<$ double, double, double $>$ \mbox{\hyperlink{class_structured_grid_a0fadb12f6a62b9003a516585654cbbd3}{Get\+Len}} ()
+\item 
+void \mbox{\hyperlink{class_structured_grid_a7651877adb83186632553e1e47ae2fa2}{Init}} ()
+\item 
+void \mbox{\hyperlink{class_structured_grid_a55c9f68bad513a1a0a7b39bc3698fa6b}{resize}} ()
+\item 
+void \mbox{\hyperlink{class_structured_grid_ab5fee8458deb72a8e6c3cdea23b7ac6f}{Check\+Parameter}} ()
+\item 
+void \mbox{\hyperlink{class_structured_grid_a10c68f74c3b91ae61ea382d9b215bc0c}{Init\+Cent\+Pos}} ()
+\item 
+double \& \mbox{\hyperlink{class_structured_grid_a1eaa4df5936dec15c0ca13b7b11415f2}{Xc}} (int i)
+\item 
+double \& \mbox{\hyperlink{class_structured_grid_a60e669ecf12f7dd1d17257101486c5ef}{Yc}} (int i)
+\item 
+double \& \mbox{\hyperlink{class_structured_grid_aaec34884d59558a35ff7d0409417ef80}{Zc}} (int i)
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}} (T i, T j, T k)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::tuple$<$ int, int, int, int, int, int, int, int, int, int, int, int $>$ \mbox{\hyperlink{class_structured_grid_ae1fc30f5c11c17779c1d23dd7a98d480}{Get12\+Nb}} (T \&\mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{class_structured_grid_a452bf1a6cc50e6466730fb8e8d2b4e0b}{icel\+Dir}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{class_structured_grid_adca333aed9e81b218244f26b11c7b114}{icel\+Cal}} (T i, T j, T k) const
+\item 
+std\+::string \mbox{\hyperlink{class_structured_grid_a04787cb488eb83dee3c9e03a0d58476d}{show}} ()
+\item 
+auto \mbox{\hyperlink{class_structured_grid_ac6bab642319bfac3b895a25577a2341d}{Get\+InterpolationX}} (int i)
+\item 
+auto \mbox{\hyperlink{class_structured_grid_a14be4781183267a67bf0d8bd582b7c3f}{Get\+InterpolationY}} (int j)
+\item 
+auto \mbox{\hyperlink{class_structured_grid_a5344bf6bc8fe189fe3c8d3f4b1f6d891}{Get\+InterpolationZ}} (int k)
+\item 
+void \mbox{\hyperlink{class_structured_grid_aa6c23ce052780c7a3fcb4d10a665e7fb}{Init\+Ghost\+Cell\+Pos}} ()
+\item 
+bool \mbox{\hyperlink{class_structured_grid_a83ebd9ef8b5aa9a5cbadafd7b2c178d2}{Init\+Grid\+Distance}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_structured_grid}{Structured\+Grid}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_boundary_condition_selector}{Boundary\+Condition\+Selector}} \mbox{\hyperlink{class_structured_grid_a18eff7a16d28c0aded4a6ed364067ebb}{bc\+\_\+selector}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_cal_eta_interface}{Cal\+Eta\+Interface}} $>$ \mbox{\hyperlink{class_structured_grid_a38666a4cea6f718902ceab9fb206de4d}{cal\+\_\+eta\+\_\+imp}}
+\item 
+int \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\+\_\+nx}}
+\item 
+int \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}}
+\item 
+int \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\+\_\+ghost\+\_\+cell}} = 2
+\item 
+const int \mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\+\_\+no\+\_\+grid}} = \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\+\_\+nx}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a2719ee13fe32bd2950cff826c856eef2}{cal\+\_\+ny\+\_\+times\+\_\+nz}} = \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}} = \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\+\_\+nx}} + 2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\+\_\+ghost\+\_\+cell}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}} = \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}} + 2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\+\_\+ghost\+\_\+cell}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}} = \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} + 2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\+\_\+ghost\+\_\+cell}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a65ae8a1cd52c3bfb422b448562af5885}{ny\+\_\+times\+\_\+nz}} = \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a2ec0bf7c9b3c4cf18b30c57dc69e14ee}{nx\+\_\+times\+\_\+ny}} = \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\+\_\+grid}} = \mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\+\_\+dx}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\+\_\+dy}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\+\_\+dz}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\+\_\+pos}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\+\_\+pos}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\+\_\+pos}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a979f3af643473bf4276b54f80c94c4c0}{x\+\_\+cent\+\_\+pos}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_aded2510763ccc9ca518132960c4b201e}{y\+\_\+cent\+\_\+pos}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_ac73ad4634948af8e38c050642d7f6bfe}{z\+\_\+cent\+\_\+pos}}
+\item 
+int \mbox{\hyperlink{class_structured_grid_a29c62eb84a127ac2214bdc58eaccb98d}{nz\+Dir}} = (\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} + 2)
+\item 
+int \mbox{\hyperlink{class_structured_grid_affae833c5d09dad99621c256f22eacfe}{nzny\+Dir}} = (\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} + 2) \texorpdfstring{$\ast$}{*} (\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}} + 2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_structured_grid}{Structured\+Grid}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_structured_grid_a605b755757c4c9a89d389a928de32ea5}{lx\+\_\+}}
+\item 
+double \mbox{\hyperlink{class_structured_grid_a9717518703f5cb504c5845cd4de10cec}{ly\+\_\+}}
+\item 
+double \mbox{\hyperlink{class_structured_grid_a3c67ad5fce86033d89bc6ff2b10609eb}{lz\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{parital__uniform__structured__gird_8hpp_source_l00006}{6}} of file \mbox{\hyperlink{parital__uniform__structured__gird_8hpp_source}{parital\+\_\+uniform\+\_\+structured\+\_\+gird.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_partial_uniform_structured_grid_ab7676d63688cbcc34438c84f5e9cec4a}\label{class_partial_uniform_structured_grid_ab7676d63688cbcc34438c84f5e9cec4a} 
+\index{PartialUniformStructuredGrid@{PartialUniformStructuredGrid}!PartialUniformStructuredGrid@{PartialUniformStructuredGrid}}
+\index{PartialUniformStructuredGrid@{PartialUniformStructuredGrid}!PartialUniformStructuredGrid@{PartialUniformStructuredGrid}}
+\doxysubsubsection{\texorpdfstring{PartialUniformStructuredGrid()}{PartialUniformStructuredGrid()}}
+{\footnotesize\ttfamily Partial\+Uniform\+Structured\+Grid\+::\+Partial\+Uniform\+Structured\+Grid (\begin{DoxyParamCaption}\item[{int}]{cal\+\_\+nx,  }\item[{int}]{cal\+\_\+ny,  }\item[{int}]{cal\+\_\+nz }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{parital__uniform__structured__gird_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{parital__uniform__structured__gird_8hpp_source}{parital\+\_\+uniform\+\_\+structured\+\_\+gird.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}(\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}},\ \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}},\ \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}})\ \{\}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/grid/\mbox{\hyperlink{parital__uniform__structured__gird_8hpp}{parital\+\_\+uniform\+\_\+structured\+\_\+gird.\+hpp}}\end{DoxyCompactItemize}

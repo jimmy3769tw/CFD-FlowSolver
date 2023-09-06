@@ -1,0 +1,117 @@
+\doxysection{csv\+\_\+structured\+\_\+grid.\+hpp}
+\hypertarget{csv__structured__grid_8hpp_source}{}\label{csv__structured__grid_8hpp_source}\index{cfd\_mx/inc/io/csv/csv\_structured\_grid.hpp@{cfd\_mx/inc/io/csv/csv\_structured\_grid.hpp}}
+\mbox{\hyperlink{csv__structured__grid_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}../../grid/structured\_grid.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00007}\mbox{\hyperlink{namespacecsv}{00007}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecsv}{csv}}\{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00008}\mbox{\hyperlink{namespacecsv_aa8b109dc693978cff7ee9f7bfae4f98d}{00008}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacecsv_aa8b109dc693978cff7ee9f7bfae4f98d}{WriteCsvFile}}(std::string\ filename,\ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\&\ grid)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00009}00009\ \ \ std::ofstream\ file;}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00010}00010\ \ \ \textcolor{keyword}{auto}\ nx\ =\ grid.\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00011}00011\ \ \ \textcolor{keyword}{auto}\ ny\ =\ grid.\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00012}00012\ \ \ \textcolor{keyword}{auto}\ nz\ =\ grid.\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00013}00013\ \ \ \textcolor{keyword}{auto}\ no\_ghost\_cell\ =\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00014}00014\ \ \ \textcolor{keyword}{auto}\ dy\ =\ grid.\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00015}00015\ \ \ \textcolor{keyword}{auto}\ dx\ =\ grid.\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00016}00016\ \ \ \textcolor{keyword}{auto}\ dz\ =\ grid.\mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00017}00017\ \ \ \textcolor{keyword}{auto}\ y\_cent\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_aded2510763ccc9ca518132960c4b201e}{y\_cent\_pos}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00018}00018\ \ \ \textcolor{keyword}{auto}\ x\_cent\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_a979f3af643473bf4276b54f80c94c4c0}{x\_cent\_pos}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00019}00019\ \ \ \textcolor{keyword}{auto}\ z\_cent\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_ac73ad4634948af8e38c050642d7f6bfe}{z\_cent\_pos}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00020}00020\ \ \ \textcolor{keyword}{auto}\ staggered\_dx\ =\ grid.\mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00021}00021\ \ \ \textcolor{keyword}{auto}\ staggered\_dy\ =\ grid.\mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00022}00022\ \ \ \textcolor{keyword}{auto}\ staggered\_dz\ =\ grid.\mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00023}00023\ \ \ \textcolor{keyword}{auto}\ x\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00024}00024\ \ \ \textcolor{keyword}{auto}\ y\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00025}00025\ \ \ \textcolor{keyword}{auto}\ z\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00027}00027\ \ \ file.open(filename,\ std::ios::out);\ \ \textcolor{comment}{//\ |\ ios::app}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00028}00028\ \ \ \textcolor{comment}{//\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ x-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00029}00029\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ nx\ +\ 1;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00030}00030\ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}x\_pos["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00031}00031\ \ \ \ \ file\ <<\ x\_pos[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ nx\ -\/\ no\_ghost\_cell\ +\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00033}00033\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}x\_cent\_pos[no\_ghost\_cell],\ not\ define,\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00035}00035\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ <\ nx\ -\/\ no\_ghost\_cell)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}xc["{}}\ <<\ i\ -\/\ 2\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ x\_cent\_pos[i\ -\/\ 2]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00037}00037\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}x\_cent\_pos[no\_ghost\_cell],\ not\ define,\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00039}00039\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00040}00040\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00041}00041\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ nx)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00044}00044\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}dx["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ dx[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}staggered\_dx["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ staggered\_dx[i];}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00047}00047\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00048}00048\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00051}00051\ \ \ \ \ file\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00052}00052\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00054}00054\ \ \ file\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00055}00055\ \ \ \textcolor{comment}{//\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ y-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00056}00056\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ ny\ +\ 1;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00057}00057\ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}y\_pos["{}}\ <<\ j\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00058}00058\ \ \ \ \ file\ <<\ y\_pos[j]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <\ ny\ -\/\ no\_ghost\_cell\ +\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00061}00061\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}y\_cent\_pos[no\_ghost\_cell],\ not\ define,\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00063}00063\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (j\ <\ ny\ -\/\ no\_ghost\_cell)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}y\_cent\_pos["{}}\ <<\ j\ -\/\ 2\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ y\_cent\_pos[j\ -\/\ 2]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00065}00065\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}y\_cent\_pos[no\_ghost\_cell],\ not\ define,\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00067}00067\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00069}00069\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00070}00070\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <\ ny)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00074}00074\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}dy["{}}\ <<\ j\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ dy[j]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}staggered\_dy["{}}\ <<\ j\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ staggered\_dy[j];}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00076}00076\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00077}00077\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00080}00080\ \ \ \ \ file\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00081}00081\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00083}00083\ \ \ file\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00084}00084\ \ \ \textcolor{comment}{//\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ z\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00085}00085\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ nz\ +\ 1;\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00086}00086\ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}z\_pos["{}}\ <<\ k\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ z\_pos[k]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ <\ nz\ -\/\ no\_ghost\_cell\ +\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00089}00089\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ >\ 1\ ||\ k\ <\ nz\ -\/\ no\_ghost\_cell)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}zc["{}}\ <<\ k\ -\/\ 2\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ z\_cent\_pos[k\ -\/\ 2]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00091}00091\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}dzs[no\_ghost\_cell],\ not\ define,"{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00093}00093\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00095}00095\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00096}00096\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ <\ nz)\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00100}00100\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}dz["{}}\ <<\ k\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ dz[k]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}dzs["{}}\ <<\ k\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ staggered\_dz[k];}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00102}00102\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00103}00103\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00106}00106\ \ \ \ \ file\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00107}00107\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00108}00108\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00110}00110\ \}}
+\DoxyCodeLine{\Hypertarget{csv__structured__grid_8hpp_source_l00111}00111\ }
+
+\end{DoxyCode}

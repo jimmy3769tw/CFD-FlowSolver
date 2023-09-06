@@ -1,0 +1,89 @@
+\doxysection{poisson.\+hpp}
+\hypertarget{poisson_8hpp_source}{}\label{poisson_8hpp_source}\index{tests/matrix/poisson.hpp@{tests/matrix/poisson.hpp}}
+\mbox{\hyperlink{poisson_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00005}\mbox{\hyperlink{class_heat_conduction}{00005}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_heat_conduction}{HeatConduction}}\{}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00006}00006\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00007}\mbox{\hyperlink{class_heat_conduction_ab27c17cac40e75d2f7a06039b72a1942}{00007}}\ \ \ \mbox{\hyperlink{class_heat_conduction_ab27c17cac40e75d2f7a06039b72a1942}{HeatConduction}}(\textcolor{keywordtype}{int}\ n)\ :\ nxy(n)\ \{}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordtype}{int}\ n2\ =\ nx\ *\ ny;\ \ \textcolor{comment}{//\ Number\ of\ points\ in\ the\ grid.}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}}.resize(n2,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}}.clear();}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}}.reserve(n2\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}}.push\_back(0);}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.clear();}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.reserve(n2\ *\ 5);\ \ \textcolor{comment}{//\ We\ use\ 5-\/point\ stencil,\ so\ the\ matrix}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.clear();}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.reserve(n2\ *\ 5);\ \ \textcolor{comment}{//\ will\ have\ at\ most\ n2\ *\ 5\ nonzero\ elements.}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}}.resize(n2);}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0,\ k\ =\ 0;\ j\ <\ ny;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00022}00022\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nx;\ ++i,\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0\ ||\ i\ ==\ nx\ -\/\ 1\ ||\ j\ ==\ 0\ ||\ j\ ==\ ny\ -\/\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Boundary\ point.\ Use\ Dirichlet\ condition.}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k);}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(1.0);}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}}[k]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Interior\ point.\ Use\ 5-\/point\ finite\ difference\ stencil.}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k\ -\/\ ny);}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(-\/1.0\ /\ (dx\ *\ dx));}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(-\/1.0\ /\ (dx\ *\ dx));}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k);}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(2.0\ /\ (dx\ *\ dx)\ +\ 2.0\ /\ (dy\ *\ dy));}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(-\/1.0\ /\ (dy\ *\ dy));}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k\ +\ ny);}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(-\/1.0\ /\ (dy\ *\ dy));}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}}[k]\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}}.push\_back(\mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.size());}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00050}00050\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00051}00051\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00052}00052\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00054}\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{00054}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}()\ \{\ \textcolor{keywordflow}{return}\ std::make\_tuple(\mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}},\ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}},\ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}});\ \}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00055}\mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{00055}}\ \ \ std::vector<int>\ \mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}};}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00056}\mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{00056}}\ \ \ std::vector<int>\ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}};}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00057}\mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{00057}}\ \ \ std::vector<double>\ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}};}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00058}\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{00058}}\ \ \ std::vector<double>\ \mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}};}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00059}\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{00059}}\ \ \ std::vector<double>\ \mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00061}00061\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00062}00062\ \ \ \textcolor{keywordtype}{int}\ nxy;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00063}00063\ \ \ \textcolor{keywordtype}{int}\ nx\ =\ nxy,\ ny\ =\ nxy;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00065}00065\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ gc\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00066}00066\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ ly\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00067}00067\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ lx\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00069}00069\ \ \ \textcolor{keywordtype}{int}\ ndim\ =\ nx\ *\ ny;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00071}00071\ \ \ \textcolor{keywordtype}{double}\ dx\ =\ lx/nx;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00072}00072\ \ \ \textcolor{keywordtype}{double}\ dy\ =\ ly/ny;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00076}00076\ \ \ \textcolor{keywordtype}{int}\ icel(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ j)\ \{}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{return}\ i*ny+j;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00078}00078\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00080}00080\ \ \ \textcolor{keywordtype}{int}\ icelShift(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ j)\ \{}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{return}\ (i-\/gc)\ +\ (j-\/gc)*nx;}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00082}00082\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{poisson_8hpp_source_l00083}00083\ \};}
+
+\end{DoxyCode}

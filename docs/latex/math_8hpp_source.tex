@@ -1,0 +1,65 @@
+\doxysection{math.\+hpp}
+\hypertarget{math_8hpp_source}{}\label{math_8hpp_source}\index{cfd\_mx/inc/matrix/solver/math.hpp@{cfd\_mx/inc/matrix/solver/math.hpp}}
+\mbox{\hyperlink{math_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <complex>}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00008}\mbox{\hyperlink{namespacemath}{00008}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemath}{math}}\{}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00010}\mbox{\hyperlink{namespacemath_a0f790912b7db22862270254b6f36986a}{00010}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemath_a0f790912b7db22862270254b6f36986a}{init}}(std::vector<double>\ \&a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ val)\ \{}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00011}00011\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ A\ =\ a.data();}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00012}00012\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ len\ =\ a.size();}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ simd\ default(none)\ firstprivate(A,\ val,\ len)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\ \ \ \ schedule(static)}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00016}00016\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ len;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ *(A\ +\ i)\ =\ val;}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00018}00018\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00020}\mbox{\hyperlink{namespacemath_a9152554ed78636bb66851b738ef88038}{00020}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemath_a0f790912b7db22862270254b6f36986a}{init}}(std::vector<double>\ \&a,\ \textcolor{keyword}{const}\ std::vector<double>\ \&b)\ \{}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00021}00021\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ len\ =\ a.size();}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00022}00022\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ A\ =\ a.data();}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00023}00023\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ B\ =\ b.data();}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ simd\ default(none)\ firstprivate(A,\ len,\ B)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\ \ \ \ schedule(static)}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00027}00027\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ len;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ *(A\ +\ i)\ =\ *(B\ +\ i);}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00029}00029\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00031}\mbox{\hyperlink{namespacemath_a333a4caf7df255df3d0fb5940444a916}{00031}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemath_a333a4caf7df255df3d0fb5940444a916}{copy}}(\textcolor{keyword}{const}\ std::vector<double>\ \&a,\ std::vector<double>\ \&b)\ \{\ \mbox{\hyperlink{namespacemath_a0f790912b7db22862270254b6f36986a}{init}}(b,\ a);\ \}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00035}00035\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00036}\mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{00036}}\ \ \ \ \ \mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{InnerProduct}}(\textcolor{keyword}{const}\ std::vector<double>\ \&\ a,\ \textcolor{keyword}{const}\ std::vector<double>\ \&\ b)}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00037}00037\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ r\{0.0\};}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ len\ =\ a.size();}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ A\ =\ a.data();}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ B\ =\ b.data();}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00043}00043\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#pragma\ omp\ parallel\ for\ simd\ reduction(+:r)\ default(none)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00044}00044\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ firstprivate(A,\ B,\ len)\ schedule(static)}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i=0;\ i<len\ ;\ ++i)}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \{\ \ r\ +=\ *(A+i)\ *\ *(B+i);\ \}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r;}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00053}\mbox{\hyperlink{namespacemath_ad06f5b10b7545f42cbc6340a8e841709}{00053}}\ \ \ \ \ \mbox{\hyperlink{namespacemath_ad06f5b10b7545f42cbc6340a8e841709}{L2Norm}}(\textcolor{keyword}{const}\ std::vector<double>\ \&\ a)}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00054}00054\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ sqrt(\ \mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{InnerProduct}}(a,a)\ );\ \}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00058}\mbox{\hyperlink{namespacemath_afcc389290dcbd32bd0ce78fb2a64acb3}{00058}}\ \ \ \ \ \mbox{\hyperlink{namespacemath_afcc389290dcbd32bd0ce78fb2a64acb3}{zero}}(std::vector<double>\ \&\ a)\{\ \ \mbox{\hyperlink{namespacemath_a0f790912b7db22862270254b6f36986a}{init}}(a,\ 0.0);\ \}}
+\DoxyCodeLine{\Hypertarget{math_8hpp_source_l00059}00059\ \}}
+
+\end{DoxyCode}

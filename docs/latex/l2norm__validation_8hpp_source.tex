@@ -1,0 +1,16 @@
+\doxysection{l2norm\+\_\+validation.\+hpp}
+\hypertarget{l2norm__validation_8hpp_source}{}\label{l2norm__validation_8hpp_source}\index{tests/validation\_tool/l2norm\_validation.hpp@{tests/validation\_tool/l2norm\_validation.hpp}}
+\mbox{\hyperlink{l2norm__validation_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{l2norm__validation_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{l2norm__validation_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{l2norm__validation_8hpp_source_l00003}00003\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{l2norm__validation_8hpp_source_l00004}\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{00004}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(std::vector<T>\&\ a,\ std::vector<T>\&\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{l2norm__validation_8hpp_source_l00005}00005\ \ \ T\ sum\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{l2norm__validation_8hpp_source_l00006}00006\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ a.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{l2norm__validation_8hpp_source_l00007}00007\ \ \ \ \ sum\ +=\ pow(a[i]\ -\/\ b[i],\ 2);}
+\DoxyCodeLine{\Hypertarget{l2norm__validation_8hpp_source_l00008}00008\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{l2norm__validation_8hpp_source_l00009}00009\ \ \ \textcolor{keywordflow}{return}\ sqrt(sum);}
+\DoxyCodeLine{\Hypertarget{l2norm__validation_8hpp_source_l00010}00010\ \}}
+
+\end{DoxyCode}

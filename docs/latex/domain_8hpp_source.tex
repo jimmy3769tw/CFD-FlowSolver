@@ -1,0 +1,87 @@
+\doxysection{domain.\+hpp}
+\hypertarget{domain_8hpp_source}{}\label{domain_8hpp_source}\index{cfd\_mx/inc/backend/domain.hpp@{cfd\_mx/inc/backend/domain.hpp}}
+\mbox{\hyperlink{domain_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00007}00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_structured_grid}{StructuredGrid}};}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00009}\mbox{\hyperlink{class_global_domain}{00009}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_global_domain}{GlobalDomain}}\ \{}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00010}00010\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00011}00011\ \ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00012}\mbox{\hyperlink{class_global_domain_a6955d3ccc65d1cef02c6b53aa0dd05c4}{00012}}\ \ \ \mbox{\hyperlink{class_global_domain_a6955d3ccc65d1cef02c6b53aa0dd05c4}{GlobalDomain}}(\mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\&\ grid)\ :\ grid\_(\&grid)\ \{\}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00013}\mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{00013}}\ \ \ std::vector<int>\ \mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}};}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00014}\mbox{\hyperlink{class_global_domain_a957897b05a8981b4768f7b864e532122}{00014}}\ \ \ std::vector<int>\ \mbox{\hyperlink{class_global_domain_a957897b05a8981b4768f7b864e532122}{end}};}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00015}\mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{00015}}\ \ \ std::vector<int>\ \mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{len}};}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00017}\mbox{\hyperlink{class_global_domain_a74d6591484e914f2ef89fa7ef185a553}{00017}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_global_domain_a74d6591484e914f2ef89fa7ef185a553}{resize}}(\textcolor{keywordtype}{int}\ size)\ \{}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{len}}.resize(size);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{class_global_domain_a957897b05a8981b4768f7b864e532122}{end}}.resize(size);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}}.resize(size);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00021}00021\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00023}\mbox{\hyperlink{class_global_domain_a97a7329467299a8e0a014887f156e7cc}{00023}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_global_domain_a97a7329467299a8e0a014887f156e7cc}{DivideLen}}(\textcolor{keywordtype}{int}\ dims,\ \textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ dims;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00025}00025\ \ \ \ \ \ \ \mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{len}}[i]\ =\ (n\ -\/\ n\ \%\ dims)\ /\ (dims);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n\ \%\ dims;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00029}00029\ \ \ \ \ \ \ \mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{len}}[i]\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00031}00031\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00033}00033\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_global_domain_aa8e860fc7ebe37b743bfae013ec23628}{DivideDomain}}(\textcolor{keywordtype}{int}\ dims,\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00034}00034\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00035}00035\ \ \ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}*\ grid\_;}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00036}00036\ \};}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00038}\mbox{\hyperlink{class_local_domain}{00038}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_local_domain}{LocalDomain}}\{}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00039}00039\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00040}00040\ \ \ \mbox{\hyperlink{class_local_domain}{LocalDomain}}(\mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\&\ grid);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00042}\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{00042}}\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}},\ \mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}},\ \mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}},\ \mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}},\ \mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}},\ \mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}};}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00044}00044\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_local_domain_ac68412c580480687954bf288211e8738}{Init}}(std::vector<int>\ dims,\ std::vector<int>\ rank);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00046}00046\ \ \ std::pair<std::vector<int>,\ std::vector<int>\ >\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00047}00047\ \ \ \mbox{\hyperlink{class_local_domain_a674dcc8241efdc13a1db5af7d1d63914}{GetOneDimStartEnd}}();}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00049}\mbox{\hyperlink{class_local_domain_a4e126b1f08d70026399ffa5a29bafa1f}{00049}}\ \ \ \mbox{\hyperlink{class_global_domain}{GlobalDomain}}\ \mbox{\hyperlink{class_local_domain_a4e126b1f08d70026399ffa5a29bafa1f}{GetGlobal\_x}}()\ \{\ \textcolor{keywordflow}{return}\ global\_x\_;\ \}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00051}00051\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00052}00052\ \ \ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\ *grid\_;}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00053}00053\ \ \ \mbox{\hyperlink{class_global_domain}{GlobalDomain}}\ global\_x\_;}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00054}00054\ \ \ \mbox{\hyperlink{class_global_domain}{GlobalDomain}}\ global\_y\_;}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00055}00055\ \ \ \mbox{\hyperlink{class_global_domain}{GlobalDomain}}\ global\_z\_;}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00057}00057\ \ \ \textcolor{keywordtype}{void}\ InitLocal(\textcolor{keywordtype}{int}\ x\_rank,\ \textcolor{keywordtype}{int}\ y\_rank,\ \textcolor{keywordtype}{int}\ z\_rank)\ \{}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}}\ =\ global\_x\_.\mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}}.at(x\_rank);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}}\ =\ global\_y\_.\mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}}.at(y\_rank);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}}\ =\ global\_z\_.\mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}}.at(z\_rank);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}}\ =\ global\_x\_.\mbox{\hyperlink{class_global_domain_a957897b05a8981b4768f7b864e532122}{end}}.at(x\_rank);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}}\ =\ global\_y\_.\mbox{\hyperlink{class_global_domain_a957897b05a8981b4768f7b864e532122}{end}}.at(y\_rank);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00063}00063\ \ \ \ \ \mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}}\ =\ global\_z\_.\mbox{\hyperlink{class_global_domain_a957897b05a8981b4768f7b864e532122}{end}}.at(z\_rank);}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00064}00064\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00065}00065\ \};}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00067}00067\ \textcolor{comment}{//\ void\ LocalDomain::show\_begin()\{}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00068}00068\ \textcolor{comment}{//\ \ cout\ <<\ "{}show\ begin"{};}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00069}00069\ \textcolor{comment}{//\ \ for\ (auto\ x\ :i\_begin\_table)\{}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00070}00070\ \textcolor{comment}{//\ \ \ \ \ \ std::cout\ <<\ x\ <<\ "{},\ "{};}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00071}00071\ \textcolor{comment}{//\ \ \}}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00073}00073\ \textcolor{comment}{//\ \ for\ (auto\ x\ :j\_begin\_table)\{}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00074}00074\ \textcolor{comment}{//\ \ \ \ \ \ std::cout\ <<\ x\ <<\ "{},\ "{};}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00075}00075\ \textcolor{comment}{//\ \ \}}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00077}00077\ \textcolor{comment}{//\ \ for\ (auto\ x\ :k\_begin\_table)\{}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00078}00078\ \textcolor{comment}{//\ \ \ \ \ \ std::cout\ <<\ x\ <<\ "{},\ "{};}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00079}00079\ \textcolor{comment}{//\ \ \}}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00080}00080\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{domain_8hpp_source_l00081}00081\ }
+
+\end{DoxyCode}

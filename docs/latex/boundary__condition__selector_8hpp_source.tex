@@ -1,0 +1,63 @@
+\doxysection{boundary\+\_\+condition\+\_\+selector.\+hpp}
+\hypertarget{boundary__condition__selector_8hpp_source}{}\label{boundary__condition__selector_8hpp_source}\index{cfd\_mx/inc/boundary\_condition/boundary\_condition\_selector.hpp@{cfd\_mx/inc/boundary\_condition/boundary\_condition\_selector.hpp}}
+\mbox{\hyperlink{boundary__condition__selector_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00002}00002\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y=1\_\_\_\_\_\_\_\_\_\_\_\_\_}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00003}00003\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /\ |\ \ \ \ \ \ \ \ \ \ \ /|}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00004}00004\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /\ \ \ |\ [3]\ \ \ \ \ /\ \ |}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00005}00005\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /\_\_\_\_\_|\_\_\_\_\_\_\_/\ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00006}00006\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ [5|\ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00007}00007\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ [0]\ |\ \ \ \ \ \ |\ [1]\ |}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00008}00008\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |Y\ \ \ \ \ |\ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00009}00009\ \textcolor{comment}{*\ \ \ \ x=y=z=0\ \ \ \ \ |\ \ \ \ \ |\_\_x\_\_\_|\_\_\_\_\_|\ x=1}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00010}00010\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ z/\ \ \ \ \ \ \ |\ \ \ \ /}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00011}00011\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ /\ \ \ \ [2]\ \ |\ \ /}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00012}00012\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |/\_\_\_\_\_\_\_\_\_\_\_|/}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00013}00013\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z=1}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00014}00014\ \textcolor{comment}{!\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !\ \ Neumann\ \ \ \ \ du/dn\ =\ 0}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00015}00015\ \textcolor{comment}{!\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !\ \ Dirichlet\ \ \ u\ =\ 1}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00016}00016\ \textcolor{comment}{!\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !\ \ no\_slip\ \ \ \ \ u\ =\ 0}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00017}00017\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00023}\mbox{\hyperlink{boundary__condition__selector_8hpp_ab1d70a157bc44b46752fe0158286d42c}{00023}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{boundary__condition__selector_8hpp_ab1d70a157bc44b46752fe0158286d42c}{NumDirType}}\ =\ std::pair<std::vector<std::vector<double>\ >,}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<double>\ >\ >;}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00026}\mbox{\hyperlink{class_boundary_condition_selector}{00026}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_boundary_condition_selector}{BoundaryConditionSelector}}\ \{}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00027}00027\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00028}00028\ \ }
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00029}\mbox{\hyperlink{class_boundary_condition_selector_af416d258d8031c8cf8f21408e0cf9dd2}{00029}}\ \ \ \ std::vector<std::vector<double>\ >\ \mbox{\hyperlink{class_boundary_condition_selector_af416d258d8031c8cf8f21408e0cf9dd2}{num}};}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00030}\mbox{\hyperlink{class_boundary_condition_selector_a9b2cbd6127739554e8bdc778cdb5b3f1}{00030}}\ \ \ \ std::vector<std::vector<double>\ >\ \mbox{\hyperlink{class_boundary_condition_selector_a9b2cbd6127739554e8bdc778cdb5b3f1}{dir}};}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00033}\mbox{\hyperlink{class_boundary_condition_selector_afb389f1fdb35c97a8988aadd5caa5352}{00033}}\ \ \ \mbox{\hyperlink{class_boundary_condition_selector_afb389f1fdb35c97a8988aadd5caa5352}{BoundaryConditionSelector}}()\ \{}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{class_boundary_condition_selector_a9b2cbd6127739554e8bdc778cdb5b3f1}{dir}}.resize(6,\ std::vector<double>(3,\ 0.0));}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{class_boundary_condition_selector_af416d258d8031c8cf8f21408e0cf9dd2}{num}}.resize(6,\ std::vector<double>(3,\ 0.0));}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00036}00036\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00038}\mbox{\hyperlink{class_boundary_condition_selector_a97044d84efdc30aa12fd8acc95f7d087}{00038}}\ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_boundary_condition_selector_a97044d84efdc30aa12fd8acc95f7d087}{CavityFlow}}()\ \{}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00039}00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cavity_8hpp}{cavity.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00040}00040\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00042}\mbox{\hyperlink{class_boundary_condition_selector_ab73c67b61a43977f3c58dbf9816db4e9}{00042}}\ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_boundary_condition_selector_ab73c67b61a43977f3c58dbf9816db4e9}{CavityFlow2D}}()\ \{}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00043}00043\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cavity__2d_8hpp}{cavity\_2d.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00044}00044\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00046}\mbox{\hyperlink{class_boundary_condition_selector_a838a2fa83730be958d94945a8f9256dd}{00046}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_boundary_condition_selector_a838a2fa83730be958d94945a8f9256dd}{ChannelFlow}}()\{}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00047}00047\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{channel__flow_8hpp}{channel\_flow.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00048}00048\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00050}\mbox{\hyperlink{class_boundary_condition_selector_a827f90275d2a3e3272de869397a46266}{00050}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_boundary_condition_selector_a827f90275d2a3e3272de869397a46266}{FlowPassing}}()\{}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00051}00051\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{flow__passing_8hpp}{flow\_passing.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00052}00052\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00054}\mbox{\hyperlink{class_boundary_condition_selector_a942dad9a21281649d4a5c4304dc941da}{00054}}\ \ \ \mbox{\hyperlink{boundary__condition__selector_8hpp_ab1d70a157bc44b46752fe0158286d42c}{NumDirType}}\ \mbox{\hyperlink{class_boundary_condition_selector_a942dad9a21281649d4a5c4304dc941da}{operator()}}()\ \{}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(\mbox{\hyperlink{class_boundary_condition_selector_af416d258d8031c8cf8f21408e0cf9dd2}{num}},\ \mbox{\hyperlink{class_boundary_condition_selector_a9b2cbd6127739554e8bdc778cdb5b3f1}{dir}});}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00056}00056\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{boundary__condition__selector_8hpp_source_l00057}00057\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,417 @@
+\doxysection{mpi\+::Mpi\+Tool Class Reference}
+\hypertarget{classmpi_1_1_mpi_tool}{}\label{classmpi_1_1_mpi_tool}\index{mpi::MpiTool@{mpi::MpiTool}}
+
+
+{\ttfamily \#include $<$mpi\+\_\+tool.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmpi_1_1_mpi_tool_ab19e09e6d6544d626df96bf4eb8cbbb9}{Mpi\+Tool}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv, \mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid, int reorder=true)
+\item 
+void \mbox{\hyperlink{classmpi_1_1_mpi_tool_a8467369c8478cb4d0c6ea1c524746a68}{Set\+Domain}} (\mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&domain)
+\item 
+\mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& \mbox{\hyperlink{classmpi_1_1_mpi_tool_a5466119e5d48979447c1c57f22c814bf}{Barrier}} ()
+\item 
+auto \mbox{\hyperlink{classmpi_1_1_mpi_tool_a1c8e38dc380b4ffcc0f17b478902f137}{Get\+Rank}} ()
+\item 
+auto \mbox{\hyperlink{classmpi_1_1_mpi_tool_aa2403b556e4ebdc3baa62606a39226f7}{Get\+Size}} ()
+\item 
+\mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& \mbox{\hyperlink{classmpi_1_1_mpi_tool_a262ffa0a0b2164d5855c84f5e6cd68a0}{Send\+Recv}} (int nolayers, std\+::vector$<$ double $>$ \&v)
+\item 
+\mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& \mbox{\hyperlink{classmpi_1_1_mpi_tool_afef35ff52f1953d5b5433831e874d8f5}{ISend\+Recv}} (int nolayers, std\+::vector$<$ double $>$ \&v)
+\item 
+\mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& \mbox{\hyperlink{classmpi_1_1_mpi_tool_a5b3be7c5e39dbf00b5ef07f2d3fc949e}{ISend\+Recv\+Right}} (int nolayers, std\+::vector$<$ double $>$ \&v)
+\item 
+\mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& \mbox{\hyperlink{classmpi_1_1_mpi_tool_a3b05f67bd909937e5b0a6483f3ee1e91}{ISend\+Recv\+Left}} (int nolayers, std\+::vector$<$ double $>$ \&v)
+\item 
+\mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& \mbox{\hyperlink{classmpi_1_1_mpi_tool_aa1d768764efc2e61cc232ad725bdbfd6}{Send\+Recv\+Left}} (int nolayers, std\+::vector$<$ double $>$ \&v)
+\item 
+\mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& \mbox{\hyperlink{classmpi_1_1_mpi_tool_aeacabdff4fdf3edb4b5a81eb85c13ca5}{Send\+Recv\+Right}} (int nolayers, std\+::vector$<$ double $>$ \&v)
+\item 
+\mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& \mbox{\hyperlink{classmpi_1_1_mpi_tool_ac255385591e919432da48bd50db91c71}{Collect\+To\+Master}} (std\+::vector$<$ double $>$ \&v)
+\item 
+bool \mbox{\hyperlink{classmpi_1_1_mpi_tool_a3651f59eea5d673ef5cf4a687e303e78}{Is\+Master}} ()
+\item 
+MPI\+\_\+\+Comm \& \mbox{\hyperlink{classmpi_1_1_mpi_tool_a32ac2770097984c242c888ed06d3da8f}{Get\+Comm\+World}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmpi_1_1_mpi_tool_ab19e09e6d6544d626df96bf4eb8cbbb9}\label{classmpi_1_1_mpi_tool_ab19e09e6d6544d626df96bf4eb8cbbb9} 
+\index{mpi::MpiTool@{mpi::MpiTool}!MpiTool@{MpiTool}}
+\index{MpiTool@{MpiTool}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{MpiTool()}{MpiTool()}}
+{\footnotesize\ttfamily mpi\+::\+Mpi\+Tool\+::\+Mpi\+Tool (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv,  }\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid,  }\item[{int}]{reorder = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ :\ grid\_(\&grid)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ MPI\_Init(\&argc,\ \&argv);}
+\DoxyCodeLine{00018\ \ \ \ \ \ rank\_\ =\ \mbox{\hyperlink{namespacempi_ad5b31e1d84855c1a0d7bff0de7cd1cfb}{mpi::GetRank}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \ size\_\ =\ \mbox{\hyperlink{namespacempi_ab978162719907ffc69169c4b38025dce}{mpi::GetSize}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \ VirtualProcessTopology(reorder);}
+\DoxyCodeLine{00021\ \ \ \ \ \ no\_one\_layer\_\ =\ grid.\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ *\ grid.\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}};}
+\DoxyCodeLine{00022\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mpi__getter_8hpp_source_l00011}{mpi\+::\+Get\+Rank()}}, \mbox{\hyperlink{mpi__getter_8hpp_source_l00017}{mpi\+::\+Get\+Size()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00065}{Structured\+Grid\+::ny}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00066}{Structured\+Grid\+::nz}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmpi_1_1_mpi_tool_a5466119e5d48979447c1c57f22c814bf}\label{classmpi_1_1_mpi_tool_a5466119e5d48979447c1c57f22c814bf} 
+\index{mpi::MpiTool@{mpi::MpiTool}!Barrier@{Barrier}}
+\index{Barrier@{Barrier}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{Barrier()}{Barrier()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& mpi\+::\+Mpi\+Tool\+::\+Barrier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \{\ MPI\_Barrier(comm\_world\_);\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00054}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::solve()}}.
+
+\Hypertarget{classmpi_1_1_mpi_tool_ac255385591e919432da48bd50db91c71}\label{classmpi_1_1_mpi_tool_ac255385591e919432da48bd50db91c71} 
+\index{mpi::MpiTool@{mpi::MpiTool}!CollectToMaster@{CollectToMaster}}
+\index{CollectToMaster@{CollectToMaster}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{CollectToMaster()}{CollectToMaster()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& mpi\+::\+Mpi\+Tool\+::\+Collect\+To\+Master (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00132}{132}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ gc\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\ itag;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ MPI\_Request\ requests[(size\_\ -\/\ 1)\ *\ 2];}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\_rank\ =\ 1;\ i\_rank\ <\ size\_;\ ++i\_rank)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MPI\_Barrier(comm\_world\_);}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag.push\_back(i\_rank*10);}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ shift\ =}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ no\_one\_layer\_\ *\ (domain\_-\/>\mbox{\hyperlink{class_local_domain_a4e126b1f08d70026399ffa5a29bafa1f}{GetGlobal\_x}}().\mbox{\hyperlink{class_global_domain_a825fa97318b473df13f944655c5e91cb}{start}}[i\_rank]);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ no\_one\_layer\_\ *\ (domain\_-\/>\mbox{\hyperlink{class_local_domain_a4e126b1f08d70026399ffa5a29bafa1f}{GetGlobal\_x}}().\mbox{\hyperlink{class_global_domain_a2942f371b53043c0e9c1b2cd10c3d377}{len}}[i\_rank]);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\_rank\ ==\ size\_\ -\/\ 1)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count\ +=\ no\_one\_layer\_\ *\ gc;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmpi_1_1_mpi_tool_a3651f59eea5d673ef5cf4a687e303e78}{IsMaster}}())\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MPI\_Irecv((\textcolor{keywordtype}{void}\ *)\&v[shift],\ count,\ MPI\_DOUBLE,\ i\_rank,}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[i\_rank\ -\/\ 1],\ comm\_world\_,}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ requests\ +\ size\_\ +\ i\_rank\ -\/\ 1);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (rank\_\ ==\ i\_rank)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MPI\_Isend((\textcolor{keywordtype}{void}\ *)\&v[shift],\ count,\ MPI\_DOUBLE,\ master\_,}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[i\_rank\ -\/\ 1],\ comm\_world\_,\ requests\ +\ i\_rank-\/1);}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MPI\_Status\ status[size\_];}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ MPI\_Waitall(size\_,\ requests,\ status);}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00161\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{domain_8hpp_source_l00049}{Local\+Domain\+::\+Get\+Global\+\_\+x()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00164}{Is\+Master()}}, \mbox{\hyperlink{domain_8hpp_source_l00015}{Global\+Domain\+::len}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{Structured\+Grid\+::no\+\_\+ghost\+\_\+cell}}, and \mbox{\hyperlink{domain_8hpp_source_l00013}{Global\+Domain\+::start}}.
+
+\Hypertarget{classmpi_1_1_mpi_tool_a32ac2770097984c242c888ed06d3da8f}\label{classmpi_1_1_mpi_tool_a32ac2770097984c242c888ed06d3da8f} 
+\index{mpi::MpiTool@{mpi::MpiTool}!GetCommWorld@{GetCommWorld}}
+\index{GetCommWorld@{GetCommWorld}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{GetCommWorld()}{GetCommWorld()}}
+{\footnotesize\ttfamily MPI\+\_\+\+Comm \& mpi\+::\+Mpi\+Tool\+::\+Get\+Comm\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00166}{166}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00166\ \{\ \textcolor{keywordflow}{return}\ comm\_world\_;\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}.
+
+\Hypertarget{classmpi_1_1_mpi_tool_a1c8e38dc380b4ffcc0f17b478902f137}\label{classmpi_1_1_mpi_tool_a1c8e38dc380b4ffcc0f17b478902f137} 
+\index{mpi::MpiTool@{mpi::MpiTool}!GetRank@{GetRank}}
+\index{GetRank@{GetRank}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{GetRank()}{GetRank()}}
+{\footnotesize\ttfamily auto mpi\+::\+Mpi\+Tool\+::\+Get\+Rank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \{\ \textcolor{keywordflow}{return}\ rank\_;\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}.
+
+\Hypertarget{classmpi_1_1_mpi_tool_aa2403b556e4ebdc3baa62606a39226f7}\label{classmpi_1_1_mpi_tool_aa2403b556e4ebdc3baa62606a39226f7} 
+\index{mpi::MpiTool@{mpi::MpiTool}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
+{\footnotesize\ttfamily auto mpi\+::\+Mpi\+Tool\+::\+Get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{\ \textcolor{keywordflow}{return}\ size\_;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmpi_1_1_mpi_tool_afef35ff52f1953d5b5433831e874d8f5}\label{classmpi_1_1_mpi_tool_afef35ff52f1953d5b5433831e874d8f5} 
+\index{mpi::MpiTool@{mpi::MpiTool}!ISendRecv@{ISendRecv}}
+\index{ISendRecv@{ISendRecv}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{ISendRecv()}{ISendRecv()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& mpi\+::\+Mpi\+Tool\+::\+ISend\+Recv (\begin{DoxyParamCaption}\item[{int}]{nolayers,  }\item[{std\+::vector$<$ double $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [shift\_send,\ shift\_recv]\ =\ GetSendRecvPosition(nolayers);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ MPI\_Request\ requests[4];}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ MakeItagCntCycle();}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ itag[2]\ =\ \{itag\_cnt++,\ itag\_cnt++\};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ nolayers\ *\ no\_one\_layer\_;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \textcolor{comment}{//\ !`+`}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ MPI\_Isend(\&v[shift\_send[0]],\ cnt,\ MPI\_DOUBLE,\ left\_neighborhood,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[0],\ comm\_world\_,\ requests\ +\ 0);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ MPI\_Irecv(\&v[shift\_recv[0]],\ cnt,\ MPI\_DOUBLE,\ right\_neighborhood,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[0],\ comm\_world\_,\ requests\ +\ 1);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \textcolor{comment}{//\ !`-\/`}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ MPI\_Isend(\&v[shift\_send[1]],\ cnt,\ MPI\_DOUBLE,\ right\_neighborhood,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[1],\ comm\_world\_,\ requests\ +\ 2);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ MPI\_Irecv(\&v[shift\_recv[1]],\ cnt,\ MPI\_DOUBLE,\ left\_neighborhood,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[1],\ comm\_world\_,\ requests\ +\ 3);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \textcolor{comment}{//\ \ MPI\_Status\ status[1];}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{comment}{//\ \ MPI\_Waitall(4,\ requests,\ status);}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmpi_1_1_mpi_tool_a3b05f67bd909937e5b0a6483f3ee1e91}\label{classmpi_1_1_mpi_tool_a3b05f67bd909937e5b0a6483f3ee1e91} 
+\index{mpi::MpiTool@{mpi::MpiTool}!ISendRecvLeft@{ISendRecvLeft}}
+\index{ISendRecvLeft@{ISendRecvLeft}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{ISendRecvLeft()}{ISendRecvLeft()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& mpi\+::\+Mpi\+Tool\+::\+ISend\+Recv\+Left (\begin{DoxyParamCaption}\item[{int}]{nolayers,  }\item[{std\+::vector$<$ double $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00091}{91}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ MakeItagCntCycle();}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ itag[2]\ =\ \{itag\_cnt++,\ itag\_cnt++\};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ nolayers\ *\ no\_one\_layer\_;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [shift\_send,\ shift\_recv]\ =\ GetSendRecvPosition(nolayers);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ MPI\_Request\ requests[2];}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \textcolor{comment}{//\ \ MPI\_Status\ status[1];}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ MPI\_Isend(\&v[shift\_send[1]],\ cnt,\ MPI\_DOUBLE,\ right\_neighborhood,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[1],\ comm\_world\_,\ requests\ +\ 0);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ MPI\_Irecv(\&v[shift\_recv[1]],\ cnt,\ MPI\_DOUBLE,\ left\_neighborhood,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[1],\ comm\_world\_,\ requests\ +\ 1);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \textcolor{comment}{//\ \ MPI\_Waitall(2,\ requests,\ status);}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00104\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmpi_1_1_mpi_tool_a5b3be7c5e39dbf00b5ef07f2d3fc949e}\label{classmpi_1_1_mpi_tool_a5b3be7c5e39dbf00b5ef07f2d3fc949e} 
+\index{mpi::MpiTool@{mpi::MpiTool}!ISendRecvRight@{ISendRecvRight}}
+\index{ISendRecvRight@{ISendRecvRight}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{ISendRecvRight()}{ISendRecvRight()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& mpi\+::\+Mpi\+Tool\+::\+ISend\+Recv\+Right (\begin{DoxyParamCaption}\item[{int}]{nolayers,  }\item[{std\+::vector$<$ double $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00076}{76}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ MakeItagCntCycle();}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ itag[2]\ =\ \{itag\_cnt++,\ itag\_cnt++\};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ nolayers\ *\ no\_one\_layer\_;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [shift\_send,\ shift\_recv]\ =\ GetSendRecvPosition(nolayers);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ MPI\_Request\ requests[2];}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \textcolor{comment}{//\ \ MPI\_Status\ status[1];}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ MPI\_Isend(\&v[shift\_send[0]],\ cnt,\ MPI\_DOUBLE,\ left\_neighborhood,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[0],\ comm\_world\_,\ requests\ +\ 0);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ MPI\_Irecv(\&v[shift\_recv[0]],\ cnt,\ MPI\_DOUBLE,\ right\_neighborhood,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[0],\ comm\_world\_,\ requests\ +\ 1);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \textcolor{comment}{//\ \ MPI\_Waitall(2,\ requests,\ status);}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00089\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmpi_1_1_mpi_tool_a3651f59eea5d673ef5cf4a687e303e78}\label{classmpi_1_1_mpi_tool_a3651f59eea5d673ef5cf4a687e303e78} 
+\index{mpi::MpiTool@{mpi::MpiTool}!IsMaster@{IsMaster}}
+\index{IsMaster@{IsMaster}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{IsMaster()}{IsMaster()}}
+{\footnotesize\ttfamily bool mpi\+::\+Mpi\+Tool\+::\+Is\+Master (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00164}{164}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00164\ \{\ \textcolor{keywordflow}{return}\ master\_\ ==\ rank\_;\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{mpi__tool_8hpp_source_l00132}{Collect\+To\+Master()}}, \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}, and \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00054}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::solve()}}.
+
+\Hypertarget{classmpi_1_1_mpi_tool_a262ffa0a0b2164d5855c84f5e6cd68a0}\label{classmpi_1_1_mpi_tool_a262ffa0a0b2164d5855c84f5e6cd68a0} 
+\index{mpi::MpiTool@{mpi::MpiTool}!SendRecv@{SendRecv}}
+\index{SendRecv@{SendRecv}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{SendRecv()}{SendRecv()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& mpi\+::\+Mpi\+Tool\+::\+Send\+Recv (\begin{DoxyParamCaption}\item[{int}]{nolayers,  }\item[{std\+::vector$<$ double $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [shift\_send,\ shift\_recv]\ =\ GetSendRecvPosition(nolayers);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ nolayers\ *\ no\_one\_layer\_;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ MakeItagCntCycle();}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ itag[2]\ =\ \{itag\_cnt++,\ itag\_cnt++\};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ MPI\_Status\ status[2];}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{comment}{//\ !`+`}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ MPI\_Send(\&v[shift\_send[0]],\ cnt,\ MPI\_DOUBLE,\ left\_neighborhood,\ itag[0],}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comm\_world\_);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ MPI\_Recv(\&v[shift\_recv[0]],\ cnt,\ MPI\_DOUBLE,\ right\_neighborhood,\ itag[0],}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comm\_world\_,\ status);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \textcolor{comment}{//\ !`-\/`}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ MPI\_Send(\&v[shift\_send[1]],\ cnt,\ MPI\_DOUBLE,\ right\_neighborhood,\ itag[1],}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comm\_world\_);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ MPI\_Recv(\&v[shift\_recv[1]],\ cnt,\ MPI\_DOUBLE,\ left\_neighborhood,\ itag[1],}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comm\_world\_,\ status\ +\ 1);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmpi_1_1_mpi_tool_aa1d768764efc2e61cc232ad725bdbfd6}\label{classmpi_1_1_mpi_tool_aa1d768764efc2e61cc232ad725bdbfd6} 
+\index{mpi::MpiTool@{mpi::MpiTool}!SendRecvLeft@{SendRecvLeft}}
+\index{SendRecvLeft@{SendRecvLeft}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{SendRecvLeft()}{SendRecvLeft()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& mpi\+::\+Mpi\+Tool\+::\+Send\+Recv\+Left (\begin{DoxyParamCaption}\item[{int}]{nolayers,  }\item[{std\+::vector$<$ double $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00106}{106}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ MakeItagCntCycle();}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ itag[2]\ =\ \{itag\_cnt++,\ itag\_cnt++\};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ nolayers\ *\ no\_one\_layer\_;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [shift\_send,\ shift\_recv]\ =\ GetSendRecvPosition(nolayers);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ MPI\_Status\ status[1];}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ MPI\_Send(\&v[shift\_send[1]],\ cnt,\ MPI\_DOUBLE,\ right\_neighborhood,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[1],\ comm\_world\_);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ MPI\_Recv(\&v[shift\_recv[1]],\ cnt,\ MPI\_DOUBLE,\ left\_neighborhood,}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[1],\ comm\_world\_,\ status);}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00117\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmpi_1_1_mpi_tool_aeacabdff4fdf3edb4b5a81eb85c13ca5}\label{classmpi_1_1_mpi_tool_aeacabdff4fdf3edb4b5a81eb85c13ca5} 
+\index{mpi::MpiTool@{mpi::MpiTool}!SendRecvRight@{SendRecvRight}}
+\index{SendRecvRight@{SendRecvRight}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{SendRecvRight()}{SendRecvRight()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmpi_1_1_mpi_tool}{Mpi\+Tool}} \& mpi\+::\+Mpi\+Tool\+::\+Send\+Recv\+Right (\begin{DoxyParamCaption}\item[{int}]{nolayers,  }\item[{std\+::vector$<$ double $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00119}{119}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ MakeItagCntCycle();}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ itag[2]\ =\ \{itag\_cnt++,\ itag\_cnt++\};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ nolayers\ *\ no\_one\_layer\_;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [shift\_send,\ shift\_recv]\ =\ GetSendRecvPosition(nolayers);}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ MPI\_Status\ status[1];}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ MPI\_Send(\&v[shift\_send[0]],\ cnt,\ MPI\_DOUBLE,\ left\_neighborhood,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itag[0],\ comm\_world\_);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ MPI\_Recv(\&v[shift\_recv[0]],\ cnt,\ MPI\_DOUBLE,\ right\_neighborhood,\ itag[0],}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comm\_world\_,\ status);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00130\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmpi_1_1_mpi_tool_a8467369c8478cb4d0c6ea1c524746a68}\label{classmpi_1_1_mpi_tool_a8467369c8478cb4d0c6ea1c524746a68} 
+\index{mpi::MpiTool@{mpi::MpiTool}!SetDomain@{SetDomain}}
+\index{SetDomain@{SetDomain}!mpi::MpiTool@{mpi::MpiTool}}
+\doxysubsubsection{\texorpdfstring{SetDomain()}{SetDomain()}}
+{\footnotesize\ttfamily void mpi\+::\+Mpi\+Tool\+::\+Set\+Domain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&}]{domain }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__tool_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{mpi__tool_8hpp_source}{mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ domain\_\ =\ \&domain;}
+\DoxyCodeLine{00026\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/mpi\+\_\+tool/\mbox{\hyperlink{mpi__tool_8hpp}{mpi\+\_\+tool.\+hpp}}\end{DoxyCompactItemize}

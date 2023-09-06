@@ -1,0 +1,71 @@
+\doxysection{matrix\+\_\+test\+\_\+amgcl.\+cpp}
+\hypertarget{matrix__test__amgcl_8cpp_source}{}\label{matrix__test__amgcl_8cpp_source}\index{tests/matrix/matrix\_test\_amgcl.cpp@{tests/matrix/matrix\_test\_amgcl.cpp}}
+\mbox{\hyperlink{matrix__test__amgcl_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <gtest/gtest.h>}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <amgcl/adapter/crs\_tuple.hpp>}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <amgcl/amg.hpp>}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <amgcl/backend/builtin.hpp>}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <amgcl/coarsening/smoothed\_aggregation.hpp>}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <amgcl/make\_solver.hpp>}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <amgcl/profiler.hpp>}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <amgcl/relaxation/gauss\_seidel.hpp>}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <amgcl/relaxation/spai0.hpp>}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <amgcl/solver/bicgstab.hpp>}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/matrix/csr\_sparse\_mat.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/matrix/ell\_sparse\_mat.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/matrix/solver/bicgstab.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/matrix/solver/bicgstab\_restart.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/mpi\_tool/mpi\_complex.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/mpi\_tool/mpi\_getter.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/mpi\_tool/mpi\_tool.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}../validation\_tool/l2norm\_validation.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{poisson_8hpp}{poisson.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00023}\mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{00023}}\ \mbox{\hyperlink{class_heat_conduction}{HeatConduction}}\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}(10);}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00025}00025\ \textcolor{comment}{//\ \ \ the\ solver\ backend:}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00026}\mbox{\hyperlink{matrix__test__amgcl_8cpp_a5796b270f3e609adfeaecc29c46fd6b1}{00026}}\ \textcolor{keyword}{typedef}\ amgcl::backend::builtin<double>\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a5796b270f3e609adfeaecc29c46fd6b1}{SBackend}};}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00027}00027\ \textcolor{comment}{//\ \ \ the\ preconditioner\ backend:}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00028}\mbox{\hyperlink{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128}{00028}}\ \textcolor{keyword}{typedef}\ amgcl::backend::builtin<double>\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}};}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00030}00030\ \textcolor{comment}{//===========\ Compose\ the\ solver\ type\ ===========//}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00032}00032\ \textcolor{keyword}{typedef}\ amgcl::make\_solver<}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00033}00033\ \ \ \ \ amgcl::amg<\mbox{\hyperlink{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}},\ amgcl::coarsening::smoothed\_aggregation,}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ amgcl::relaxation::gauss\_seidel>,}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00035}00035\ \ \ \ \ amgcl::solver::bicgstab<SBackend>\ >}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00036}\mbox{\hyperlink{matrix__test__amgcl_8cpp_abdb438655bbcb29d230a3bb6f4d9cd3c}{00036}}\ \ \ \ \ \mbox{\hyperlink{matrix__test__amgcl_8cpp_abdb438655bbcb29d230a3bb6f4d9cd3c}{Solver}};}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00039}\mbox{\hyperlink{matrix__test__amgcl_8cpp_a7222653dfe0aa43ea317f3d2e504b5b5}{00039}}\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a7222653dfe0aa43ea317f3d2e504b5b5}{TEST}}(csr\_mat,\ get\_csr)\ \{}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00040}00040\ \ \ \textcolor{keyword}{auto}\ data\ =\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}();}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00041}00041\ \ \ \textcolor{keywordtype}{int}\ row\ =\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}}.size();}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00042}00042\ \ \ std::vector<double>\ amgcl\_x\ =\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00043}00043\ \ \ std::vector<double>\ resultB\ =\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00044}00044\ \ \ \textcolor{keyword}{auto}\ ptr\ =\ std::get<0>(data);\ \ \ \ \ \ \textcolor{comment}{//\ size\_t}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00045}00045\ \ \ \textcolor{keyword}{auto}\ indices\ =\ std::get<1>(data);\ \ \textcolor{comment}{//\ szie\_t}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00046}00046\ \ \ \textcolor{keyword}{auto}\ values\ =\ std::get<2>(data);\ \ \ \textcolor{comment}{//\ double}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00047}00047\ \ \ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00048}00048\ \ \ \textcolor{keyword}{auto}\ amgcl\_mat\ =\ std::tie(row,\ ptr,\ indices,\ values);}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00049}00049\ \ \ \mbox{\hyperlink{matrix__test__amgcl_8cpp_abdb438655bbcb29d230a3bb6f4d9cd3c}{Solver}}\ solve(amgcl\_mat);}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00050}00050\ \ \ \textcolor{keyword}{auto}\ [iters,\ error]\ =\ solve(amgcl\_mat,\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ amgcl\_x);}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00052}00052\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matB;}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00053}00053\ \ \ matB.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00054}00054\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart}{solver::BicgstabRestart<mat::CsrMat<double>}}>\ solverB(matB);}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00055}00055\ \ \ solverB.\mbox{\hyperlink{classsolver_1_1_bicgstab_restart_aaf7d57ea70b27435f8b62d7e0103d5dc}{SetTolerance}}(1.0e-\/9);}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00057}00057\ \ \ solverB(\mbox{\hyperlink{matrix__test__amgcl_8cpp_ad3e3a02b603111e410aa7f6ac3c6839b}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultB);}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00059}00059\ \ \ EXPECT\_TRUE(\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(amgcl\_x,\ resultB)\ <\ 1.0e-\/6);}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00062}\mbox{\hyperlink{matrix__test__amgcl_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{00062}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00063}00063\ \ \ testing::InitGoogleTest(\&argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00064}00064\ \ \ \textcolor{keywordflow}{return}\ RUN\_ALL\_TESTS();}
+\DoxyCodeLine{\Hypertarget{matrix__test__amgcl_8cpp_source_l00065}00065\ \}}
+
+\end{DoxyCode}

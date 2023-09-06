@@ -1,0 +1,42 @@
+\doxysection{STL\+\_\+clock.\+hpp}
+\hypertarget{_s_t_l__clock_8hpp_source}{}\label{_s_t_l__clock_8hpp_source}\index{cfd\_mx/inc/profiling/STL\_clock.hpp@{cfd\_mx/inc/profiling/STL\_clock.hpp}}
+\mbox{\hyperlink{_s_t_l__clock_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ C++\ string}}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ vector\ container}}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00006}\mbox{\hyperlink{class_stop_watch}{00006}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_stop_watch}{StopWatch}}\ \{}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00008}00008\ \ \ \ \ std::chrono::high\_resolution\_clock::time\_point\ t\_start,\ t\_stop;}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordtype}{double}\ total=0;}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00012}00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00013}\mbox{\hyperlink{class_stop_watch_a09a3c8f9ab03d7b28e4f8b90a833974e}{00013}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stop_watch_a09a3c8f9ab03d7b28e4f8b90a833974e}{start}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ t\_start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00015}00015\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00017}\mbox{\hyperlink{class_stop_watch_a6e80b598d9304e37d8768b716e713e0e}{00017}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stop_watch_a6e80b598d9304e37d8768b716e713e0e}{stop}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ t\_stop\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ std::chrono::duration<double>\ d\ =\ t\_stop\ -\/\ t\_start;}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ total\ +=\ d.count();}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00023}\mbox{\hyperlink{class_stop_watch_aa0d63e2af077651430a0fcfa1eed9189}{00023}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_stop_watch_aa0d63e2af077651430a0fcfa1eed9189}{elapsedTime}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ total;}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00027}\mbox{\hyperlink{class_stop_watch_a3374cddaa3d2d9427ace631fa63f3318}{00027}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stop_watch_a3374cddaa3d2d9427ace631fa63f3318}{init\_start}}()\ \{\ }
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ total\ =\ 0.0;\ }
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ t\_start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00032}\mbox{\hyperlink{class_stop_watch_a4e317c66e31b584b418c0e1e83f287be}{00032}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_stop_watch_a4e317c66e31b584b418c0e1e83f287be}{resolution}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tmp\ =\ std::chrono::high\_resolution\_clock::period();}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{double})tmp.num\ /\ tmp.den;}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_s_t_l__clock_8hpp_source_l00036}00036\ \};}
+
+\end{DoxyCode}

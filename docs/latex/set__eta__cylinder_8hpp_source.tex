@@ -1,0 +1,52 @@
+\doxysection{set\+\_\+eta\+\_\+cylinder.\+hpp}
+\hypertarget{set__eta__cylinder_8hpp_source}{}\label{set__eta__cylinder_8hpp_source}\index{cfd\_mx/inc/dfib/set\_eta\_cylinder.hpp@{cfd\_mx/inc/dfib/set\_eta\_cylinder.hpp}}
+\mbox{\hyperlink{set__eta__cylinder_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{set__eta_8hpp}{set\_eta.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00005}\mbox{\hyperlink{class_cylinder_z}{00005}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cylinder_z}{CylinderZ}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_cal_eta_interface}{CalEtaInterface}}\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00006}00006\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00008}\mbox{\hyperlink{class_cylinder_z_aff32b1645ec450631b250976a1455ff0}{00008}}\ \ \ \mbox{\hyperlink{class_cylinder_z_aff32b1645ec450631b250976a1455ff0}{CylinderZ}}(\mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\&\ grid)\ :\ grid\_(\&grid),\ \mbox{\hyperlink{class_cal_eta_interface}{CalEtaInterface}}()\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00009}00009\ \ \ \ \ std::tie(lx,\ ly,\ lz)\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a0fadb12f6a62b9003a516585654cbbd3}{GetLen}}();}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00010}00010\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00012}00012\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacesolver}{solver}}(\mbox{\hyperlink{class_immersed_boundary}{ImmersedBoundary}}\&\ dfib,\ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\&\ domain)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00014}\mbox{\hyperlink{class_cylinder_z_a588ea31d17d23cbd86e21008bd8a5d90}{00014}}\ \ \ \mbox{\hyperlink{class_cylinder_z}{CylinderZ}}\&\ \mbox{\hyperlink{class_cylinder_z_a588ea31d17d23cbd86e21008bd8a5d90}{SetCylinderCenter}}(\textcolor{keywordtype}{double}\ center\_x,\ \textcolor{keywordtype}{double}\ center\_y)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00015}00015\ \ \ \ \ this-\/>center\_x\ =\ center\_x;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00016}00016\ \ \ \ \ this-\/>center\_y\ =\ center\_y;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00018}00018\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00020}\mbox{\hyperlink{class_cylinder_z_ab637f56da20704a0e7a9bdd21f393268}{00020}}\ \ \ \mbox{\hyperlink{class_cylinder_z}{CylinderZ}}\&\ \mbox{\hyperlink{class_cylinder_z_ab637f56da20704a0e7a9bdd21f393268}{SetSubGrid}}(\textcolor{keywordtype}{int}\ nx,\ \textcolor{keywordtype}{int}\ ny)\ \{}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00021}00021\ \ \ \ \ no\_sub\_nx\ =\ nx;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00022}00022\ \ \ \ \ no\_sub\_ny\ =\ ny;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00024}00024\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00026}\mbox{\hyperlink{class_cylinder_z_ad4780c601c3d955c6d67849a22216bd7}{00026}}\ \ \ \mbox{\hyperlink{class_cylinder_z}{CylinderZ}}\&\ \mbox{\hyperlink{class_cylinder_z_ad4780c601c3d955c6d67849a22216bd7}{SetRadius}}(\textcolor{keywordtype}{double}\ rad)\ \{\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00027}00027\ \ \ \ \ radius\ =\ rad;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00029}00029\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00031}00031\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00032}00032\ \ \ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}*\ grid\_;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00033}00033\ \ \ \textcolor{keywordtype}{int}\ no\_sub\_nx\ =\ 100;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00034}00034\ \ \ \textcolor{keywordtype}{int}\ no\_sub\_ny\ =\ 100;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00035}00035\ \ \ \textcolor{keywordtype}{int}\ ly;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00036}00036\ \ \ \textcolor{keywordtype}{int}\ lx;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00037}00037\ \ \ \textcolor{keywordtype}{int}\ lz;}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00039}00039\ \ \ \textcolor{keywordtype}{double}\ center\_x\{0\};}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00040}00040\ \ \ \textcolor{keywordtype}{double}\ center\_y\{0\};}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00041}00041\ \ \ \textcolor{keywordtype}{double}\ radius\{0\};}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00042}00042\ \ \ \textcolor{keywordtype}{int}\ gc\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00043}00043\ \ \ \textcolor{keywordtype}{double}\ nx\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}};}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00044}00044\ \ \ \textcolor{keywordtype}{double}\ ny\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}};}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00045}00045\ \ \ \textcolor{keywordtype}{double}\ nz\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}};}
+\DoxyCodeLine{\Hypertarget{set__eta__cylinder_8hpp_source_l00046}00046\ \};}
+
+\end{DoxyCode}

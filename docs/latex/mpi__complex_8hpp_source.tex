@@ -1,0 +1,66 @@
+\doxysection{mpi\+\_\+complex.\+hpp}
+\hypertarget{mpi__complex_8hpp_source}{}\label{mpi__complex_8hpp_source}\index{cfd\_mx/inc/mpi\_tool/mpi\_complex.hpp@{cfd\_mx/inc/mpi\_tool/mpi\_complex.hpp}}
+\mbox{\hyperlink{mpi__complex_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once;}}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mpi__getter_8hpp}{mpi\_getter.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00004}\mbox{\hyperlink{namespacempi}{00004}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacempi}{mpi}}\{}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00005}\mbox{\hyperlink{classmpi_1_1_mpi_complex}{00005}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmpi_1_1_mpi_complex}{MpiComplex}}\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00007}00007\ \ \ MpiSelector(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}**\ argv,\ \textcolor{keywordtype}{int}\ reorder\ =\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00008}00008\ \ \ \ \ MPI\_Init(\&argc,\ \&argv);}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00009}00009\ \ \ \ \ rank\_\ =\ \mbox{\hyperlink{namespacempi_ad5b31e1d84855c1a0d7bff0de7cd1cfb}{mpi::GetRank}}();}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00010}00010\ \ \ \ \ size\_\ =\ \mbox{\hyperlink{namespacempi_ab978162719907ffc69169c4b38025dce}{mpi::GetSize}}();}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00011}00011\ \ \ \ \ VirtualProcessTopology(reorder);}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00012}00012\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00014}00014\ \ \ \textcolor{keywordtype}{void}\ Barrier()\ \{\ MPI\_Barrier(comm\_world\_);\ \}}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00016}00016\ \ \ \textcolor{keywordtype}{void}\ SendRecv(\textcolor{keywordtype}{double}*\ send,\ \textcolor{keywordtype}{double}*\ recv,\ \textcolor{keywordtype}{int}\ cnt)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{int}\ itag[]\ =\ \{110,\ 220\};}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00018}00018\ \ \ \ \ MPI\_Request\ requests[2];}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00019}00019\ \ \ \ \ MPI\_Status\ status[2];}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00020}00020\ \ \ \ \ MPI\_Send(send,\ cnt,\ MPI\_DOUBLE,\ left\_neighborhood,\ itag[0],\ comm\_world\_);}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00021}00021\ \ \ \ \ MPI\_Recv(send,\ cnt,\ MPI\_DOUBLE,\ right\_neighborhood,\ itag[0],\ comm\_world\_,}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ status);}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00023}00023\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00025}00025\ \ \ \textcolor{keywordtype}{void}\ ISendRecv(\textcolor{keywordtype}{double}*\ send,\ \textcolor{keywordtype}{double}*\ recv,\ \textcolor{keywordtype}{int}\ cnt)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{int}\ itag[]\ =\ \{110,\ 220\};}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00027}00027\ \ \ \ \ MPI\_Request\ requests[2];}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00028}00028\ \ \ \ \ MPI\_Status\ status[2];}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00029}00029\ \ \ \ \ MPI\_Isend(\&v[shift\_send[0]],\ cnt,\ MPI\_DOUBLE,\ left\_neighborhood,\ itag[0],}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comm\_world\_,\ requests\ +\ 0);}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00031}00031\ \ \ \ \ MPI\_Irecv(\&v[shift\_recv[0]],\ cnt,\ MPI\_DOUBLE,\ right\_neighborhood,\ itag[0],}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comm\_world\_,\ requests\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00033}00033\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00035}00035\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00036}00036\ \ \ \textcolor{keywordtype}{int}\ size\_;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00037}00037\ \ \ \textcolor{keywordtype}{int}\ rank\_;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00038}00038\ \ \ \textcolor{keywordtype}{int}\ coord\_;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00039}00039\ \ \ \textcolor{keywordtype}{int}\ size\_;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00040}00040\ \ \ \textcolor{keywordtype}{int}\ rank\_;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00041}00041\ \ \ \textcolor{keywordtype}{int}\ coord\_;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00042}00042\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ left\_neighborhood\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00043}00043\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ right\_neighborhood\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00044}00044\ \ \ MPI\_Comm\ comm\_world\_;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00045}00045\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ master\_\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00047}00047\ \ \ \textcolor{keywordtype}{void}\ VirtualProcessTopology(\textcolor{keywordtype}{bool}\ reorder)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{int}\ number\_of\_dimension\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{int}\ false\_periods\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00050}00050\ \ \ \ \ MPI\_Cart\_create(MPI\_COMM\_WORLD,\ number\_of\_dimension,\ \&size\_,\ \&false\_periods,}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reorder,\ \&comm\_world\_);}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00052}00052\ \ \ \ \ MPI\_Cart\_coords(comm\_world\_,\ rank\_,\ number\_of\_dimension,\ \&coord\_);}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{int}\ displacement\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{int}\ direction\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00055}00055\ \ \ \ \ MPI\_Cart\_shift(comm\_world\_,\ direction,\ displacement,\ \&left\_neighborhood,}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&right\_neighborhood);}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00057}00057\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00058}00058\ \};}
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{mpi__complex_8hpp_source_l00060}00060\ \}\ \ \textcolor{comment}{//\ namespace\ mpi}}
+
+\end{DoxyCode}

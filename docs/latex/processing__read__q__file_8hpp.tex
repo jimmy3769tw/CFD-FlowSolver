@@ -1,0 +1,66 @@
+\doxysection{cfd\+\_\+mx/inc/io/plot3d/processing\+\_\+read\+\_\+q\+\_\+file.hpp File Reference}
+\hypertarget{processing__read__q__file_8hpp}{}\label{processing__read__q__file_8hpp}\index{cfd\_mx/inc/io/plot3d/processing\_read\_q\_file.hpp@{cfd\_mx/inc/io/plot3d/processing\_read\_q\_file.hpp}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{processing__read__q__file_8hpp_ad8a8e36c64bc5fbb19f889e14904173a}{Process\+Read\+Qfileint}} (int Nblock, float mach, float alpha, float reyn, float time, std\+::vector$<$ std\+::vector$<$ float $>$ $>$ data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{processing__read__q__file_8hpp_ad8a8e36c64bc5fbb19f889e14904173a}\label{processing__read__q__file_8hpp_ad8a8e36c64bc5fbb19f889e14904173a} 
+\index{processing\_read\_q\_file.hpp@{processing\_read\_q\_file.hpp}!ProcessReadQfileint@{ProcessReadQfileint}}
+\index{ProcessReadQfileint@{ProcessReadQfileint}!processing\_read\_q\_file.hpp@{processing\_read\_q\_file.hpp}}
+\doxysubsubsection{\texorpdfstring{ProcessReadQfileint()}{ProcessReadQfileint()}}
+{\footnotesize\ttfamily auto Process\+Read\+Qfileint (\begin{DoxyParamCaption}\item[{int}]{Nblock,  }\item[{float}]{mach,  }\item[{float}]{alpha,  }\item[{float}]{reyn,  }\item[{float}]{time,  }\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{processing__read__q__file_8hpp_source_l00002}{2}} of file \mbox{\hyperlink{processing__read__q__file_8hpp_source}{processing\+\_\+read\+\_\+q\+\_\+file.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00004\ \ \ std::vector<std::vector<double>>\ data\_new(}
+\DoxyCodeLine{00005\ \ \ \ \ \ \ nodata,\ std::vector<double>(grid.no\_grid,\ 0.0));}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ gc;\ k\ <\ cal\_nz\ +\ gc;\ ++k)}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ gc;\ j\ <\ cal\_ny\ +\ gc;\ ++j)}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ gc;\ i\ <\ cal\_nx\ +\ gc;\ ++i)\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ data\_new[0][grid.icel(i,\ j,\ k)]\ =\ data[0][grid.icelCal(i,\ j,\ k)];}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ data\_new[4][grid.icel(i,\ j,\ k)]\ =\ data[4][grid.icelCal(i,\ j,\ k)];}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ gc;\ k\ <\ cal\_nz\ +\ gc;\ ++k)}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ gc;\ j\ <\ cal\_ny\ +\ gc;\ ++j)}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ gc;\ i\ <\ cal\_nx\ +\ gc;\ ++i)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nxCal\ +\ gc\ -\/\ 1\ ==\ i)}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ data\_new[1][grid.icel(i,\ j,\ k)]\ =\ data[1][grid.icelCal(i,\ j,\ k)];}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ data\_new[1][grid.icel(i,\ j,\ k)]\ =}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (data[1][grid.icelCal(i,\ j,\ k)]\ +}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data[1][grid.icelCal(i\ +\ 1,\ j,\ k)])\ /}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.0;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nyCal\ +\ gc\ -\/\ 1\ ==\ j)}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ data\_new[2][grid.icel(i,\ j,\ k)]\ =\ data[2][grid.icelCal(i,\ j,\ k)];}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ data\_new[2][grid.icel(i,\ j,\ k)]\ =}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (data[2][grid.icelCal(i,\ j,\ k)]\ +}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data[2][grid.icelCal(i,\ j\ +\ 1,\ k)])\ /}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.0;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nzCal\ +\ gc\ -\/\ 1\ ==\ k)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ data\_new[3][grid.icel(i,\ j,\ k)]\ =\ data[3][grid.icelCal(i,\ j,\ k)];}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ data\_new[3][grid.icel(i,\ j,\ k)]\ =}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (data[3][grid.icelCal(i,\ j,\ k)]\ +}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data[3][grid.icelCal(i,\ j,\ k\ +\ 1)])\ /}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.0;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(Nblock,\ mach,\ alpha,\ reyn,\ time,\ data\_new[0],}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data\_new[1],\ data\_new[2],\ data\_new[3],\ data\_new[4]);}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}

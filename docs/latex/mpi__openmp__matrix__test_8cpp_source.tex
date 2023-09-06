@@ -1,0 +1,119 @@
+\doxysection{mpi\+\_\+openmp\+\_\+matrix\+\_\+test.\+cpp}
+\hypertarget{mpi__openmp__matrix__test_8cpp_source}{}\label{mpi__openmp__matrix__test_8cpp_source}\index{tests/matrix/mpi\_openmp\_matrix\_test.cpp@{tests/matrix/mpi\_openmp\_matrix\_test.cpp}}
+\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <gtest/gtest.h>}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/matrix/csr\_sparse\_mat.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/matrix/ell\_sparse\_mat.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/matrix/solver/bicgstab.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/matrix/solver/bicgstab\_restart.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/matrix/solver/mpi/bicgstab\_mpi.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/matrix/solver/mpi/bicgstab\_restart\_mpi.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/mpi\_tool/mpi\_complex.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/mpi\_tool/mpi\_getter.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}../../cfd\_mx/inc/mpi\_tool/mpi\_tool.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}../validation\_tool/l2norm\_validation.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{io__2d__plot3d_8hpp}{io\_2d\_plot3d.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{poisson_8hpp}{poisson.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00016}\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{00016}}\ \mbox{\hyperlink{classmpi_1_1_mpi_complex}{mpi::MpiComplex}}\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\_complex\_}};}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00018}\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{00018}}\ \mbox{\hyperlink{class_heat_conduction}{HeatConduction}}\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}(100);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00020}\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_ac965ee5964aab3bc82b08a52b78ed679}{00020}}\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_ac965ee5964aab3bc82b08a52b78ed679}{TEST}}(csr\_mpi,\ BicgstabRestart)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00022}00022\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matA;}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00023}00023\ \ \ matA.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00024}00024\ \ \ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a5721137746cc4e7ad0afca32d3a2c7ee}{InitMpi}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\_complex\_}}.GetCommWorld(),\ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00025}00025\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{solver::BicgstabRestartMpi<mat::CsrMat<double>}}>\ solverA(matA);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00027}00027\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matB;}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00028}00028\ \ \ matB.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00029}00029\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart}{solver::BicgstabRestart<mat::CsrMat<double>}}>\ solverB(matB);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00030}00030\ \ \ solverA.\mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi_a001d10d91940b2edb52f830fa576e9f1}{SetTolerance}}(1.0e-\/9);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00031}00031\ \ \ solverB.\mbox{\hyperlink{classsolver_1_1_bicgstab_restart_aaf7d57ea70b27435f8b62d7e0103d5dc}{SetTolerance}}(1.0e-\/9);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00033}00033\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{auto}\ resultA\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keyword}{auto}\ resultB\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00037}00037\ \ \ \ \ solverA(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultA);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00038}00038\ \ \ \ \ solverB(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultB);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00039}00039\ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(resultA,\ resultB)\ <\ 1.0e-\/8);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00040}00040\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00041}00041\ \}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00043}\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a4bb30fee5a6fe2dd58e8a0383f249f9d}{00043}}\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_ac965ee5964aab3bc82b08a52b78ed679}{TEST}}(csr\_mpi,\ Bicgstab)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00044}00044\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matA;}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00045}00045\ \ \ matA.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00046}00046\ \ \ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a5721137746cc4e7ad0afca32d3a2c7ee}{InitMpi}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\_complex\_}}.GetCommWorld(),\ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00047}00047\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_mpi}{solver::BicgstabMpi<mat::CsrMat<double>}}>\ solverA(matA);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00049}00049\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matB;}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00050}00050\ \ \ matB.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00051}00051\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab}{solver::Bicgstab<mat::CsrMat<double>}}>\ solverB(matB);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00052}00052\ \ \ solverA.\mbox{\hyperlink{classsolver_1_1_linear_solver_mpi_abf96d54f187828d1baf7b6dde3fc1cd4}{SetTolerance}}(1.0e-\/9);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00053}00053\ \ \ solverB.\mbox{\hyperlink{classsolver_1_1_linear_solver_aa775a3b06c65eedc5618bf75be98c134}{SetTolerance}}(1.0e-\/9);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00055}00055\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{auto}\ resultA\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{auto}\ resultB\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00059}00059\ \ \ \ \ solverA(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultA);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00060}00060\ \ \ \ \ solverB(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultB);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00061}00061\ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(resultA,\ resultB)\ <\ 1.0e-\/8);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00062}00062\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00065}\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_ab5d6ada777cbd583d20c644f8117d494}{00065}}\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_ac965ee5964aab3bc82b08a52b78ed679}{TEST}}(EllMat,\ BicgstabRestartMpi)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00066}00066\ \ \ \mbox{\hyperlink{classmat_1_1_ell_mat}{mat::EllMat<double>}}\ matA;}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00067}00067\ \ \ matA.\mbox{\hyperlink{classmat_1_1_ell_mat_ab29006f8d098c71c98b3c90145b94f8f}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00068}00068\ \ \ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a5721137746cc4e7ad0afca32d3a2c7ee}{InitMpi}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\_complex\_}}.GetCommWorld(),\ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00069}00069\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{solver::BicgstabRestartMpi<mat::EllMat<double>}}>\ solverA(matA);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00071}00071\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matB;}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00072}00072\ \ \ matB.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00073}00073\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart}{solver::BicgstabRestart<mat::CsrMat<double>}}>\ solverB(matB);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00074}00074\ \ \ solverA.\mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi_a001d10d91940b2edb52f830fa576e9f1}{SetTolerance}}(1.0e-\/9);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00075}00075\ \ \ solverB.\mbox{\hyperlink{classsolver_1_1_bicgstab_restart_aaf7d57ea70b27435f8b62d7e0103d5dc}{SetTolerance}}(1.0e-\/9);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00077}00077\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keyword}{auto}\ resultA\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keyword}{auto}\ resultB\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00081}00081\ \ \ \ \ solverA(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultA);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00082}00082\ \ \ \ \ solverB(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultB);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00083}00083\ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(resultA,\ resultB)\ <\ 1.0e-\/8);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00084}00084\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00087}\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a56b25d6a10203b468b04660bea569086}{00087}}\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_ac965ee5964aab3bc82b08a52b78ed679}{TEST}}(EllMat,\ Bicgstab)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00088}00088\ \ \ \mbox{\hyperlink{classmat_1_1_ell_mat}{mat::EllMat<double>}}\ matA;}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00089}00089\ \ \ matA.\mbox{\hyperlink{classmat_1_1_ell_mat_ab29006f8d098c71c98b3c90145b94f8f}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00090}00090\ \ \ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a5721137746cc4e7ad0afca32d3a2c7ee}{InitMpi}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\_complex\_}}.GetCommWorld(),\ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00091}00091\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_mpi}{solver::BicgstabMpi<mat::EllMat<double>}}>\ solverA(matA);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00093}00093\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matB;}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00094}00094\ \ \ matB.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00095}00095\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab}{solver::Bicgstab<mat::CsrMat<double>}}>\ solverB(matB);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00096}00096\ \ \ solverA.\mbox{\hyperlink{classsolver_1_1_linear_solver_mpi_abf96d54f187828d1baf7b6dde3fc1cd4}{SetTolerance}}(1.0e-\/9);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00097}00097\ \ \ solverB.\mbox{\hyperlink{classsolver_1_1_linear_solver_aa775a3b06c65eedc5618bf75be98c134}{SetTolerance}}(1.0e-\/9);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00099}00099\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keyword}{auto}\ resultA\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{keyword}{auto}\ resultB\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00103}00103\ \ \ \ \ solverA(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultA);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00104}00104\ \ \ \ \ solverB(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultB);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00105}00105\ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(resultA,\ resultB)\ <\ 1.0e-\/8);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00106}00106\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00107}00107\ \}}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00109}\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{00109}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00110}00110\ \ \ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\_complex\_}}\ =\ \mbox{\hyperlink{classmpi_1_1_mpi_complex}{mpi::MpiComplex}}(argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00111}00111\ \ \ testing::InitGoogleTest(\&argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00112}00112\ \ \ \textcolor{keywordflow}{return}\ RUN\_ALL\_TESTS();}
+\DoxyCodeLine{\Hypertarget{mpi__openmp__matrix__test_8cpp_source_l00113}00113\ \}}
+
+\end{DoxyCode}

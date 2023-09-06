@@ -1,0 +1,63 @@
+\doxysection{smagorinsky\+\_\+model.\+hpp}
+\hypertarget{smagorinsky__model_8hpp_source}{}\label{smagorinsky__model_8hpp_source}\index{cfd\_mx/inc/source/smagorinsky\_model.hpp@{cfd\_mx/inc/source/smagorinsky\_model.hpp}}
+\mbox{\hyperlink{smagorinsky__model_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{simulation_8hpp}{backend/simulation.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physical__variables_8hpp}{backend/physical\_variables.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structured__grid_8hpp}{grid/structured\_grid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00009}\mbox{\hyperlink{smagorinsky__model_8hpp_a98e563721a8893a74d2560bfa3489faf}{00009}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{smagorinsky__model_8hpp_a98e563721a8893a74d2560bfa3489faf}{CalSmagorinskyModel}}(}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\&\ simu,}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{class_staggered_velocity}{StaggeredVelocity}}\&\ vel,}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\&\ Lo,}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\&\ grid}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00014}00014\ )\{}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ CS\ =\ 0.18;}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cal\_size\ =\ grid.\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}};}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00018}00018\ \ \ \ \ std::vector<double>\ \ du\_dx(3*cal\_size);}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00019}00019\ \ \ \ \ std::vector<double>\ \ dv\_dx(3*cal\_size);}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00020}00020\ \ \ \ \ std::vector<double>\ \ dw\_dx(3*cal\_size);}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ square\ =\ [\&](\textcolor{keywordtype}{double}\ a)\{\textcolor{keywordflow}{return}\ std::pow(a,\ 2);\};}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}}\ ;\ ++i\ )}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}}\ ;\ ++j\ )}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}};\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}}\ ;\ ++k\ )}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ii\ =\ grid.\mbox{\hyperlink{class_structured_grid_adca333aed9e81b218244f26b11c7b114}{icelCal}}(i,j,k)*3;}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ du\_dx[ii+0]\ =\ (vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i-\/1,\ j,\ k)\ -\/\ vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i,\ j,\ k))\ /\ grid.\mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}[i];}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ du\_dx[ii+1]\ =\ (vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i,\ j-\/1,\ k)\ -\/\ vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i,\ j,\ k))\ /\ grid.\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[j]\ ;}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ du\_dx[ii+2]\ =\ (vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i,\ j,\ k-\/1)\ -\/\ vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i,\ j,\ k))\ /\ grid.\mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[j]\ ;}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ dv\_dx[ii+0]\ =\ (vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i-\/1,\ j,\ k)\ -\/\ vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i,\ j,\ k))\ /\ grid.\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[j]\ ;}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ dv\_dx[ii+1]\ =\ (vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i,\ j-\/1,\ k)\ -\/\ vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i,\ j,\ k))\ /\ grid.\mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}[j]\ ;}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ dv\_dx[ii+2]\ =\ (vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i,\ j,\ k-\/1)\ -\/\ vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i,\ j,\ k))\ /\ grid.\mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[j]\ ;}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ dw\_dx[ii+0]\ =\ (vel.\mbox{\hyperlink{class_staggered_velocity_adb2f88931c3cca29866c5334bec50ee1}{W}}(i-\/1,\ j,\ k)\ -\/\ vel.\mbox{\hyperlink{class_staggered_velocity_adb2f88931c3cca29866c5334bec50ee1}{W}}(i,\ j,\ k))\ /\ grid.\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[j]\ ;}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ dw\_dx[ii+1]\ =\ (vel.\mbox{\hyperlink{class_staggered_velocity_adb2f88931c3cca29866c5334bec50ee1}{W}}(i,\ j-\/1,\ k)\ -\/\ vel.\mbox{\hyperlink{class_staggered_velocity_adb2f88931c3cca29866c5334bec50ee1}{W}}(i,\ j,\ k))\ /\ grid.\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[j]\ ;}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ dw\_dx[ii+2]\ =\ (vel.\mbox{\hyperlink{class_staggered_velocity_adb2f88931c3cca29866c5334bec50ee1}{W}}(i,\ j,\ k-\/1)\ -\/\ vel.\mbox{\hyperlink{class_staggered_velocity_adb2f88931c3cca29866c5334bec50ee1}{W}}(i,\ j,\ k))\ /\ grid.\mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}[k]\ ;}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}}\ ;\ ++i\ )}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}}\ ;\ ++j\ )}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}};\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}}\ ;\ ++k\ )}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00045}00045\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ t\ \ =\ grid.\mbox{\hyperlink{class_structured_grid_adca333aed9e81b218244f26b11c7b114}{icelCal}}(i,j,k)*3;}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ temp\ =\ std::abs(}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.0*(square(du\_dx[t+0]))\ +\ square(dv\_dx[t+1])\ +\ square(dw\_dx[t+2])}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ square(du\_dx[t+1]\ +\ dv\_dx[t+0])}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ square(du\_dx[t+2]\ +\ dw\_dx[t+0])}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ square(dv\_dx[t+2]\ +\ dw\_dx[t+1])}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ delta\ =\ std::pow(grid.\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[i]\ *\ grid.\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[j]\ *\ grid.\mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[k],\ 1.0/3.0);}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ vel.\mbox{\hyperlink{class_staggered_velocity_a072d759359be9f4eeba6be8a4c486461}{VisEff}}(i,\ j,\ k)\ =\ square(CS*delta)\ *\ std::sqrt(temp);}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{smagorinsky__model_8hpp_source_l00057}00057\ \}}
+
+\end{DoxyCode}

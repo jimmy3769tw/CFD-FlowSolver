@@ -1,0 +1,64 @@
+# Doxyfile 1.9.2
+
+# 輸出目錄設置
+OUTPUT_DIRECTORY       = ./docs
+
+# 輸入源碼目錄
+INPUT					= ./tests ./cfd_mx/inc ./cfd_mx/src 
+
+# 是否遞歸處理子目錄
+RECURSIVE              = YES
+
+# 是否提取所有文檔註釋，包括未被文檔化的成員
+EXTRACT_ALL            = YES
+
+# 設定文件的字符集
+OUTPUT_LANGUAGE        = English
+
+# 文件格式設置
+GENERATE_HTML          = YES
+GENERATE_LATEX         = YES
+
+# 文檔標題
+PROJECT_NAME           = "MdxPack (Shell)"
+PROJECT_BRIEF          = "Shell"
+
+# 設定主頁
+INDEX_PAGE             = index.html
+
+
+# 生成的文件風格設置
+GENERATE_TREEVIEW      = YES # required!
+DISABLE_INDEX          = NO
+FULL_SIDEBAR           = NO
+HTML_EXTRA_STYLESHEET  = doxygen-awesome-css/doxygen-awesome.css \
+                        doxygen-awesome-css/doxygen-awesome-sidebar-only.css
+HTML_COLORSTYLE        = LIGHT # required with Doxygen >= 1.9.5
+
+
+# 文件中的程式碼設置
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+
+# 註釋風格設置
+JAVADOC_AUTOBRIEF      = YES
+QT_AUTOBRIEF           = YES
+
+# 設定擴展文件
+FILE_PATTERNS          = *.cpp *.h* *.H *.hpp
+
+# 過濾要排除的目錄或文件
+EXCLUDE                = ./build
+
+# 編譯指示的設置（選擇性）
+PREDEFINED             = DOXYGEN_DOCUMENTATION
+
+# 使用者自定義註釋（選擇性）
+# USER_DEFINED_TAGS      = MyTag1=Description1 MyTag2=Description2
+
+# 使用者自定義標籤（選擇性）
+# USER_DEFINED_MACROS    = MY_MACRO(arg1, arg2)="Replacement text"
+
+

@@ -1,0 +1,93 @@
+\doxysection{cfd\+\_\+mx/inc/dfib/force\+\_\+integration\+\_\+mpi.hpp File Reference}
+\hypertarget{force__integration__mpi_8hpp}{}\label{force__integration__mpi_8hpp}\index{cfd\_mx/inc/dfib/force\_integration\_mpi.hpp@{cfd\_mx/inc/dfib/force\_integration\_mpi.hpp}}
+{\ttfamily \#include "{}virtual\+Force\+Intergrator.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{force__integration__mpi_8hpp_a5b4f028c068117843b4aef7535bcb6f4}{get\+CD\+\_\+\+CL\+\_\+mpi}} (MPI\+\_\+\+Comm \&comm, \mbox{\hyperlink{class_simulation}{Simulation}} \&simu, \mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&local\+Domain, \mbox{\hyperlink{class_immersed_boundary}{Immersed\+Boundary}} \&Dfib, grid \&gA)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{force__integration__mpi_8hpp_a5b4f028c068117843b4aef7535bcb6f4}\label{force__integration__mpi_8hpp_a5b4f028c068117843b4aef7535bcb6f4} 
+\index{force\_integration\_mpi.hpp@{force\_integration\_mpi.hpp}!getCD\_CL\_mpi@{getCD\_CL\_mpi}}
+\index{getCD\_CL\_mpi@{getCD\_CL\_mpi}!force\_integration\_mpi.hpp@{force\_integration\_mpi.hpp}}
+\doxysubsubsection{\texorpdfstring{getCD\_CL\_mpi()}{getCD\_CL\_mpi()}}
+{\footnotesize\ttfamily auto get\+CD\+\_\+\+CL\+\_\+mpi (\begin{DoxyParamCaption}\item[{MPI\+\_\+\+Comm \&}]{comm,  }\item[{\mbox{\hyperlink{class_simulation}{Simulation}} \&}]{simu,  }\item[{\mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&}]{local\+Domain,  }\item[{\mbox{\hyperlink{class_immersed_boundary}{Immersed\+Boundary}} \&}]{Dfib,  }\item[{grid \&}]{gA }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{force__integration__mpi_8hpp_source_l00005}{5}} of file \mbox{\hyperlink{force__integration__mpi_8hpp_source}{force\+\_\+integration\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{force__integration_8hpp_a566129820fa75cd875d948c71b58485f}{virtualF\_Int}}(Dfib,\ localDomain,\ gA,\ 0);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{force__integration_8hpp_a566129820fa75cd875d948c71b58485f}{virtualF\_Int}}(Dfib,\ localDomain,\ gA,\ 1);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{auto}\ area\_cD\ \ \ \ =\ gA.lz;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{auto}\ area\_cL\ \ \ \ =\ gA.lz;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{auto}\ cD\ =\ -\/2.0\ *\ Dfib.\mbox{\hyperlink{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5}{ValSum}}[0]\ /\ area\_cD;}
+\DoxyCodeLine{00021\ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{auto}\ cL\ =\ -\/2.0\ *\ Dfib.\mbox{\hyperlink{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5}{ValSum}}[1]\ /\ area\_cL;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ temp\_g[2]\{0.0,\ 0.0\},\ temp\_l[2]\ =\ \{cD,\ cL\};}
+\DoxyCodeLine{00026\ \ \ \ \ MPI\_Allreduce(temp\_l,\ temp\_g,\ 2,\ MPI\_DOUBLE,\ MPI\_SUM,\ comm);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ cD\ =\ temp\_g\ [0];}
+\DoxyCodeLine{00029\ \ \ \ \ cL\ =\ temp\_g\ [1];}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (simu.PID\ ==\ 0)}
+\DoxyCodeLine{00033\ \ \ \ \ \{}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[cD,\ cL]\ :\ "{}}\ <<\ cD\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cL\ <<\ std::endl;\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ std::ofstream\ file;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ std::string\ name\ =\ \textcolor{stringliteral}{"{}Information/Time\_cDcL"{}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ name\ +=\ \textcolor{stringliteral}{"{}.dat"{}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ file.open\ (name,\ std::ios::out|ios::app);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ std::string\ tab\ =\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (simu.loop\ ==\ 1\ )\{}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ std::vector<std::string>\ variables;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}simulation\ time"{}});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}C<sub>D</sub>"{}});}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}C<sub>L</sub>"{}});}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ file\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}TITLE\ \ \ \ \ =\ \(\backslash\)"{}\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}VARIABLES\ =\ \(\backslash\)"{}"{}}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ variables.at(0)}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}"{}}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ variables.at(1)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}"{}}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ variables.at(2)}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}ZONE\ T=\(\backslash\)"{}"{}}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ simu.ZONE()}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}<<\ \ simu.getSimuTime()\ <<\ tab\ <<\ cD\ <<\ tab\ \ <<\ cL\ ;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ file.close();}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00183}{Immersed\+Boundary\+::\+Val\+Sum}}, and \mbox{\hyperlink{force__integration_8hpp_source_l00005}{virtual\+F\+\_\+\+Int()}}.
+

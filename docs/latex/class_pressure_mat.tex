@@ -1,0 +1,171 @@
+\doxysection{Pressure\+Mat Class Reference}
+\hypertarget{class_pressure_mat}{}\label{class_pressure_mat}\index{PressureMat@{PressureMat}}
+
+
+{\ttfamily \#include $<$pressure\+\_\+mat.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pressure_mat_a33e1f6e83c144bbc032381a0412eaa94}{Pressure\+Mat}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\item 
+void \mbox{\hyperlink{class_pressure_mat_a3d7ca3edcc9a0201f7783847ab1f507c}{Convert\+Result\+To\+Pressure}} (\mbox{\hyperlink{class_pressure}{Pressure}} \&pressure, const \mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&domain)
+\item 
+void \mbox{\hyperlink{class_pressure_mat_a23e2ac7c36d4024bf696d85d908c99d0}{Cal\+MatB}} (\mbox{\hyperlink{class_staggered_velocity}{Staggered\+Velocity}} \&curr\+\_\+vel, double dt, const \mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&domain)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_pressure_mat_a75615f1783f19e2df6ff0b47ca94e93c}{mat\+\_\+b}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_pressure_mat_a3d46ae1ed272a14183267a7230dc20ef}{x\+\_\+result}}
+\item 
+\mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} \mbox{\hyperlink{class_pressure_mat_afe19e3c5c58a1e4b905d719e232b1e8b}{mat\+\_\+a}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{pressure__mat_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{pressure__mat_8hpp_source}{pressure\+\_\+mat.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_pressure_mat_a33e1f6e83c144bbc032381a0412eaa94}\label{class_pressure_mat_a33e1f6e83c144bbc032381a0412eaa94} 
+\index{PressureMat@{PressureMat}!PressureMat@{PressureMat}}
+\index{PressureMat@{PressureMat}!PressureMat@{PressureMat}}
+\doxysubsubsection{\texorpdfstring{PressureMat()}{PressureMat()}}
+{\footnotesize\ttfamily Pressure\+Mat\+::\+Pressure\+Mat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pressure__mat_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{pressure__mat_8hpp_source}{pressure\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ grid\_(\&grid)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_pressure_mat_a75615f1783f19e2df6ff0b47ca94e93c}{mat\_b}}.\mbox{\hyperlink{class_structured_grid_a55c9f68bad513a1a0a7b39bc3698fa6b}{resize}}(grid\_-\/>\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}});}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_pressure_mat_a3d46ae1ed272a14183267a7230dc20ef}{x\_result}}.resize(grid\_-\/>\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}},\ 0.0);}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_pressure_mat_afe19e3c5c58a1e4b905d719e232b1e8b}{mat\_a}}.Set(\mbox{\hyperlink{pressure__mat__csr_8hpp_a5f424e8a9e9df1244976ff3042221815}{GetCsrMat}}(grid));}
+\DoxyCodeLine{00022\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00062}{Structured\+Grid\+::cal\+\_\+no\+\_\+grid}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00016}{mat\+\_\+a}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00014}{mat\+\_\+b}}, and \mbox{\hyperlink{pressure__mat_8hpp_source_l00015}{x\+\_\+result}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pressure_mat_a23e2ac7c36d4024bf696d85d908c99d0}\label{class_pressure_mat_a23e2ac7c36d4024bf696d85d908c99d0} 
+\index{PressureMat@{PressureMat}!CalMatB@{CalMatB}}
+\index{CalMatB@{CalMatB}!PressureMat@{PressureMat}}
+\doxysubsubsection{\texorpdfstring{CalMatB()}{CalMatB()}}
+{\footnotesize\ttfamily void Pressure\+Mat\+::\+Cal\+MatB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_staggered_velocity}{Staggered\+Velocity}} \&}]{curr\+\_\+vel,  }\item[{double}]{dt,  }\item[{const \mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&}]{domain }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{pressure__mat_8hpp_source}{pressure\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{double}\ ddt\ =\ 1.0\ /\ dt;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ domain.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ domain.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}};\ ++i)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ domain.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ domain.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}};\ ++j)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ domain.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}};\ k\ <\ domain.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}};\ ++k)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ row\ =\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_adca333aed9e81b218244f26b11c7b114}{icelCal}}(i,\ j,\ k);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_pressure_mat_a75615f1783f19e2df6ff0b47ca94e93c}{mat\_b}}[row]\ =}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/ddt\ *}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((curr\_vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i,\ j,\ k)\ -\/\ curr\_vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i\ -\/\ 1,\ j,\ k))\ /\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[i]\ +}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (curr\_vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i,\ j,\ k)\ -\/\ curr\_vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i,\ j\ -\/\ 1,\ k))\ /\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[j]\ +}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (curr\_vel.\mbox{\hyperlink{class_staggered_velocity_adb2f88931c3cca29866c5334bec50ee1}{W}}(i,\ j,\ k)\ -\/\ curr\_vel.\mbox{\hyperlink{class_staggered_velocity_adb2f88931c3cca29866c5334bec50ee1}{W}}(i,\ j,\ k\ -\/\ 1))\ /\ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[k]);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{Structured\+Grid\+::dx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{Structured\+Grid\+::dy}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{Structured\+Grid\+::dz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00156}{Structured\+Grid\+::icel\+Cal()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00014}{mat\+\_\+b}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00057}{Staggered\+Velocity\+::\+U()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00062}{Staggered\+Velocity\+::\+V()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00067}{Staggered\+Velocity\+::\+W()}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+end}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+end}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+end}}, and \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+start}}.
+
+\Hypertarget{class_pressure_mat_a3d7ca3edcc9a0201f7783847ab1f507c}\label{class_pressure_mat_a3d7ca3edcc9a0201f7783847ab1f507c} 
+\index{PressureMat@{PressureMat}!ConvertResultToPressure@{ConvertResultToPressure}}
+\index{ConvertResultToPressure@{ConvertResultToPressure}!PressureMat@{PressureMat}}
+\doxysubsubsection{\texorpdfstring{ConvertResultToPressure()}{ConvertResultToPressure()}}
+{\footnotesize\ttfamily void Pressure\+Mat\+::\+Convert\+Result\+To\+Pressure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pressure}{Pressure}} \&}]{pressure,  }\item[{const \mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&}]{domain }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pressure__mat_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{pressure__mat_8hpp_source}{pressure\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ domain.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ domain.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}};\ ++i)}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ domain.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ domain.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}};\ ++j)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ domain.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}};\ k\ <\ domain.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}};\ ++k)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ pressure(i,\ j,\ k)\ =\ \mbox{\hyperlink{class_pressure_mat_a3d46ae1ed272a14183267a7230dc20ef}{x\_result}}[grid\_-\/>\mbox{\hyperlink{class_structured_grid_adca333aed9e81b218244f26b11c7b114}{icelCal}}(i,\ j,\ k)];}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00156}{Structured\+Grid\+::icel\+Cal()}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+end}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00015}{x\+\_\+result}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+end}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+end}}, and \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+start}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_pressure_mat_afe19e3c5c58a1e4b905d719e232b1e8b}\label{class_pressure_mat_afe19e3c5c58a1e4b905d719e232b1e8b} 
+\index{PressureMat@{PressureMat}!mat\_a@{mat\_a}}
+\index{mat\_a@{mat\_a}!PressureMat@{PressureMat}}
+\doxysubsubsection{\texorpdfstring{mat\_a}{mat\_a}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} Pressure\+Mat\+::mat\+\_\+a}
+
+
+
+Definition at line \mbox{\hyperlink{pressure__mat_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{pressure__mat_8hpp_source}{pressure\+\_\+mat.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00018}{Pressure\+Mat()}}, \mbox{\hyperlink{run__cpu_8hpp_source_l00052}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::solve()}}, and \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00054}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::solve()}}.
+
+\Hypertarget{class_pressure_mat_a75615f1783f19e2df6ff0b47ca94e93c}\label{class_pressure_mat_a75615f1783f19e2df6ff0b47ca94e93c} 
+\index{PressureMat@{PressureMat}!mat\_b@{mat\_b}}
+\index{mat\_b@{mat\_b}!PressureMat@{PressureMat}}
+\doxysubsubsection{\texorpdfstring{mat\_b}{mat\_b}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Pressure\+Mat\+::mat\+\_\+b}
+
+
+
+Definition at line \mbox{\hyperlink{pressure__mat_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{pressure__mat_8hpp_source}{pressure\+\_\+mat.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Cal\+Mat\+B()}}, and \mbox{\hyperlink{pressure__mat_8hpp_source_l00018}{Pressure\+Mat()}}.
+
+\Hypertarget{class_pressure_mat_a3d46ae1ed272a14183267a7230dc20ef}\label{class_pressure_mat_a3d46ae1ed272a14183267a7230dc20ef} 
+\index{PressureMat@{PressureMat}!x\_result@{x\_result}}
+\index{x\_result@{x\_result}!PressureMat@{PressureMat}}
+\doxysubsubsection{\texorpdfstring{x\_result}{x\_result}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Pressure\+Mat\+::x\+\_\+result}
+
+
+
+Definition at line \mbox{\hyperlink{pressure__mat_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{pressure__mat_8hpp_source}{pressure\+\_\+mat.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{pressure__mat_8hpp_source_l00024}{Convert\+Result\+To\+Pressure()}}, \mbox{\hyperlink{_transform_8hpp_source_l00004}{Pressure\+\_\+transform\+\_\+\+X\+\_\+result\+\_\+\+Dir()}}, and \mbox{\hyperlink{pressure__mat_8hpp_source_l00018}{Pressure\+Mat()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/pressure/\mbox{\hyperlink{pressure__mat_8hpp}{pressure\+\_\+mat.\+hpp}}\end{DoxyCompactItemize}

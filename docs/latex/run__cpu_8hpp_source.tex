@@ -1,0 +1,111 @@
+\doxysection{run\+\_\+cpu.\+hpp}
+\hypertarget{run__cpu_8hpp_source}{}\label{run__cpu_8hpp_source}\index{cfd\_mx/inc/run/run\_cpu.hpp@{cfd\_mx/inc/run/run\_cpu.hpp}}
+\mbox{\hyperlink{run__cpu_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{domain_8hpp}{backend/domain.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physical__variables_8hpp}{backend/physical\_variables.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{print__openmp_8hpp}{backend/print\_openmp.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{simulation_8hpp}{backend/simulation.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{update__u__and__force_8hpp}{dfib/update\_u\_and\_force.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structured__grid_8hpp}{grid/structured\_grid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{csv__structured__grid_8hpp}{io/csv/csv\_structured\_grid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{io__tools_8hpp}{io/io\_tools.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{write__qfile_8hpp}{io/plot3d/write\_qfile.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{write__xfile_8hpp}{io/plot3d/write\_xfile.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{convection__and__difussion_8hpp}{source/convection\_and\_difussion.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{boundary__condition_8hpp}{boundary\_condition/boundary\_condition.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{boundary__condition__copy_8hpp}{boundary\_condition/boundary\_condition\_copy.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bicgstab__restart_8hpp}{matrix/solver/bicgstab\_restart.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bicgstab_8hpp}{matrix/solver/bicgstab.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{pressure__mat_8hpp}{pressure/pressure\_mat.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}omp.h"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{central__profile_8hpp}{analyses/central\_profile.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{smagorinsky__model_8hpp}{source/smagorinsky\_model.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00024}\mbox{\hyperlink{run__cpu_8hpp_a53a3ac4c9ecfeb3bc4468ca3729d78db}{00024}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classsolver_1_1_bicgstab_restart}{solverType}}\ =\ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart}{solver::BicgstabRestart<MatType>}};}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00026}00026\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceprojection__method}{projection\_method}}\ \{}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00027}\mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp}{00027}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp}{CpuOpenMp}}\{}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00028}00028\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00029}\mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp_ac8fcaba9f142e5419c69bf47dca94981}{00029}}\ \ \ \mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp_ac8fcaba9f142e5419c69bf47dca94981}{CpuOpenMp}}(\mbox{\hyperlink{class_simulation}{Simulation}}\ \&simu,\ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\ \&grid)}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00030}00030\ \ \ \ \ \ \ :\ simu\_(simu),}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ grid\_(\&grid),}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ vel\_(\mbox{\hyperlink{class_staggered_velocity}{StaggeredVelocity}}(grid)),}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ intermediate\_vel\_(\mbox{\hyperlink{class_staggered_velocity}{StaggeredVelocity}}(grid)),}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ dfib\_(\mbox{\hyperlink{class_immersed_boundary}{ImmersedBoundary}}(grid)),}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ pressure\_(\mbox{\hyperlink{class_pressure}{Pressure}}(grid)),}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ pressure\_mat\_(\mbox{\hyperlink{class_pressure_mat}{PressureMat}}(grid)),}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ global\_domain\_(grid)\ \{}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00038}00038\ \ \ \ \ vel\_.\mbox{\hyperlink{class_staggered_velocity_acd6d6687719729dd2471c7d38a491390}{FillVel}}(simu.\mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a7ecad27c8788de75fba00054344e1e51}{u}},\ simu.\mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a3757cb75d17cce3d01639636b4013f22}{v}},\ simu.\mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a78f3159a0ffda76ddf14ff853c44f0db}{w}});}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{io__tools_8hpp_ad260b2e85f87a72132c2334fd68658e4}{CreatOutputFile}}();}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{print__openmp_8hpp_aa709c56e270fdd66da7b460d3d5458d7}{PrintIsOpenmpExist}}();}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00041}00041\ \ \ \ \ std::vector<int>\ grid\_size\{grid.\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}},\ grid.\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}},\ grid.\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\};}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00042}00042\ \ \ \ \ global\_domain\_.\mbox{\hyperlink{class_local_domain_ac68412c580480687954bf288211e8738}{Init}}(\{1,\ 1,\ 1\},\ \{0,\ 0,\ 0\});}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{int}\ ompThreads\ =\ omp\_get\_max\_threads();}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00044}00044\ \ \ \ \ omp\_set\_num\_threads(ompThreads);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00045}00045\ \ \ \ \ vel\_\ =\ intermediate\_vel\_\ =\ vel\_;}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{namespacecsv_aa8b109dc693978cff7ee9f7bfae4f98d}{csv::WriteCsvFile}}(\textcolor{stringliteral}{"{}Information/gA.csv"{}},\ *grid\_);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{namespaceplot3d_a5084844e3ccf67c87859d8f85bc43c29}{plot3d::write\_xfile}}(grid);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{boundary__condition_8hpp_aa5b54cd41544feeb005677e51641e66b}{UpdateAllVelocityOnBoundary}}(global\_domain\_,\ vel\_,\ pressure\_,\ grid);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{boundary__condition__copy_8hpp_a66f2fed185f0de1d4e9de64db282f4fb}{CopyVelocityOnBoundary}}(global\_domain\_,\ vel\_,\ intermediate\_vel\_,\ grid);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00050}00050\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00052}\mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp_a2a7d2fe331feee836f56dfac56577aa6}{00052}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp_a2a7d2fe331feee836f56dfac56577aa6}{solve}}()\{}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00053}00053\ \ \ \ \ pressure\_solver\_\ =\ \mbox{\hyperlink{run__cpu_8hpp_a53a3ac4c9ecfeb3bc4468ca3729d78db}{solverType}}(pressure\_mat\_.\mbox{\hyperlink{class_pressure_mat_afe19e3c5c58a1e4b905d719e232b1e8b}{mat\_a}});}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00054}00054\ \ \ \ \ pressure\_solver\_.\mbox{\hyperlink{classsolver_1_1_bicgstab_restart_aaf7d57ea70b27435f8b62d7e0103d5dc}{SetTolerance}}(simu\_.\mbox{\hyperlink{class_simulation_a6b02d7d2dbfde2f1c3b222922c03dd1a}{poisson\_criteria}});}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00055}00055\ \ \ \ \ CreatEta();}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{write__qfile_8hpp_a1f54031450601af74767a58a74c294f7}{WriteQfile}}(dfib\_,\ simu\_,\ pressure\_,\ vel\_,\ *grid\_);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ !simu\_.\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_ac5a83e4d494641e20fd80bdd72c2220c}{IsLoopFinish}}();\ simu\_.\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_a035684e3e9277b52ec73be73c2221362}{AddLoop}}())\ \{}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00058}00058\ \ \ \ \ \ \ CalProjectionMethod();}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00060}00060\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00062}00062\ private\ :}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00063}00063\ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\ simu\_;}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00064}00064\ \ \ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}*\ grid\_;}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00065}00065\ \ \ \mbox{\hyperlink{class_staggered_velocity}{StaggeredVelocity}}\ vel\_;}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00066}00066\ \ \ \mbox{\hyperlink{class_staggered_velocity}{StaggeredVelocity}}\ intermediate\_vel\_;}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00067}00067\ \ \ \mbox{\hyperlink{class_pressure}{Pressure}}\ pressure\_;}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00068}00068\ \ \ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\ global\_domain\_;}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00069}00069\ \ \ \mbox{\hyperlink{class_immersed_boundary}{ImmersedBoundary}}\ dfib\_;}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00070}00070\ \ \ \mbox{\hyperlink{class_pressure_mat}{PressureMat}}\ pressure\_mat\_;}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00071}00071\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart}{solverType}}\ pressure\_solver\_;}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00073}00073\ \ \ \textcolor{keywordtype}{void}\ CalProjectionMethod()\ \{}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//\ CalSmagorinskyModel(simu\_,\ vel\_,\ global\_domain\_,\ *grid\_);}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00077}00077\ \ \ \ \ \mbox{\hyperlink{convection__and__difussion_8hpp_a351f2534ea48ac8a42c6d655713e783e}{CalConvectionAndDiffusion}}(simu\_,\ vel\_,\ intermediate\_vel\_,\ global\_domain\_,\ *grid\_);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00079}00079\ \ \ \ \ pressure\_mat\_.\mbox{\hyperlink{class_pressure_mat_a23e2ac7c36d4024bf696d85d908c99d0}{CalMatB}}(intermediate\_vel\_,\ simu\_.\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_a44cbc769fa48c3f0e6f3dc0867848460}{GetDt}}(),\ global\_domain\_);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00080}00080\ \ \ \ \ \textcolor{keyword}{auto}\ [iters,\ error]\ =}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ pressure\_solver\_(pressure\_mat\_.\mbox{\hyperlink{class_pressure_mat_a75615f1783f19e2df6ff0b47ca94e93c}{mat\_b}},\ pressure\_mat\_.\mbox{\hyperlink{class_pressure_mat_a3d46ae1ed272a14183267a7230dc20ef}{x\_result}});}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00082}00082\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[iters,\ error]\(\backslash\)t"{}}\ <<\ iters\ <<\ \textcolor{charliteral}{'\(\backslash\)t'}\ <<\ error\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00083}00083\ \ \ \ \ pressure\_mat\_.\mbox{\hyperlink{class_pressure_mat_a3d7ca3edcc9a0201f7783847ab1f507c}{ConvertResultToPressure}}(pressure\_,\ global\_domain\_);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00085}00085\ \ \ \ \ \mbox{\hyperlink{update__u__and__force_8hpp_a9de53d7f5d4d7ae0ead7f7c31a2a27da}{UpdateForceAndVelocity}}(dfib\_,\ simu\_.\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_a44cbc769fa48c3f0e6f3dc0867848460}{GetDt}}(),\ pressure\_,\ intermediate\_vel\_,\ vel\_,}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ global\_domain\_,\ *grid\_);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{boundary__condition_8hpp_aa5b54cd41544feeb005677e51641e66b}{UpdateAllVelocityOnBoundary}}(global\_domain\_,\ vel\_,\ pressure\_,\ *grid\_);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//\ BC\_staggered\_copy(global\_domain\_,\ vel\_,\ intermediate\_vel\_,\ grid\_);}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{if}\ (simu\_.\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_a26bf9fe7df6845aa323e40650f392053}{IsWritingTime}}())\ \{}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00093}00093\ \ \ \ \ \ \ \mbox{\hyperlink{write__qfile_8hpp_a1f54031450601af74767a58a74c294f7}{WriteQfile}}(dfib\_,\ simu\_,\ pressure\_,\ vel\_,\ *grid\_);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00095}00095\ \ \ \ \ \mbox{\hyperlink{central__profile_8hpp_ae97909c635128ebbff18d2e1bebcd73a}{getCentProfile}}(simu\_,\ vel\_,\ global\_domain\_,\ *grid\_);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00096}00096\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00098}00098\ \ \ \textcolor{keywordtype}{void}\ CreatEta()\ \{}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (grid\_-\/>\mbox{\hyperlink{class_structured_grid_a38666a4cea6f718902ceab9fb206de4d}{cal\_eta\_imp}})\ \{}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00100}00100\ \ \ \ \ \ \ grid\_-\/>\mbox{\hyperlink{class_structured_grid_a38666a4cea6f718902ceab9fb206de4d}{cal\_eta\_imp}}-\/>solver(dfib\_,\ global\_domain\_);}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00101}00101\ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00102}00102\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00103}00103\ \};}
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{run__cpu_8hpp_source_l00105}00105\ \}\ \ \textcolor{comment}{//\ namespace\ projection\_method}}
+
+\end{DoxyCode}

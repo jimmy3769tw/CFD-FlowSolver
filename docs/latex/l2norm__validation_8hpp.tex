@@ -1,0 +1,36 @@
+\doxysection{tests/validation\+\_\+tool/l2norm\+\_\+validation.hpp File Reference}
+\hypertarget{l2norm__validation_8hpp}{}\label{l2norm__validation_8hpp}\index{tests/validation\_tool/l2norm\_validation.hpp@{tests/validation\_tool/l2norm\_validation.hpp}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2\+Norm}} (std\+::vector$<$ T $>$ \&a, std\+::vector$<$ T $>$ \&b)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}\label{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf} 
+\index{l2norm\_validation.hpp@{l2norm\_validation.hpp}!L2Norm@{L2Norm}}
+\index{L2Norm@{L2Norm}!l2norm\_validation.hpp@{l2norm\_validation.hpp}}
+\doxysubsubsection{\texorpdfstring{L2Norm()}{L2Norm()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto L2\+Norm (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \&}]{a,  }\item[{std\+::vector$<$ T $>$ \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{l2norm__validation_8hpp_source_l00004}{4}} of file \mbox{\hyperlink{l2norm__validation_8hpp_source}{l2norm\+\_\+validation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00005\ \ \ T\ sum\ =\ 0;}
+\DoxyCodeLine{00006\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ a.size();\ i++)\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ sum\ +=\ pow(a[i]\ -\/\ b[i],\ 2);}
+\DoxyCodeLine{00008\ \ \ \}}
+\DoxyCodeLine{00009\ \ \ \textcolor{keywordflow}{return}\ sqrt(sum);}
+\DoxyCodeLine{00010\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{matrix__test__amgcl_8cpp_source_l00039}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00043}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00020}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00087}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00065}{TEST()}}, \mbox{\hyperlink{validation_re100_cavity_2test_8cpp_source_l00011}{TEST()}}, and \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{TEST()}}.
+

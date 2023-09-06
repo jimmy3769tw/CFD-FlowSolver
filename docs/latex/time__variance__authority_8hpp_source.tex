@@ -1,0 +1,84 @@
+\doxysection{time\+\_\+variance\+\_\+authority.\+hpp}
+\hypertarget{time__variance__authority_8hpp_source}{}\label{time__variance__authority_8hpp_source}\index{cfd\_mx/inc/backend/time\_variance\_authority.hpp@{cfd\_mx/inc/backend/time\_variance\_authority.hpp}}
+\mbox{\hyperlink{time__variance__authority_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00003}00003\ \textcolor{comment}{//\ https://en.wikipedia.org/wiki/Time\_Variance\_Authority\ for\ Name\ of\ class}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00005}\mbox{\hyperlink{class_time_variance_authority}{00005}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_time_variance_authority}{TimeVarianceAuthority}}\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00006}00006\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00007}\mbox{\hyperlink{class_time_variance_authority_af075e1d566655fdc2667ca7008c54341}{00007}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_time_variance_authority_af075e1d566655fdc2667ca7008c54341}{GetTime}}()\ \{\ \textcolor{keywordflow}{return}\ time\_;\ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00008}\mbox{\hyperlink{class_time_variance_authority_a0e6c2d297508505bf8e3e0fa0cba42e5}{00008}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_time_variance_authority_a0e6c2d297508505bf8e3e0fa0cba42e5}{SetTerminalTime}}(\textcolor{keywordtype}{double}\ terminal\_time)\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00009}00009\ \ \ \ \ terminal\_time\_\ =\ terminal\_time;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00010}00010\ \ \ \ \ loop\_max\_\ =\ terminal\_time\_\ /\ dt\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00011}00011\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00013}\mbox{\hyperlink{class_time_variance_authority_a30e93689cb329e0fc515266b639f1c7a}{00013}}\ \ \ \mbox{\hyperlink{class_time_variance_authority}{TimeVarianceAuthority}}\&\ \mbox{\hyperlink{class_time_variance_authority_a30e93689cb329e0fc515266b639f1c7a}{SetDt}}(\textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00014}00014\ \ \ \ \ dt\_\ =\ t;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00015}00015\ \ \ \ \ IniTimeRecoding();}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00017}00017\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00019}\mbox{\hyperlink{class_time_variance_authority_a78ee6630c0b3c7d5251d6cff62026983}{00019}}\ \ \ \mbox{\hyperlink{class_time_variance_authority}{TimeVarianceAuthority}}\&\ \mbox{\hyperlink{class_time_variance_authority_a78ee6630c0b3c7d5251d6cff62026983}{SetWritingDt}}(\textcolor{keywordtype}{double}\ writing\_dt)\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00020}00020\ \ \ \ \ writing\_dt\_\ =\ writing\_dt;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00022}00022\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00024}\mbox{\hyperlink{class_time_variance_authority_a1348c4ca631a700ec9354f9b3f676f28}{00024}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_time_variance_authority_a1348c4ca631a700ec9354f9b3f676f28}{GetPercentageOfWriting}}()\ \{\ \textcolor{keywordflow}{return}\ (time\_\ /\ writing\_dt\_);\ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00025}\mbox{\hyperlink{class_time_variance_authority_acd9b1260ec98d9e1b5bddcca1944c849}{00025}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_time_variance_authority_acd9b1260ec98d9e1b5bddcca1944c849}{GetFileNo}}()\ \{\ \textcolor{keywordflow}{return}\ cnt\_file\_;\ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00026}\mbox{\hyperlink{class_time_variance_authority_a26bf9fe7df6845aa323e40650f392053}{00026}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_time_variance_authority_a26bf9fe7df6845aa323e40650f392053}{IsWritingTime}}()\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{auto}\ time\_file\_next\ =\ writing\_time\_\ +\ writing\_dt\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (time\_\ >=\ time\_file\_next)\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00029}00029\ \ \ \ \ \ \ cnt\_file\_++;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00030}00030\ \ \ \ \ \ \ writing\_time\_\ +=\ writing\_dt\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00031}00031\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00032}00032\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00033}00033\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00035}00035\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00036}\mbox{\hyperlink{class_time_variance_authority_a035684e3e9277b52ec73be73c2221362}{00036}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_time_variance_authority_a035684e3e9277b52ec73be73c2221362}{AddLoop}}()\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00037}00037\ \ \ \ \ time\_\ +=\ dt\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00038}00038\ \ \ \ \ loop\_++;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00039}00039\ \ \ \ \ dt\_\ =\ dt\_next\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00040}00040\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00042}\mbox{\hyperlink{class_time_variance_authority_ac5a83e4d494641e20fd80bdd72c2220c}{00042}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_time_variance_authority_ac5a83e4d494641e20fd80bdd72c2220c}{IsLoopFinish}}()\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{return}\ time\_\ >\ terminal\_time\_+dt\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00044}00044\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00046}\mbox{\hyperlink{class_time_variance_authority_a05669a72a085603259deaca27e3f0640}{00046}}\ \ \ \mbox{\hyperlink{class_time_variance_authority}{TimeVarianceAuthority}}\&\ \mbox{\hyperlink{class_time_variance_authority_a05669a72a085603259deaca27e3f0640}{SetTime}}(\textcolor{keywordtype}{double}\ t)\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00047}00047\ \ \ \ \ time\_\ =\ t;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00049}00049\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00051}\mbox{\hyperlink{class_time_variance_authority_a44cbc769fa48c3f0e6f3dc0867848460}{00051}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_time_variance_authority_a44cbc769fa48c3f0e6f3dc0867848460}{GetDt}}()\ \{\ \textcolor{keywordflow}{return}\ dt\_;\}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00052}\mbox{\hyperlink{class_time_variance_authority_a5f7ea092949bcfb26a8971222fee0678}{00052}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_time_variance_authority_a5f7ea092949bcfb26a8971222fee0678}{GetLoop}}()\{\textcolor{keywordflow}{return}\ loop\_;\}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00054}00054\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00055}00055\ \ \ \textcolor{keywordtype}{double}\ dt\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ curr\ dt}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00056}00056\ \ \ std::vector<double>\ dt\_pre;\ \ \textcolor{comment}{//\ previous\ dt}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00057}00057\ \ \ \textcolor{keywordtype}{double}\ dt\_init\_,\ dt\_next\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00058}00058\ \ \ \textcolor{keywordtype}{double}\ terminal\_time\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00059}00059\ \ \ \textcolor{keywordtype}{double}\ time\_\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00060}00060\ \ \ \textcolor{keywordtype}{double}\ writing\_dt\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00061}00061\ \ \ \textcolor{keywordtype}{double}\ writing\_time\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00062}00062\ \ \ \textcolor{keywordtype}{size\_t}\ loop\_\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00063}00063\ \ \ \textcolor{keywordtype}{size\_t}\ cnt\_file\_\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00064}00064\ \ \ \textcolor{keywordtype}{size\_t}\ loop\_max\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00066}00066\ \ \ \textcolor{keywordtype}{void}\ IniTimeRecoding()\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00067}00067\ \ \ \ \ dt\_init\_\ =\ dt\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00068}00068\ \ \ \ \ dt\_next\_\ =\ dt\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00069}00069\ \ \ \ \ dt\_pre.resize(4,\ dt\_);}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00070}00070\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00072}00072\ \ \ \textcolor{keywordtype}{void}\ RecordDt()\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ dt\_pre.size()\ -\/\ 1;\ j\ >\ 0;\ -\/-\/j)\ \{}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00074}00074\ \ \ \ \ \ \ dt\_pre[j]\ =\ dt\_pre[j\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00076}00076\ \ \ \ \ dt\_pre[0]\ =\ dt\_;}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00077}00077\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__variance__authority_8hpp_source_l00078}00078\ \};}
+
+\end{DoxyCode}

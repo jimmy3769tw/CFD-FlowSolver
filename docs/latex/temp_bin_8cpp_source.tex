@@ -1,0 +1,18 @@
+\doxysection{temp\+Bin.\+cpp}
+\hypertarget{temp_bin_8cpp_source}{}\label{temp_bin_8cpp_source}\index{cfd\_mx/inc/run/tempBin.cpp@{cfd\_mx/inc/run/tempBin.cpp}}
+\mbox{\hyperlink{temp_bin_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined\ (P\_SOLVER\_AMGCL\_EIGEN)}}
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00003}00003\ \ \ \ \ \ \ createBMatrix\_Eigen(T1,\ Mx,\ simu,\ Lo,\ gridA);}
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00005}00005\ \ \ \ \ \ \ createBMatrix\_seq(T1,\ Mx,\ simu,\ Lo,\ gridA);}
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00008}00008\ \ \ \ \ \ \ std::tie(simu.iters,\ simu.error)\ =\ solve(Mx.matB\_Eigen,\ Mx.x\_Eigen);}
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00010}00010\ \ \ \ \ \ \ Pressure\_transform\_x\_Eigen(t1,\ Mx,\ Lo,\ gridA);}
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{temp_bin_8cpp_source_l00012}00012\ \ \ \ \ \ \ simu.iters\ =\ iters;}
+
+\end{DoxyCode}

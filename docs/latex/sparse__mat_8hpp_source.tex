@@ -1,0 +1,63 @@
+\doxysection{sparse\+\_\+mat.\+hpp}
+\hypertarget{sparse__mat_8hpp_source}{}\label{sparse__mat_8hpp_source}\index{cfd\_mx/inc/matrix/sparse\_mat.hpp@{cfd\_mx/inc/matrix/sparse\_mat.hpp}}
+\mbox{\hyperlink{sparse__mat_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}mpi.h"{}}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mat__mpi__tool_8hpp}{mat\_mpi\_tool.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00005}00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemat}{mat}}\{}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00006}00006\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00007}\mbox{\hyperlink{classmat_1_1_sparse_mat}{00007}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmat_1_1_sparse_mat}{SparseMat}}\ \{}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00008}00008\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00009}\mbox{\hyperlink{classmat_1_1_sparse_mat_ab6bac97ce2c8c844a95f58ccb1139e66}{00009}}\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classmat_1_1_sparse_mat_ab6bac97ce2c8c844a95f58ccb1139e66}{CSR\_type}}\ =\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00010}00010\ \ \ \ \ \ \ \textcolor{comment}{//\ <ptr,\ indices,\ values>}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00011}00011\ \ \ \ \ \ \ std::tuple<\ std::vector<int>,\ std::vector<int>,\ std::vector<T>\ >;}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00013}\mbox{\hyperlink{classmat_1_1_sparse_mat_a7cfd8eae5d9940bc9e5e33dbaef6ccab}{00013}}\ \ \ \mbox{\hyperlink{classmat_1_1_sparse_mat_a7cfd8eae5d9940bc9e5e33dbaef6ccab}{SparseMat}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{rows}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{cols}})\ \{\ \mbox{\hyperlink{classmat_1_1_sparse_mat_acf2dbec54611a5c1890d6bf2965c4af5}{Construct}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{rows}},\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{cols}});\ \}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00014}\mbox{\hyperlink{classmat_1_1_sparse_mat_a80b7c69bc18f5f9f25e6ff3ff80dec4a}{00014}}\ \ \ \mbox{\hyperlink{classmat_1_1_sparse_mat_a80b7c69bc18f5f9f25e6ff3ff80dec4a}{SparseMat}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{n}})\ \{\ \mbox{\hyperlink{classmat_1_1_sparse_mat_acf2dbec54611a5c1890d6bf2965c4af5}{Construct}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{n}},\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{n}});\ \}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00015}\mbox{\hyperlink{classmat_1_1_sparse_mat_a1941676dd4f03bc87eac6201ee971a6b}{00015}}\ \ \ \mbox{\hyperlink{classmat_1_1_sparse_mat_a1941676dd4f03bc87eac6201ee971a6b}{SparseMat}}()\{\}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00017}\mbox{\hyperlink{classmat_1_1_sparse_mat_a3caf5ee6d4fbd446d49dfe3a345a2cfa}{00017}}\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a3caf5ee6d4fbd446d49dfe3a345a2cfa}{Multiply}}(std::vector<T>\&\ x,\ std::vector<T>\&\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{r}})\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00018}\mbox{\hyperlink{classmat_1_1_sparse_mat_ae8f96f6dc0e93b28b5bd3dd46804f137}{00018}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_ae8f96f6dc0e93b28b5bd3dd46804f137}{multiply\_omp}}(std::vector<T>\&\ x,\ std::vector<T>\&\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{r}})\ \{\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a3caf5ee6d4fbd446d49dfe3a345a2cfa}{Multiply}}(x,\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{r}});\ \}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00020}\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{00020}}\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ rows\_;\ \}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00021}\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{00021}}\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ cols\_;\ \}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00023}\mbox{\hyperlink{classmat_1_1_sparse_mat_ac44c05ec46ab6a5b04ea0fba8e5aa983}{00023}}\ \ \ std::vector<T>\ \mbox{\hyperlink{classmat_1_1_sparse_mat_ac44c05ec46ab6a5b04ea0fba8e5aa983}{Multiply}}(std::vector<T>\&\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00024}00024\ \ \ \ \ re\_global\_.resize(rows\_);}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{classmat_1_1_sparse_mat_a3caf5ee6d4fbd446d49dfe3a345a2cfa}{Multiply}}(x,\ re\_global\_);}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{return}\ re\_global\_;}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00027}00027\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00028}00028\ \ \ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00029}\mbox{\hyperlink{classmat_1_1_sparse_mat_af663d27f670e63a2a76104ad2e286d69}{00029}}\ \ \ std::vector<T>\ \mbox{\hyperlink{classmat_1_1_sparse_mat_af663d27f670e63a2a76104ad2e286d69}{operator*}}(std::vector<T>\&\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a3caf5ee6d4fbd446d49dfe3a345a2cfa}{Multiply}}(x);}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00031}00031\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00033}\mbox{\hyperlink{classmat_1_1_sparse_mat_acf2dbec54611a5c1890d6bf2965c4af5}{00033}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_acf2dbec54611a5c1890d6bf2965c4af5}{Construct}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{rows}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{cols}})\ \{}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{rows}}\ <\ 0\ ||\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{cols}}\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00035}00035\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Matrix\ dimensions\ cannot\ be\ negative."{}});}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00037}00037\ \ \ \ \ rows\_\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{rows}};}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00038}00038\ \ \ \ \ cols\_\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{cols}};}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00039}00039\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00041}\mbox{\hyperlink{classmat_1_1_sparse_mat_a5721137746cc4e7ad0afca32d3a2c7ee}{00041}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a5721137746cc4e7ad0afca32d3a2c7ee}{InitMpi}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{MPI\_Comm}}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{comm\_world}},\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\ beg,}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\ end)\ \{}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{classmat_1_1_sparse_mat_af3ef675a956856f6b85dafacf442e401}{mpi\_}}.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4cd02e9026ef49dee1988fc763b1cd37}{Init}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{comm\_world}},\ beg,\ end);}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00045}00045\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00047}\mbox{\hyperlink{classmat_1_1_sparse_mat_a9d15928b01aa4bfc2c5e85e34bb0de94}{00047}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a9d15928b01aa4bfc2c5e85e34bb0de94}{InitMpi}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{MPI\_Comm}}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{comm\_world}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{vec\_size}})\ \{}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{classmat_1_1_sparse_mat_af3ef675a956856f6b85dafacf442e401}{mpi\_}}.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4cd02e9026ef49dee1988fc763b1cd37}{Init}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{comm\_world}},\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{vec\_size}});}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00049}00049\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00052}\mbox{\hyperlink{classmat_1_1_sparse_mat_af3ef675a956856f6b85dafacf442e401}{00052}}\ \ \ \mbox{\hyperlink{classmat_1_1_mpi_vector_tool}{MpiVectorTool}}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_af3ef675a956856f6b85dafacf442e401}{mpi\_}};}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00053}00053\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00054}00054\ \ \ \textcolor{keywordtype}{int}\ rows\_,\ cols\_;}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00055}00055\ \ \ std::vector<T>\ re\_global\_;}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00056}00056\ \};}
+\DoxyCodeLine{\Hypertarget{sparse__mat_8hpp_source_l00057}00057\ \}}
+
+\end{DoxyCode}

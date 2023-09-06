@@ -1,0 +1,170 @@
+\doxysection{Pressure Class Reference}
+\hypertarget{class_pressure}{}\label{class_pressure}\index{Pressure@{Pressure}}
+
+
+{\ttfamily \#include $<$physical\+\_\+variables.\+hpp$>$}
+
+Inheritance diagram for Pressure\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pressure}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pressure_ae4803401f36400e0790de0f546910b6c}{Pressure}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \& \mbox{\hyperlink{class_pressure_a4b471167d2a9dcc5c04daacbce6bb09b}{operator()}} (T i, T j, T k)
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{class_pressure_a3aa8dfbb628ab483de19b367535c7258}{operator()}} (T i, T j, T k) const
+\item 
+void \mbox{\hyperlink{class_pressure_a035cf1d808483d0e770a5adf50419901}{Init\+Pressure}} (double pi)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_physical_val}{Physical\+Val}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_physical_val_a7bae48cf70539f3c9d73e0c14ed2602f}{Physical\+Val}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_pressure_aed42bb81b78185a0323339242169d7f6}{p}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_physical_val}{Physical\+Val}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{class_physical_val_aba92f84eb9e0c541a5d6ba7f442a195e}{icel\+Cal}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}} (T i, T j, T k) const
+\item 
+void \mbox{\hyperlink{class_physical_val_a32c5025afe89e3f30aa97af45128b6bf}{Fill}} (std\+::vector$<$ double $>$ \&v, double val)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_physical_val}{Physical\+Val}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00111}{111}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_pressure_ae4803401f36400e0790de0f546910b6c}\label{class_pressure_ae4803401f36400e0790de0f546910b6c} 
+\index{Pressure@{Pressure}!Pressure@{Pressure}}
+\index{Pressure@{Pressure}!Pressure@{Pressure}}
+\doxysubsubsection{\texorpdfstring{Pressure()}{Pressure()}}
+{\footnotesize\ttfamily Pressure\+::\+Pressure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{physical__variables_8cpp_source}{physical\+\_\+variables.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_physical_val}{PhysicalVal}}(grid)\{}
+\DoxyCodeLine{00004\ \ \ \ \ \mbox{\hyperlink{class_pressure_aed42bb81b78185a0323339242169d7f6}{p}}.resize(grid.\mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\_grid}});}
+\DoxyCodeLine{00005\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00069}{Structured\+Grid\+::no\+\_\+grid}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00113}{p}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pressure_a035cf1d808483d0e770a5adf50419901}\label{class_pressure_a035cf1d808483d0e770a5adf50419901} 
+\index{Pressure@{Pressure}!InitPressure@{InitPressure}}
+\index{InitPressure@{InitPressure}!Pressure@{Pressure}}
+\doxysubsubsection{\texorpdfstring{InitPressure()}{InitPressure()}}
+{\footnotesize\ttfamily void Pressure\+::\+Init\+Pressure (\begin{DoxyParamCaption}\item[{double}]{pi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00126}{126}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ std::fill(\mbox{\hyperlink{class_pressure_aed42bb81b78185a0323339242169d7f6}{p}}.begin(),\ \mbox{\hyperlink{class_pressure_aed42bb81b78185a0323339242169d7f6}{p}}.end(),\ pi);}
+\DoxyCodeLine{00128\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00113}{p}}.
+
+\Hypertarget{class_pressure_a4b471167d2a9dcc5c04daacbce6bb09b}\label{class_pressure_a4b471167d2a9dcc5c04daacbce6bb09b} 
+\index{Pressure@{Pressure}!operator()@{operator()}}
+\index{operator()@{operator()}!Pressure@{Pressure}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \& Pressure\+::operator() (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00117}{117}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_pressure_aed42bb81b78185a0323339242169d7f6}{p}}[\mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}}(i,\ j,\ k)];}
+\DoxyCodeLine{00119\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00032}{Physical\+Val\+::icel()}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00113}{p}}.
+
+\Hypertarget{class_pressure_a3aa8dfbb628ab483de19b367535c7258}\label{class_pressure_a3aa8dfbb628ab483de19b367535c7258} 
+\index{Pressure@{Pressure}!operator()@{operator()}}
+\index{operator()@{operator()}!Pressure@{Pressure}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double Pressure\+::operator() (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00122}{122}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_pressure_aed42bb81b78185a0323339242169d7f6}{p}}[\mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}}(i,\ j,\ k)];}
+\DoxyCodeLine{00124\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00032}{Physical\+Val\+::icel()}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00113}{p}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_pressure_aed42bb81b78185a0323339242169d7f6}\label{class_pressure_aed42bb81b78185a0323339242169d7f6} 
+\index{Pressure@{Pressure}!p@{p}}
+\index{p@{p}!Pressure@{Pressure}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Pressure\+::p}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00113}{113}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{physical__variables_8hpp_source_l00126}{Init\+Pressure()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00117}{operator()()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00122}{operator()()}}, \mbox{\hyperlink{physical__variables_8cpp_source_l00003}{Pressure()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/backend/\mbox{\hyperlink{physical__variables_8hpp}{physical\+\_\+variables.\+hpp}}\item 
+cfd\+\_\+mx/src/backend/\mbox{\hyperlink{physical__variables_8cpp}{physical\+\_\+variables.\+cpp}}\end{DoxyCompactItemize}

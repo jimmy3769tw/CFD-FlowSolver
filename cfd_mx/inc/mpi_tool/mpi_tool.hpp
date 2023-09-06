@@ -179,8 +179,6 @@ class MpiTool{
    LocalDomain* domain_;
    int master_ = 0;
 
-
-
    void VirtualProcessTopology(bool reorder) {
       int number_of_dimension = 1;
       int false_periods = 0;

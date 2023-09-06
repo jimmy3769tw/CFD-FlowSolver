@@ -1,0 +1,122 @@
+\doxysection{csr\+\_\+sparse\+\_\+mat.\+hpp}
+\hypertarget{csr__sparse__mat_8hpp_source}{}\label{csr__sparse__mat_8hpp_source}\index{cfd\_mx/inc/matrix/csr\_sparse\_mat.hpp@{cfd\_mx/inc/matrix/csr\_sparse\_mat.hpp}}
+\mbox{\hyperlink{csr__sparse__mat_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <algorithm>}\ \ \textcolor{comment}{//\ (until\ C++11)}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <numeric>}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <utility>}\ \ \textcolor{comment}{//\ (since\ C++11)\ std::pair}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sparse__mat_8hpp}{sparse\_mat.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00013}\mbox{\hyperlink{namespacemat}{00013}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemat}{mat}}\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00015}00015\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00016}\mbox{\hyperlink{classmat_1_1_csr_mat}{00016}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmat_1_1_csr_mat}{CsrMat}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmat_1_1_sparse_mat}{SparseMat}}<T>\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00017}00017\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00018}\mbox{\hyperlink{classmat_1_1_csr_mat_a74bb4c82b8482450d6b00996d05c76d4}{00018}}\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat_a74bb4c82b8482450d6b00996d05c76d4}{CsrMat}}()\ :\ \mbox{\hyperlink{classmat_1_1_sparse_mat}{SparseMat}}<T>()\ \{\}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00020}\mbox{\hyperlink{classmat_1_1_csr_mat_a73880e1b59301c2f903d56e18ef3ce57}{00020}}\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat_a73880e1b59301c2f903d56e18ef3ce57}{CsrMat}}(\textcolor{keywordtype}{int}\ rows,\ \textcolor{keywordtype}{int}\ cols)\ :\ \mbox{\hyperlink{classmat_1_1_sparse_mat}{SparseMat}}<T>(rows,\ cols)\ \{\ SelfConstruct();\ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00022}\mbox{\hyperlink{classmat_1_1_csr_mat_ae1ec028e4edbd307e07422647ff7ad48}{00022}}\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat_ae1ec028e4edbd307e07422647ff7ad48}{CsrMat}}(\textcolor{keywordtype}{int}\ n)\ :\ \mbox{\hyperlink{classmat_1_1_sparse_mat}{SparseMat}}<T>(n)\ \{\ SelfConstruct();\ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00024}\mbox{\hyperlink{classmat_1_1_csr_mat_ab8186f26f30cbc15bdb8590dd8c9a6be}{00024}}\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat_ab8186f26f30cbc15bdb8590dd8c9a6be}{CsrMat}}(\textcolor{keyword}{typename}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_ab6bac97ce2c8c844a95f58ccb1139e66}{SparseMat<T>::CSR\_type}}\ c)\ \{\ \mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(c);\ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00026}\mbox{\hyperlink{classmat_1_1_csr_mat_a6ae81aaf3741c2108bcac7efb7889c0a}{00026}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_csr_mat_a6ae81aaf3741c2108bcac7efb7889c0a}{resize}}(\textcolor{keywordtype}{int}\ rows,\ \textcolor{keywordtype}{int}\ cols)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00027}00027\ \ \ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_acf2dbec54611a5c1890d6bf2965c4af5}{Construct}}(rows,\ cols);}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00028}00028\ \ \ \ \ this-\/>SelfConstruct();}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00029}00029\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00031}\mbox{\hyperlink{classmat_1_1_csr_mat_abf196d54e4f89995d78940ae9d761283}{00031}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_csr_mat_abf196d54e4f89995d78940ae9d761283}{resize}}(\textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00032}00032\ \ \ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_acf2dbec54611a5c1890d6bf2965c4af5}{Construct}}(n,\ n);}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00033}00033\ \ \ \ \ SelfConstruct();}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00034}00034\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00036}\mbox{\hyperlink{classmat_1_1_csr_mat_aa167c4cfc0cf257f27f8d01b52a48807}{00036}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_csr_mat_aa167c4cfc0cf257f27f8d01b52a48807}{Multiply}}(std::vector<T>\&\ x,\ std::vector<T>\&\ r)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00037}00037\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ shared(r,\ x)}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00039}00039\ \ \ \ \ \ \ r[i]\ =\ T();}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00040}00040\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ ptr\_[i];\ j\ <\ ptr\_[i\ +\ 1];\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ r[i]\ +=\ val\_.at(j)\ *\ x.at(idx\_.at(j));}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00042}00042\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00044}00044\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00046}\mbox{\hyperlink{classmat_1_1_csr_mat_ab670f6ce6c162c350114be7b79185e57}{00046}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_csr_mat_ab670f6ce6c162c350114be7b79185e57}{MultiplyMpi}}(std::vector<T>\&\ x,\ std::vector<T>\&\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00047}00047\ \ \ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_af3ef675a956856f6b85dafacf442e401}{mpi\_}}.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a856ccc1e4a26ee063be8e9a68d6a4365}{Allocate}}(x);}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00048}00048\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ shared(r,\ x)}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_af3ef675a956856f6b85dafacf442e401}{mpi\_}}.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad}{beg}}();\ i\ <\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_af3ef675a956856f6b85dafacf442e401}{mpi\_}}.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}}();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00050}00050\ \ \ \ \ \ \ r[i]\ =\ T();}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00051}00051\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ ptr\_[i];\ j\ <\ ptr\_[i\ +\ 1];\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ r[i]\ +=\ val\_[j]\ *\ x[idx\_[j]];}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00053}00053\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00055}00055\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00057}\mbox{\hyperlink{classmat_1_1_csr_mat_ae51af78484cc674435118b31f2bab964}{00057}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_csr_mat_ae51af78484cc674435118b31f2bab964}{init}}(\textcolor{keywordtype}{int}\ Idx\_len,\ \textcolor{keywordtype}{int}\ ptr\_len)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00058}00058\ \ \ \ \ idx\_.clear();}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00059}00059\ \ \ \ \ val\_.clear();}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00060}00060\ \ \ \ \ ptr\_.clear();}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00062}00062\ \ \ \ \ idx\_.reserve(Idx\_len);}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00063}00063\ \ \ \ \ val\_.reserve(Idx\_len);}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00064}00064\ \ \ \ \ ptr\_.reserve(ptr\_len);}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00066}00066\ \ \ \ \ ptr\_.push\_back(0);}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00067}00067\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00069}\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{00069}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_ab6bac97ce2c8c844a95f58ccb1139e66}{SparseMat<T>::CSR\_type}}\&\ csr)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00070}00070\ \ \ \ \ std::tie(ptr\_,\ idx\_,\ val\_)\ =\ csr;}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00071}00071\ \ \ \ \ \textcolor{keyword}{auto}\ len\ =\ ptr\_.size()\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00072}00072\ \ \ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_csr_mat_a6ae81aaf3741c2108bcac7efb7889c0a}{resize}}(len,\ len);}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//\ CSR\ can't\ not\ received\ the\ information\ regarding\ the\ number}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ of\ cols!\ So,\ it\ assume\ the\ cols\_\ =\ row;}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00075}00075\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00077}\mbox{\hyperlink{classmat_1_1_csr_mat_a2477e8ce5ff45c03a344cfc44556948a}{00077}}\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmat_1_1_csr_mat_a2477e8ce5ff45c03a344cfc44556948a}{Show}}()\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00078}00078\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n|prt\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ v\ :\ ptr\_)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00080}00080\ \ \ \ \ \ \ std::cout\ <<\ v\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00083}00083\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n|Idx\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ v\ :\ idx\_)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00085}00085\ \ \ \ \ \ \ std::cout\ <<\ v\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00086}00086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00088}00088\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n|val\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ v\ :\ val\_)\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00090}00090\ \ \ \ \ \ \ std::cout\ <<\ v\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00091}00091\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00093}00093\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00094}00094\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00096}\mbox{\hyperlink{classmat_1_1_csr_mat_aa2943ead36170d0f611e6d69af49a90a}{00096}}\ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_ab6bac97ce2c8c844a95f58ccb1139e66}{SparseMat<T>::CSR\_type}}\ \mbox{\hyperlink{classmat_1_1_csr_mat_aa2943ead36170d0f611e6d69af49a90a}{GetCsr}}()\ \{}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{return}\ make\_tuple(ptr\_,\ idx\_,\ val\_);}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00098}00098\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00100}00100\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00101}00101\ \ \ std::vector<int>\ ptr\_;}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00102}00102\ \ \ std::vector<int>\ idx\_;}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00103}00103\ \ \ std::vector<T>\ val\_;}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00105}00105\ \ \ \textcolor{keywordtype}{void}\ SelfConstruct()\ \{\ ptr\_.resize(this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}()\ +\ 1);\ \}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00106}00106\ \};}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00107}00107\ \}\ \ \textcolor{comment}{//\ namespace\ mat}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00112}00112\ \textcolor{comment}{//\ \#endif}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00114}00114\ \textcolor{comment}{//\ \#if\ defined(CSR0\_MPI\_ON)}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00115}00115\ \textcolor{comment}{//\ MpiVectorTool\ mpi\_;}}
+\DoxyCodeLine{\Hypertarget{csr__sparse__mat_8hpp_source_l00116}00116\ \textcolor{comment}{//\ \#endif}}
+
+\end{DoxyCode}

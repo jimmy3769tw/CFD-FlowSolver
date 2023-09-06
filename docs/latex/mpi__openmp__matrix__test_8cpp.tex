@@ -1,0 +1,245 @@
+\doxysection{tests/matrix/mpi\+\_\+openmp\+\_\+matrix\+\_\+test.cpp File Reference}
+\hypertarget{mpi__openmp__matrix__test_8cpp}{}\label{mpi__openmp__matrix__test_8cpp}\index{tests/matrix/mpi\_openmp\_matrix\_test.cpp@{tests/matrix/mpi\_openmp\_matrix\_test.cpp}}
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/matrix/csr\+\_\+sparse\+\_\+mat.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/matrix/ell\+\_\+sparse\+\_\+mat.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/matrix/solver/bicgstab.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/matrix/solver/bicgstab\+\_\+restart.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/matrix/solver/mpi/bicgstab\+\_\+mpi.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/matrix/solver/mpi/bicgstab\+\_\+restart\+\_\+mpi.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/mpi\+\_\+tool/mpi\+\_\+complex.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/mpi\+\_\+tool/mpi\+\_\+getter.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/mpi\+\_\+tool/mpi\+\_\+tool.\+hpp"{}}\newline
+{\ttfamily \#include "{}../validation\+\_\+tool/l2norm\+\_\+validation.\+hpp"{}}\newline
+{\ttfamily \#include "{}io\+\_\+2d\+\_\+plot3d.\+hpp"{}}\newline
+{\ttfamily \#include "{}poisson.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_ac965ee5964aab3bc82b08a52b78ed679}{TEST}} (csr\+\_\+mpi, Bicgstab\+Restart)
+\item 
+\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a4bb30fee5a6fe2dd58e8a0383f249f9d}{TEST}} (csr\+\_\+mpi, Bicgstab)
+\item 
+\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_ab5d6ada777cbd583d20c644f8117d494}{TEST}} (Ell\+Mat, Bicgstab\+Restart\+Mpi)
+\item 
+\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a56b25d6a10203b468b04660bea569086}{TEST}} (Ell\+Mat, Bicgstab)
+\item 
+int \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmpi_1_1_mpi_complex}{mpi\+::\+Mpi\+Complex}} \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\+\_\+complex\+\_\+}}
+\item 
+\mbox{\hyperlink{class_heat_conduction}{Heat\+Conduction}} \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\+\_\+conduction}} (100)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{mpi__openmp__matrix__test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{mpi__openmp__matrix__test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}!main@{main}}
+\index{main@{main}!mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source}{mpi\+\_\+openmp\+\_\+matrix\+\_\+test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\_complex\_}}\ =\ \mbox{\hyperlink{classmpi_1_1_mpi_complex}{mpi::MpiComplex}}(argc,\ argv);}
+\DoxyCodeLine{00111\ \ \ testing::InitGoogleTest(\&argc,\ argv);}
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordflow}{return}\ RUN\_ALL\_TESTS();}
+\DoxyCodeLine{00113\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00016}{mpi\+\_\+complex\+\_\+}}.
+
+\Hypertarget{mpi__openmp__matrix__test_8cpp_a4bb30fee5a6fe2dd58e8a0383f249f9d}\label{mpi__openmp__matrix__test_8cpp_a4bb30fee5a6fe2dd58e8a0383f249f9d} 
+\index{mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{csr\+\_\+mpi}]{,  }\item[{Bicgstab}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source}{mpi\+\_\+openmp\+\_\+matrix\+\_\+test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matA;}
+\DoxyCodeLine{00045\ \ \ matA.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{00046\ \ \ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a5721137746cc4e7ad0afca32d3a2c7ee}{InitMpi}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\_complex\_}}.GetCommWorld(),\ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}());}
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_mpi}{solver::BicgstabMpi<mat::CsrMat<double>}}>\ solverA(matA);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matB;}
+\DoxyCodeLine{00050\ \ \ matB.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab}{solver::Bicgstab<mat::CsrMat<double>}}>\ solverB(matB);}
+\DoxyCodeLine{00052\ \ \ solverA.SetTolerance(1.0e-\/9);}
+\DoxyCodeLine{00053\ \ \ solverB.SetTolerance(1.0e-\/9);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{auto}\ resultA\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{auto}\ resultB\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ solverA(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultA);}
+\DoxyCodeLine{00060\ \ \ \ \ solverB(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultB);}
+\DoxyCodeLine{00061\ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(resultA,\ resultB)\ <\ 1.0e-\/8);}
+\DoxyCodeLine{00062\ \ \ \}}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{sparse__mat_8hpp_source_l00021}{mat\+::\+Sparse\+Mat$<$ T $>$\+::col()}}, \mbox{\hyperlink{poisson_8hpp_source_l00054}{Heat\+Conduction\+::\+Get\+Csr()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\+\_\+conduction}}, \mbox{\hyperlink{sparse__mat_8hpp_source_l00041}{mat\+::\+Sparse\+Mat$<$ T $>$\+::\+Init\+Mpi()}}, \mbox{\hyperlink{l2norm__validation_8hpp_source_l00004}{L2\+Norm()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00016}{mpi\+\_\+complex\+\_\+}}, \mbox{\hyperlink{poisson_8hpp_source_l00058}{Heat\+Conduction\+::rhs}}, \mbox{\hyperlink{csr__sparse__mat_8hpp_source_l00069}{mat\+::\+Csr\+Mat$<$ T $>$\+::\+Set()}}, \mbox{\hyperlink{linear__solver_8hpp_source_l00023}{solver\+::\+Linear\+Solver$<$ matrix\+T $>$\+::\+Set\+Tolerance()}}, \mbox{\hyperlink{linear__solver__mpi_8hpp_source_l00030}{solver\+::\+Linear\+Solver\+Mpi$<$ Mat\+Type $>$\+::\+Set\+Tolerance()}}, and \mbox{\hyperlink{poisson_8hpp_source_l00059}{Heat\+Conduction\+::x}}.
+
+\Hypertarget{mpi__openmp__matrix__test_8cpp_ac965ee5964aab3bc82b08a52b78ed679}\label{mpi__openmp__matrix__test_8cpp_ac965ee5964aab3bc82b08a52b78ed679} 
+\index{mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{csr\+\_\+mpi}]{,  }\item[{Bicgstab\+Restart}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source}{mpi\+\_\+openmp\+\_\+matrix\+\_\+test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matA;}
+\DoxyCodeLine{00023\ \ \ matA.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{00024\ \ \ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a5721137746cc4e7ad0afca32d3a2c7ee}{InitMpi}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\_complex\_}}.GetCommWorld(),\ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}());}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{solver::BicgstabRestartMpi<mat::CsrMat<double>}}>\ solverA(matA);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matB;}
+\DoxyCodeLine{00028\ \ \ matB.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart}{solver::BicgstabRestart<mat::CsrMat<double>}}>\ solverB(matB);}
+\DoxyCodeLine{00030\ \ \ solverA.SetTolerance(1.0e-\/9);}
+\DoxyCodeLine{00031\ \ \ solverB.SetTolerance(1.0e-\/9);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{auto}\ resultA\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{auto}\ resultB\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ solverA(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultA);}
+\DoxyCodeLine{00038\ \ \ \ \ solverB(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultB);}
+\DoxyCodeLine{00039\ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(resultA,\ resultB)\ <\ 1.0e-\/8);}
+\DoxyCodeLine{00040\ \ \ \}}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{sparse__mat_8hpp_source_l00021}{mat\+::\+Sparse\+Mat$<$ T $>$\+::col()}}, \mbox{\hyperlink{poisson_8hpp_source_l00054}{Heat\+Conduction\+::\+Get\+Csr()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\+\_\+conduction}}, \mbox{\hyperlink{sparse__mat_8hpp_source_l00041}{mat\+::\+Sparse\+Mat$<$ T $>$\+::\+Init\+Mpi()}}, \mbox{\hyperlink{l2norm__validation_8hpp_source_l00004}{L2\+Norm()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00016}{mpi\+\_\+complex\+\_\+}}, \mbox{\hyperlink{poisson_8hpp_source_l00058}{Heat\+Conduction\+::rhs}}, \mbox{\hyperlink{csr__sparse__mat_8hpp_source_l00069}{mat\+::\+Csr\+Mat$<$ T $>$\+::\+Set()}}, \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00036}{solver\+::\+Bicgstab\+Restart\+Mpi$<$ matrix\+T $>$\+::\+Set\+Tolerance()}}, \mbox{\hyperlink{bicgstab__restart_8hpp_source_l00031}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$\+::\+Set\+Tolerance()}}, and \mbox{\hyperlink{poisson_8hpp_source_l00059}{Heat\+Conduction\+::x}}.
+
+\Hypertarget{mpi__openmp__matrix__test_8cpp_a56b25d6a10203b468b04660bea569086}\label{mpi__openmp__matrix__test_8cpp_a56b25d6a10203b468b04660bea569086} 
+\index{mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Ell\+Mat}]{,  }\item[{Bicgstab}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source}{mpi\+\_\+openmp\+\_\+matrix\+\_\+test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \mbox{\hyperlink{classmat_1_1_ell_mat}{mat::EllMat<double>}}\ matA;}
+\DoxyCodeLine{00089\ \ \ matA.\mbox{\hyperlink{classmat_1_1_ell_mat_ab29006f8d098c71c98b3c90145b94f8f}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{00090\ \ \ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a5721137746cc4e7ad0afca32d3a2c7ee}{InitMpi}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\_complex\_}}.GetCommWorld(),\ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}());}
+\DoxyCodeLine{00091\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_mpi}{solver::BicgstabMpi<mat::EllMat<double>}}>\ solverA(matA);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matB;}
+\DoxyCodeLine{00094\ \ \ matB.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{00095\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab}{solver::Bicgstab<mat::CsrMat<double>}}>\ solverB(matB);}
+\DoxyCodeLine{00096\ \ \ solverA.SetTolerance(1.0e-\/9);}
+\DoxyCodeLine{00097\ \ \ solverB.SetTolerance(1.0e-\/9);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{auto}\ resultA\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{auto}\ resultB\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ solverA(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultA);}
+\DoxyCodeLine{00104\ \ \ \ \ solverB(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultB);}
+\DoxyCodeLine{00105\ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(resultA,\ resultB)\ <\ 1.0e-\/8);}
+\DoxyCodeLine{00106\ \ \ \}}
+\DoxyCodeLine{00107\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{sparse__mat_8hpp_source_l00021}{mat\+::\+Sparse\+Mat$<$ T $>$\+::col()}}, \mbox{\hyperlink{poisson_8hpp_source_l00054}{Heat\+Conduction\+::\+Get\+Csr()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\+\_\+conduction}}, \mbox{\hyperlink{sparse__mat_8hpp_source_l00041}{mat\+::\+Sparse\+Mat$<$ T $>$\+::\+Init\+Mpi()}}, \mbox{\hyperlink{l2norm__validation_8hpp_source_l00004}{L2\+Norm()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00016}{mpi\+\_\+complex\+\_\+}}, \mbox{\hyperlink{poisson_8hpp_source_l00058}{Heat\+Conduction\+::rhs}}, \mbox{\hyperlink{csr__sparse__mat_8hpp_source_l00069}{mat\+::\+Csr\+Mat$<$ T $>$\+::\+Set()}}, \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00135}{mat\+::\+Ell\+Mat$<$ T $>$\+::\+Set()}}, \mbox{\hyperlink{linear__solver_8hpp_source_l00023}{solver\+::\+Linear\+Solver$<$ matrix\+T $>$\+::\+Set\+Tolerance()}}, \mbox{\hyperlink{linear__solver__mpi_8hpp_source_l00030}{solver\+::\+Linear\+Solver\+Mpi$<$ Mat\+Type $>$\+::\+Set\+Tolerance()}}, and \mbox{\hyperlink{poisson_8hpp_source_l00059}{Heat\+Conduction\+::x}}.
+
+\Hypertarget{mpi__openmp__matrix__test_8cpp_ab5d6ada777cbd583d20c644f8117d494}\label{mpi__openmp__matrix__test_8cpp_ab5d6ada777cbd583d20c644f8117d494} 
+\index{mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Ell\+Mat}]{,  }\item[{Bicgstab\+Restart\+Mpi}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source}{mpi\+\_\+openmp\+\_\+matrix\+\_\+test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{classmat_1_1_ell_mat}{mat::EllMat<double>}}\ matA;}
+\DoxyCodeLine{00067\ \ \ matA.\mbox{\hyperlink{classmat_1_1_ell_mat_ab29006f8d098c71c98b3c90145b94f8f}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{00068\ \ \ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a5721137746cc4e7ad0afca32d3a2c7ee}{InitMpi}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}{mpi\_complex\_}}.GetCommWorld(),\ matA.\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}());}
+\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{solver::BicgstabRestartMpi<mat::EllMat<double>}}>\ solverA(matA);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \mbox{\hyperlink{classmat_1_1_csr_mat}{mat::CsrMat<double>}}\ matB;}
+\DoxyCodeLine{00072\ \ \ matB.\mbox{\hyperlink{classmat_1_1_csr_mat_afca625ed4c19cf0abb0f6cd9f271ceaa}{Set}}(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{GetCsr}}());}
+\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart}{solver::BicgstabRestart<mat::CsrMat<double>}}>\ solverB(matB);}
+\DoxyCodeLine{00074\ \ \ solverA.SetTolerance(1.0e-\/9);}
+\DoxyCodeLine{00075\ \ \ solverB.SetTolerance(1.0e-\/9);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{auto}\ resultA\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{auto}\ resultB\ =\ \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ solverA(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultA);}
+\DoxyCodeLine{00082\ \ \ \ \ solverB(\mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\_conduction}}.\mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}},\ resultB);}
+\DoxyCodeLine{00083\ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(resultA,\ resultB)\ <\ 1.0e-\/8);}
+\DoxyCodeLine{00084\ \ \ \}}
+\DoxyCodeLine{00085\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{sparse__mat_8hpp_source_l00021}{mat\+::\+Sparse\+Mat$<$ T $>$\+::col()}}, \mbox{\hyperlink{poisson_8hpp_source_l00054}{Heat\+Conduction\+::\+Get\+Csr()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}{heat\+\_\+conduction}}, \mbox{\hyperlink{sparse__mat_8hpp_source_l00041}{mat\+::\+Sparse\+Mat$<$ T $>$\+::\+Init\+Mpi()}}, \mbox{\hyperlink{l2norm__validation_8hpp_source_l00004}{L2\+Norm()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00016}{mpi\+\_\+complex\+\_\+}}, \mbox{\hyperlink{poisson_8hpp_source_l00058}{Heat\+Conduction\+::rhs}}, \mbox{\hyperlink{csr__sparse__mat_8hpp_source_l00069}{mat\+::\+Csr\+Mat$<$ T $>$\+::\+Set()}}, \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00135}{mat\+::\+Ell\+Mat$<$ T $>$\+::\+Set()}}, \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00036}{solver\+::\+Bicgstab\+Restart\+Mpi$<$ matrix\+T $>$\+::\+Set\+Tolerance()}}, \mbox{\hyperlink{bicgstab__restart_8hpp_source_l00031}{solver\+::\+Bicgstab\+Restart$<$ matrix\+T $>$\+::\+Set\+Tolerance()}}, and \mbox{\hyperlink{poisson_8hpp_source_l00059}{Heat\+Conduction\+::x}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122}\label{mpi__openmp__matrix__test_8cpp_a79df4db002b1af03fd6f7c101941b122} 
+\index{mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}!heat\_conduction@{heat\_conduction}}
+\index{heat\_conduction@{heat\_conduction}!mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{heat\_conduction}{heat\_conduction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_heat_conduction}{Heat\+Conduction}} heat\+\_\+conduction(100) (\begin{DoxyParamCaption}\item[{100}]{ }\end{DoxyParamCaption})}
+
+
+
+Referenced by \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00043}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00020}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00087}{TEST()}}, and \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00065}{TEST()}}.
+
+\Hypertarget{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791}\label{mpi__openmp__matrix__test_8cpp_a9cbab2498e5eb343e2a8f7e2d4fd1791} 
+\index{mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}!mpi\_complex\_@{mpi\_complex\_}}
+\index{mpi\_complex\_@{mpi\_complex\_}!mpi\_openmp\_matrix\_test.cpp@{mpi\_openmp\_matrix\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{mpi\_complex\_}{mpi\_complex\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmpi_1_1_mpi_complex}{mpi\+::\+Mpi\+Complex}} mpi\+\_\+complex\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source}{mpi\+\_\+openmp\+\_\+matrix\+\_\+test.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00109}{main()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00043}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00020}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00087}{TEST()}}, and \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00065}{TEST()}}.
+

@@ -1,0 +1,127 @@
+\doxysection{pressure\+\_\+mat\+\_\+csr.\+hpp}
+\hypertarget{pressure__mat__csr_8hpp_source}{}\label{pressure__mat__csr_8hpp_source}\index{cfd\_mx/inc/pressure/pressure\_mat\_csr.hpp@{cfd\_mx/inc/pressure/pressure\_mat\_csr.hpp}}
+\mbox{\hyperlink{pressure__mat__csr_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}../grid/structured\_grid.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00004}\mbox{\hyperlink{pressure__mat__csr_8hpp_a5f424e8a9e9df1244976ff3042221815}{00004}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{pressure__mat__csr_8hpp_a5f424e8a9e9df1244976ff3042221815}{GetCsrMat}}(\mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\&\ grid)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00005}00005\ \ \ \textcolor{keyword}{auto}\ cal\_nx\ =\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}};}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00006}00006\ \ \ \textcolor{keyword}{auto}\ cal\_ny\ =\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}};}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00007}00007\ \ \ \textcolor{keyword}{auto}\ cal\_nz\ =\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}};}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00008}00008\ \ \ \textcolor{keyword}{auto}\ no\_ghost\_cell\ =\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00010}00010\ \ \ \textcolor{keyword}{auto}\ xp\ =\ [\&](\textcolor{keyword}{auto}\ i)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}.at(i\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}.at(i\ +\ no\_ghost\_cell);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00013}00013\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00015}00015\ \ \ \textcolor{keyword}{auto}\ yp\ =\ [\&](\textcolor{keyword}{auto}\ j)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}.at(j\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}.at(j\ +\ no\_ghost\_cell);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00018}00018\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00019}00019\ \ \ \textcolor{keyword}{auto}\ zp\ =\ [\&](\textcolor{keyword}{auto}\ k)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}.at(k\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}.at(k\ +\ no\_ghost\_cell);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00022}00022\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00024}00024\ \ \ \textcolor{keyword}{auto}\ xm\ =\ [\&](\textcolor{keyword}{auto}\ i)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}.at(i\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}.at(i\ +\ no\_ghost\_cell\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00027}00027\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00029}00029\ \ \ \textcolor{keyword}{auto}\ ym\ =\ [\&](\textcolor{keyword}{auto}\ j)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}.at(j\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}.at(j\ +\ no\_ghost\_cell\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00032}00032\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00034}00034\ \ \ \textcolor{keyword}{auto}\ zm\ =\ [\&](\textcolor{keyword}{auto}\ k)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}.at(k\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}.at(k\ +\ no\_ghost\_cell\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00037}00037\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00039}00039\ \ \ std::vector<int>\ ptr;}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00040}00040\ \ \ std::vector<int>\ idx;}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00041}00041\ \ \ std::vector<double>\ val;}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00042}00042\ \ \ ptr.reserve(grid.\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}}\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00043}00043\ \ \ ptr.push\_back(0);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00044}00044\ \ \ idx.reserve(grid.\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}}\ *\ 7);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00045}00045\ \ \ val.reserve(grid.\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}}\ *\ 7);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00047}00047\ \ \ \textcolor{keywordtype}{int}\ x\_start\ =\ 0,\ y\_start\ =\ 0,\ z\_start\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00048}00048\ \ \ \textcolor{keyword}{auto}\ x\_end\ =\ cal\_nx\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00049}00049\ \ \ \textcolor{keyword}{auto}\ y\_end\ =\ cal\_ny\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00050}00050\ \ \ \textcolor{keyword}{auto}\ z\_end\ =\ cal\_nz\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00052}00052\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ i\_count\ =\ 0;\ i\ <\ cal\_nx;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ cal\_ny;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00054}00054\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ cal\_nz;\ ++k,\ ++i\_count)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Boundary\ point.\ Use\ Num\ condition.}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ aa\ =\ 0.0,\ bb\ =\ 0.0,\ cc\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ x\_start)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ aa\ =\ -\/xm(i);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ x\_end)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ aa\ =\ -\/xp(i);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ y\_start)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ bb\ =\ -\/ym(j);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ y\_end)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ bb\ =\ -\/yp(j);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ z\_start)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ cc\ =\ -\/zm(k);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ z\_end)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ cc\ =\ -\/zp(k);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ijk\ =\ xm(i)\ +\ ym(j)\ +\ zm(k)\ +\ xp(i)\ +\ yp(j)\ +\ zp(k)\ +\ aa\ +\ bb\ +\ cc;}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ x\_start)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ -\/\ grid.\mbox{\hyperlink{class_structured_grid_a2719ee13fe32bd2950cff826c856eef2}{cal\_ny\_times\_nz}});}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/xm(i));}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ !=\ y\_start)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ -\/\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}});}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/ym(j));}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ !=\ z\_start)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/zm(k));}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ idx.push\_back(i\_count);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ val.push\_back(ijk);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ !=\ z\_end)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/zp(k));}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ !=\ y\_end)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ +\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}});}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/yp(j));}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ x\_end)\ \{}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ +\ grid.\mbox{\hyperlink{class_structured_grid_a2719ee13fe32bd2950cff826c856eef2}{cal\_ny\_times\_nz}});}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/xp(i));}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00115}00115\ \ \ \ \ \ \ \ \ ptr.push\_back(idx.size());}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00116}00116\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00117}00117\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00118}00118\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00120}00120\ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(ptr,\ idx,\ val);}
+\DoxyCodeLine{\Hypertarget{pressure__mat__csr_8hpp_source_l00121}00121\ \}}
+
+\end{DoxyCode}

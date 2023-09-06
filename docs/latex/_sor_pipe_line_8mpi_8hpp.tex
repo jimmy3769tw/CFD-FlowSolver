@@ -1,0 +1,119 @@
+\doxysection{cfd\+\_\+mx/inc/pressure/solver/\+Sor\+Pipe\+Line.mpi.\+hpp File Reference}
+\hypertarget{_sor_pipe_line_8mpi_8hpp}{}\label{_sor_pipe_line_8mpi_8hpp}\index{cfd\_mx/inc/pressure/solver/SorPipeLine.mpi.hpp@{cfd\_mx/inc/pressure/solver/SorPipeLine.mpi.hpp}}
+{\ttfamily \#include "{}mpi\+\_\+tool/init\+\_\+mpi.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp_adcee1014563655f9ddb402d97d01139e}{Sor\+Pipe\+Line\+\_\+mpi\+\_\+hybrid\+\_\+omp}} (MPI\+\_\+\+Comm comm\+\_\+world, std\+::vector$<$ int $>$ \&mpi\+\_\+neighborhood, SORcoefficient \&Sor, \mbox{\hyperlink{class_simulation}{Simulation}} \&simu, velocity \&T1, pressure \&t1, \mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&Lo, grid \&gA)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_sor_pipe_line_8mpi_8hpp_adcee1014563655f9ddb402d97d01139e}\label{_sor_pipe_line_8mpi_8hpp_adcee1014563655f9ddb402d97d01139e} 
+\index{SorPipeLine.mpi.hpp@{SorPipeLine.mpi.hpp}!SorPipeLine\_mpi\_hybrid\_omp@{SorPipeLine\_mpi\_hybrid\_omp}}
+\index{SorPipeLine\_mpi\_hybrid\_omp@{SorPipeLine\_mpi\_hybrid\_omp}!SorPipeLine.mpi.hpp@{SorPipeLine.mpi.hpp}}
+\doxysubsubsection{\texorpdfstring{SorPipeLine\_mpi\_hybrid\_omp()}{SorPipeLine\_mpi\_hybrid\_omp()}}
+{\footnotesize\ttfamily bool Sor\+Pipe\+Line\+\_\+mpi\+\_\+hybrid\+\_\+omp (\begin{DoxyParamCaption}\item[{MPI\+\_\+\+Comm}]{comm\+\_\+world,  }\item[{std\+::vector$<$ int $>$ \&}]{mpi\+\_\+neighborhood,  }\item[{SORcoefficient \&}]{Sor,  }\item[{\mbox{\hyperlink{class_simulation}{Simulation}} \&}]{simu,  }\item[{velocity \&}]{T1,  }\item[{pressure \&}]{t1,  }\item[{\mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&}]{Lo,  }\item[{grid \&}]{gA }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp_source_l00004}{4}} of file \mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp_source}{Sor\+Pipe\+Line.\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ word\_size\ =\ Lo.word\_size;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ [nx,\ ny,\ nz,\ gC]\ =\ gA.nxyzgC;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{double}\ omega\ =\ simu.p\_sor\_omega;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ mChangeMax;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ itmax\ =\ simu.p\_sor\_iter\_max;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{double}\ rdt\ =\ 1.0\ /\ simu.dt;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (simu.firstSOR)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ simu.firstSOR\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ Sor.cf.resize(gA.iceltotCal\ *\ 8);}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#pragma\ omp\ parallel\ for\ firstprivate(Lo,\ rdt)}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}}\ ;\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}}\ ;\ ++i\ )}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}}\ ;\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}}\ ;\ ++j\ )}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}}\ ;\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}}\ ;\ ++k\ )}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ii\ =\ \ 8*gA.icelCal(i,j,k);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coef\ =\ gA.dy[j]\ *\ gA.dz[k]\ /\ gA.staggered\_dx[i]\ +}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gA.dy[j]\ *\ gA.dz[k]\ /\ gA.staggered\_dx[i\ -\/\ 1]\ +}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gA.dx[i]\ *\ gA.dz[k]\ /\ gA.staggered\_dy[j]\ +}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gA.dx[i]\ *\ gA.dz[k]\ /\ gA.staggered\_dy[j\ -\/\ 1]\ +}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gA.dx[i]\ *\ gA.dy[j]\ /\ gA.staggered\_dz[k]\ +}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gA.dx[i]\ *\ gA.dy[j]\ /\ gA.staggered\_dz[k\ -\/\ 1];}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii\ \ ]\ =\ gA.Dy[j]\ *\ gA.Dz[k]\ /\ gA.Dxs[i]\ \ ;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+1]\ =\ gA.Dy[j]\ *\ gA.Dz[k]\ /\ gA.Dxs[i-\/1];}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+2]\ =\ gA.Dx[i]\ *\ gA.Dz[k]\ /\ gA.Dys[j]\ \ ;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+3]\ =\ gA.Dx[i]\ *\ gA.Dz[k]\ /\ gA.Dys[j-\/1];}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+4]\ =\ gA.Dx[i]\ *\ gA.Dy[j]\ /\ gA.Dzs[k]\ \ ;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+5]\ =\ gA.Dx[i]\ *\ gA.Dy[j]\ /\ gA.Dzs[k-\/1];}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+7]\ =\ -\/\ 1.0\ /\ coef;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \}\ \ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{double}\ norm\_rhs\ =\ 0;}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ omp\ parallel\ for\ firstprivate(Lo,\ rdt)\ reduction(+\ :\ norm\_rhs)}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}}\ ;\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}}\ ;\ ++i\ )}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}}\ ;\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}}\ ;\ ++j\ )}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}}\ ;\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}}\ ;\ ++k\ )}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ icel\ =\ gA.icel(i,j,k);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ii\ =\ gA.icelCal(i,j,k)*8;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ mChange\ =\ (\ T1.u[icel]\ -\/\ T1.u[gA.icel(i-\/1,j,k)]\ )\ *\ gA.Dy[j]\ *\ gA.Dz[k]\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ (\ T1.v[icel]\ -\/\ T1.v[gA.icel(i,j-\/1,k)]\ )\ *\ gA.Dx[i]\ *\ gA.Dz[k]\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ (\ T1.w[icel]\ -\/\ T1.w[gA.icel(i,j,k-\/1)]\ )\ *\ gA.Dx[i]\ *\ gA.Dy[j];}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ Sor.cf[ii+6]\ =\ mChange\ *\ rdt;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ norm\_rhs\ +=\ std::pow(\ mChange\ *\ rdt,\ 2);}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{auto}\ snetBuf\_norm\_rhs\ =\ sqrt(norm\_rhs);}
+\DoxyCodeLine{00062\ \ \ \ \ MPI\_Allreduce(\&snetBuf\_norm\_rhs,\ \&norm\_rhs,\ 1,\ MPI\_DOUBLE,\ MPI\_SUM,\ comm\_world);}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{double}\ interTime\ =\ omp\_get\_wtime();}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{double}\ residual;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{auto}\ recvbuf\ =\ residual;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{for}\ (simu.iters\ =\ 0;\ \ simu.iters\ <\ simu.p\_sor\_iter\_max;\ ++simu.iters)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ !\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ \ MPI\ no-\/blocking\ send\ \&\ recv\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ MPI\_DEBUG}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ mpi\_iSR\_double\_x\_debugger(word\_size,\ simu.TID,\ comm\_world,\ mpi\_neighborhood,\ t1.p,\ Lo,\ gA);}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#else}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ mpi\_iSR\_double\_x(1,\ comm\_world,\ mpi\_neighborhood,\ t1.p,\ Lo,\ gA\ );}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ MPI\_Barrier(comm\_world);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ !\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ \ MPI\ no-\/blocking\ send\ \&\ recv\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ residual\ =\ 0.0;}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#pragma\ omp\ parallel\ for\ reduction(+:residual)\ firstprivate(Lo,\ norm\_rhs)\ }}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}}\ ;\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}}\ ;\ ++i\ )}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}}\ ;\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}}\ ;\ ++j\ )}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}}\ ;\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}}\ ;\ ++k\ )}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ icel\ =\ gA.icel(i,j,k);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ii8\ =\ gA.icelCal(i,j,k)*8;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pNEW\ =(-\/\ t1.p[gA.icel(i+1,j,k)]\ *\ Sor.cf[ii8\ \ ]}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ t1.p[gA.icel(i-\/1,j,k)]\ *\ Sor.cf[ii8+1]}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ t1.p[gA.icel(i,j+1,k)]\ *\ Sor.cf[ii8+2]}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ t1.p[gA.icel(i,j-\/1,k)]\ *\ Sor.cf[ii8+3]}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ t1.p[gA.icel(i,j,k+1)]\ *\ Sor.cf[ii8+4]}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ t1.p[gA.icel(i,j,k-\/1)]\ *\ Sor.cf[ii8+5]}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ Sor.cf[ii8+6])\ *\ Sor.cf[ii8+7];}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pChange\ =\ std::abs(pNEW\ -\/\ t1.p[icel]);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ t1.p[icel]\ +=\ omega\ *\ (pNEW\ -\/\ t1.p[icel]);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ residual\ +=\ pChange/norm\_rhs;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ sendbuf\ =\ residual;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ MPI\_Allreduce(\&sendbuf,\ \&recvbuf,1,\ MPI\_DOUBLE,\ MPI\_SUM,\ comm\_world);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sqrt(recvbuf)\ <\ simu.p\_criteria)\{\textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ simu.error\ =\ \ sqrt(recvbuf);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+end}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+end}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+end}}, and \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+start}}.
+

@@ -1,0 +1,51 @@
+\doxysection{inforamtion.\+cpp}
+\hypertarget{inforamtion_8cpp_source}{}\label{inforamtion_8cpp_source}\index{cfd\_mx/inc/io/csv/inforamtion.cpp@{cfd\_mx/inc/io/csv/inforamtion.cpp}}
+\mbox{\hyperlink{inforamtion_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <dirent.h>}}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00006}\mbox{\hyperlink{inforamtion_8cpp_a15aaee8cedb1128c93fe6b934ce7dee3}{00006}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{inforamtion_8cpp_a15aaee8cedb1128c93fe6b934ce7dee3}{init\_information}}()\{}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordflow}{if}(opendir(\textcolor{stringliteral}{"{}Information"{}})\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00009}00009\ \ \ \ \ \{\ \textcolor{keywordflow}{if}\ (system(\textcolor{stringliteral}{"{}mkdir\ Information"{}})\ !=\ 0)\{\ \textcolor{keywordflow}{return}\ 1;\ \}\ \}}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00011}00011\ \ \ \ \ std::ofstream\ file;}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00013}00013\ \ \ \ \ std::string\ fName\ =\ \textcolor{stringliteral}{"{}Information/info"{}};}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00014}00014\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00015}00015\ \ \ \ \ fName\ +=\ \textcolor{stringliteral}{"{}.csv"{}};}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00016}00016\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00017}00017\ \ \ \ \ file.open\ (fName,std::ios::out);\ \textcolor{comment}{//\ |\ ios::app}}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00019}00019\ \ \ \ \ file\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00020}00020\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00021}00021\ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nnx,\ ny,\ nz\ =\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00022}00022\ \ \ \ \ <<\ gA.nx\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ gA.ny\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ gA.nz\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00024}00024\ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nlx,\ ly,\ lz\ =\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00025}00025\ \ \ \ \ <<\ gA.lx\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ gA.ly\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ gA.lz}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00027}00027\ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nRe\ =\ "{}}}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00028}00028\ \ \ \ \ <<\ simu.Re\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00030}00030\ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nconvectionScheme\ =\ "{}}}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00031}00031\ \ \ \ \ <<\ simu.convectionScheme}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00033}00033\ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)ndifussionScheme\ =\ "{}}}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00034}00034\ \ \ \ \ <<\ simu.difussionScheme}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00036}00036\ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00040}\mbox{\hyperlink{inforamtion_8cpp_afd9f37e053db0466e457a2031a6d2d33}{00040}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{inforamtion_8cpp_afd9f37e053db0466e457a2031a6d2d33}{finish\_information}}()\{}
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{inforamtion_8cpp_source_l00045}00045\ \}}
+
+\end{DoxyCode}

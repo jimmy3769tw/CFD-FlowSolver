@@ -1,0 +1,1142 @@
+\doxysection{Structured\+Grid Class Reference}
+\hypertarget{class_structured_grid}{}\label{class_structured_grid}\index{StructuredGrid@{StructuredGrid}}
+
+
+{\ttfamily \#include $<$structured\+\_\+grid.\+hpp$>$}
+
+Inheritance diagram for Structured\+Grid\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_structured_grid}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_structured_grid_a1187e14f9ad1a09a0524725927cb6735}{Structured\+Grid}} (int \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\+\_\+nx}}, int \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}}, int \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}})
+\item 
+\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \& \mbox{\hyperlink{class_structured_grid_af5c5e23afdbb860cdde6514f3a4a8018}{set\+Len}} (int lx, int ly, int lz)
+\item 
+std\+::tuple$<$ double, double, double $>$ \mbox{\hyperlink{class_structured_grid_a0fadb12f6a62b9003a516585654cbbd3}{Get\+Len}} ()
+\item 
+void \mbox{\hyperlink{class_structured_grid_a7651877adb83186632553e1e47ae2fa2}{Init}} ()
+\item 
+void \mbox{\hyperlink{class_structured_grid_a55c9f68bad513a1a0a7b39bc3698fa6b}{resize}} ()
+\item 
+void \mbox{\hyperlink{class_structured_grid_ab5fee8458deb72a8e6c3cdea23b7ac6f}{Check\+Parameter}} ()
+\item 
+void \mbox{\hyperlink{class_structured_grid_a10c68f74c3b91ae61ea382d9b215bc0c}{Init\+Cent\+Pos}} ()
+\item 
+double \& \mbox{\hyperlink{class_structured_grid_a1eaa4df5936dec15c0ca13b7b11415f2}{Xc}} (int i)
+\item 
+double \& \mbox{\hyperlink{class_structured_grid_a60e669ecf12f7dd1d17257101486c5ef}{Yc}} (int i)
+\item 
+double \& \mbox{\hyperlink{class_structured_grid_aaec34884d59558a35ff7d0409417ef80}{Zc}} (int i)
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}} (T i, T j, T k)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::tuple$<$ int, int, int, int, int, int, int, int, int, int, int, int $>$ \mbox{\hyperlink{class_structured_grid_ae1fc30f5c11c17779c1d23dd7a98d480}{Get12\+Nb}} (T \&\mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{class_structured_grid_a452bf1a6cc50e6466730fb8e8d2b4e0b}{icel\+Dir}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{class_structured_grid_adca333aed9e81b218244f26b11c7b114}{icel\+Cal}} (T i, T j, T k) const
+\item 
+std\+::string \mbox{\hyperlink{class_structured_grid_a04787cb488eb83dee3c9e03a0d58476d}{show}} ()
+\item 
+auto \mbox{\hyperlink{class_structured_grid_ac6bab642319bfac3b895a25577a2341d}{Get\+InterpolationX}} (int i)
+\item 
+auto \mbox{\hyperlink{class_structured_grid_a14be4781183267a67bf0d8bd582b7c3f}{Get\+InterpolationY}} (int j)
+\item 
+auto \mbox{\hyperlink{class_structured_grid_a5344bf6bc8fe189fe3c8d3f4b1f6d891}{Get\+InterpolationZ}} (int k)
+\item 
+void \mbox{\hyperlink{class_structured_grid_aa6c23ce052780c7a3fcb4d10a665e7fb}{Init\+Ghost\+Cell\+Pos}} ()
+\item 
+bool \mbox{\hyperlink{class_structured_grid_a83ebd9ef8b5aa9a5cbadafd7b2c178d2}{Init\+Grid\+Distance}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_boundary_condition_selector}{Boundary\+Condition\+Selector}} \mbox{\hyperlink{class_structured_grid_a18eff7a16d28c0aded4a6ed364067ebb}{bc\+\_\+selector}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_cal_eta_interface}{Cal\+Eta\+Interface}} $>$ \mbox{\hyperlink{class_structured_grid_a38666a4cea6f718902ceab9fb206de4d}{cal\+\_\+eta\+\_\+imp}}
+\item 
+int \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\+\_\+nx}}
+\item 
+int \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}}
+\item 
+int \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\+\_\+ghost\+\_\+cell}} = 2
+\item 
+const int \mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\+\_\+no\+\_\+grid}} = \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\+\_\+nx}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a2719ee13fe32bd2950cff826c856eef2}{cal\+\_\+ny\+\_\+times\+\_\+nz}} = \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}} = \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\+\_\+nx}} + 2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\+\_\+ghost\+\_\+cell}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}} = \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}} + 2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\+\_\+ghost\+\_\+cell}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}} = \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} + 2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\+\_\+ghost\+\_\+cell}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a65ae8a1cd52c3bfb422b448562af5885}{ny\+\_\+times\+\_\+nz}} = \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a2ec0bf7c9b3c4cf18b30c57dc69e14ee}{nx\+\_\+times\+\_\+ny}} = \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}
+\item 
+const int \mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\+\_\+grid}} = \mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\+\_\+dx}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\+\_\+dy}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\+\_\+dz}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\+\_\+pos}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\+\_\+pos}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\+\_\+pos}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_a979f3af643473bf4276b54f80c94c4c0}{x\+\_\+cent\+\_\+pos}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_aded2510763ccc9ca518132960c4b201e}{y\+\_\+cent\+\_\+pos}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_structured_grid_ac73ad4634948af8e38c050642d7f6bfe}{z\+\_\+cent\+\_\+pos}}
+\item 
+int \mbox{\hyperlink{class_structured_grid_a29c62eb84a127ac2214bdc58eaccb98d}{nz\+Dir}} = (\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} + 2)
+\item 
+int \mbox{\hyperlink{class_structured_grid_affae833c5d09dad99621c256f22eacfe}{nzny\+Dir}} = (\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} + 2) \texorpdfstring{$\ast$}{*} (\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}} + 2)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_structured_grid_a605b755757c4c9a89d389a928de32ea5}{lx\+\_\+}}
+\item 
+double \mbox{\hyperlink{class_structured_grid_a9717518703f5cb504c5845cd4de10cec}{ly\+\_\+}}
+\item 
+double \mbox{\hyperlink{class_structured_grid_a3c67ad5fce86033d89bc6ff2b10609eb}{lz\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_structured_grid_a1187e14f9ad1a09a0524725927cb6735}\label{class_structured_grid_a1187e14f9ad1a09a0524725927cb6735} 
+\index{StructuredGrid@{StructuredGrid}!StructuredGrid@{StructuredGrid}}
+\index{StructuredGrid@{StructuredGrid}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{StructuredGrid()}{StructuredGrid()}}
+{\footnotesize\ttfamily Structured\+Grid\+::\+Structured\+Grid (\begin{DoxyParamCaption}\item[{int}]{cal\+\_\+nx,  }\item[{int}]{cal\+\_\+ny,  }\item[{int}]{cal\+\_\+nz }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}}(\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}}),\ \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}}(\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}}),\ \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}}(\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}})\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a55c9f68bad513a1a0a7b39bc3698fa6b}{resize}}();}
+\DoxyCodeLine{00032\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_structured_grid_ab5fee8458deb72a8e6c3cdea23b7ac6f}\label{class_structured_grid_ab5fee8458deb72a8e6c3cdea23b7ac6f} 
+\index{StructuredGrid@{StructuredGrid}!CheckParameter@{CheckParameter}}
+\index{CheckParameter@{CheckParameter}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{CheckParameter()}{CheckParameter()}}
+{\footnotesize\ttfamily void Structured\+Grid\+::\+Check\+Parameter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00096}{96}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (!isSetLen\_)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Parameter\ settings\ have\ not\ been\ completed.\(\backslash\)n"{}});}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00052}{Init()}}.
+
+\Hypertarget{class_structured_grid_ae1fc30f5c11c17779c1d23dd7a98d480}\label{class_structured_grid_ae1fc30f5c11c17779c1d23dd7a98d480} 
+\index{StructuredGrid@{StructuredGrid}!Get12Nb@{Get12Nb}}
+\index{Get12Nb@{Get12Nb}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{Get12Nb()}{Get12Nb()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::tuple$<$ int, int, int, int, int, int, int, int, int, int, int, int $>$ Structured\+Grid\+::\+Get12\+Nb (\begin{DoxyParamCaption}\item[{T \&}]{icel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00138}{138}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(\mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ -\/\ \mbox{\hyperlink{class_structured_grid_a65ae8a1cd52c3bfb422b448562af5885}{ny\_times\_nz}},\ \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ +\ \mbox{\hyperlink{class_structured_grid_a65ae8a1cd52c3bfb422b448562af5885}{ny\_times\_nz}},\ \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ -\/\ \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}},}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ +\ \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}},\ \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ -\/\ 1,\ \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ +\ 1,\ \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ -\/\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a65ae8a1cd52c3bfb422b448562af5885}{ny\_times\_nz}},}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ +\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a65ae8a1cd52c3bfb422b448562af5885}{ny\_times\_nz}},\ \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ -\/\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}},\ \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ +\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}},}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ -\/\ 2,\ \mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}\ +\ 2);}
+\DoxyCodeLine{00143\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00132}{icel()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00067}{ny\+\_\+times\+\_\+nz}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00066}{nz}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}.
+
+\Hypertarget{class_structured_grid_ac6bab642319bfac3b895a25577a2341d}\label{class_structured_grid_ac6bab642319bfac3b895a25577a2341d} 
+\index{StructuredGrid@{StructuredGrid}!GetInterpolationX@{GetInterpolationX}}
+\index{GetInterpolationX@{GetInterpolationX}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{GetInterpolationX()}{GetInterpolationX()}}
+{\footnotesize\ttfamily auto Structured\+Grid\+::\+Get\+InterpolationX (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00169}{169}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00169\ \{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}[i]\ *\ 0.5)\ /\ \mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[i];\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{dx}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{staggered\+\_\+dx}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, and \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}.
+
+\Hypertarget{class_structured_grid_a14be4781183267a67bf0d8bd582b7c3f}\label{class_structured_grid_a14be4781183267a67bf0d8bd582b7c3f} 
+\index{StructuredGrid@{StructuredGrid}!GetInterpolationY@{GetInterpolationY}}
+\index{GetInterpolationY@{GetInterpolationY}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{GetInterpolationY()}{GetInterpolationY()}}
+{\footnotesize\ttfamily auto Structured\+Grid\+::\+Get\+InterpolationY (\begin{DoxyParamCaption}\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00170}{170}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00170\ \{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}[j]\ *\ 0.5)\ /\ \mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[j];\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{dy}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{staggered\+\_\+dy}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, and \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}.
+
+\Hypertarget{class_structured_grid_a5344bf6bc8fe189fe3c8d3f4b1f6d891}\label{class_structured_grid_a5344bf6bc8fe189fe3c8d3f4b1f6d891} 
+\index{StructuredGrid@{StructuredGrid}!GetInterpolationZ@{GetInterpolationZ}}
+\index{GetInterpolationZ@{GetInterpolationZ}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{GetInterpolationZ()}{GetInterpolationZ()}}
+{\footnotesize\ttfamily auto Structured\+Grid\+::\+Get\+InterpolationZ (\begin{DoxyParamCaption}\item[{int}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00171}{171}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00171\ \{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}[k]\ *\ 0.5)\ /\ \mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[k];\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{dz}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{staggered\+\_\+dz}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, and \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}.
+
+\Hypertarget{class_structured_grid_a0fadb12f6a62b9003a516585654cbbd3}\label{class_structured_grid_a0fadb12f6a62b9003a516585654cbbd3} 
+\index{StructuredGrid@{StructuredGrid}!GetLen@{GetLen}}
+\index{GetLen@{GetLen}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{GetLen()}{GetLen()}}
+{\footnotesize\ttfamily std\+::tuple$<$ double, double, double $>$ Structured\+Grid\+::\+Get\+Len (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(\mbox{\hyperlink{class_structured_grid_a605b755757c4c9a89d389a928de32ea5}{lx\_}},\ \mbox{\hyperlink{class_structured_grid_a9717518703f5cb504c5845cd4de10cec}{ly\_}},\ \mbox{\hyperlink{class_structured_grid_a3c67ad5fce86033d89bc6ff2b10609eb}{lz\_}});}
+\DoxyCodeLine{00049\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00026}{lx\+\_\+}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00026}{ly\+\_\+}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00026}{lz\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{set__eta__cylinder_8hpp_source_l00008}{Cylinder\+Z\+::\+Cylinder\+Z()}}.
+
+\Hypertarget{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}\label{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f} 
+\index{StructuredGrid@{StructuredGrid}!icel@{icel}}
+\index{icel@{icel}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{icel()}{icel()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t Structured\+Grid\+::icel (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00132}{132}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{return}\ i\ *\ \mbox{\hyperlink{class_structured_grid_a65ae8a1cd52c3bfb422b448562af5885}{ny\_times\_nz}}\ +\ j\ *\ \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ +\ k;}
+\DoxyCodeLine{00134\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00067}{ny\+\_\+times\+\_\+nz}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00066}{nz}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00138}{Get12\+Nb()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00032}{Physical\+Val\+::icel()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_structured_grid_adca333aed9e81b218244f26b11c7b114}\label{class_structured_grid_adca333aed9e81b218244f26b11c7b114} 
+\index{StructuredGrid@{StructuredGrid}!icelCal@{icelCal}}
+\index{icelCal@{icelCal}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{icelCal()}{icelCal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t Structured\+Grid\+::icel\+Cal (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00156}{156}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{return}\ (i\ -\/\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}})\ *\ \mbox{\hyperlink{class_structured_grid_a2719ee13fe32bd2950cff826c856eef2}{cal\_ny\_times\_nz}}\ +\ (j\ -\/\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}})\ *\ \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}}\ +\ (k\ -\/\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}});}
+\DoxyCodeLine{00158\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00063}{cal\+\_\+ny\+\_\+times\+\_\+nz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{cal\+\_\+nz}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{no\+\_\+ghost\+\_\+cell}}.
+
+
+
+Referenced by \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00024}{Pressure\+Mat\+::\+Convert\+Result\+To\+Pressure()}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00038}{Physical\+Val\+::icel\+Cal()}}.
+
+\Hypertarget{class_structured_grid_a452bf1a6cc50e6466730fb8e8d2b4e0b}\label{class_structured_grid_a452bf1a6cc50e6466730fb8e8d2b4e0b} 
+\index{StructuredGrid@{StructuredGrid}!icelDir@{icelDir}}
+\index{icelDir@{icelDir}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{icelDir()}{icelDir()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int Structured\+Grid\+::icel\+Dir (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00149}{149}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{return}\ (i\ -\/\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}})\ *\ \mbox{\hyperlink{class_structured_grid_affae833c5d09dad99621c256f22eacfe}{nznyDir}}\ +\ (j\ -\/\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}})\ *\ \mbox{\hyperlink{class_structured_grid_a29c62eb84a127ac2214bdc58eaccb98d}{nzDir}}\ +}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ (k\ -\/\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}});}
+\DoxyCodeLine{00152\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{no\+\_\+ghost\+\_\+cell}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00145}{nz\+Dir}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00146}{nzny\+Dir}}.
+
+\Hypertarget{class_structured_grid_a7651877adb83186632553e1e47ae2fa2}\label{class_structured_grid_a7651877adb83186632553e1e47ae2fa2} 
+\index{StructuredGrid@{StructuredGrid}!Init@{Init}}
+\index{Init@{Init}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Structured\+Grid\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_ab5fee8458deb72a8e6c3cdea23b7ac6f}{CheckParameter}}();}
+\DoxyCodeLine{00054\ \ \ \ \ InitPos();}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_aa6c23ce052780c7a3fcb4d10a665e7fb}{InitGhostCellPos}}();}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a83ebd9ef8b5aa9a5cbadafd7b2c178d2}{InitGridDistance}}();}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a10c68f74c3b91ae61ea382d9b215bc0c}{InitCentPos}}();}
+\DoxyCodeLine{00058\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00096}{Check\+Parameter()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{Init\+Cent\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00173}{Init\+Ghost\+Cell\+Pos()}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}.
+
+
+
+Referenced by \mbox{\hyperlink{validation_re100_cavity_2test_8cpp_source_l00011}{TEST()}}, and \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{TEST()}}.
+
+\Hypertarget{class_structured_grid_a10c68f74c3b91ae61ea382d9b215bc0c}\label{class_structured_grid_a10c68f74c3b91ae61ea382d9b215bc0c} 
+\index{StructuredGrid@{StructuredGrid}!InitCentPos@{InitCentPos}}
+\index{InitCentPos@{InitCentPos}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{InitCentPos()}{InitCentPos()}}
+{\footnotesize\ttfamily void Structured\+Grid\+::\+Init\+Cent\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ ++i)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a979f3af643473bf4276b54f80c94c4c0}{x\_cent\_pos}}.at(i)\ =}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}.at(i\ +\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}})\ +\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}.at(i\ +\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}\ +\ 1))\ /\ 2.0;}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ ++j)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_aded2510763ccc9ca518132960c4b201e}{y\_cent\_pos}}.at(j)\ =}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}.at(j\ +\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}})\ +\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}.at(j\ +\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}\ +\ 1))\ /\ 2.0;}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ ++k)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_ac73ad4634948af8e38c050642d7f6bfe}{z\_cent\_pos}}.at(k)\ =}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}.at(k\ +\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}})\ +\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}.at(k\ +\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}\ +\ 1))\ /\ 2.0;}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{no\+\_\+ghost\+\_\+cell}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00064}{nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00065}{ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00066}{nz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{x\+\_\+cent\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{x\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{y\+\_\+cent\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{y\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{z\+\_\+cent\+\_\+pos}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{z\+\_\+pos}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00052}{Init()}}.
+
+\Hypertarget{class_structured_grid_aa6c23ce052780c7a3fcb4d10a665e7fb}\label{class_structured_grid_aa6c23ce052780c7a3fcb4d10a665e7fb} 
+\index{StructuredGrid@{StructuredGrid}!InitGhostCellPos@{InitGhostCellPos}}
+\index{InitGhostCellPos@{InitGhostCellPos}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{InitGhostCellPos()}{InitGhostCellPos()}}
+{\footnotesize\ttfamily void Structured\+Grid\+::\+Init\+Ghost\+Cell\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00173}{173}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[1]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[3];}
+\DoxyCodeLine{00175\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[1]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[3];}
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[1]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[3];}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[0]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[1]\ -\/\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[2];}
+\DoxyCodeLine{00179\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[0]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[1]\ -\/\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[2];}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[0]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[1]\ -\/\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[2];}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 1]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 3];}
+\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 1]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 3];}
+\DoxyCodeLine{00184\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 1]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 3];}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 1]\ -\/\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 2];}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 1]\ -\/\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 2];}
+\DoxyCodeLine{00188\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}]\ =\ 2\ *\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 1]\ -\/\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 2];}
+\DoxyCodeLine{00189\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00064}{nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00065}{ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00066}{nz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{x\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{y\+\_\+pos}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{z\+\_\+pos}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00052}{Init()}}.
+
+\Hypertarget{class_structured_grid_a83ebd9ef8b5aa9a5cbadafd7b2c178d2}\label{class_structured_grid_a83ebd9ef8b5aa9a5cbadafd7b2c178d2} 
+\index{StructuredGrid@{StructuredGrid}!InitGridDistance@{InitGridDistance}}
+\index{InitGridDistance@{InitGridDistance}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{InitGridDistance()}{InitGridDistance()}}
+{\footnotesize\ttfamily bool Structured\+Grid\+::\+Init\+Grid\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{191}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ i\ <\ \mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}\ -\/\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}[i]\ =\ (\mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[i\ +\ 2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[i])\ /\ 2.0;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[i]\ =\ (\mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[i\ +\ 1]\ -\/\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[i]);}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ j\ <\ \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}\ -\/\ 1;\ ++j)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}[j]\ =\ (\mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[j\ +\ 2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[j])\ /\ 2.0;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[j]\ =\ (\mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[j\ +\ 1]\ -\/\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[j]);}
+\DoxyCodeLine{00201\ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ k\ <\ \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}\ -\/\ 1;\ ++k)\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}[k]\ =\ (\mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[k\ +\ 2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[k])\ /\ 2.0;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[k]\ =\ (\mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[k\ +\ 1]\ -\/\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[k]);}
+\DoxyCodeLine{00206\ \ \ \ \ \}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{comment}{//\ Ghost\ grid}}
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[0]\ =\ \mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[1]\ =\ \mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[2];}
+\DoxyCodeLine{00210\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[0]\ =\ \mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[1]\ =\ \mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[2];}
+\DoxyCodeLine{00211\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[0]\ =\ \mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[1]\ =\ \mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[2];}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}[0]\ =\ \mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}[1]\ =\ \mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}[2];}
+\DoxyCodeLine{00214\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}[0]\ =\ \mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}[1]\ =\ \mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}[2];}
+\DoxyCodeLine{00215\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}[0]\ =\ \mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}[1]\ =\ \mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}[2];}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 1]\ =\ \mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 2]\ =\ \mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 3]\ =\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 3];}
+\DoxyCodeLine{00218\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 1]\ =\ \mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 2]\ =\ \mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 3]\ =\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 3];}
+\DoxyCodeLine{00219\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 1]\ =\ \mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 2]\ =\ \mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 3]\ =\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 2]\ -\/\ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 3];}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 1]\ =\ \mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 2]\ =\ \mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 3]\ =\ \mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}[\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ 4];}
+\DoxyCodeLine{00222\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 1]\ =\ \mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 2]\ =\ \mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 3]\ =\ \mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}[\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ 4];}
+\DoxyCodeLine{00223\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 1]\ =\ \mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 2]\ =\ \mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 3]\ =\ \mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}[\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ -\/\ 4];}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00226\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{dx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{dy}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{dz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{no\+\_\+ghost\+\_\+cell}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00064}{nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00065}{ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00066}{nz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{staggered\+\_\+dx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{staggered\+\_\+dy}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{staggered\+\_\+dz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{x\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{y\+\_\+pos}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{z\+\_\+pos}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00052}{Init()}}.
+
+\Hypertarget{class_structured_grid_a55c9f68bad513a1a0a7b39bc3698fa6b}\label{class_structured_grid_a55c9f68bad513a1a0a7b39bc3698fa6b} 
+\index{StructuredGrid@{StructuredGrid}!resize@{resize}}
+\index{resize@{resize}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void Structured\+Grid\+::resize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{76}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ delta\_.resize(\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}});}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a979f3af643473bf4276b54f80c94c4c0}{x\_cent\_pos}}.resize(\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}});}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_aded2510763ccc9ca518132960c4b201e}{y\_cent\_pos}}.resize(\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}});}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_ac73ad4634948af8e38c050642d7f6bfe}{z\_cent\_pos}}.resize(\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}});}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}.resize(\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}});}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}.resize(\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}});}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}.resize(\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}});}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}.resize(\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}});}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}.resize(\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}});}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}.resize(\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}});}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}.resize(\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ +\ 1);}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}.resize(\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ +\ 1);}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}}.resize(\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\ +\ 1);}
+\DoxyCodeLine{00094\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00062}{cal\+\_\+no\+\_\+grid}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{cal\+\_\+nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{cal\+\_\+ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{cal\+\_\+nz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{dx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{dy}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{dz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00064}{nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00065}{ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00066}{nz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{staggered\+\_\+dx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{staggered\+\_\+dy}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{staggered\+\_\+dz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{x\+\_\+cent\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{x\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{y\+\_\+cent\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{y\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{z\+\_\+cent\+\_\+pos}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{z\+\_\+pos}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00029}{Structured\+Grid()}}.
+
+\Hypertarget{class_structured_grid_af5c5e23afdbb860cdde6514f3a4a8018}\label{class_structured_grid_af5c5e23afdbb860cdde6514f3a4a8018} 
+\index{StructuredGrid@{StructuredGrid}!setLen@{setLen}}
+\index{setLen@{setLen}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{setLen()}{setLen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \& Structured\+Grid\+::set\+Len (\begin{DoxyParamCaption}\item[{int}]{lx,  }\item[{int}]{ly,  }\item[{int}]{lz }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a605b755757c4c9a89d389a928de32ea5}{lx\_}}\ =\ lx;}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a9717518703f5cb504c5845cd4de10cec}{ly\_}}\ =\ ly;}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_structured_grid_a3c67ad5fce86033d89bc6ff2b10609eb}{lz\_}}\ =\ lz;}
+\DoxyCodeLine{00042\ \ \ \ \ isSetLen\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00044\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00026}{lx\+\_\+}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00026}{ly\+\_\+}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00026}{lz\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{validation_re100_cavity_2test_8cpp_source_l00011}{TEST()}}, and \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{TEST()}}.
+
+\Hypertarget{class_structured_grid_a04787cb488eb83dee3c9e03a0d58476d}\label{class_structured_grid_a04787cb488eb83dee3c9e03a0d58476d} 
+\index{StructuredGrid@{StructuredGrid}!show@{show}}
+\index{show@{show}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily std\+::string Structured\+Grid\+::show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00160}{160}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00162\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ [nx,\ ny,\ nz]="{}};}
+\DoxyCodeLine{00163\ \ \ \ \ ss\ <<\ \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}}\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00164\ \ \ \ \ ss\ <<\ \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}}\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00165\ \ \ \ \ ss\ <<\ \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}}\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00167\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{cal\+\_\+nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{cal\+\_\+ny}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{cal\+\_\+nz}}.
+
+\Hypertarget{class_structured_grid_a1eaa4df5936dec15c0ca13b7b11415f2}\label{class_structured_grid_a1eaa4df5936dec15c0ca13b7b11415f2} 
+\index{StructuredGrid@{StructuredGrid}!Xc@{Xc}}
+\index{Xc@{Xc}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{Xc()}{Xc()}}
+{\footnotesize\ttfamily double \& Structured\+Grid\+::\+Xc (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00119}{119}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_structured_grid_a979f3af643473bf4276b54f80c94c4c0}{x\_cent\_pos}}.at(i-\/\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}});}
+\DoxyCodeLine{00121\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{no\+\_\+ghost\+\_\+cell}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{x\+\_\+cent\+\_\+pos}}.
+
+
+
+Referenced by \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}.
+
+\Hypertarget{class_structured_grid_a60e669ecf12f7dd1d17257101486c5ef}\label{class_structured_grid_a60e669ecf12f7dd1d17257101486c5ef} 
+\index{StructuredGrid@{StructuredGrid}!Yc@{Yc}}
+\index{Yc@{Yc}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{Yc()}{Yc()}}
+{\footnotesize\ttfamily double \& Structured\+Grid\+::\+Yc (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00123}{123}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_structured_grid_aded2510763ccc9ca518132960c4b201e}{y\_cent\_pos}}.at(i-\/\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}});}
+\DoxyCodeLine{00125\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{no\+\_\+ghost\+\_\+cell}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{y\+\_\+cent\+\_\+pos}}.
+
+
+
+Referenced by \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}.
+
+\Hypertarget{class_structured_grid_aaec34884d59558a35ff7d0409417ef80}\label{class_structured_grid_aaec34884d59558a35ff7d0409417ef80} 
+\index{StructuredGrid@{StructuredGrid}!Zc@{Zc}}
+\index{Zc@{Zc}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{Zc()}{Zc()}}
+{\footnotesize\ttfamily double \& Structured\+Grid\+::\+Zc (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00127}{127}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_structured_grid_ac73ad4634948af8e38c050642d7f6bfe}{z\_cent\_pos}}.at(i-\/\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}});}
+\DoxyCodeLine{00129\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{no\+\_\+ghost\+\_\+cell}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{z\+\_\+cent\+\_\+pos}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_structured_grid_a18eff7a16d28c0aded4a6ed364067ebb}\label{class_structured_grid_a18eff7a16d28c0aded4a6ed364067ebb} 
+\index{StructuredGrid@{StructuredGrid}!bc\_selector@{bc\_selector}}
+\index{bc\_selector@{bc\_selector}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{bc\_selector}{bc\_selector}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_boundary_condition_selector}{Boundary\+Condition\+Selector}} Structured\+Grid\+::bc\+\_\+selector}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00097}{BC\+\_\+update\+Slid()}}, \mbox{\hyperlink{validation_re100_cavity_2test_8cpp_source_l00011}{TEST()}}, \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{TEST()}}, and \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}.
+
+\Hypertarget{class_structured_grid_a38666a4cea6f718902ceab9fb206de4d}\label{class_structured_grid_a38666a4cea6f718902ceab9fb206de4d} 
+\index{StructuredGrid@{StructuredGrid}!cal\_eta\_imp@{cal\_eta\_imp}}
+\index{cal\_eta\_imp@{cal\_eta\_imp}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{cal\_eta\_imp}{cal\_eta\_imp}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_cal_eta_interface}{Cal\+Eta\+Interface}}$>$ Structured\+Grid\+::cal\+\_\+eta\+\_\+imp}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+\Hypertarget{class_structured_grid_acf40aface0caef29608141965cd536d8}\label{class_structured_grid_acf40aface0caef29608141965cd536d8} 
+\index{StructuredGrid@{StructuredGrid}!cal\_no\_grid@{cal\_no\_grid}}
+\index{cal\_no\_grid@{cal\_no\_grid}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{cal\_no\_grid}{cal\_no\_grid}}
+{\footnotesize\ttfamily const int Structured\+Grid\+::cal\+\_\+no\+\_\+grid = \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\+\_\+nx}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00062}{62}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{physical__variables_8cpp_source_l00015}{Immersed\+Boundary\+::\+Immersed\+Boundary()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00018}{Pressure\+Mat\+::\+Pressure\+Mat()}}, \mbox{\hyperlink{read__qfile_8hpp_source_l00011}{Read\+Qfile()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, and \mbox{\hyperlink{physical__variables_8cpp_source_l00007}{Staggered\+Velocity\+::\+Staggered\+Velocity()}}.
+
+\Hypertarget{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}\label{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5} 
+\index{StructuredGrid@{StructuredGrid}!cal\_nx@{cal\_nx}}
+\index{cal\_nx@{cal\_nx}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{cal\_nx}{cal\_nx}}
+{\footnotesize\ttfamily int Structured\+Grid\+::cal\+\_\+nx}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{central__profile_8hpp_source_l00007}{get\+Cent\+Profile()}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{domain_8cpp_source_l00021}{Local\+Domain\+::\+Init()}}, \mbox{\hyperlink{read__qfile_8hpp_source_l00011}{Read\+Qfile()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00160}{show()}}, \mbox{\hyperlink{write__xfile_8hpp_source_l00005}{plot3d\+::write\+\_\+xfile()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}\label{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c} 
+\index{StructuredGrid@{StructuredGrid}!cal\_ny@{cal\_ny}}
+\index{cal\_ny@{cal\_ny}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{cal\_ny}{cal\_ny}}
+{\footnotesize\ttfamily int Structured\+Grid\+::cal\+\_\+ny}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{central__profile_8hpp_source_l00007}{get\+Cent\+Profile()}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{domain_8cpp_source_l00021}{Local\+Domain\+::\+Init()}}, \mbox{\hyperlink{read__qfile_8hpp_source_l00011}{Read\+Qfile()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00160}{show()}}, \mbox{\hyperlink{write__xfile_8hpp_source_l00005}{plot3d\+::write\+\_\+xfile()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_structured_grid_a2719ee13fe32bd2950cff826c856eef2}\label{class_structured_grid_a2719ee13fe32bd2950cff826c856eef2} 
+\index{StructuredGrid@{StructuredGrid}!cal\_ny\_times\_nz@{cal\_ny\_times\_nz}}
+\index{cal\_ny\_times\_nz@{cal\_ny\_times\_nz}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{cal\_ny\_times\_nz}{cal\_ny\_times\_nz}}
+{\footnotesize\ttfamily const int Structured\+Grid\+::cal\+\_\+ny\+\_\+times\+\_\+nz = \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{domain_8cpp_source_l00035}{Local\+Domain\+::\+Get\+One\+Dim\+Start\+End()}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00156}{icel\+Cal()}}.
+
+\Hypertarget{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}\label{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8} 
+\index{StructuredGrid@{StructuredGrid}!cal\_nz@{cal\_nz}}
+\index{cal\_nz@{cal\_nz}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{cal\_nz}{cal\_nz}}
+{\footnotesize\ttfamily int Structured\+Grid\+::cal\+\_\+nz}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{central__profile_8hpp_source_l00007}{get\+Cent\+Profile()}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00156}{icel\+Cal()}}, \mbox{\hyperlink{domain_8cpp_source_l00021}{Local\+Domain\+::\+Init()}}, \mbox{\hyperlink{read__qfile_8hpp_source_l00011}{Read\+Qfile()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00160}{show()}}, \mbox{\hyperlink{write__xfile_8hpp_source_l00005}{plot3d\+::write\+\_\+xfile()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}\label{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27} 
+\index{StructuredGrid@{StructuredGrid}!dx@{dx}}
+\index{dx@{dx}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{dx}{dx}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::dx}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00169}{Get\+Interpolation\+X()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}, and \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}.
+
+\Hypertarget{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}\label{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd} 
+\index{StructuredGrid@{StructuredGrid}!dy@{dy}}
+\index{dy@{dy}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{dy}{dy}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::dy}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00170}{Get\+Interpolation\+Y()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}, and \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}.
+
+\Hypertarget{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}\label{class_structured_grid_a25d0c536386f68b300f51e54a57743bb} 
+\index{StructuredGrid@{StructuredGrid}!dz@{dz}}
+\index{dz@{dz}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{dz}{dz}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::dz}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00033}{Pressure\+Mat\+::\+Cal\+Mat\+B()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00171}{Get\+Interpolation\+Z()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, and \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}.
+
+\Hypertarget{class_structured_grid_a605b755757c4c9a89d389a928de32ea5}\label{class_structured_grid_a605b755757c4c9a89d389a928de32ea5} 
+\index{StructuredGrid@{StructuredGrid}!lx\_@{lx\_}}
+\index{lx\_@{lx\_}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{lx\_}{lx\_}}
+{\footnotesize\ttfamily double Structured\+Grid\+::lx\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00047}{Get\+Len()}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00038}{set\+Len()}}.
+
+\Hypertarget{class_structured_grid_a9717518703f5cb504c5845cd4de10cec}\label{class_structured_grid_a9717518703f5cb504c5845cd4de10cec} 
+\index{StructuredGrid@{StructuredGrid}!ly\_@{ly\_}}
+\index{ly\_@{ly\_}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{ly\_}{ly\_}}
+{\footnotesize\ttfamily double Structured\+Grid\+::ly\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00047}{Get\+Len()}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00038}{set\+Len()}}.
+
+\Hypertarget{class_structured_grid_a3c67ad5fce86033d89bc6ff2b10609eb}\label{class_structured_grid_a3c67ad5fce86033d89bc6ff2b10609eb} 
+\index{StructuredGrid@{StructuredGrid}!lz\_@{lz\_}}
+\index{lz\_@{lz\_}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{lz\_}{lz\_}}
+{\footnotesize\ttfamily double Structured\+Grid\+::lz\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00047}{Get\+Len()}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00038}{set\+Len()}}.
+
+\Hypertarget{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}\label{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427} 
+\index{StructuredGrid@{StructuredGrid}!no\_ghost\_cell@{no\_ghost\_cell}}
+\index{no\_ghost\_cell@{no\_ghost\_cell}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{no\_ghost\_cell}{no\_ghost\_cell}}
+{\footnotesize\ttfamily const int Structured\+Grid\+::no\+\_\+ghost\+\_\+cell = 2}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00132}{mpi\+::\+Mpi\+Tool\+::\+Collect\+To\+Master()}}, \mbox{\hyperlink{domain_8cpp_source_l00004}{Global\+Domain\+::\+Divide\+Domain()}}, \mbox{\hyperlink{central__profile_8hpp_source_l00007}{get\+Cent\+Profile()}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{domain_8cpp_source_l00035}{Local\+Domain\+::\+Get\+One\+Dim\+Start\+End()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00156}{icel\+Cal()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00149}{icel\+Dir()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{Init\+Cent\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{read__qfile_8hpp_source_l00011}{Read\+Qfile()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}, \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00119}{Xc()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00123}{Yc()}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00127}{Zc()}}.
+
+\Hypertarget{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}\label{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9} 
+\index{StructuredGrid@{StructuredGrid}!no\_grid@{no\_grid}}
+\index{no\_grid@{no\_grid}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{no\_grid}{no\_grid}}
+{\footnotesize\ttfamily const int Structured\+Grid\+::no\+\_\+grid = \mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{physical__variables_8cpp_source_l00015}{Immersed\+Boundary\+::\+Immersed\+Boundary()}}, \mbox{\hyperlink{physical__variables_8cpp_source_l00003}{Pressure\+::\+Pressure()}}, and \mbox{\hyperlink{physical__variables_8cpp_source_l00007}{Staggered\+Velocity\+::\+Staggered\+Velocity()}}.
+
+\Hypertarget{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}\label{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3} 
+\index{StructuredGrid@{StructuredGrid}!nx@{nx}}
+\index{nx@{nx}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{nx}{nx}}
+{\footnotesize\ttfamily const int Structured\+Grid\+::nx = \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\+\_\+nx}} + 2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\+\_\+ghost\+\_\+cell}}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00064}{64}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{run__cpu_8hpp_source_l00029}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::\+Cpu\+Open\+Mp()}}, \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{Init\+Cent\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00173}{Init\+Ghost\+Cell\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_structured_grid_a2ec0bf7c9b3c4cf18b30c57dc69e14ee}\label{class_structured_grid_a2ec0bf7c9b3c4cf18b30c57dc69e14ee} 
+\index{StructuredGrid@{StructuredGrid}!nx\_times\_ny@{nx\_times\_ny}}
+\index{nx\_times\_ny@{nx\_times\_ny}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{nx\_times\_ny}{nx\_times\_ny}}
+{\footnotesize\ttfamily const int Structured\+Grid\+::nx\+\_\+times\+\_\+ny = \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+\Hypertarget{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}\label{class_structured_grid_acd2c4a5c87de501e98173c83838978b6} 
+\index{StructuredGrid@{StructuredGrid}!ny@{ny}}
+\index{ny@{ny}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{ny}{ny}}
+{\footnotesize\ttfamily const int Structured\+Grid\+::ny = \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}} + 2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\+\_\+ghost\+\_\+cell}}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00065}{65}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{run__cpu_8hpp_source_l00029}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::\+Cpu\+Open\+Mp()}}, \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{Init\+Cent\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00173}{Init\+Ghost\+Cell\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00015}{mpi\+::\+Mpi\+Tool\+::\+Mpi\+Tool()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_structured_grid_a65ae8a1cd52c3bfb422b448562af5885}\label{class_structured_grid_a65ae8a1cd52c3bfb422b448562af5885} 
+\index{StructuredGrid@{StructuredGrid}!ny\_times\_nz@{ny\_times\_nz}}
+\index{ny\_times\_nz@{ny\_times\_nz}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{ny\_times\_nz}{ny\_times\_nz}}
+{\footnotesize\ttfamily const int Structured\+Grid\+::ny\+\_\+times\+\_\+nz = \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00067}{67}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00138}{Get12\+Nb()}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00132}{icel()}}.
+
+\Hypertarget{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}\label{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3} 
+\index{StructuredGrid@{StructuredGrid}!nz@{nz}}
+\index{nz@{nz}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{nz}{nz}}
+{\footnotesize\ttfamily const int Structured\+Grid\+::nz = \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} + 2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\+\_\+ghost\+\_\+cell}}}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00066}{66}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{run__cpu_8hpp_source_l00029}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::\+Cpu\+Open\+Mp()}}, \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00138}{Get12\+Nb()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00132}{icel()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{Init\+Cent\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00173}{Init\+Ghost\+Cell\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00015}{mpi\+::\+Mpi\+Tool\+::\+Mpi\+Tool()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_structured_grid_a29c62eb84a127ac2214bdc58eaccb98d}\label{class_structured_grid_a29c62eb84a127ac2214bdc58eaccb98d} 
+\index{StructuredGrid@{StructuredGrid}!nzDir@{nzDir}}
+\index{nzDir@{nzDir}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{nzDir}{nzDir}}
+{\footnotesize\ttfamily int Structured\+Grid\+::nz\+Dir = (\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} + 2)}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00145}{145}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00149}{icel\+Dir()}}.
+
+\Hypertarget{class_structured_grid_affae833c5d09dad99621c256f22eacfe}\label{class_structured_grid_affae833c5d09dad99621c256f22eacfe} 
+\index{StructuredGrid@{StructuredGrid}!nznyDir@{nznyDir}}
+\index{nznyDir@{nznyDir}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{nznyDir}{nznyDir}}
+{\footnotesize\ttfamily int Structured\+Grid\+::nzny\+Dir = (\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\+\_\+nz}} + 2) \texorpdfstring{$\ast$}{*} (\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\+\_\+ny}} + 2)}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00146}{146}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00149}{icel\+Dir()}}.
+
+\Hypertarget{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}\label{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a} 
+\index{StructuredGrid@{StructuredGrid}!staggered\_dx@{staggered\_dx}}
+\index{staggered\_dx@{staggered\_dx}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{staggered\_dx}{staggered\_dx}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::staggered\+\_\+dx}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{72}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00169}{Get\+Interpolation\+X()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, and \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}.
+
+\Hypertarget{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}\label{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c} 
+\index{StructuredGrid@{StructuredGrid}!staggered\_dy@{staggered\_dy}}
+\index{staggered\_dy@{staggered\_dy}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{staggered\_dy}{staggered\_dy}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::staggered\+\_\+dy}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{72}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00170}{Get\+Interpolation\+Y()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, and \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}.
+
+\Hypertarget{class_structured_grid_aac82704de7801674619cdfd14c51200d}\label{class_structured_grid_aac82704de7801674619cdfd14c51200d} 
+\index{StructuredGrid@{StructuredGrid}!staggered\_dz@{staggered\_dz}}
+\index{staggered\_dz@{staggered\_dz}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{staggered\_dz}{staggered\_dz}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::staggered\+\_\+dz}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{72}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{smagorinsky__model_8hpp_source_l00009}{Cal\+Smagorinsky\+Model()}}, \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{Get\+Csr\+Mat()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00171}{Get\+Interpolation\+Z()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}, and \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}.
+
+\Hypertarget{class_structured_grid_a979f3af643473bf4276b54f80c94c4c0}\label{class_structured_grid_a979f3af643473bf4276b54f80c94c4c0} 
+\index{StructuredGrid@{StructuredGrid}!x\_cent\_pos@{x\_cent\_pos}}
+\index{x\_cent\_pos@{x\_cent\_pos}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{x\_cent\_pos}{x\_cent\_pos}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::x\+\_\+cent\+\_\+pos}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{Init\+Cent\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{write__xfile_8hpp_source_l00005}{plot3d\+::write\+\_\+xfile()}}, \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00119}{Xc()}}.
+
+\Hypertarget{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}\label{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3} 
+\index{StructuredGrid@{StructuredGrid}!x\_pos@{x\_pos}}
+\index{x\_pos@{x\_pos}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{x\_pos}{x\_pos}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::x\+\_\+pos}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{central__profile_8hpp_source_l00007}{get\+Cent\+Profile()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{Init\+Cent\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00173}{Init\+Ghost\+Cell\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}, and \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}.
+
+\Hypertarget{class_structured_grid_aded2510763ccc9ca518132960c4b201e}\label{class_structured_grid_aded2510763ccc9ca518132960c4b201e} 
+\index{StructuredGrid@{StructuredGrid}!y\_cent\_pos@{y\_cent\_pos}}
+\index{y\_cent\_pos@{y\_cent\_pos}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{y\_cent\_pos}{y\_cent\_pos}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::y\+\_\+cent\+\_\+pos}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{Init\+Cent\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{write__xfile_8hpp_source_l00005}{plot3d\+::write\+\_\+xfile()}}, \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00123}{Yc()}}.
+
+\Hypertarget{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}\label{class_structured_grid_a02b03f77139a7ce22b75dd106a249022} 
+\index{StructuredGrid@{StructuredGrid}!y\_pos@{y\_pos}}
+\index{y\_pos@{y\_pos}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{y\_pos}{y\_pos}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::y\+\_\+pos}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{central__profile_8hpp_source_l00007}{get\+Cent\+Profile()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{Init\+Cent\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00173}{Init\+Ghost\+Cell\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, and \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}.
+
+\Hypertarget{class_structured_grid_ac73ad4634948af8e38c050642d7f6bfe}\label{class_structured_grid_ac73ad4634948af8e38c050642d7f6bfe} 
+\index{StructuredGrid@{StructuredGrid}!z\_cent\_pos@{z\_cent\_pos}}
+\index{z\_cent\_pos@{z\_cent\_pos}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{z\_cent\_pos}{z\_cent\_pos}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::z\+\_\+cent\+\_\+pos}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{Init\+Cent\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, \mbox{\hyperlink{write__xfile_8hpp_source_l00005}{plot3d\+::write\+\_\+xfile()}}, \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00127}{Zc()}}.
+
+\Hypertarget{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}\label{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9} 
+\index{StructuredGrid@{StructuredGrid}!z\_pos@{z\_pos}}
+\index{z\_pos@{z\_pos}!StructuredGrid@{StructuredGrid}}
+\doxysubsubsection{\texorpdfstring{z\_pos}{z\_pos}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Structured\+Grid\+::z\+\_\+pos}
+
+
+
+Definition at line \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{structured__grid_8hpp_source}{structured\+\_\+grid.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{structured__grid_8hpp_source_l00104}{Init\+Cent\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00173}{Init\+Ghost\+Cell\+Pos()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00191}{Init\+Grid\+Distance()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00076}{resize()}}, and \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/grid/\mbox{\hyperlink{structured__grid_8hpp}{structured\+\_\+grid.\+hpp}}\end{DoxyCompactItemize}

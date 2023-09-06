@@ -1,0 +1,427 @@
+\doxysection{mat\+::Dia\+Mat\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classmat_1_1_dia_mat}{}\label{classmat_1_1_dia_mat}\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+
+
+{\ttfamily \#include $<$dia\+\_\+sparse\+\_\+mat.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmat_1_1_dia_mat_a28b1013a007ce97d93ec8483467960c8}{Dia\+Mat}} (int Maxoff, size\+\_\+t Maxi)
+\item 
+virtual \mbox{\hyperlink{classmat_1_1_dia_mat_afdde5d6483362ad39fc556a1ecb6df86}{\texorpdfstring{$\sim$}{\string~}\+Dia\+Mat}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classmat_1_1_dia_mat_ac98a1971849f41aea108e724abb88bc3}{sizeof\+\_\+offset}} (void) const
+\item 
+size\+\_\+t \mbox{\hyperlink{classmat_1_1_dia_mat_a0ed13bcde0e48534a7543bee67780834}{sizeof\+\_\+i}} (void) const
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classmat_1_1_dia_mat_a639877dbcb6c899df319205adf07bca6}{multiply}} (const std\+::vector$<$ T $>$ \&x) const
+\item 
+T \mbox{\hyperlink{classmat_1_1_dia_mat_a1152e7e6e65bd208c1438c3e9c3e6f39}{at}} (int off, size\+\_\+t i) const
+\item 
+T \mbox{\hyperlink{classmat_1_1_dia_mat_a6f9d2d62073e4da94637d9d48c8bcf93}{at\+Co}} (size\+\_\+t row, size\+\_\+t col) const
+\item 
+\mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \& \mbox{\hyperlink{classmat_1_1_dia_mat_af1897b50cf0694fb5fd49bbc58ac6413}{set}} (int off, size\+\_\+t i, T val)
+\item 
+\mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \& \mbox{\hyperlink{classmat_1_1_dia_mat_ae3b07ca1766b6934e40c52f5736cc3e8}{set\+Co}} (size\+\_\+t row, size\+\_\+t col, T val)
+\item 
+\mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \& \mbox{\hyperlink{classmat_1_1_dia_mat_aa7fb528f1071a02e839aae44fe6a3adf}{operator=}} (const \mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \&m)
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classmat_1_1_dia_mat_a7156982de9400670827653d0f7d31b63}{operator\texorpdfstring{$\ast$}{*}}} (const std\+::vector$<$ T $>$ \&x) const
+\item 
+void \mbox{\hyperlink{classmat_1_1_dia_mat_a684c6919b4c1aa5dd67bdc8dab5871b3}{construct}} (int Maxoff, size\+\_\+t Maxi)
+\item 
+void \mbox{\hyperlink{classmat_1_1_dia_mat_a64c7a79aea60892bb93dddbd6a9d28d6}{destruct}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classmat_1_1_dia_mat_adab078eacbca1b13266733f1eb6da178}{Maxoff\+\_\+}} \{0\}
+\item 
+size\+\_\+t \mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\+\_\+}} \{0\}
+\item 
+size\+\_\+t \mbox{\hyperlink{classmat_1_1_dia_mat_a774ecc15971d85a8ea71ac8aebf72fdc}{Sizeof\+\_\+\+Maxoff\+\_\+}}
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classmat_1_1_dia_mat_a3fe27e6694f61f805f3943f251c15ea1}{val\+\_\+}}
+\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{classmat_1_1_dia_mat_ad817b9f50398c34b928efb5cb89ba771}{i\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename X $>$ }\\std\+::ostream \& \mbox{\hyperlink{classmat_1_1_dia_mat_a579db08d52d3a4a9d4d799d8f11dc750}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \&martix)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class mat\+::\+Dia\+Mat$<$ T $>$}
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmat_1_1_dia_mat_a28b1013a007ce97d93ec8483467960c8}\label{classmat_1_1_dia_mat_a28b1013a007ce97d93ec8483467960c8} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!DiaMat@{DiaMat}}
+\index{DiaMat@{DiaMat}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DiaMat()}{DiaMat()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::\+Dia\+Mat (\begin{DoxyParamCaption}\item[{int}]{Maxoff,  }\item[{size\+\_\+t}]{Maxi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a684c6919b4c1aa5dd67bdc8dab5871b3}{construct}}(Maxoff,\ Maxi);}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_dia_mat_afdde5d6483362ad39fc556a1ecb6df86}\label{classmat_1_1_dia_mat_afdde5d6483362ad39fc556a1ecb6df86} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!````~DiaMat@{\texorpdfstring{$\sim$}{\string~}DiaMat}}
+\index{````~DiaMat@{\texorpdfstring{$\sim$}{\string~}DiaMat}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DiaMat()}{\string~DiaMat()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}} (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a64c7a79aea60892bb93dddbd6a9d28d6}{destruct}}();}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmat_1_1_dia_mat_a1152e7e6e65bd208c1438c3e9c3e6f39}\label{classmat_1_1_dia_mat_a1152e7e6e65bd208c1438c3e9c3e6f39} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!at@{at}}
+\index{at@{at}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::at (\begin{DoxyParamCaption}\item[{int}]{off,  }\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 0\ ||\ i\ >=\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}})\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Coordination\ out\ of\ range(i\ <\ 0\ ||\ i\ >=\ this-\/>Maxi\_))."{}});}
+\DoxyCodeLine{00108\ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordflow}{if}\ (-\/off\ >\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_adab078eacbca1b13266733f1eb6da178}{Maxoff\_}}\ ||\ off\ >\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_adab078eacbca1b13266733f1eb6da178}{Maxoff\_}})\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}out\ of\ range(off\ <\ -\/Maxoff\_\ ||\ \ off\ >\ this-\/>Maxoff\_)."{}});}
+\DoxyCodeLine{00113\ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ idx\ =\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a774ecc15971d85a8ea71ac8aebf72fdc}{Sizeof\_Maxoff\_}}\ *\ i\ +\ (this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_adab078eacbca1b13266733f1eb6da178}{Maxoff\_}}\ +\ off);}
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmat_1_1_dia_mat_a3fe27e6694f61f805f3943f251c15ea1}{val\_}}[idx];}
+\DoxyCodeLine{00116\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_dia_mat_a6f9d2d62073e4da94637d9d48c8bcf93}\label{classmat_1_1_dia_mat_a6f9d2d62073e4da94637d9d48c8bcf93} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!atCo@{atCo}}
+\index{atCo@{atCo}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{atCo()}{atCo()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::at\+Co (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{row,  }\item[{size\+\_\+t}]{col }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00130}{130}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordflow}{if}\ (row\ >\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}}\ ||\ row\ <\ 0\ ||\ col\ <\ 0\ ||\ col\ >\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}})\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}row\ >\ this-\/>Maxi\_;\ col\ >\ this\ -\/>Maxi\_"{}});}
+\DoxyCodeLine{00133\ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ off\ =\ col\ -\/\ row;\ \ \textcolor{comment}{//\ j\ -\/\ i}}
+\DoxyCodeLine{00135\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ i\ =\ std::min(col,\ row);}
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a1152e7e6e65bd208c1438c3e9c3e6f39}{at}}(off,\ i);}
+\DoxyCodeLine{00137\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_dia_mat_a684c6919b4c1aa5dd67bdc8dab5871b3}\label{classmat_1_1_dia_mat_a684c6919b4c1aa5dd67bdc8dab5871b3} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!construct@{construct}}
+\index{construct@{construct}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::construct (\begin{DoxyParamCaption}\item[{int}]{Maxoff,  }\item[{size\+\_\+t}]{Maxi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordflow}{if}\ (Maxoff\ >\ Maxi)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Maxoff\ >\ Maxi."{}});}
+\DoxyCodeLine{00071\ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordflow}{if}\ (Maxi\ <\ 0)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Maxi\ <\ 0"{}});}
+\DoxyCodeLine{00074\ \ \ \}}
+\DoxyCodeLine{00075\ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_adab078eacbca1b13266733f1eb6da178}{Maxoff\_}}\ =\ Maxoff;}
+\DoxyCodeLine{00076\ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a774ecc15971d85a8ea71ac8aebf72fdc}{Sizeof\_Maxoff\_}}\ =\ (Maxoff\ *\ 2\ +\ 1);}
+\DoxyCodeLine{00077\ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}}\ =\ Maxi;}
+\DoxyCodeLine{00078\ \ \ \mbox{\hyperlink{classmat_1_1_dia_mat_ad817b9f50398c34b928efb5cb89ba771}{i\_}}.resize(Maxi);}
+\DoxyCodeLine{00079\ \ \ \mbox{\hyperlink{classmat_1_1_dia_mat_a3fe27e6694f61f805f3943f251c15ea1}{val\_}}.resize(this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a774ecc15971d85a8ea71ac8aebf72fdc}{Sizeof\_Maxoff\_}}\ *\ Maxi);}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_dia_mat_a64c7a79aea60892bb93dddbd6a9d28d6}\label{classmat_1_1_dia_mat_a64c7a79aea60892bb93dddbd6a9d28d6} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!destruct@{destruct}}
+\index{destruct@{destruct}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{destruct()}{destruct()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::destruct (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00140}{140}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \textcolor{comment}{//\ void}}
+\DoxyCodeLine{00142\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_dia_mat_a639877dbcb6c899df319205adf07bca6}\label{classmat_1_1_dia_mat_a639877dbcb6c899df319205adf07bca6} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!multiply@{multiply}}
+\index{multiply@{multiply}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{multiply()}{multiply()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::multiply (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00167}{167}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}}\ !=\ x.size())\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}col\ of\ matrix\ !=\ vector.size()"{}});}
+\DoxyCodeLine{00170\ \ \ \}}
+\DoxyCodeLine{00171\ \ \ std::vector<T>\ result(this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}},\ T());\ \ \textcolor{comment}{//\ parallel\ vector\ ??}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}};\ ++i)\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}};\ ++j)\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ result[i]\ +=\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a6f9d2d62073e4da94637d9d48c8bcf93}{atCo}}(i,\ j)\ *\ x[j];}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00179\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_dia_mat_a7156982de9400670827653d0f7d31b63}\label{classmat_1_1_dia_mat_a7156982de9400670827653d0f7d31b63} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00162}{162}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a639877dbcb6c899df319205adf07bca6}{multiply}}(x);}
+\DoxyCodeLine{00164\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_dia_mat_aa7fb528f1071a02e839aae44fe6a3adf}\label{classmat_1_1_dia_mat_aa7fb528f1071a02e839aae44fe6a3adf} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \& \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption})}
+
+\Hypertarget{classmat_1_1_dia_mat_af1897b50cf0694fb5fd49bbc58ac6413}\label{classmat_1_1_dia_mat_af1897b50cf0694fb5fd49bbc58ac6413} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!set@{set}}
+\index{set@{set}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \& \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::set (\begin{DoxyParamCaption}\item[{int}]{off,  }\item[{size\+\_\+t}]{i,  }\item[{T}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 0\ ||\ i\ >=\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}})\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Coordination\ out\ of\ range(i\ <\ 0\ ||\ i\ >=\ this-\/>Maxi\_))."{}});}
+\DoxyCodeLine{00089\ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordflow}{if}\ (-\/off\ >\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_adab078eacbca1b13266733f1eb6da178}{Maxoff\_}}\ ||\ off\ >\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_adab078eacbca1b13266733f1eb6da178}{Maxoff\_}})\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}out\ of\ range(off\ <\ -\/Maxoff\_\ ||\ \ off\ >\ this-\/>Maxoff\_)."{}});}
+\DoxyCodeLine{00094\ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ idx\ =\ \mbox{\hyperlink{classmat_1_1_dia_mat_a774ecc15971d85a8ea71ac8aebf72fdc}{Sizeof\_Maxoff\_}}\ *\ i\ +\ (this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_adab078eacbca1b13266733f1eb6da178}{Maxoff\_}}\ +\ off);}
+\DoxyCodeLine{00097\ \ \ \mbox{\hyperlink{classmat_1_1_dia_mat_a3fe27e6694f61f805f3943f251c15ea1}{val\_}}[idx]\ =\ val;}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_dia_mat_ae3b07ca1766b6934e40c52f5736cc3e8}\label{classmat_1_1_dia_mat_ae3b07ca1766b6934e40c52f5736cc3e8} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!setCo@{setCo}}
+\index{setCo@{setCo}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setCo()}{setCo()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \& \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::set\+Co (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{row,  }\item[{size\+\_\+t}]{col,  }\item[{T}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00119}{119}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordflow}{if}\ (row\ >\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}}\ ||\ row\ <\ 0\ ||\ col\ <\ 0\ ||\ col\ >\ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}})\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}row\ >\ this-\/>Maxi\_;\ col\ >\ this\ -\/>Maxi\_"{}});}
+\DoxyCodeLine{00122\ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ off\ =\ col\ -\/\ row;\ \ \textcolor{comment}{//\ j\ -\/\ i}}
+\DoxyCodeLine{00125\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ i\ =\ std::min(col,\ row);}
+\DoxyCodeLine{00126\ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_dia_mat_af1897b50cf0694fb5fd49bbc58ac6413}{set}}(off,\ i,\ val);}
+\DoxyCodeLine{00127\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_dia_mat_a0ed13bcde0e48534a7543bee67780834}\label{classmat_1_1_dia_mat_a0ed13bcde0e48534a7543bee67780834} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!sizeof\_i@{sizeof\_i}}
+\index{sizeof\_i@{sizeof\_i}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{sizeof\_i()}{sizeof\_i()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::sizeof\+\_\+i (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classmat_1_1_dia_mat_ac98a1971849f41aea108e724abb88bc3}\label{classmat_1_1_dia_mat_ac98a1971849f41aea108e724abb88bc3} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!sizeof\_offset@{sizeof\_offset}}
+\index{sizeof\_offset@{sizeof\_offset}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{sizeof\_offset()}{sizeof\_offset()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::sizeof\+\_\+offset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classmat_1_1_dia_mat_a579db08d52d3a4a9d4d799d8f11dc750}\label{classmat_1_1_dia_mat_a579db08d52d3a4a9d4d799d8f11dc750} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename X $>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \&}]{martix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00146}{146}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{00148\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ matrix.Maxi\_;\ ++i)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ matrix.Maxi\_;\ ++j)\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ os\ <<\ std::setw(4);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <=\ i\ +\ matrix.Maxoff\_\ \&\&\ j\ >=\ i\ -\/\ matrix.Maxoff\_)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ os\ <<\ matrix.at(j\ -\/\ i,\ std::min(j,\ i));}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ os\ <<\ 0.;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{00158\ \ \ \}}
+\DoxyCodeLine{00159\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classmat_1_1_dia_mat_ad817b9f50398c34b928efb5cb89ba771}\label{classmat_1_1_dia_mat_ad817b9f50398c34b928efb5cb89ba771} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!i\_@{i\_}}
+\index{i\_@{i\_}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{i\_}{i\_}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$size\+\_\+t$>$ \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::i\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+\Hypertarget{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}\label{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!Maxi\_@{Maxi\_}}
+\index{Maxi\_@{Maxi\_}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Maxi\_}{Maxi\_}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::\+Maxi\+\_\+ \{0\}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \{0\};\ \ \textcolor{comment}{//\ m:row,\ n:col}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_dia_mat_adab078eacbca1b13266733f1eb6da178}\label{classmat_1_1_dia_mat_adab078eacbca1b13266733f1eb6da178} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!Maxoff\_@{Maxoff\_}}
+\index{Maxoff\_@{Maxoff\_}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Maxoff\_}{Maxoff\_}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::\+Maxoff\+\_\+ \{0\}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \{0\};}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_dia_mat_a774ecc15971d85a8ea71ac8aebf72fdc}\label{classmat_1_1_dia_mat_a774ecc15971d85a8ea71ac8aebf72fdc} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!Sizeof\_Maxoff\_@{Sizeof\_Maxoff\_}}
+\index{Sizeof\_Maxoff\_@{Sizeof\_Maxoff\_}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Sizeof\_Maxoff\_}{Sizeof\_Maxoff\_}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::\+Sizeof\+\_\+\+Maxoff\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+\Hypertarget{classmat_1_1_dia_mat_a3fe27e6694f61f805f3943f251c15ea1}\label{classmat_1_1_dia_mat_a3fe27e6694f61f805f3943f251c15ea1} 
+\index{mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}!val\_@{val\_}}
+\index{val\_@{val\_}!mat::DiaMat$<$ T $>$@{mat::DiaMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{val\_}{val\_}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$T$>$ \mbox{\hyperlink{classmat_1_1_dia_mat}{mat\+::\+Dia\+Mat}}$<$ T $>$\+::val\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/matrix/\mbox{\hyperlink{dia__sparse__mat_8hpp}{dia\+\_\+sparse\+\_\+mat.\+hpp}}\end{DoxyCompactItemize}

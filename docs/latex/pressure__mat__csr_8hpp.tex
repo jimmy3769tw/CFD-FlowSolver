@@ -1,0 +1,151 @@
+\doxysection{cfd\+\_\+mx/inc/pressure/pressure\+\_\+mat\+\_\+csr.hpp File Reference}
+\hypertarget{pressure__mat__csr_8hpp}{}\label{pressure__mat__csr_8hpp}\index{cfd\_mx/inc/pressure/pressure\_mat\_csr.hpp@{cfd\_mx/inc/pressure/pressure\_mat\_csr.hpp}}
+{\ttfamily \#include "{}../grid/structured\+\_\+grid.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{pressure__mat__csr_8hpp_a5f424e8a9e9df1244976ff3042221815}{Get\+Csr\+Mat}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{pressure__mat__csr_8hpp_a5f424e8a9e9df1244976ff3042221815}\label{pressure__mat__csr_8hpp_a5f424e8a9e9df1244976ff3042221815} 
+\index{pressure\_mat\_csr.hpp@{pressure\_mat\_csr.hpp}!GetCsrMat@{GetCsrMat}}
+\index{GetCsrMat@{GetCsrMat}!pressure\_mat\_csr.hpp@{pressure\_mat\_csr.hpp}}
+\doxysubsubsection{\texorpdfstring{GetCsrMat()}{GetCsrMat()}}
+{\footnotesize\ttfamily auto Get\+Csr\+Mat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pressure__mat__csr_8hpp_source_l00004}{4}} of file \mbox{\hyperlink{pressure__mat__csr_8hpp_source}{pressure\+\_\+mat\+\_\+csr.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00005\ \ \ \textcolor{keyword}{auto}\ cal\_nx\ =\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}};}
+\DoxyCodeLine{00006\ \ \ \textcolor{keyword}{auto}\ cal\_ny\ =\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}};}
+\DoxyCodeLine{00007\ \ \ \textcolor{keyword}{auto}\ cal\_nz\ =\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}};}
+\DoxyCodeLine{00008\ \ \ \textcolor{keyword}{auto}\ no\_ghost\_cell\ =\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \textcolor{keyword}{auto}\ xp\ =\ [\&](\textcolor{keyword}{auto}\ i)\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}.at(i\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}.at(i\ +\ no\_ghost\_cell);}
+\DoxyCodeLine{00013\ \ \ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{auto}\ yp\ =\ [\&](\textcolor{keyword}{auto}\ j)\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}.at(j\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}.at(j\ +\ no\_ghost\_cell);}
+\DoxyCodeLine{00018\ \ \ \};}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{auto}\ zp\ =\ [\&](\textcolor{keyword}{auto}\ k)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}.at(k\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}.at(k\ +\ no\_ghost\_cell);}
+\DoxyCodeLine{00022\ \ \ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{auto}\ xm\ =\ [\&](\textcolor{keyword}{auto}\ i)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}}.at(i\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}}.at(i\ +\ no\_ghost\_cell\ -\/\ 1);}
+\DoxyCodeLine{00027\ \ \ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{auto}\ ym\ =\ [\&](\textcolor{keyword}{auto}\ j)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}}.at(j\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}}.at(j\ +\ no\_ghost\_cell\ -\/\ 1);}
+\DoxyCodeLine{00032\ \ \ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{auto}\ zm\ =\ [\&](\textcolor{keyword}{auto}\ k)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ /\ grid.\mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}}.at(k\ +\ no\_ghost\_cell)\ /}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}}.at(k\ +\ no\_ghost\_cell\ -\/\ 1);}
+\DoxyCodeLine{00037\ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ std::vector<int>\ ptr;}
+\DoxyCodeLine{00040\ \ \ std::vector<int>\ idx;}
+\DoxyCodeLine{00041\ \ \ std::vector<double>\ val;}
+\DoxyCodeLine{00042\ \ \ ptr.reserve(grid.\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}}\ +\ 1);}
+\DoxyCodeLine{00043\ \ \ ptr.push\_back(0);}
+\DoxyCodeLine{00044\ \ \ idx.reserve(grid.\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}}\ *\ 7);}
+\DoxyCodeLine{00045\ \ \ val.reserve(grid.\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}}\ *\ 7);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{int}\ x\_start\ =\ 0,\ y\_start\ =\ 0,\ z\_start\ =\ 0;}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{auto}\ x\_end\ =\ cal\_nx\ -\/\ 1;}
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{auto}\ y\_end\ =\ cal\_ny\ -\/\ 1;}
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{auto}\ z\_end\ =\ cal\_nz\ -\/\ 1;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ i\_count\ =\ 0;\ i\ <\ cal\_nx;\ ++i)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ cal\_ny;\ ++j)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ cal\_nz;\ ++k,\ ++i\_count)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Boundary\ point.\ Use\ Num\ condition.}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ aa\ =\ 0.0,\ bb\ =\ 0.0,\ cc\ =\ 0.0;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ x\_start)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ aa\ =\ -\/xm(i);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ x\_end)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ aa\ =\ -\/xp(i);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ y\_start)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ bb\ =\ -\/ym(j);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ y\_end)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ bb\ =\ -\/yp(j);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ z\_start)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ cc\ =\ -\/zm(k);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ z\_end)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ cc\ =\ -\/zp(k);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ijk\ =\ xm(i)\ +\ ym(j)\ +\ zm(k)\ +\ xp(i)\ +\ yp(j)\ +\ zp(k)\ +\ aa\ +\ bb\ +\ cc;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ x\_start)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ -\/\ grid.\mbox{\hyperlink{class_structured_grid_a2719ee13fe32bd2950cff826c856eef2}{cal\_ny\_times\_nz}});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/xm(i));}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ !=\ y\_start)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ -\/\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}});}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/ym(j));}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ !=\ z\_start)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ -\/\ 1);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/zm(k));}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ idx.push\_back(i\_count);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ val.push\_back(ijk);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ !=\ z\_end)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ +\ 1);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/zp(k));}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ !=\ y\_end)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ +\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}});}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/yp(j));}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ x\_end)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ idx.push\_back(i\_count\ +\ grid.\mbox{\hyperlink{class_structured_grid_a2719ee13fe32bd2950cff826c856eef2}{cal\_ny\_times\_nz}});}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ val.push\_back(-\/xp(i));}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ ptr.push\_back(idx.size());}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(ptr,\ idx,\ val);}
+\DoxyCodeLine{00121\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00062}{Structured\+Grid\+::cal\+\_\+no\+\_\+grid}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00063}{Structured\+Grid\+::cal\+\_\+ny\+\_\+times\+\_\+nz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+nz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{Structured\+Grid\+::dx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{Structured\+Grid\+::dy}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{Structured\+Grid\+::dz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{Structured\+Grid\+::no\+\_\+ghost\+\_\+cell}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{Structured\+Grid\+::staggered\+\_\+dx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{Structured\+Grid\+::staggered\+\_\+dy}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{Structured\+Grid\+::staggered\+\_\+dz}}.
+
+
+
+Referenced by \mbox{\hyperlink{pressure__mat_8hpp_source_l00018}{Pressure\+Mat\+::\+Pressure\+Mat()}}.
+

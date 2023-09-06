@@ -1,0 +1,501 @@
+\doxysection{mat\+::Ell\+Mat\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classmat_1_1_ell_mat}{}\label{classmat_1_1_ell_mat}\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+
+
+{\ttfamily \#include $<$ell\+\_\+sparse\+\_\+mat.\+hpp$>$}
+
+Inheritance diagram for mat\+::Ell\+Mat\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmat_1_1_ell_mat}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmat_1_1_ell_mat_ad4aeea4d3f0aa82b4bbadecddb7c3d65}{Ell\+Mat}} ()
+\item 
+\mbox{\hyperlink{classmat_1_1_ell_mat_a0f1b673a9550baeb2655137c27a5e851}{Ell\+Mat}} (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{rows}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{cols}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{nnz}})
+\item 
+\mbox{\hyperlink{classmat_1_1_ell_mat_af2d02ccb1e7175c752f650e7f70bbc63}{Ell\+Mat}} (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{n}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{nnz}})
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{virtual}} \mbox{\hyperlink{classmat_1_1_ell_mat_a320f9c500e62a1a1cf3754308ab72f1d}{\texorpdfstring{$\sim$}{\string~}\+Ell\+Mat}} ()
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_ell_mat_af10a0f79e4b4c1d87bee27a5c28687e9}{resize}} (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{rows}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{cols}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{nnz}})
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_ell_mat_a15d55eaade66f4ada47af17d1e71136e}{resize}} (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{n}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{nnz}})
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_ell_mat_abbd9e50a8849e915f99c68dc9c0321c9}{Multiply}} (std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&x, std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{r}}) \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{override}}
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_ell_mat_a8fa93f4769c1a900e07f052cea5c76b9}{Multiply\+Mpi}} (std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&x, std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{r}})
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_ell_mat_a780ce5e8c93e971dd4afcf2ab437394d}{Max\+Row}} ()
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_ell_mat_ad492d0d89e4bf8eda3ec50193a2f18f4}{Show}} ()
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{bool}} \mbox{\hyperlink{classmat_1_1_ell_mat_ad862a7f10762a02618774f35db9fb21b}{analyse}} ()
+\item 
+\mbox{\hyperlink{classmat_1_1_ell_mat}{Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \& \mbox{\hyperlink{classmat_1_1_ell_mat_ab29006f8d098c71c98b3c90145b94f8f}{Set}} (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} val)
+\item 
+\mbox{\hyperlink{classmat_1_1_ell_mat}{Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \& \mbox{\hyperlink{classmat_1_1_ell_mat_a5a6df94fe3cd2438a0114ef2015e2264}{Set}} (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat}{Sparse\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\mbox{\hyperlink{classmat_1_1_sparse_mat_ab6bac97ce2c8c844a95f58ccb1139e66}{\+::\+CSR\+\_\+type}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{c}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classmat_1_1_sparse_mat}{mat\+::\+Sparse\+Mat$<$ T $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a7cfd8eae5d9940bc9e5e33dbaef6ccab}{Sparse\+Mat}} (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{rows}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{cols}})
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a80b7c69bc18f5f9f25e6ff3ff80dec4a}{Sparse\+Mat}} (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{n}})
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a1941676dd4f03bc87eac6201ee971a6b}{Sparse\+Mat}} ()
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_sparse_mat_ae8f96f6dc0e93b28b5bd3dd46804f137}{multiply\+\_\+omp}} (std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&x, std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{r}})
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}} () \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{const}}
+\item 
+int \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \mbox{\hyperlink{classmat_1_1_sparse_mat_ac44c05ec46ab6a5b04ea0fba8e5aa983}{Multiply}} (std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&x)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \mbox{\hyperlink{classmat_1_1_sparse_mat_af663d27f670e63a2a76104ad2e286d69}{operator\texorpdfstring{$\ast$}{*}}} (std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&x)
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_sparse_mat_acf2dbec54611a5c1890d6bf2965c4af5}{Construct}} (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{rows}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{cols}})
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a5721137746cc4e7ad0afca32d3a2c7ee}{Init\+Mpi}} (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{MPI\+\_\+\+Comm}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{comm\+\_\+world}}, std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} $>$ beg, std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} $>$ end)
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a9d15928b01aa4bfc2c5e85e34bb0de94}{Init\+Mpi}} (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{MPI\+\_\+\+Comm}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{comm\+\_\+world}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{vec\+\_\+size}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{X}} $>$ }\\std\+::ostream \& \mbox{\hyperlink{classmat_1_1_ell_mat_a8adac914e9d984c93a150aaf1dca0511}{operator$<$$<$}} (std\+::ostream \&\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{os}}, \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{const}} \mbox{\hyperlink{classmat_1_1_ell_mat}{Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{X}} $>$ \&mat)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classmat_1_1_sparse_mat}{mat\+::\+Sparse\+Mat$<$ T $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{using}} \mbox{\hyperlink{classmat_1_1_sparse_mat_ab6bac97ce2c8c844a95f58ccb1139e66}{CSR\+\_\+type}} = std\+::tuple$<$ std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} $>$, std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} $>$, std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classmat_1_1_sparse_mat}{mat\+::\+Sparse\+Mat$<$ T $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmat_1_1_mpi_vector_tool}{Mpi\+Vector\+Tool}} \mbox{\hyperlink{classmat_1_1_sparse_mat_af3ef675a956856f6b85dafacf442e401}{mpi\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}}$>$\newline
+class mat\+::\+Ell\+Mat$<$ T $>$}
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmat_1_1_ell_mat_ad4aeea4d3f0aa82b4bbadecddb7c3d65}\label{classmat_1_1_ell_mat_ad4aeea4d3f0aa82b4bbadecddb7c3d65} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!EllMat@{EllMat}}
+\index{EllMat@{EllMat}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{EllMat()}{EllMat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::\+Ell\+Mat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ :\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{SparseMat<T>}}()\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_ell_mat_a0f1b673a9550baeb2655137c27a5e851}\label{classmat_1_1_ell_mat_a0f1b673a9550baeb2655137c27a5e851} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!EllMat@{EllMat}}
+\index{EllMat@{EllMat}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{EllMat()}{EllMat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::\+Ell\+Mat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{rows,  }\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{cols,  }\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{nnz }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{SparseMat<T>}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{rows}},\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{cols}})\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ SelfConstruct(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{nnz}});}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{sparse__mat_8hpp_source_l00021}{mat\+::\+Sparse\+Mat$<$ T $>$\+::col()}}.
+
+\Hypertarget{classmat_1_1_ell_mat_af2d02ccb1e7175c752f650e7f70bbc63}\label{classmat_1_1_ell_mat_af2d02ccb1e7175c752f650e7f70bbc63} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!EllMat@{EllMat}}
+\index{EllMat@{EllMat}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{EllMat()}{EllMat()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::\+Ell\+Mat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{n,  }\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{nnz }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ :\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{SparseMat<T>}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{n}},\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{n}})\ \{\ SelfConstruct(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{nnz}});\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{sparse__mat_8hpp_source_l00021}{mat\+::\+Sparse\+Mat$<$ T $>$\+::col()}}.
+
+\Hypertarget{classmat_1_1_ell_mat_a320f9c500e62a1a1cf3754308ab72f1d}\label{classmat_1_1_ell_mat_a320f9c500e62a1a1cf3754308ab72f1d} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!````~EllMat@{\texorpdfstring{$\sim$}{\string~}EllMat}}
+\index{````~EllMat@{\texorpdfstring{$\sim$}{\string~}EllMat}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EllMat()}{\string~EllMat()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{virtual}} \mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classmat_1_1_ell_mat}{Ell\+Mat}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \{\ Destruct();\ \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmat_1_1_ell_mat_ad862a7f10762a02618774f35db9fb21b}\label{classmat_1_1_ell_mat_ad862a7f10762a02618774f35db9fb21b} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!analyse@{analyse}}
+\index{analyse@{analyse}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{analyse()}{analyse()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{bool}} \mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::analyse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00194}{194}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00196\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{a}}(no\_no\_zero\_\ +\ 1,\ 0);}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ v\ :\ curr\_idx\_size)\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{a}}[v];}
+\DoxyCodeLine{00199\ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\{0\};}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ v\ :\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{a}})\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}i="{}}\ <<\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}++\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ v\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00205\ \ \ \ \ \}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00208\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_ell_mat_a780ce5e8c93e971dd4afcf2ab437394d}\label{classmat_1_1_ell_mat_a780ce5e8c93e971dd4afcf2ab437394d} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!MaxRow@{MaxRow}}
+\index{MaxRow@{MaxRow}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{MaxRow()}{MaxRow()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}} \mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::\+Max\+Row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \{\ \textcolor{keywordflow}{return}\ no\_no\_zero\_;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_ell_mat_abbd9e50a8849e915f99c68dc9c0321c9}\label{classmat_1_1_ell_mat_abbd9e50a8849e915f99c68dc9c0321c9} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!Multiply@{Multiply}}
+\index{Multiply@{Multiply}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Multiply()}{Multiply()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::\+Multiply (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&}]{x,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classmat_1_1_sparse_mat_a3caf5ee6d4fbd446d49dfe3a345a2cfa}{mat\+::\+Sparse\+Mat$<$ T $>$}}.
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ =\ 0;\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ <\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}();\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}})\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ *\ no\_no\_zero\_;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{r}}[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}]\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}}();}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for(int\ j\ =\ 0;\ j\ <\ curr\_idx\_size[i];++j)\{}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ =\ 0;\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ <\ no\_no\_zero\_;\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}})\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{r}}[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}]\ +=\ val\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}]\ *\ x[idx\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}]];}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{sparse__mat_8hpp_source_l00021}{mat\+::\+Sparse\+Mat$<$ T $>$\+::col()}}, and \mbox{\hyperlink{sparse__mat_8hpp_source_l00020}{mat\+::\+Sparse\+Mat$<$ T $>$\+::row()}}.
+
+\Hypertarget{classmat_1_1_ell_mat_a8fa93f4769c1a900e07f052cea5c76b9}\label{classmat_1_1_ell_mat_a8fa93f4769c1a900e07f052cea5c76b9} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!MultiplyMpi@{MultiplyMpi}}
+\index{MultiplyMpi@{MultiplyMpi}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{MultiplyMpi()}{MultiplyMpi()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::\+Multiply\+Mpi (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&}]{x,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_af3ef675a956856f6b85dafacf442e401}{mpi\_}}.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a856ccc1e4a26ee063be8e9a68d6a4365}{Allocate}}(x);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ =\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_af3ef675a956856f6b85dafacf442e401}{mpi\_}}.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad}{beg}}();\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ <\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_af3ef675a956856f6b85dafacf442e401}{mpi\_}}.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}}();\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}})\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ *\ no\_no\_zero\_;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{r}}[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}]\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ =\ 0;\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ <\ no\_no\_zero\_;\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}})\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{r}}[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}]\ +=\ val\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}]\ *\ x[idx\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}]];}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00058}{mat\+::\+Mpi\+Vector\+Tool\+::\+Allocate()}}, \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00017}{mat\+::\+Mpi\+Vector\+Tool\+::beg()}}, \mbox{\hyperlink{sparse__mat_8hpp_source_l00021}{mat\+::\+Sparse\+Mat$<$ T $>$\+::col()}}, \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00018}{mat\+::\+Mpi\+Vector\+Tool\+::end()}}, and \mbox{\hyperlink{sparse__mat_8hpp_source_l00052}{mat\+::\+Sparse\+Mat$<$ T $>$\+::mpi\+\_\+}}.
+
+\Hypertarget{classmat_1_1_ell_mat_a15d55eaade66f4ada47af17d1e71136e}\label{classmat_1_1_ell_mat_a15d55eaade66f4ada47af17d1e71136e} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!resize@{resize}}
+\index{resize@{resize}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{n,  }\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{nnz }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_acf2dbec54611a5c1890d6bf2965c4af5}{Construct}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{n}},\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{n}});}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ SelfConstruct(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{nnz}});}
+\DoxyCodeLine{00037\ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{sparse__mat_8hpp_source_l00021}{mat\+::\+Sparse\+Mat$<$ T $>$\+::col()}}, and \mbox{\hyperlink{sparse__mat_8hpp_source_l00033}{mat\+::\+Sparse\+Mat$<$ T $>$\+::\+Construct()}}.
+
+\Hypertarget{classmat_1_1_ell_mat_af10a0f79e4b4c1d87bee27a5c28687e9}\label{classmat_1_1_ell_mat_af10a0f79e4b4c1d87bee27a5c28687e9} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!resize@{resize}}
+\index{resize@{resize}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{rows,  }\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{cols,  }\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{nnz }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_acf2dbec54611a5c1890d6bf2965c4af5}{Construct}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{rows}},\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{cols}});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ SelfConstruct(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{nnz}});}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{sparse__mat_8hpp_source_l00021}{mat\+::\+Sparse\+Mat$<$ T $>$\+::col()}}, and \mbox{\hyperlink{sparse__mat_8hpp_source_l00033}{mat\+::\+Sparse\+Mat$<$ T $>$\+::\+Construct()}}.
+
+\Hypertarget{classmat_1_1_ell_mat_ab29006f8d098c71c98b3c90145b94f8f}\label{classmat_1_1_ell_mat_ab29006f8d098c71c98b3c90145b94f8f} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!Set@{Set}}
+\index{Set@{Set}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_ell_mat}{Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \& \mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{row,  }\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{int}}}]{col,  }\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}}}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00135}{135}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}\ <\ 0\ ||\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}\ <\ 0)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Matrix\ dimensions\ cannot\ be\ negative."{}});}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}\ >=\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}())\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}\ <<\ \textcolor{stringliteral}{"{}\ >=\ "{}}\ <<\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}()\ <<\ std::endl;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}colIdx\ >=\ no\_no\_zero\_\ "{}});}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}\ >=\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}())\ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}row\ >=\ this-\/>row()"{}});}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}\ *\ no\_no\_zero\_;}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{if}\ (val\ ==\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}}())\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \textcolor{comment}{//\ bool\ is\_new\_one\ =\ true;}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ =\ 0;\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ <\ curr\_idx\_size[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}];\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}})\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}\ ==\ idx\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}])\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ is\_new\_one\ =\ false;\ -\/-\/>\ remove}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}};\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ <\ curr\_idx\_size[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}];\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}})\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ idx\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}]\ =\ idx\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ +\ 1];}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ val\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}]\ =\ idx\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ +\ 1];}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ idx\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ curr\_idx\_size[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}]]\ =\ init\_idx\_;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ val\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ curr\_idx\_size[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}]]\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}}();}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ curr\_idx\_size[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}]-\/-\/;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00167\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{is\_new\_one}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ =\ 0;\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ <\ curr\_idx\_size[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}];\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}})\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}}\ ==\ idx\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}])\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{is\_new\_one}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ idx\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}]\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ val\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}]\ =\ val;}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{is\_new\_one}})\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ idx\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ curr\_idx\_size[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}]]\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{col}};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ val\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{pt}}\ +\ curr\_idx\_size[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}]]\ =\ val;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ curr\_idx\_size[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}]++;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr\_idx\_size[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}]\ >\ no\_no\_zero\_)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[ELL0::Set]\ -\/>\ curr\_idx\_size[row]\ >no\_no\_zero\_"{}});}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00087}{TEST()}}, and \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00065}{TEST()}}.
+
+\Hypertarget{classmat_1_1_ell_mat_a5a6df94fe3cd2438a0114ef2015e2264}\label{classmat_1_1_ell_mat_a5a6df94fe3cd2438a0114ef2015e2264} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!Set@{Set}}
+\index{Set@{Set}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_ell_mat}{Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \& \mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat}{Sparse\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\mbox{\hyperlink{classmat_1_1_sparse_mat_ab6bac97ce2c8c844a95f58ccb1139e66}{\+::\+CSR\+\_\+type}}}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00111}{111}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{auto}\ [\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{prt}},\ idx,\ val]\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{c}};}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ !\ We\ assume\ that\ your\ mat\ is\ a\ n\ by\ n\ mat\ for\ our\ convenient.}}
+\DoxyCodeLine{00114\ \ \ \ \ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_acf2dbec54611a5c1890d6bf2965c4af5}{Construct}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{prt}}.size()\ -\/\ 1,\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{prt}}.size()\ -\/\ 1);}
+\DoxyCodeLine{00115\ \ \ \ \ no\_no\_zero\_\ =\ 0;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ find\ max\ index}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}\ =\ 0;\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}\ <\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}();\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}})\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ no\_no\_zero\_\ =\ std::max(\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{prt}}[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}\ +\ 1]\ -\/\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{prt}}[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}],\ no\_no\_zero\_);}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ SelfConstruct(no\_no\_zero\_);}
+\DoxyCodeLine{00123\ \ }
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}\ =\ 0;\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}\ <\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}();\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}})\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ =\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{prt}}[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}];\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ <\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{prt}}[\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}\ +\ 1];\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}})\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmat_1_1_ell_mat_ab29006f8d098c71c98b3c90145b94f8f}{Set}}(\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}},\ idx[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}],\ val[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}]);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00132\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_ell_mat_ad492d0d89e4bf8eda3ec50193a2f18f4}\label{classmat_1_1_ell_mat_ad492d0d89e4bf8eda3ec50193a2f18f4} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!Show@{Show}}
+\index{Show@{Show}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Show()}{Show()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{void}} \mbox{\hyperlink{classmat_1_1_ell_mat}{mat\+::\+Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$\+::\+Show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00211}{211}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ \ |val"{}};}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ =\ 0;\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ <\ no\_no\_zero\_;\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}})\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ std::cout\ <<\ std::setw(4)\ <<\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ |Idx\(\backslash\)n"{}};}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ =\ 0;\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ <\ this-\/>\mbox{\hyperlink{classmat_1_1_sparse_mat_a8f38daecb6480b366f80b85856ff2abe}{row}}();\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}})\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ std::cout\ <<\ std::setw(3)\ <<\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ <<\ \textcolor{stringliteral}{"{}|"{}};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ =\ 0;\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ <\ no\_no\_zero\_;\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}})\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::setw(4)\ <<\ val\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ *\ no\_no\_zero\_\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}|"{}};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ =\ 0;\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}\ <\ no\_no\_zero\_;\ ++\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}})\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::setw(4)\ <<\ idx\_[\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{i}}\ *\ no\_no\_zero\_\ +\ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{j}}]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00239\ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classmat_1_1_ell_mat_a8adac914e9d984c93a150aaf1dca0511}\label{classmat_1_1_ell_mat_a8adac914e9d984c93a150aaf1dca0511} 
+\index{mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!mat::EllMat$<$ T $>$@{mat::EllMat$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{T}} $>$ \\
+template$<$\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{typename}} \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{X}} $>$ \\
+std\+::ostream \& \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{operator}}$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{const}} \mbox{\hyperlink{classmat_1_1_ell_mat}{Ell\+Mat}}$<$ \mbox{\hyperlink{classmat_1_1_sparse_mat_a2a83e199d72e6c453daee35f7d25485c}{X}} $>$ \&}]{mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/matrix/\mbox{\hyperlink{ell__sparse__mat_8hpp}{ell\+\_\+sparse\+\_\+mat.\+hpp}}\end{DoxyCompactItemize}

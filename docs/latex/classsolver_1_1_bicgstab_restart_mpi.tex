@@ -1,0 +1,291 @@
+\doxysection{solver\+::Bicgstab\+Restart\+Mpi\texorpdfstring{$<$}{<} matrixT \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classsolver_1_1_bicgstab_restart_mpi}{}\label{classsolver_1_1_bicgstab_restart_mpi}\index{solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}}
+
+
+{\ttfamily \#include $<$bicgstab\+\_\+restart\+\_\+mpi.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi_a52f5acd07ac70557d0d7503aa2df9899}{Bicgstab\+Restart\+Mpi}} ()
+\item 
+\mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi_a0fb15f1452fc136d7199102bf8b37522}{Bicgstab\+Restart\+Mpi}} (matrixT \&lhs\+\_\+mat)
+\item 
+virtual \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi_a876940422b8cb880a114f8410e47e316}{\texorpdfstring{$\sim$}{\string~}\+Bicgstab\+Restart\+Mpi}} ()
+\item 
+void \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi_a3be32a8237895c473cd6a76c7d0b209d}{init}} (matrixT lhs\+\_\+mat)
+\item 
+void \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi_a001d10d91940b2edb52f830fa576e9f1}{Set\+Tolerance}} (double tolerance)
+\item 
+std\+::tuple$<$ int, double $>$ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi_a5a49964e72ca431472dfdab847aa22e4}{solve}} (const std\+::vector$<$ double $>$ \&rhs, std\+::vector$<$ double $>$ \&x)
+\item 
+std\+::tuple$<$ int, double $>$ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi_aa00ff96a0c68ccb6f9e926a59614682b}{operator()}} (const std\+::vector$<$ double $>$ \&rhs, std\+::vector$<$ double $>$ \&x)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename matrixT$>$\newline
+class solver\+::\+Bicgstab\+Restart\+Mpi$<$ matrix\+T $>$}
+
+
+Definition at line \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source}{bicgstab\+\_\+restart\+\_\+mpi.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classsolver_1_1_bicgstab_restart_mpi_a52f5acd07ac70557d0d7503aa2df9899}\label{classsolver_1_1_bicgstab_restart_mpi_a52f5acd07ac70557d0d7503aa2df9899} 
+\index{solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}!BicgstabRestartMpi@{BicgstabRestartMpi}}
+\index{BicgstabRestartMpi@{BicgstabRestartMpi}!solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{BicgstabRestartMpi()}{BicgstabRestartMpi()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+\mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{solver\+::\+Bicgstab\+Restart\+Mpi}}$<$ matrixT $>$\+::\+Bicgstab\+Restart\+Mpi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source}{bicgstab\+\_\+restart\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{classsolver_1_1_bicgstab_restart_mpi_a0fb15f1452fc136d7199102bf8b37522}\label{classsolver_1_1_bicgstab_restart_mpi_a0fb15f1452fc136d7199102bf8b37522} 
+\index{solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}!BicgstabRestartMpi@{BicgstabRestartMpi}}
+\index{BicgstabRestartMpi@{BicgstabRestartMpi}!solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{BicgstabRestartMpi()}{BicgstabRestartMpi()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+\mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{solver\+::\+Bicgstab\+Restart\+Mpi}}$<$ matrixT $>$\+::\+Bicgstab\+Restart\+Mpi (\begin{DoxyParamCaption}\item[{matrixT \&}]{lhs\+\_\+mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source}{bicgstab\+\_\+restart\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \{\ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi_a3be32a8237895c473cd6a76c7d0b209d}{init}}(lhs\_mat);\}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00021}{solver\+::\+Bicgstab\+Restart\+Mpi$<$ matrix\+T $>$\+::init()}}.
+
+\Hypertarget{classsolver_1_1_bicgstab_restart_mpi_a876940422b8cb880a114f8410e47e316}\label{classsolver_1_1_bicgstab_restart_mpi_a876940422b8cb880a114f8410e47e316} 
+\index{solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}!````~BicgstabRestartMpi@{\texorpdfstring{$\sim$}{\string~}BicgstabRestartMpi}}
+\index{````~BicgstabRestartMpi@{\texorpdfstring{$\sim$}{\string~}BicgstabRestartMpi}!solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}BicgstabRestartMpi()}{\string~BicgstabRestartMpi()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+virtual \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{solver\+::\+Bicgstab\+Restart\+Mpi}}$<$ matrixT $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{Bicgstab\+Restart\+Mpi}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source}{bicgstab\+\_\+restart\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsolver_1_1_bicgstab_restart_mpi_a3be32a8237895c473cd6a76c7d0b209d}\label{classsolver_1_1_bicgstab_restart_mpi_a3be32a8237895c473cd6a76c7d0b209d} 
+\index{solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}!init@{init}}
+\index{init@{init}!solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+void \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{solver\+::\+Bicgstab\+Restart\+Mpi}}$<$ matrixT $>$\+::init (\begin{DoxyParamCaption}\item[{matrixT}]{lhs\+\_\+mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source}{bicgstab\+\_\+restart\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ mpi\_\ =\ lhs\_mat.mpi\_;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ lhs\_mat\_\ =\ lhs\_mat;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ length\_\ =\ lhs\_mat.row();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ r0\_.resize(length\_,\ 0.0);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ r1\_.resize(length\_,\ 0.0);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ p1\_.resize(length\_,\ 0.0);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ s1\_.resize(length\_,\ 0.0);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ ap\_.resize(length\_,\ 0.0);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ as\_.resize(length\_,\ 0.0);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ px1\_.resize(length\_,\ 0.0);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ px2\_.resize(length\_,\ 0.0);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00016}{solver\+::\+Bicgstab\+Restart\+Mpi$<$ matrix\+T $>$\+::\+Bicgstab\+Restart\+Mpi()}}.
+
+\Hypertarget{classsolver_1_1_bicgstab_restart_mpi_aa00ff96a0c68ccb6f9e926a59614682b}\label{classsolver_1_1_bicgstab_restart_mpi_aa00ff96a0c68ccb6f9e926a59614682b} 
+\index{solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+std\+::tuple$<$ int, double $>$ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{solver\+::\+Bicgstab\+Restart\+Mpi}}$<$ matrixT $>$\+::operator() (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{rhs,  }\item[{std\+::vector$<$ double $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source}{bicgstab\+\_\+restart\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi_a5a49964e72ca431472dfdab847aa22e4}{solve}}(rhs,\ x);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00086}{solver\+::\+Bicgstab\+Restart\+Mpi$<$ matrix\+T $>$\+::solve()}}.
+
+\Hypertarget{classsolver_1_1_bicgstab_restart_mpi_a001d10d91940b2edb52f830fa576e9f1}\label{classsolver_1_1_bicgstab_restart_mpi_a001d10d91940b2edb52f830fa576e9f1} 
+\index{solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}!SetTolerance@{SetTolerance}}
+\index{SetTolerance@{SetTolerance}!solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{SetTolerance()}{SetTolerance()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+void \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{solver\+::\+Bicgstab\+Restart\+Mpi}}$<$ matrixT $>$\+::\+Set\+Tolerance (\begin{DoxyParamCaption}\item[{double}]{tolerance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source}{bicgstab\+\_\+restart\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \{\ tol\_\ =\ tolerance;\}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00020}{TEST()}}, and \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00065}{TEST()}}.
+
+\Hypertarget{classsolver_1_1_bicgstab_restart_mpi_a5a49964e72ca431472dfdab847aa22e4}\label{classsolver_1_1_bicgstab_restart_mpi_a5a49964e72ca431472dfdab847aa22e4} 
+\index{solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}!solve@{solve}}
+\index{solve@{solve}!solver::BicgstabRestartMpi$<$ matrixT $>$@{solver::BicgstabRestartMpi$<$ matrixT $>$}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily template$<$typename matrixT $>$ \\
+std\+::tuple$<$ int, double $>$ \mbox{\hyperlink{classsolver_1_1_bicgstab_restart_mpi}{solver\+::\+Bicgstab\+Restart\+Mpi}}$<$ matrixT $>$\+::solve (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{rhs,  }\item[{std\+::vector$<$ double $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00086}{86}} of file \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source}{bicgstab\+\_\+restart\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ timestep\_++;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ r1r0\ =\ 0,\ pre\_r1r0\ =\ 0,\ a\ =\ 0,\ w\ =\ 0,\ b\ =\ 0,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ norm0\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a7a0bf700f5de3ea338ba58f42c0b646f}{L2Norm}}(rhs);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ lhs\_mat\_.MultiplyMpi(x,\ r0\_);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemath_a333a4caf7df255df3d0fb5940444a916}{math::copy}}(px1\_,\ px2\_);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemath_a333a4caf7df255df3d0fb5940444a916}{math::copy}}(x,\ px1\_);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ default(none)\ shared(rhs,\ r0\_)}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad}{beg}}();\ i\ <\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}}();\ ++i)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ r0\_[i]\ =\ rhs[i]\ -\/\ r0\_[i];}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemath_a333a4caf7df255df3d0fb5940444a916}{math::copy}}(r0\_,\ r1\_);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacemath_a333a4caf7df255df3d0fb5940444a916}{math::copy}}(r0\_,\ p1\_);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ r1r0\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a56e1349089c84c584b20a2b5b63a43d5}{InnerProduct}}(r1\_,\ r0\_);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ numIter\_\ =\ 0;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ lhs\_mat\_.MultiplyMpi(p1\_,\ ap\_);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ a\ \ =\ r1r0\ /\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a56e1349089c84c584b20a2b5b63a43d5}{InnerProduct}}(ap\_,\ r0\_);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a592c497379216c4f13b616348e124e84}{Barrier}}();}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ schedule(static)}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad}{beg}}();\ i\ <\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}}();\ ++i)\ \{\ s1\_[i]\ =\ r1\_[i]\ -\/\ a*ap\_[i];\ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a592c497379216c4f13b616348e124e84}{Barrier}}();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lhs\_mat\_.MultiplyMpi(s1\_,\ as\_);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ w\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a56e1349089c84c584b20a2b5b63a43d5}{InnerProduct}}(as\_,\ s1\_)\ /\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a56e1349089c84c584b20a2b5b63a43d5}{InnerProduct}}(as\_,\ as\_);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad}{beg}}();\ i\ <\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}}();\ ++i)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x[i]\ +=\ a\ *\ p1\_[i]\ +\ w\ *\ s1\_[i];}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r1\_[i]\ =\ s1\_[i]\ -\/\ w\ *\ as\_[i];}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ for\ terminating\ conditions}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a7a0bf700f5de3ea338ba58f42c0b646f}{L2Norm}}(r1\_)\ /\ norm0)\ <\ tol\_)\ \{\ \textcolor{keywordflow}{break};\ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cout\ <<\ mpi\_.L2Norm(r1\_)\ /\ norm0\ <<\ "{},\ "{};}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ !\ \#\#\ Check\ for\ reset\ of\ bCGSTAB}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (numIter\_\ >=\ iters\_max\_)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ResetMembers\ =\ 0;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad}{beg}}();\ i\ <\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}}();\ ++i)\{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ std::isnan(x[i])\ ||\ std::isinf(x[i])\ )\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ x[i]\ =\ px1\_[i],\ ++ResetMembers;\}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ResetMembers\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_ad7d2cd3627ae898e6ec78ed4da113f00}{AllreduceSum}}(ResetMembers);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ResetMembers\ >\ length\_*0.1)\ \{}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad}{beg}}();\ i<mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}}();\ ++i)}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ x[i]\ =\ px2\_[i];\ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ accumulativeResetMembers\_\ +=\ length\_,\ ++pResets\_;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ResetMembers\ !=\ 0)}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ accumulativeResetMembers\_\ +=\ ResetMembers,\ ++pResets\_;\ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ pre\_r1r0\ =\ r1r0;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ r1r0\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a56e1349089c84c584b20a2b5b63a43d5}{InnerProduct}}(r1\_,\ r0\_);}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ b\ \ =\ (a\ /\ w)\ *\ (r1r0\ /\ pre\_r1r0);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ rho\ for\ restart}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (timestep\_\ <\ 10\ ||\ abs(pre\_r1r0)\ >\ restartTol\_)}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#pragma\ omp\ parallel\ for}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad}{beg}}();\ i<mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}}();\ ++i)}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ p1\_[i]\ =\ r1\_[i]\ +\ b*(p1\_[i]\ -\/\ w*ap\_[i]);\ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad}{beg}}();\ i<mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}}();\ ++i)}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r0\_[i]\ =\ r1\_[i];}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p1\_[i]\ =\ r1\_[i];}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++numRestarts\_;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ ++numIter\_;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ ++totalNumIter\_;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a856ccc1e4a26ee063be8e9a68d6a4365}{Allocate}}(x);}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(numIter\_,\ mpi\_.\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a7a0bf700f5de3ea338ba58f42c0b646f}{L2Norm}}(r1\_)\ /\ norm0);}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{math_8hpp_source_l00031}{math\+::copy()}}, and \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00090}{mat\+::\+Mpi\+Vector\+Tool\+::\+L2\+Norm()}}.
+
+
+
+Referenced by \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00041}{solver\+::\+Bicgstab\+Restart\+Mpi$<$ matrix\+T $>$\+::operator()()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/matrix/solver/mpi/\mbox{\hyperlink{bicgstab__restart__mpi_8hpp}{bicgstab\+\_\+restart\+\_\+mpi.\+hpp}}\end{DoxyCompactItemize}

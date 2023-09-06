@@ -1,0 +1,93 @@
+\doxysection{mat Namespace Reference}
+\hypertarget{namespacemat}{}\label{namespacemat}\index{mat@{mat}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmat_1_1_csr_mat}{Csr\+Mat}}
+\item 
+class \mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}
+\item 
+class \mbox{\hyperlink{classmat_1_1_ell_mat}{Ell\+Mat}}
+\item 
+class \mbox{\hyperlink{classmat_1_1_mpi_vector_tool}{Mpi\+Vector\+Tool}}
+\item 
+class \mbox{\hyperlink{classmat_1_1_sparse_mat}{Sparse\+Mat}}
+\item 
+class \mbox{\hyperlink{classmat_1_1_s_p_e__matrix1}{SPE\+\_\+matrix1}}
+\item 
+class \mbox{\hyperlink{classmat_1_1_struct_grid_mat}{Struct\+Grid\+Mat}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespacemat_a09504d4fec9eba61ef680ef87418fcb1}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \&matrix)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespacemat_a99c865873d9888b9caf4285229d6ead7}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classmat_1_1_ell_mat}{Ell\+Mat}}$<$ T $>$ \&mat)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacemat_a09504d4fec9eba61ef680ef87418fcb1}\label{namespacemat_a09504d4fec9eba61ef680ef87418fcb1} 
+\index{mat@{mat}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!mat@{mat}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream \& mat\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classmat_1_1_dia_mat}{Dia\+Mat}}$<$ T $>$ \&}]{matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dia__sparse__mat_8hpp_source_l00146}{146}} of file \mbox{\hyperlink{dia__sparse__mat_8hpp_source}{dia\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{00148\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ matrix.\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}};\ ++i)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ matrix.\mbox{\hyperlink{classmat_1_1_dia_mat_a2a67ac68e82fcaca52baf7045ab455b9}{Maxi\_}};\ ++j)\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ os\ <<\ std::setw(4);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <=\ i\ +\ matrix.Maxoff\_\ \&\&\ j\ >=\ i\ -\/\ matrix.\mbox{\hyperlink{classmat_1_1_dia_mat_adab078eacbca1b13266733f1eb6da178}{Maxoff\_}})\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ os\ <<\ matrix.\mbox{\hyperlink{classmat_1_1_dia_mat_a1152e7e6e65bd208c1438c3e9c3e6f39}{at}}(j\ -\/\ i,\ std::min(j,\ i));}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ os\ <<\ 0.;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{00158\ \ \ \}}
+\DoxyCodeLine{00159\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacemat_a99c865873d9888b9caf4285229d6ead7}\label{namespacemat_a99c865873d9888b9caf4285229d6ead7} 
+\index{mat@{mat}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!mat@{mat}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream \& mat\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classmat_1_1_ell_mat}{Ell\+Mat}}$<$ T $>$ \&}]{mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00089}{89}} of file \mbox{\hyperlink{ell__sparse__mat_8hpp_source}{ell\+\_\+sparse\+\_\+mat.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ iter;\ i\ <\ \mbox{\hyperlink{namespacemat}{mat}}.row();\ ++i)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{namespacemat}{mat}}.col();\ ++j)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pt\ =\ i\ *\ \mbox{\hyperlink{namespacemat}{mat}}.no\_no\_zero\_;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ os\ <<\ std::setw(4);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (iter\ =\ 0;\ iter\ <\ \mbox{\hyperlink{namespacemat}{mat}}.curr\_idx\_size[i];\ ++iter)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ \mbox{\hyperlink{namespacemat}{mat}}.idx\_.at(pt\ +\ iter))\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{namespacemat}{mat}}.val\_.at(pt\ +\ iter);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (iter\ ==\ \mbox{\hyperlink{namespacemat}{mat}}.curr\_idx\_size.at(i))\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}x"{}};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00108\ \ \ \}}
+
+\end{DoxyCode}

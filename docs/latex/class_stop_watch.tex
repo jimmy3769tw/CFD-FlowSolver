@@ -1,0 +1,126 @@
+\doxysection{Stop\+Watch Class Reference}
+\hypertarget{class_stop_watch}{}\label{class_stop_watch}\index{StopWatch@{StopWatch}}
+
+
+{\ttfamily \#include $<$STL\+\_\+clock.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_stop_watch_a09a3c8f9ab03d7b28e4f8b90a833974e}{start}} ()
+\item 
+void \mbox{\hyperlink{class_stop_watch_a6e80b598d9304e37d8768b716e713e0e}{stop}} ()
+\item 
+double \mbox{\hyperlink{class_stop_watch_aa0d63e2af077651430a0fcfa1eed9189}{elapsed\+Time}} ()
+\item 
+void \mbox{\hyperlink{class_stop_watch_a3374cddaa3d2d9427ace631fa63f3318}{init\+\_\+start}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{class_stop_watch_a4e317c66e31b584b418c0e1e83f287be}{resolution}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_s_t_l__clock_8hpp_source_l00006}{6}} of file \mbox{\hyperlink{_s_t_l__clock_8hpp_source}{STL\+\_\+clock.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_stop_watch_aa0d63e2af077651430a0fcfa1eed9189}\label{class_stop_watch_aa0d63e2af077651430a0fcfa1eed9189} 
+\index{StopWatch@{StopWatch}!elapsedTime@{elapsedTime}}
+\index{elapsedTime@{elapsedTime}!StopWatch@{StopWatch}}
+\doxysubsubsection{\texorpdfstring{elapsedTime()}{elapsedTime()}}
+{\footnotesize\ttfamily double Stop\+Watch\+::elapsed\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_s_t_l__clock_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{_s_t_l__clock_8hpp_source}{STL\+\_\+clock.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ total;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_stop_watch_a3374cddaa3d2d9427ace631fa63f3318}\label{class_stop_watch_a3374cddaa3d2d9427ace631fa63f3318} 
+\index{StopWatch@{StopWatch}!init\_start@{init\_start}}
+\index{init\_start@{init\_start}!StopWatch@{StopWatch}}
+\doxysubsubsection{\texorpdfstring{init\_start()}{init\_start()}}
+{\footnotesize\ttfamily void Stop\+Watch\+::init\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_s_t_l__clock_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{_s_t_l__clock_8hpp_source}{STL\+\_\+clock.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ total\ =\ 0.0;\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ t\_start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_stop_watch_a4e317c66e31b584b418c0e1e83f287be}\label{class_stop_watch_a4e317c66e31b584b418c0e1e83f287be} 
+\index{StopWatch@{StopWatch}!resolution@{resolution}}
+\index{resolution@{resolution}!StopWatch@{StopWatch}}
+\doxysubsubsection{\texorpdfstring{resolution()}{resolution()}}
+{\footnotesize\ttfamily static double Stop\+Watch\+::resolution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_s_t_l__clock_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{_s_t_l__clock_8hpp_source}{STL\+\_\+clock.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tmp\ =\ std::chrono::high\_resolution\_clock::period();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{double})tmp.num\ /\ tmp.den;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_stop_watch_a09a3c8f9ab03d7b28e4f8b90a833974e}\label{class_stop_watch_a09a3c8f9ab03d7b28e4f8b90a833974e} 
+\index{StopWatch@{StopWatch}!start@{start}}
+\index{start@{start}!StopWatch@{StopWatch}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Stop\+Watch\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_s_t_l__clock_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{_s_t_l__clock_8hpp_source}{STL\+\_\+clock.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ t\_start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_stop_watch_a6e80b598d9304e37d8768b716e713e0e}\label{class_stop_watch_a6e80b598d9304e37d8768b716e713e0e} 
+\index{StopWatch@{StopWatch}!stop@{stop}}
+\index{stop@{stop}!StopWatch@{StopWatch}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Stop\+Watch\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_s_t_l__clock_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{_s_t_l__clock_8hpp_source}{STL\+\_\+clock.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ t\_stop\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::chrono::duration<double>\ d\ =\ t\_stop\ -\/\ t\_start;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ total\ +=\ d.count();}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/profiling/\mbox{\hyperlink{_s_t_l__clock_8hpp}{STL\+\_\+clock.\+hpp}}\end{DoxyCompactItemize}

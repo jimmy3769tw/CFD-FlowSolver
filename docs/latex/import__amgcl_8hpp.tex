@@ -1,0 +1,61 @@
+\doxysection{cfd\+\_\+mx/inc/import/import\+\_\+amgcl.hpp File Reference}
+\hypertarget{import__amgcl_8hpp}{}\label{import__amgcl_8hpp}\index{cfd\_mx/inc/import/import\_amgcl.hpp@{cfd\_mx/inc/import/import\_amgcl.hpp}}
+{\ttfamily \#include $<$amgcl/adapter/crs\+\_\+tuple.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/amg.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/backend/builtin.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/io/mm.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/make\+\_\+solver.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/coarsening/plain\+\_\+aggregates.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/coarsening/rigid\+\_\+body\+\_\+modes.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/coarsening/smoothed\+\_\+aggregation.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/profiler.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/relaxation/chebyshev.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/relaxation/gauss\+\_\+seidel.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/relaxation/ilu0.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/relaxation/spai0.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/solver/bicgstab.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/solver/bicgstabl.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/solver/cg.\+hpp$>$}\newline
+{\ttfamily \#include $<$amgcl/solver/lgmres.\+hpp$>$}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef amgcl\+::backend\+::builtin$<$ double $>$ \mbox{\hyperlink{import__amgcl_8hpp_a5796b270f3e609adfeaecc29c46fd6b1}{SBackend}}
+\item 
+typedef amgcl\+::backend\+::builtin$<$ double $>$ \mbox{\hyperlink{import__amgcl_8hpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}}
+\item 
+typedef amgcl\+::make\+\_\+solver$<$ amgcl\+::amg$<$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}}, amgcl\+::coarsening\+::smoothed\+\_\+aggregation, amgcl\+::relaxation\+::gauss\+\_\+seidel $>$, amgcl\+::solver\+::bicgstab$<$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a5796b270f3e609adfeaecc29c46fd6b1}{SBackend}} $>$ $>$ \mbox{\hyperlink{import__amgcl_8hpp_a3dc9226c2a5a8e2719ad8088970248e5}{Amgcl\+Solver}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{import__amgcl_8hpp_a3dc9226c2a5a8e2719ad8088970248e5}\label{import__amgcl_8hpp_a3dc9226c2a5a8e2719ad8088970248e5} 
+\index{import\_amgcl.hpp@{import\_amgcl.hpp}!AmgclSolver@{AmgclSolver}}
+\index{AmgclSolver@{AmgclSolver}!import\_amgcl.hpp@{import\_amgcl.hpp}}
+\doxysubsubsection{\texorpdfstring{AmgclSolver}{AmgclSolver}}
+{\footnotesize\ttfamily typedef amgcl\+::make\+\_\+solver$<$ amgcl\+::amg$<$\mbox{\hyperlink{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}}, amgcl\+::coarsening\+::smoothed\+\_\+aggregation, amgcl\+::relaxation\+::gauss\+\_\+seidel$>$, amgcl\+::solver\+::bicgstab$<$\mbox{\hyperlink{matrix__test__amgcl_8cpp_a5796b270f3e609adfeaecc29c46fd6b1}{SBackend}}$>$ $>$ \mbox{\hyperlink{import__amgcl_8hpp_a3dc9226c2a5a8e2719ad8088970248e5}{Amgcl\+Solver}}}
+
+
+
+Definition at line \mbox{\hyperlink{import__amgcl_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{import__amgcl_8hpp_source}{import\+\_\+amgcl.\+hpp}}.
+
+\Hypertarget{import__amgcl_8hpp_a9aa71a888f2ea18d67765e5a41ccd128}\label{import__amgcl_8hpp_a9aa71a888f2ea18d67765e5a41ccd128} 
+\index{import\_amgcl.hpp@{import\_amgcl.hpp}!PBackend@{PBackend}}
+\index{PBackend@{PBackend}!import\_amgcl.hpp@{import\_amgcl.hpp}}
+\doxysubsubsection{\texorpdfstring{PBackend}{PBackend}}
+{\footnotesize\ttfamily typedef amgcl\+::backend\+::builtin$<$double$>$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}}}
+
+
+
+Definition at line \mbox{\hyperlink{import__amgcl_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{import__amgcl_8hpp_source}{import\+\_\+amgcl.\+hpp}}.
+
+\Hypertarget{import__amgcl_8hpp_a5796b270f3e609adfeaecc29c46fd6b1}\label{import__amgcl_8hpp_a5796b270f3e609adfeaecc29c46fd6b1} 
+\index{import\_amgcl.hpp@{import\_amgcl.hpp}!SBackend@{SBackend}}
+\index{SBackend@{SBackend}!import\_amgcl.hpp@{import\_amgcl.hpp}}
+\doxysubsubsection{\texorpdfstring{SBackend}{SBackend}}
+{\footnotesize\ttfamily typedef amgcl\+::backend\+::builtin$<$double$>$ \mbox{\hyperlink{matrix__test__amgcl_8cpp_a5796b270f3e609adfeaecc29c46fd6b1}{SBackend}}}
+
+
+
+Definition at line \mbox{\hyperlink{import__amgcl_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{import__amgcl_8hpp_source}{import\+\_\+amgcl.\+hpp}}.
+

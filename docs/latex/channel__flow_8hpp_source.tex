@@ -1,0 +1,38 @@
+\doxysection{channel\+\_\+flow.\+hpp}
+\hypertarget{channel__flow_8hpp_source}{}\label{channel__flow_8hpp_source}\index{cfd\_mx/inc/boundary\_condition/channel\_flow.hpp@{cfd\_mx/inc/boundary\_condition/channel\_flow.hpp}}
+\mbox{\hyperlink{channel__flow_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00002}00002\ \textcolor{comment}{//\ *\ \ Channel\ flow}}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00003}00003\ \textcolor{comment}{//\ *\ \ Velocities:\ All\ Dirichlet\ (all\ 0\ except\ u\ =\ u0\ only\ at\ West)\ }}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00004}00004\ \textcolor{comment}{//\ *\ \ except\ outlet\ (East).}}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00005}00005\ \textcolor{comment}{//\ *\ \ Pressure:\ \ \ All\ Neumann.}}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00007}\mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{00007}}\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[0][0]\ =\ 1.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[0][0]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[0][1]\ =\ 0.;\textcolor{comment}{/*\ 0\ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[0][1]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[0][2]\ =\ 0.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[0][2]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[1][0]\ =\ 0.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[1][0]\ =\ 1.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[1][1]\ =\ 0.;\textcolor{comment}{/*\ 1\ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[1][1]\ =\ 1.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[1][2]\ =\ 0.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[1][2]\ =\ 1.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[2][0]\ =\ 0.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[2][0]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[2][1]\ =\ 0.;\textcolor{comment}{/*\ 2\ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[2][1]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[2][2]\ =\ 0.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[2][2]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[3][0]\ =\ 0.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[3][0]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[3][1]\ =\ 0.;\textcolor{comment}{/*\ 3\ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[3][1]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[3][2]\ =\ 0.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[3][2]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[4][0]\ =\ 0.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[4][0]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[4][1]\ =\ 0.;\textcolor{comment}{/*\ 4\ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[4][1]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[4][2]\ =\ 0.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[4][2]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[5][0]\ =\ 0.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[5][0]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[5][1]\ =\ 0.;\textcolor{comment}{/*\ 5\ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[5][1]\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{channel__flow_8hpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{channel__flow_8hpp_af10a9acd4bbb1206f7707d06269db720}{dir}}[5][2]\ =\ 0.;\textcolor{comment}{/*\ \ \ */}\mbox{\hyperlink{channel__flow_8hpp_a041e0e36e9065e9d10f18c890ef138d3}{num}}[5][2]\ =\ 0.;}
+
+\end{DoxyCode}

@@ -1,0 +1,82 @@
+\doxysection{simulation.\+hpp}
+\hypertarget{simulation_8hpp_source}{}\label{simulation_8hpp_source}\index{cfd\_mx/inc/backend/simulation.hpp@{cfd\_mx/inc/backend/simulation.hpp}}
+\mbox{\hyperlink{simulation_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{time__variance__authority_8hpp}{time\_variance\_authority.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{set__eta_8hpp}{dfib/set\_eta.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00010}\mbox{\hyperlink{struct_ini_condition}{00010}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_ini_condition}{IniCondition}}\{}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00011}\mbox{\hyperlink{struct_ini_condition_a7ecad27c8788de75fba00054344e1e51}{00011}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_ini_condition_a7ecad27c8788de75fba00054344e1e51}{u}}\ =\ double();}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00012}\mbox{\hyperlink{struct_ini_condition_a3757cb75d17cce3d01639636b4013f22}{00012}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_ini_condition_a3757cb75d17cce3d01639636b4013f22}{v}}\ =\ double();}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00013}\mbox{\hyperlink{struct_ini_condition_a78f3159a0ffda76ddf14ff853c44f0db}{00013}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_ini_condition_a78f3159a0ffda76ddf14ff853c44f0db}{w}}\ =\ double();}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00014}00014\ \};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00016}\mbox{\hyperlink{class_simulation}{00016}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_simulation}{Simulation}}\ \{}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00017}00017\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00018}\mbox{\hyperlink{class_simulation_abff0b94f1ed13367ac7a4d742f4d3470}{00018}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{class_simulation_abff0b94f1ed13367ac7a4d742f4d3470}{io\_string}};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00019}\mbox{\hyperlink{class_simulation_a0c56f42f0039e96c6fe0d49e38f6ff61}{00019}}\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_simulation_a0c56f42f0039e96c6fe0d49e38f6ff61}{tid}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00020}\mbox{\hyperlink{class_simulation_a552d65e44cc0fc9c112f79f7cfe748a4}{00020}}\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_simulation_a552d65e44cc0fc9c112f79f7cfe748a4}{pid}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00021}\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{00021}}\ \ \ \mbox{\hyperlink{class_time_variance_authority}{TimeVarianceAuthority}}\ \mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00022}\mbox{\hyperlink{class_simulation_a525da8e9bae1d64dfb07f1de474be047}{00022}}\ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\&\ \mbox{\hyperlink{class_simulation_a525da8e9bae1d64dfb07f1de474be047}{SetReynoldsNumber}}(\textcolor{keywordtype}{double}\ re)\ \{}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00023}00023\ \ \ \ \ reynolds\_no\_\ =\ re;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00024}00024\ \ \ \ \ nu\_\ =\ 1.0\ /\ re;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00025}00025\ \ \ \ \ isSetRe\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00027}00027\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00028}\mbox{\hyperlink{class_simulation_a2baf0eae5a9ba6683c7d4b158d216bdd}{00028}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_simulation_a2baf0eae5a9ba6683c7d4b158d216bdd}{GetReynoldsNumber}}()\ \{\ \textcolor{keywordflow}{return}\ reynolds\_no\_;\ \}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00029}\mbox{\hyperlink{class_simulation_aa3d4cbe4be471b0056744cf027bb05cf}{00029}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_simulation_aa3d4cbe4be471b0056744cf027bb05cf}{GetNu}}()\ \{\ \textcolor{keywordflow}{return}\ nu\_;\ \}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00031}\mbox{\hyperlink{class_simulation_aad7abd4fb51d18f899b718eed57bf48b}{00031}}\ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\&\ \mbox{\hyperlink{class_simulation_aad7abd4fb51d18f899b718eed57bf48b}{SetBoundaryCondition}}(std::string\ str)\ \{}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00032}00032\ \ \ \ \ boundaryConditionName\_\ =\ str;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00033}00033\ \ \ \ \ isSetBoundaryCondition\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00035}00035\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00036}\mbox{\hyperlink{class_simulation_ad2fd05aabd29bce8915db3a9c9a38dd1}{00036}}\ \ \ std::string\ \mbox{\hyperlink{class_simulation_ad2fd05aabd29bce8915db3a9c9a38dd1}{GetBoundaryCondition}}()\ \{\ \textcolor{keywordflow}{return}\ boundaryConditionName\_;\ \}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00038}\mbox{\hyperlink{class_simulation_adc2052c4f82ea58920e9e7b59626adc8}{00038}}\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_simulation_adc2052c4f82ea58920e9e7b59626adc8}{poisson\_eq\_iter\_max\_}}\ =\ 5000;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00039}\mbox{\hyperlink{class_simulation_a6b02d7d2dbfde2f1c3b222922c03dd1a}{00039}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_simulation_a6b02d7d2dbfde2f1c3b222922c03dd1a}{poisson\_criteria}}\ =\ 1.e-\/3;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00040}00040\ \ \ \textcolor{comment}{//\ amgcl\ def\ 1e-\/8}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00041}00041\ \ \ \textcolor{comment}{//\ ahmad\ def\ 1e-\/3}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00043}\mbox{\hyperlink{class_simulation_a83e75427c4c89d3b68d4bde1d00f23ec}{00043}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_simulation_a83e75427c4c89d3b68d4bde1d00f23ec}{SetArgcArgv}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}**\ argv)\ \{}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00044}00044\ \ \ \ \ argc\_\ =\ argc;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00045}00045\ \ \ \ \ argv\_\ =\ argv;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00046}00046\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00048}\mbox{\hyperlink{class_simulation_a930b1b90dc8168669d3abb06832c4359}{00048}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_simulation_a930b1b90dc8168669d3abb06832c4359}{GetArgc}}()\ \{\ \textcolor{keywordflow}{return}\ argc\_;\ \}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00050}\mbox{\hyperlink{class_simulation_a895f5e9cab430c1abe916c60afb33a46}{00050}}\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_simulation_a895f5e9cab430c1abe916c60afb33a46}{GetArgv}}()\ \{\ \textcolor{keywordflow}{return}\ argv\_;\ \}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00053}\mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{00053}}\ \ \ \mbox{\hyperlink{struct_ini_condition}{IniCondition}}\ \mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00055}\mbox{\hyperlink{class_simulation_abdde6bad6626a28fffbb3171744ea774}{00055}}\ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\&\ \mbox{\hyperlink{class_simulation_abdde6bad6626a28fffbb3171744ea774}{SetVelocityInitialCondition}}(\textcolor{keywordtype}{double}\ u,\ \textcolor{keywordtype}{double}\ v,\ \textcolor{keywordtype}{double}\ w)\ \{}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a7ecad27c8788de75fba00054344e1e51}{u}}\ =\ u;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a3757cb75d17cce3d01639636b4013f22}{v}}\ =\ v;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a78f3159a0ffda76ddf14ff853c44f0db}{w}}\ =\ w;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00060}00060\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00063}00063\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00064}00064\ \ \ \textcolor{keywordtype}{bool}\ isSetRe\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00065}00065\ \ \ \textcolor{keywordtype}{bool}\ isSetBoundaryCondition\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00066}00066\ \ \ std::string\ boundaryConditionName\_;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00067}00067\ \ \ \textcolor{keywordtype}{double}\ dtMin\ =\ 1e-\/12,}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Timstep\ adjustment:\ CFL\ \ \ \ \ \ \ */}\ cflFactor\ =\ 0.05,}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Timstep\ adjustment:\ Grid\ Fo\ \ \ */}\ gridFoFactor\ =\ 0.15;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00070}00070\ \ \ \textcolor{keywordtype}{double}\ reynolds\_no\_;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00071}00071\ \ \ \textcolor{keywordtype}{double}\ nu\_;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00072}00072\ \ \ \textcolor{keywordtype}{double}\ terminal\_time\_;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00073}00073\ \ \ \textcolor{keywordtype}{int}\ argc\_;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00074}00074\ \ \ \textcolor{keywordtype}{char}\ **argv\_;}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00075}00075\ \};}
+\DoxyCodeLine{\Hypertarget{simulation_8hpp_source_l00076}00076\ }
+
+\end{DoxyCode}

@@ -1,0 +1,38 @@
+\doxysection{cfd\+\_\+mx/inc/backend/print\+\_\+openmp.hpp File Reference}
+\hypertarget{print__openmp_8hpp}{}\label{print__openmp_8hpp}\index{cfd\_mx/inc/backend/print\_openmp.hpp@{cfd\_mx/inc/backend/print\_openmp.hpp}}
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{print__openmp_8hpp_aa709c56e270fdd66da7b460d3d5458d7}{Print\+Is\+Openmp\+Exist}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{print__openmp_8hpp_aa709c56e270fdd66da7b460d3d5458d7}\label{print__openmp_8hpp_aa709c56e270fdd66da7b460d3d5458d7} 
+\index{print\_openmp.hpp@{print\_openmp.hpp}!PrintIsOpenmpExist@{PrintIsOpenmpExist}}
+\index{PrintIsOpenmpExist@{PrintIsOpenmpExist}!print\_openmp.hpp@{print\_openmp.hpp}}
+\doxysubsubsection{\texorpdfstring{PrintIsOpenmpExist()}{PrintIsOpenmpExist()}}
+{\footnotesize\ttfamily void Print\+Is\+Openmp\+Exist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{print__openmp_8hpp_source_l00004}{4}} of file \mbox{\hyperlink{print__openmp_8hpp_source}{print\+\_\+openmp.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00005\ \ \ printf(\textcolor{stringliteral}{"{}pid:\ \%d\(\backslash\)n"{}},\ getpid());}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifdef\ \_OPENMP}}
+\DoxyCodeLine{00007\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}OpenMP:\ "{}}\ <<\ \_OPENMP\ <<\ std::endl;}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00009\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Your\ compiler\ does\ not\ support\ OpenMP."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00011\ \ \ printf(\textcolor{stringliteral}{"{}pid:\ \%d\(\backslash\)n"{}},\ getpid());}
+\DoxyCodeLine{00012\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{run__cpu_8hpp_source_l00029}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::\+Cpu\+Open\+Mp()}}, and \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}.
+

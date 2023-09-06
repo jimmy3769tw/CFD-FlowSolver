@@ -1,0 +1,50 @@
+\doxysection{cfd\+\_\+mx/inc/run/run\+\_\+cpu.hpp File Reference}
+\hypertarget{run__cpu_8hpp}{}\label{run__cpu_8hpp}\index{cfd\_mx/inc/run/run\_cpu.hpp@{cfd\_mx/inc/run/run\_cpu.hpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include "{}backend/domain.\+hpp"{}}\newline
+{\ttfamily \#include "{}backend/physical\+\_\+variables.\+hpp"{}}\newline
+{\ttfamily \#include "{}backend/print\+\_\+openmp.\+hpp"{}}\newline
+{\ttfamily \#include "{}backend/simulation.\+hpp"{}}\newline
+{\ttfamily \#include "{}dfib/update\+\_\+u\+\_\+and\+\_\+force.\+hpp"{}}\newline
+{\ttfamily \#include "{}grid/structured\+\_\+grid.\+hpp"{}}\newline
+{\ttfamily \#include "{}io/csv/csv\+\_\+structured\+\_\+grid.\+hpp"{}}\newline
+{\ttfamily \#include "{}io/io\+\_\+tools.\+hpp"{}}\newline
+{\ttfamily \#include "{}io/plot3d/write\+\_\+qfile.\+hpp"{}}\newline
+{\ttfamily \#include "{}io/plot3d/write\+\_\+xfile.\+hpp"{}}\newline
+{\ttfamily \#include "{}source/convection\+\_\+and\+\_\+difussion.\+hpp"{}}\newline
+{\ttfamily \#include "{}boundary\+\_\+condition/boundary\+\_\+condition.\+hpp"{}}\newline
+{\ttfamily \#include "{}boundary\+\_\+condition/boundary\+\_\+condition\+\_\+copy.\+hpp"{}}\newline
+{\ttfamily \#include "{}matrix/solver/bicgstab\+\_\+restart.\+hpp"{}}\newline
+{\ttfamily \#include "{}matrix/solver/bicgstab.\+hpp"{}}\newline
+{\ttfamily \#include "{}pressure/pressure\+\_\+mat.\+hpp"{}}\newline
+{\ttfamily \#include "{}omp.\+h"{}}\newline
+{\ttfamily \#include "{}analyses/central\+\_\+profile.\+hpp"{}}\newline
+{\ttfamily \#include "{}source/smagorinsky\+\_\+model.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp}{projection\+\_\+method\+::\+Cpu\+Open\+Mp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceprojection__method}{projection\+\_\+method}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{run__cpu_8hpp_a53a3ac4c9ecfeb3bc4468ca3729d78db}{solver\+Type}} = \mbox{\hyperlink{classsolver_1_1_bicgstab_restart}{solver\+::\+Bicgstab\+Restart}}$<$ \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{run__cpu_8hpp_a53a3ac4c9ecfeb3bc4468ca3729d78db}\label{run__cpu_8hpp_a53a3ac4c9ecfeb3bc4468ca3729d78db} 
+\index{run\_cpu.hpp@{run\_cpu.hpp}!solverType@{solverType}}
+\index{solverType@{solverType}!run\_cpu.hpp@{run\_cpu.hpp}}
+\doxysubsubsection{\texorpdfstring{solverType}{solverType}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{run__cpu_8hpp_a53a3ac4c9ecfeb3bc4468ca3729d78db}{solver\+Type}} =  \mbox{\hyperlink{classsolver_1_1_bicgstab_restart}{solver\+::\+Bicgstab\+Restart}}$<$\mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{run__cpu_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{run__cpu_8hpp_source}{run\+\_\+cpu.\+hpp}}.
+

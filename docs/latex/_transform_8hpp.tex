@@ -1,0 +1,84 @@
+\doxysection{cfd\+\_\+mx/inc/pressure/\+Transform.hpp File Reference}
+\hypertarget{_transform_8hpp}{}\label{_transform_8hpp}\index{cfd\_mx/inc/pressure/Transform.hpp@{cfd\_mx/inc/pressure/Transform.hpp}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_transform_8hpp_a7dd2472b5eff9459e72292a164d82039}{Pressure\+\_\+transform\+\_\+\+X\+\_\+result\+\_\+\+Dir}} (pressure \&t1, \mbox{\hyperlink{class_pressure_mat}{Pressure\+Mat}} \&Mx, \mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&Lo, grid \&gA)
+\item 
+std\+::tuple$<$ double, double $>$ \mbox{\hyperlink{_transform_8hpp_a9e00dd867aa694dea7ba588c187d4eed}{get\+Max}} (const std\+::vector$<$ double $>$ \&x, const \mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&Lo, grid \&gA)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_transform_8hpp_a9e00dd867aa694dea7ba588c187d4eed}\label{_transform_8hpp_a9e00dd867aa694dea7ba588c187d4eed} 
+\index{Transform.hpp@{Transform.hpp}!getMax@{getMax}}
+\index{getMax@{getMax}!Transform.hpp@{Transform.hpp}}
+\doxysubsubsection{\texorpdfstring{getMax()}{getMax()}}
+{\footnotesize\ttfamily std\+::tuple$<$ double, double $>$ get\+Max (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&}]{Lo,  }\item[{grid \&}]{gA }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_transform_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{_transform_8hpp_source}{Transform.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \{}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{double}\ maxVal\ =\ -\/\ 1.0e10;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{double}\ minVal\ =\ 1.0e10;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ omp\ parallel\ firstprivate(Lo)\ reduction(max\ :\ maxVal)\ reduction\ (min\ :\ minVal)}}
+\DoxyCodeLine{00033\ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#pragma\ omp\ for}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}};\ ++i)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}};\ ++j)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}};\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}};\ ++k)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (maxVal\ <\ x[gA.icelCal(i,j,k)])\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ maxVal\ =\ \ x[gA.icelCal(i,j,k)];\}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (minVal\ >\ x[gA.icelCal(i,j,k)])\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ minVal\ =\ \ x[gA.icelCal(i,j,k)];\}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(maxVal,\ minVal);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+end}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+end}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+end}}, and \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+start}}.
+
+\Hypertarget{_transform_8hpp_a7dd2472b5eff9459e72292a164d82039}\label{_transform_8hpp_a7dd2472b5eff9459e72292a164d82039} 
+\index{Transform.hpp@{Transform.hpp}!Pressure\_transform\_X\_result\_Dir@{Pressure\_transform\_X\_result\_Dir}}
+\index{Pressure\_transform\_X\_result\_Dir@{Pressure\_transform\_X\_result\_Dir}!Transform.hpp@{Transform.hpp}}
+\doxysubsubsection{\texorpdfstring{Pressure\_transform\_X\_result\_Dir()}{Pressure\_transform\_X\_result\_Dir()}}
+{\footnotesize\ttfamily void Pressure\+\_\+transform\+\_\+\+X\+\_\+result\+\_\+\+Dir (\begin{DoxyParamCaption}\item[{pressure \&}]{t1,  }\item[{\mbox{\hyperlink{class_pressure_mat}{Pressure\+Mat}} \&}]{Mx,  }\item[{\mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&}]{Lo,  }\item[{grid \&}]{gA }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_transform_8hpp_source_l00004}{4}} of file \mbox{\hyperlink{_transform_8hpp_source}{Transform.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \{}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ omp\ parallel\ firstprivate(Lo)}}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#pragma\ omp\ for}}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}};\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}};\ ++i)}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}};\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}};\ ++j)}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}};\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}};\ ++k)}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ t1.p[gA.icel(i,j,k)]\ =\ Mx.\mbox{\hyperlink{class_pressure_mat_a3d46ae1ed272a14183267a7230dc20ef}{x\_result}}[gA.icelDir(i,j,k)];}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+end}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00015}{Pressure\+Mat\+::x\+\_\+result}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+end}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+end}}, and \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+start}}.
+

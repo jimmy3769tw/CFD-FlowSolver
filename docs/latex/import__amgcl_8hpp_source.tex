@@ -1,0 +1,53 @@
+\doxysection{import\+\_\+amgcl.\+hpp}
+\hypertarget{import__amgcl_8hpp_source}{}\label{import__amgcl_8hpp_source}\index{cfd\_mx/inc/import/import\_amgcl.hpp@{cfd\_mx/inc/import/import\_amgcl.hpp}}
+\mbox{\hyperlink{import__amgcl_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <amgcl/adapter/crs\_tuple.hpp>}\ \ \textcolor{comment}{//\ for\ build\ crs\_tuple}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <amgcl/amg.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <amgcl/backend/builtin.hpp>}\ \ \textcolor{comment}{//\ for\ build\ OpenMP}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <amgcl/io/mm.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00008}00008\ \textcolor{comment}{//\ !\ make\_solver}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00009}00009\ \textcolor{comment}{//\ 1.1}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <amgcl/make\_solver.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00011}00011\ \textcolor{comment}{//\ 1.2}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <amgcl/coarsening/plain\_aggregates.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <amgcl/coarsening/rigid\_body\_modes.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <amgcl/coarsening/smoothed\_aggregation.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <amgcl/profiler.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <amgcl/relaxation/chebyshev.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <amgcl/relaxation/gauss\_seidel.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <amgcl/relaxation/ilu0.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <amgcl/relaxation/spai0.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <amgcl/solver/bicgstab.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <amgcl/solver/bicgstabl.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <amgcl/solver/cg.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <amgcl/solver/lgmres.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <amgcl/adapter/crs\_tuple.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <amgcl/amg.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <amgcl/backend/builtin.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <amgcl/coarsening/smoothed\_aggregation.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <amgcl/make\_solver.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <amgcl/profiler.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <amgcl/relaxation/gauss\_seidel.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <amgcl/relaxation/spai0.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00033}00033\ \textcolor{preprocessor}{\#include\ <amgcl/solver/bicgstab.hpp>}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00036}00036\ \textcolor{comment}{//\ \ \ the\ solver\ backend:}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00037}\mbox{\hyperlink{import__amgcl_8hpp_a5796b270f3e609adfeaecc29c46fd6b1}{00037}}\ \textcolor{keyword}{typedef}\ amgcl::backend::builtin<double>\ \mbox{\hyperlink{import__amgcl_8hpp_a5796b270f3e609adfeaecc29c46fd6b1}{SBackend}};}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00038}00038\ \textcolor{comment}{//\ \ \ the\ preconditioner\ backend:}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00039}\mbox{\hyperlink{import__amgcl_8hpp_a9aa71a888f2ea18d67765e5a41ccd128}{00039}}\ \textcolor{keyword}{typedef}\ amgcl::backend::builtin<double>\ \mbox{\hyperlink{import__amgcl_8hpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}};}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00041}00041\ \textcolor{comment}{//===========\ Compose\ the\ solver\ type\ ===========//}}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00043}00043\ \textcolor{keyword}{typedef}\ amgcl::make\_solver<}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00044}00044\ \ \ \ \ amgcl::amg<\mbox{\hyperlink{import__amgcl_8hpp_a9aa71a888f2ea18d67765e5a41ccd128}{PBackend}},\ amgcl::coarsening::smoothed\_aggregation,}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ amgcl::relaxation::gauss\_seidel>,}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00046}00046\ \ \ \ \ amgcl::solver::bicgstab<SBackend>\ >}
+\DoxyCodeLine{\Hypertarget{import__amgcl_8hpp_source_l00047}\mbox{\hyperlink{import__amgcl_8hpp_a3dc9226c2a5a8e2719ad8088970248e5}{00047}}\ \ \ \ \ \mbox{\hyperlink{import__amgcl_8hpp_a3dc9226c2a5a8e2719ad8088970248e5}{AmgclSolver}};}
+
+\end{DoxyCode}

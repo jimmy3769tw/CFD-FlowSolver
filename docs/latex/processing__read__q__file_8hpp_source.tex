@@ -1,0 +1,50 @@
+\doxysection{processing\+\_\+read\+\_\+q\+\_\+file.\+hpp}
+\hypertarget{processing__read__q__file_8hpp_source}{}\label{processing__read__q__file_8hpp_source}\index{cfd\_mx/inc/io/plot3d/processing\_read\_q\_file.hpp@{cfd\_mx/inc/io/plot3d/processing\_read\_q\_file.hpp}}
+\mbox{\hyperlink{processing__read__q__file_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00002}\mbox{\hyperlink{processing__read__q__file_8hpp_ad8a8e36c64bc5fbb19f889e14904173a}{00002}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{processing__read__q__file_8hpp_ad8a8e36c64bc5fbb19f889e14904173a}{ProcessReadQfileint}}(\textcolor{keywordtype}{int}\ Nblock,\ \textcolor{keywordtype}{float}\ mach,\ \textcolor{keywordtype}{float}\ alpha,\ \textcolor{keywordtype}{float}\ reyn,}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00003}00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ time,\ std::vector<std::vector<float>>\ data)\ \{}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00004}00004\ \ \ std::vector<std::vector<double>>\ data\_new(}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00005}00005\ \ \ \ \ \ \ nodata,\ std::vector<double>(grid.no\_grid,\ 0.0));}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00007}00007\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ gc;\ k\ <\ cal\_nz\ +\ gc;\ ++k)}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ gc;\ j\ <\ cal\_ny\ +\ gc;\ ++j)}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00009}00009\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ gc;\ i\ <\ cal\_nx\ +\ gc;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00010}00010\ \ \ \ \ \ \ \ \ data\_new[0][grid.icel(i,\ j,\ k)]\ =\ data[0][grid.icelCal(i,\ j,\ k)];}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00011}00011\ \ \ \ \ \ \ \ \ data\_new[4][grid.icel(i,\ j,\ k)]\ =\ data[4][grid.icelCal(i,\ j,\ k)];}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00012}00012\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00014}00014\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ gc;\ k\ <\ cal\_nz\ +\ gc;\ ++k)}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ gc;\ j\ <\ cal\_ny\ +\ gc;\ ++j)}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00016}00016\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ gc;\ i\ <\ cal\_nx\ +\ gc;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nxCal\ +\ gc\ -\/\ 1\ ==\ i)}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ data\_new[1][grid.icel(i,\ j,\ k)]\ =\ data[1][grid.icelCal(i,\ j,\ k)];}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ data\_new[1][grid.icel(i,\ j,\ k)]\ =}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (data[1][grid.icelCal(i,\ j,\ k)]\ +}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data[1][grid.icelCal(i\ +\ 1,\ j,\ k)])\ /}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.0;}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nyCal\ +\ gc\ -\/\ 1\ ==\ j)}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ data\_new[2][grid.icel(i,\ j,\ k)]\ =\ data[2][grid.icelCal(i,\ j,\ k)];}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ data\_new[2][grid.icel(i,\ j,\ k)]\ =}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (data[2][grid.icelCal(i,\ j,\ k)]\ +}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data[2][grid.icelCal(i,\ j\ +\ 1,\ k)])\ /}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.0;}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nzCal\ +\ gc\ -\/\ 1\ ==\ k)}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ data\_new[3][grid.icel(i,\ j,\ k)]\ =\ data[3][grid.icelCal(i,\ j,\ k)];}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ data\_new[3][grid.icel(i,\ j,\ k)]\ =}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (data[3][grid.icelCal(i,\ j,\ k)]\ +}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data[3][grid.icelCal(i,\ j,\ k\ +\ 1)])\ /}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.0;}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00040}00040\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00042}00042\ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(Nblock,\ mach,\ alpha,\ reyn,\ time,\ data\_new[0],}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data\_new[1],\ data\_new[2],\ data\_new[3],\ data\_new[4]);}
+\DoxyCodeLine{\Hypertarget{processing__read__q__file_8hpp_source_l00044}00044\ \}}
+
+\end{DoxyCode}

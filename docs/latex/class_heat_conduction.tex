@@ -1,0 +1,204 @@
+\doxysection{Heat\+Conduction Class Reference}
+\hypertarget{class_heat_conduction}{}\label{class_heat_conduction}\index{HeatConduction@{HeatConduction}}
+
+
+{\ttfamily \#include $<$poisson.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_heat_conduction_ab27c17cac40e75d2f7a06039b72a1942}{Heat\+Conduction}} (int n)
+\item 
+auto \mbox{\hyperlink{class_heat_conduction_a407400a24e6980c27c19abec588a317f}{Get\+Csr}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{poisson_8hpp_source_l00005}{5}} of file \mbox{\hyperlink{poisson_8hpp_source}{poisson.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_heat_conduction_ab27c17cac40e75d2f7a06039b72a1942}\label{class_heat_conduction_ab27c17cac40e75d2f7a06039b72a1942} 
+\index{HeatConduction@{HeatConduction}!HeatConduction@{HeatConduction}}
+\index{HeatConduction@{HeatConduction}!HeatConduction@{HeatConduction}}
+\doxysubsubsection{\texorpdfstring{HeatConduction()}{HeatConduction()}}
+{\footnotesize\ttfamily Heat\+Conduction\+::\+Heat\+Conduction (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{poisson_8hpp_source_l00007}{7}} of file \mbox{\hyperlink{poisson_8hpp_source}{poisson.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ nxy(n)\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{int}\ n2\ =\ nx\ *\ ny;\ \ \textcolor{comment}{//\ Number\ of\ points\ in\ the\ grid.}}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}{x}}.resize(n2,\ 0.0);}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}}.clear();}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}}.reserve(n2\ +\ 1);}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}}.push\_back(0);}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.clear();}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.reserve(n2\ *\ 5);\ \ \textcolor{comment}{//\ We\ use\ 5-\/point\ stencil,\ so\ the\ matrix}}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.clear();}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.reserve(n2\ *\ 5);\ \ \textcolor{comment}{//\ will\ have\ at\ most\ n2\ *\ 5\ nonzero\ elements.}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}}.resize(n2);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0,\ k\ =\ 0;\ j\ <\ ny;\ ++j)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nx;\ ++i,\ ++k)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0\ ||\ i\ ==\ nx\ -\/\ 1\ ||\ j\ ==\ 0\ ||\ j\ ==\ ny\ -\/\ 1)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Boundary\ point.\ Use\ Dirichlet\ condition.}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(1.0);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}}[k]\ =\ 0.0;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Interior\ point.\ Use\ 5-\/point\ finite\ difference\ stencil.}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k\ -\/\ ny);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(-\/1.0\ /\ (dx\ *\ dx));}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k\ -\/\ 1);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(-\/1.0\ /\ (dx\ *\ dx));}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(2.0\ /\ (dx\ *\ dx)\ +\ 2.0\ /\ (dy\ *\ dy));}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k\ +\ 1);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(-\/1.0\ /\ (dy\ *\ dy));}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.push\_back(k\ +\ ny);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}}.push\_back(-\/1.0\ /\ (dy\ *\ dy));}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}{rhs}}[k]\ =\ 1.0;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}}.push\_back(\mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}}.size());}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{poisson_8hpp_source_l00056}{idx}}, \mbox{\hyperlink{poisson_8hpp_source_l00055}{ptr}}, \mbox{\hyperlink{poisson_8hpp_source_l00058}{rhs}}, \mbox{\hyperlink{poisson_8hpp_source_l00057}{val}}, and \mbox{\hyperlink{poisson_8hpp_source_l00059}{x}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_heat_conduction_a407400a24e6980c27c19abec588a317f}\label{class_heat_conduction_a407400a24e6980c27c19abec588a317f} 
+\index{HeatConduction@{HeatConduction}!GetCsr@{GetCsr}}
+\index{GetCsr@{GetCsr}!HeatConduction@{HeatConduction}}
+\doxysubsubsection{\texorpdfstring{GetCsr()}{GetCsr()}}
+{\footnotesize\ttfamily auto Heat\+Conduction\+::\+Get\+Csr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{poisson_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{poisson_8hpp_source}{poisson.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \{\ \textcolor{keywordflow}{return}\ std::make\_tuple(\mbox{\hyperlink{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}{ptr}},\ \mbox{\hyperlink{class_heat_conduction_a49141f508db2217a90231263910db2b2}{idx}},\ \mbox{\hyperlink{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}{val}});\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{poisson_8hpp_source_l00056}{idx}}, \mbox{\hyperlink{poisson_8hpp_source_l00055}{ptr}}, and \mbox{\hyperlink{poisson_8hpp_source_l00057}{val}}.
+
+
+
+Referenced by \mbox{\hyperlink{matrix__test__amgcl_8cpp_source_l00039}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00043}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00020}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00087}{TEST()}}, and \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00065}{TEST()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_heat_conduction_a49141f508db2217a90231263910db2b2}\label{class_heat_conduction_a49141f508db2217a90231263910db2b2} 
+\index{HeatConduction@{HeatConduction}!idx@{idx}}
+\index{idx@{idx}!HeatConduction@{HeatConduction}}
+\doxysubsubsection{\texorpdfstring{idx}{idx}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Heat\+Conduction\+::idx}
+
+
+
+Definition at line \mbox{\hyperlink{poisson_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{poisson_8hpp_source}{poisson.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{poisson_8hpp_source_l00054}{Get\+Csr()}}, and \mbox{\hyperlink{poisson_8hpp_source_l00007}{Heat\+Conduction()}}.
+
+\Hypertarget{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def}\label{class_heat_conduction_a5044a2dd22893f77522e5e651a5e1def} 
+\index{HeatConduction@{HeatConduction}!ptr@{ptr}}
+\index{ptr@{ptr}!HeatConduction@{HeatConduction}}
+\doxysubsubsection{\texorpdfstring{ptr}{ptr}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Heat\+Conduction\+::ptr}
+
+
+
+Definition at line \mbox{\hyperlink{poisson_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{poisson_8hpp_source}{poisson.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{poisson_8hpp_source_l00054}{Get\+Csr()}}, and \mbox{\hyperlink{poisson_8hpp_source_l00007}{Heat\+Conduction()}}.
+
+\Hypertarget{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8}\label{class_heat_conduction_ac23d926a437f10c69c262ca12bf2f9f8} 
+\index{HeatConduction@{HeatConduction}!rhs@{rhs}}
+\index{rhs@{rhs}!HeatConduction@{HeatConduction}}
+\doxysubsubsection{\texorpdfstring{rhs}{rhs}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Heat\+Conduction\+::rhs}
+
+
+
+Definition at line \mbox{\hyperlink{poisson_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{poisson_8hpp_source}{poisson.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{poisson_8hpp_source_l00007}{Heat\+Conduction()}}, \mbox{\hyperlink{matrix__test__amgcl_8cpp_source_l00039}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00043}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00020}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00087}{TEST()}}, and \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00065}{TEST()}}.
+
+\Hypertarget{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418}\label{class_heat_conduction_afb24acfd604ccb93f19cd4de012b2418} 
+\index{HeatConduction@{HeatConduction}!val@{val}}
+\index{val@{val}!HeatConduction@{HeatConduction}}
+\doxysubsubsection{\texorpdfstring{val}{val}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Heat\+Conduction\+::val}
+
+
+
+Definition at line \mbox{\hyperlink{poisson_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{poisson_8hpp_source}{poisson.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{poisson_8hpp_source_l00054}{Get\+Csr()}}, and \mbox{\hyperlink{poisson_8hpp_source_l00007}{Heat\+Conduction()}}.
+
+\Hypertarget{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c}\label{class_heat_conduction_a339fa9c222ec1c56bde8e9fa25da838c} 
+\index{HeatConduction@{HeatConduction}!x@{x}}
+\index{x@{x}!HeatConduction@{HeatConduction}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Heat\+Conduction\+::x}
+
+
+
+Definition at line \mbox{\hyperlink{poisson_8hpp_source_l00059}{59}} of file \mbox{\hyperlink{poisson_8hpp_source}{poisson.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{poisson_8hpp_source_l00007}{Heat\+Conduction()}}, \mbox{\hyperlink{matrix__test__amgcl_8cpp_source_l00039}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00043}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00020}{TEST()}}, \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00087}{TEST()}}, and \mbox{\hyperlink{mpi__openmp__matrix__test_8cpp_source_l00065}{TEST()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+tests/matrix/\mbox{\hyperlink{poisson_8hpp}{poisson.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,91 @@
+\doxysection{cfd\+\_\+mx/inc/analyses/central\+\_\+profile.hpp File Reference}
+\hypertarget{central__profile_8hpp}{}\label{central__profile_8hpp}\index{cfd\_mx/inc/analyses/central\_profile.hpp@{cfd\_mx/inc/analyses/central\_profile.hpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}backend/physical\+\_\+variables.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{central__profile_8hpp_ae97909c635128ebbff18d2e1bebcd73a}{get\+Cent\+Profile}} (\mbox{\hyperlink{class_simulation}{Simulation}} \&simu, \mbox{\hyperlink{class_staggered_velocity}{Staggered\+Velocity}} \&vel, \mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&Lo, \mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{central__profile_8hpp_ae97909c635128ebbff18d2e1bebcd73a}\label{central__profile_8hpp_ae97909c635128ebbff18d2e1bebcd73a} 
+\index{central\_profile.hpp@{central\_profile.hpp}!getCentProfile@{getCentProfile}}
+\index{getCentProfile@{getCentProfile}!central\_profile.hpp@{central\_profile.hpp}}
+\doxysubsubsection{\texorpdfstring{getCentProfile()}{getCentProfile()}}
+{\footnotesize\ttfamily void get\+Cent\+Profile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_simulation}{Simulation}} \&}]{simu,  }\item[{\mbox{\hyperlink{class_staggered_velocity}{Staggered\+Velocity}} \&}]{vel,  }\item[{\mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&}]{Lo,  }\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{central__profile_8hpp_source_l00007}{7}} of file \mbox{\hyperlink{central__profile_8hpp_source}{central\+\_\+profile.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ io\ =\ 0;}
+\DoxyCodeLine{00015\ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<double>\ y\_plot(grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}});}
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<double>\ x\_plot(grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}});}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ std::vector<double>\ y\_plot\_pos(grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}});}
+\DoxyCodeLine{00020\ \ \ \ \ std::vector<double>\ x\_plot\_pos(grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}});}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ k1\ =\ (grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}})/2\ \ +\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ k2\ =\ (grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}})/2\ -\/\ 1\ +\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ j2\ =\ (grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}})/2\ -\/\ 1\ +\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ i2\ =\ (grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}})/2\ -\/\ 1\ +\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ y\ plot}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ \ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ \ j\ <\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}}+\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ ++j)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ y\_plot[j-\/grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}]\ =\ (\ vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i2,\ j,\ k1)\ +\ vel.\mbox{\hyperlink{class_staggered_velocity_aa6247ed37fbf51bbfe8bd31c567d7336}{U}}(i2,\ j,\ k2))\ /\ 2.0;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ y\_plot\_pos[j-\/grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}]\ =\ grid.\mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}}.at(j);}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ \ i\ <\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}}+\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};\ ++i)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ x\_plot[i-\/grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}]\ =\ (vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i,\ j2,\ k1)\ +\ vel.\mbox{\hyperlink{class_staggered_velocity_a84a6565ddac26a98251453d89767426e}{V}}(i,\ j2,\ k2))\ /\ 2.0;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ x\_plot\_pos[i-\/grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}}]\ =\ grid.\mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}}.at(i);}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ std::fstream\ file;}
+\DoxyCodeLine{00043\ \ \ \ \ std::string\ filename\ =\ \textcolor{stringliteral}{"{}Information/"{}};\ \textcolor{comment}{//\ Information/Uprofile/}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ filename\ +=\ std::to\_string(io);}}
+\DoxyCodeLine{00045\ \ \ \ \ filename\ +=\ \textcolor{stringliteral}{"{}x\_plot\_"{}};}
+\DoxyCodeLine{00046\ \ \ \ \ filename\ +=\ \textcolor{stringliteral}{"{}re\_"{}};}
+\DoxyCodeLine{00047\ \ \ \ \ filename\ +=\ std::to\_string(\textcolor{keywordtype}{int}(simu.\mbox{\hyperlink{class_simulation_a2baf0eae5a9ba6683c7d4b158d216bdd}{GetReynoldsNumber}}()));}
+\DoxyCodeLine{00048\ \ \ \ \ filename\ +=\ \textcolor{stringliteral}{"{}.dat"{}};}
+\DoxyCodeLine{00049\ \ \ \ \ file.open(filename,std::ios::out);}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0\ ;\ i\ <\ x\_plot.size();\ i++)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ file\ <<\ x\_plot\_pos.at(i)\ \ <<\ \textcolor{charliteral}{'\(\backslash\)t'}<<\ x\_plot[i]\ <<\ std::endl;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ file.close();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ std::fstream\ file2;}
+\DoxyCodeLine{00058\ \ \ \ \ std::string\ filename2\ =\ \textcolor{stringliteral}{"{}Information/"{}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ filename2\ +=\ std::to\_string(io);}}
+\DoxyCodeLine{00061\ \ \ \ \ filename2\ +=\ \textcolor{stringliteral}{"{}y\_plot\_"{}};}
+\DoxyCodeLine{00062\ \ \ \ \ filename2\ +=\ \textcolor{stringliteral}{"{}re\_"{}};}
+\DoxyCodeLine{00063\ \ \ \ \ filename2\ +=\ std::to\_string(\textcolor{keywordtype}{int}(simu.\mbox{\hyperlink{class_simulation_a2baf0eae5a9ba6683c7d4b158d216bdd}{GetReynoldsNumber}}()));}
+\DoxyCodeLine{00064\ \ \ \ \ filename2\ +=\ \textcolor{stringliteral}{"{}.dat"{}};}
+\DoxyCodeLine{00065\ \ \ \ \ file2.open(filename2,std::ios::out);}
+\DoxyCodeLine{00066\ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0\ ;\ j\ <\ y\_plot.size();\ j++)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ file2\ <<\ y\_plot\_pos.at(j)\ <<\ \textcolor{charliteral}{'\(\backslash\)t'}\ <<\ y\_plot[j]\ <<\ std::endl;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ file2.close();}
+\DoxyCodeLine{00072\ \ \ \ \ io++;}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+nz}}, \mbox{\hyperlink{simulation_8hpp_source_l00028}{Simulation\+::\+Get\+Reynolds\+Number()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{Structured\+Grid\+::no\+\_\+ghost\+\_\+cell}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00057}{Staggered\+Velocity\+::\+U()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00062}{Staggered\+Velocity\+::\+V()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{Structured\+Grid\+::x\+\_\+pos}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{Structured\+Grid\+::y\+\_\+pos}}.
+

@@ -1,0 +1,23 @@
+\doxysection{random\+\_\+vector.\+hpp}
+\hypertarget{random__vector_8hpp_source}{}\label{random__vector_8hpp_source}\index{tests/validation\_tool/random\_vector.hpp@{tests/validation\_tool/random\_vector.hpp}}
+\mbox{\hyperlink{random__vector_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00003}\mbox{\hyperlink{random__vector_8hpp_acc8e0b75bce186a5b89326ec06f030bc}{00003}}\ std::vector<int>\ \mbox{\hyperlink{random__vector_8hpp_acc8e0b75bce186a5b89326ec06f030bc}{GetRandomVectorInt}}(\textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{int}\ range\_begin\ =\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00004}00004\ \ \ std::vector<int>\ result(size);}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00005}00005\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ x\ :\ result)\ \{}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00006}00006\ \ \ \ \ x\ =\ rand()\ \%\ size\ +\ range\_begin;}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00007}00007\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00008}00008\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00009}00009\ \}}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00011}\mbox{\hyperlink{random__vector_8hpp_adab668efcccb873ca7c1f6e509571955}{00011}}\ std::vector<double>\ \mbox{\hyperlink{random__vector_8hpp_adab668efcccb873ca7c1f6e509571955}{GetRandomVectorDouble}}(\textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{int}\ range\_begin\ =\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00012}00012\ \ \ std::vector<double>\ result(size);}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00013}00013\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ x\ :\ result)\ \{}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00014}00014\ \ \ \ \ x\ =\ rand()\ \%\ size\ +\ range\_begin\ +\ rand()\ /\ size;}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00015}00015\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00016}00016\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{random__vector_8hpp_source_l00017}00017\ \}}
+
+\end{DoxyCode}

@@ -1,30 +1,14 @@
 #pragma once
 #include <algorithm>
-
-#include "../backend/domain.hpp"
-#include "../backend/physical_variables.hpp"
-#include "../backend/print_openmp.hpp"
-#include "../backend/simulation.hpp"
-#include "../boundary_condition/boundary_condition.hpp"
-#include "../boundary_condition/boundary_condition_copy.hpp"
-#include "../dfib/update_u_and_force.hpp"
-#include "../grid/structured_grid.hpp"
-#include "../io/csv/csv_structured_grid.hpp"
-#include "../io/io_tools.hpp"
-#include "../io/plot3d/write_qfile.hpp"
-#include "../io/plot3d/write_xfile.hpp"
-#include "../matrix/solver/mpi/bicgstab_restart_mpi.hpp"
-#include "../mpi_tool/mpi_tool.hpp"
-#include "../pressure/pressure_mat.hpp"
-#include "../source/convection_and_difussion.hpp"
-#include "../matrix/solver/mpi/bicgstab_mpi.hpp"
+#include "matrix/solver/mpi/bicgstab_restart_mpi.hpp"
+#include "mpi_tool/mpi_tool.hpp"
+#include "matrix/solver/mpi/bicgstab_mpi.hpp"
 #include "mpi.h"
-#include "omp.h"
+#include "run/run_cpu.hpp"
 
 // MpiTool(bool &reorder, int argc, char **argv, StructuredGrid &grid,
 //         LocalDomain &domain)
 //     : grid_(&grid), domain_(domain) 
-
     
 namespace projection_method {
   class CpuOpenMpMpi {
@@ -44,7 +28,6 @@ namespace projection_method {
           local_domain_(LocalDomain(grid)),
           global_domain_(LocalDomain(grid)),
           pressure_(Pressure(grid))
-
     {
       vel_.FillVel(simu.ini_condition.u, simu.ini_condition.v, simu.ini_condition.w);
 
@@ -54,6 +37,7 @@ namespace projection_method {
       }
       std::vector<int> grid_size{grid.nx, grid.ny, grid.nz};
       global_domain_.Init({1, 1, 1}, {0, 0, 0});
+      std::cout << mpi::GetRank();
       local_domain_.Init({mpi::GetSize(), 1, 1}, {mpi::GetRank(), 0, 0});
       mpi_tool_.SetDomain(local_domain_);
       simu.pid = mpi_tool_.GetRank();

@@ -1,0 +1,183 @@
+\doxysection{chronograph.\+hpp}
+\hypertarget{chronograph_8hpp_source}{}\label{chronograph_8hpp_source}\index{cfd\_mx/inc/profiling/chronograph.hpp@{cfd\_mx/inc/profiling/chronograph.hpp}}
+\mbox{\hyperlink{chronograph_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00006}\mbox{\hyperlink{chronograph_8hpp_afb186cbc2798fe211a8985789ed011f2}{00006}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{chronograph_8hpp_afb186cbc2798fe211a8985789ed011f2}{get\_Chronograph}}(}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00007}00007\ \ \ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\&\ simu,}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00008}00008\ \ \ \ \ ClockStruct\&\ chron}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00009}00009\ )\{}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00011}00011\ \ \ \ \ std::string\ A;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00012}00012\ \ \ \ \ std::string\ t\ =\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00013}00013\ \ \ \ \ std::string\ n\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00015}00015\ \ \ \ \ chron.beginNew.stop();}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00016}00016\ \ \ \ \ chron.beginMainloop.stop();}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ s\ =\ [\&](\textcolor{keyword}{auto}\ a)\{\ \textcolor{keywordflow}{return}\ std::to\_string(a);\};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ ws\ =\ [\&](\textcolor{keyword}{auto}\ a)\{\ std::ostringstream\ s;\ s\ <<\ a;\ \textcolor{keywordflow}{return}\ s.str();\};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00022}00022\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (simu.loop\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00024}00024\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}MainCount,\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}ALL,\ ,\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}SolvePossionEquation,\ ,\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}\#iters,\ error,\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}Con\ \&\ Dif,\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}T1\ to\ T3,\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}check\ SS\ (L2),\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}T3\ to\ T0,\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}BC,\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}Cd\ \&\ Cl(IO),\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}previousRecodingTimer,\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ A\ +=\ n;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ A\ +=\ \ (\ s(simu.loop)+t);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//MainCount}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ A\ +=\ \ (\ s(chron.beginNew.elapsedTime())+t+t);\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//ALL}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ A\ +=\ \ (\ s(chron.pressure.elapsedTime())+t+t);\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//SolvePossionEquation}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ A\ +=\ \ (\ s(simu.iters)+t);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\#iters\ }}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ A\ +=\ \ (\ ws(simu.error)+t);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//error}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ A\ +=\ \ (\ s(chron.convectionDifussion.elapsedTime())+t);\ \ \ \textcolor{comment}{//convection\_and\_difussion}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ A\ +=\ \ (\ s(chron.updateT1toT3.elapsedTime())+t);\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//update\_UandF\_seq}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ A\ +=\ \ (\ s(chron.checkL2norm.elapsedTime())+t)\ ;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//checkL2norm}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ A\ +=\ \ (\ s(chron.updateT3toT0.elapsedTime())+t);\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//T3toT0}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ A\ +=\ \ (\ s(chron.BC.elapsedTime())+t);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//BC}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (simu.Dfib\_boolT)\ A\ +=\ \ (\ s(chron.getCdCl.elapsedTime())+t);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ A\ +=\ \ (\ s(chron.preIOclock.elapsedTime())+t);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ A\ +=\ \ n;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Time\_file\ <<\ chron.beginMainloop.elapsedTime()<<\ "{},\ "{};\ \ \ \ //Mainloop}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00053}00053\ \ \ \ \ chron.beginNew.stop();}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00054}00054\ \ \ \ \ chron.beginMainloop.stop();}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{return}\ A;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00061}\mbox{\hyperlink{chronograph_8hpp_a485f439dc9344ecf8cf366e3f97d37e2}{00061}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{chronograph_8hpp_a485f439dc9344ecf8cf366e3f97d37e2}{get\_Chronograph\_datString}}(}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\&\ simu,}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00063}00063\ \ \ \ \ ClockStruct\&\ chron}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00064}00064\ )\{}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00066}00066\ \ \ \ \ std::string\ A;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00067}00067\ \ \ \ \ std::string\ t\ =\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00068}00068\ \ \ \ \ std::string\ tab\ =\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00069}00069\ \ \ \ \ std::string\ n\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00070}00070\ \ \ \ \ \textcolor{comment}{//\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/init\ }}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (simu.loop\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00072}00072\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ std::vector<std::string>\ variables;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ variables.reserve(3);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}simulation\ time"{}});}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}Calculation\ time\ (pressure)"{}});}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ variables.push\_back(\textcolor{stringliteral}{"{}\#iters"{}});}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ +=\ \ \textcolor{stringliteral}{"{}TITLE\ \ \ \ \ =\ \(\backslash\)"{}\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}VARIABLES\ =\ \(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ +=\ variables.at(0);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ +=\ variables.at(1);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ +=\ variables.at(2);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}ZONE\ T=\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ +=\ simu.ZONE();}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00090}00090\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/init\ }}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00094}00094\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ s\ =\ [\&](\textcolor{keyword}{auto}\ a)\{\ \textcolor{keywordflow}{return}\ std::to\_string(a);\};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00095}00095\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ ws\ =\ [\&](\textcolor{keyword}{auto}\ a)\{\ std::ostringstream\ s;\ s\ <<\ a;\ \textcolor{keywordflow}{return}\ s.str();\};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00097}00097\ \ \ \ \ A\ +=\ \ (\ ws(simu.getSimuTime())+tab);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//MainCount}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00098}00098\ \ \ \ \ A\ +=\ \ (\ s(chron.pressure.elapsedTime())+tab);\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//SolvePossionEquation}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00099}00099\ \ \ \ \ A\ +=\ \ (\ s(simu.iters)+tab+tab);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//SolvePossionEquation}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00100}00100\ \ \ \ \ A\ +=\ \ n;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{return}\ A;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00103}00103\ \}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00106}\mbox{\hyperlink{chronograph_8hpp_a40f86c52f87e1b20d9b5874e8d1273ba}{00106}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{chronograph_8hpp_a40f86c52f87e1b20d9b5874e8d1273ba}{immediatlyRerecorderTime\_csv}}(}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00107}00107\ \ \ \ \ std::string\ N,}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00108}00108\ \ \ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\&\ simu,}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00109}00109\ \ \ \ \ ClockStruct\&\ chron}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00110}00110\ )\{}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00111}00111\ \ \ \ \ std::ofstream\ Time\_file;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00112}00112\ \ \ \ \ std::string\ fileName\ =\ \textcolor{stringliteral}{"{}Information/Chronograph/"{}}\ +\ N;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00113}00113\ \ \ \ \ fileName\ +=\ std::to\_string(simu.TID);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00114}00114\ \ \ \ \ fileName\ +=\ \textcolor{stringliteral}{"{}.csv"{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00115}00115\ \ \ \ \ Time\_file.open\ (fileName,\ std::ios::out|ios::app);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00116}00116\ \ \ \ \ Time\_file\ <<\ \mbox{\hyperlink{chronograph_8hpp_afb186cbc2798fe211a8985789ed011f2}{get\_Chronograph}}(simu,\ chron);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00117}00117\ \ \ \ \ Time\_file.close();}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00118}00118\ \}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00120}\mbox{\hyperlink{chronograph_8hpp_ab544c7089a3962ea9bb8ee29636404e4}{00120}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{chronograph_8hpp_ab544c7089a3962ea9bb8ee29636404e4}{immediatlyRerecorderTime\_dat}}(}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00121}00121\ \ \ \ \ std::string\ N,}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00122}00122\ \ \ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\&\ simu,}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00123}00123\ \ \ \ \ ClockStruct\&\ chron}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00124}00124\ )\{}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00126}00126\ \ \ \ \ std::ofstream\ Time\_file;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00128}00128\ \ \ \ \ std::string\ fileName\ =\ \textcolor{stringliteral}{"{}Information/Chronograph/"{}}\ +\ N;}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00130}00130\ \ \ \ \ fileName\ +=\ std::to\_string(simu.TID);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00132}00132\ \ \ \ \ fileName\ +=\ \textcolor{stringliteral}{"{}.dat"{}};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00134}00134\ \ \ \ \ Time\_file.open\ (fileName,\ std::ios::out|ios::app);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00136}00136\ \ \ \ \ Time\_file\ <<\ \mbox{\hyperlink{chronograph_8hpp_a485f439dc9344ecf8cf366e3f97d37e2}{get\_Chronograph\_datString}}(simu,\ chron);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00138}00138\ \ \ \ \ Time\_file.close();}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00140}00140\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00141}00141\ \}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00146}\mbox{\hyperlink{chronograph_8hpp_ae458c11654e4b59df7d18a87e5f70538}{00146}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{chronograph_8hpp_ae458c11654e4b59df7d18a87e5f70538}{recordingTime}}(}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00147}00147\ \ \ \ \ ClockStruct\&\ sec\_chronograph,}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00148}00148\ \ \ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\&\ simu}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00149}00149\ )}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00150}00150\ \{}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00152}00152\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined\ (IMMEDIATELY\_RECORDING)}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00154}00154\ \ \ \ \ \mbox{\hyperlink{chronograph_8hpp_a40f86c52f87e1b20d9b5874e8d1273ba}{immediatlyRerecorderTime\_csv}}(\textcolor{stringliteral}{"{}Time\_in\_eachLoop"{}},simu,\ sec\_chronograph);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00155}00155\ \ \ \ \ \mbox{\hyperlink{chronograph_8hpp_ab544c7089a3962ea9bb8ee29636404e4}{immediatlyRerecorderTime\_dat}}(\textcolor{stringliteral}{"{}Time\_in\_eachLoop"{}},simu,\ sec\_chronograph);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{if}\ ((simu.loop)\%100\ ==\ 1)\{}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{chronograph_8hpp_a40f86c52f87e1b20d9b5874e8d1273ba}{immediatlyRerecorderTime\_csv}}(\textcolor{stringliteral}{"{}Time\_in\_100Loop"{}},simu,\ sec\_chronograph);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{chronograph_8hpp_ab544c7089a3962ea9bb8ee29636404e4}{immediatlyRerecorderTime\_dat}}(\textcolor{stringliteral}{"{}Time\_in\_100Loop"{}},simu,\ sec\_chronograph);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00160}00160\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00162}00162\ \ \ \ \ \textcolor{keywordflow}{if}\ ((simu.loop)\%1000\ ==\ 1)\{}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{chronograph_8hpp_a40f86c52f87e1b20d9b5874e8d1273ba}{immediatlyRerecorderTime\_csv}}(\textcolor{stringliteral}{"{}Time\_in\_1000Loop"{}},simu,\ sec\_chronograph);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{chronograph_8hpp_ab544c7089a3962ea9bb8ee29636404e4}{immediatlyRerecorderTime\_dat}}(\textcolor{stringliteral}{"{}Time\_in\_1000Loop"{}},simu,\ sec\_chronograph);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00165}00165\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00167}00167\ \ \ \ \ \textcolor{keywordflow}{if}\ ((simu.loop)\%10000\ ==\ 1)\{}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{chronograph_8hpp_a40f86c52f87e1b20d9b5874e8d1273ba}{immediatlyRerecorderTime\_csv}}(\textcolor{stringliteral}{"{}Time\_in\_10000Loop"{}},simu,\ sec\_chronograph);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{chronograph_8hpp_ab544c7089a3962ea9bb8ee29636404e4}{immediatlyRerecorderTime\_dat}}(\textcolor{stringliteral}{"{}Time\_in\_10000Loop"{}},simu,\ sec\_chronograph);}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00170}00170\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00172}00172\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00175}00175\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{chronograph_8hpp_source_l00177}00177\ \}}
+
+\end{DoxyCode}

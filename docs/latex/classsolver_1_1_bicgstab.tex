@@ -1,0 +1,248 @@
+\doxysection{solver\+::Bicgstab\texorpdfstring{$<$}{<} Mat\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classsolver_1_1_bicgstab}{}\label{classsolver_1_1_bicgstab}\index{solver::Bicgstab$<$ MatType $>$@{solver::Bicgstab$<$ MatType $>$}}
+
+
+{\ttfamily \#include $<$bicgstab.\+hpp$>$}
+
+Inheritance diagram for solver\+::Bicgstab\texorpdfstring{$<$}{<} Mat\+Type \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsolver_1_1_bicgstab}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsolver_1_1_bicgstab_a58a366984e990c778f86958312ce4f5b}{Bicgstab}} ()
+\item 
+\mbox{\hyperlink{classsolver_1_1_bicgstab_aa6c3f3ff88f2ff916e18480d14a43dd1}{Bicgstab}} (\mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} \&lhs\+\_\+mat)
+\item 
+virtual \mbox{\hyperlink{classsolver_1_1_bicgstab_a920bf587703a7e5c720bd98631e79df0}{\texorpdfstring{$\sim$}{\string~}\+Bicgstab}} ()
+\item 
+void \mbox{\hyperlink{classsolver_1_1_bicgstab_a108ebb86bdd220f7acb790e2389ac7af}{Init}} (const \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} \&lhs\+\_\+mat)
+\item 
+std\+::tuple$<$ int, double $>$ \mbox{\hyperlink{classsolver_1_1_bicgstab_aedc3f56775bc40aa5f035addd2058c16}{solve}} (const std\+::vector$<$ double $>$ \&rhs, std\+::vector$<$ double $>$ \&x) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver$<$ Mat\+Type $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsolver_1_1_linear_solver_aaf7a0ba705302fc8dc9c2795024fe008}{Linear\+Solver}} ()
+\item 
+\mbox{\hyperlink{classsolver_1_1_linear_solver_ae6b162c2e6a567fc0b72cfef9230c4b5}{Linear\+Solver}} (\mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} \&lhs\+\_\+mat)
+\item 
+virtual \mbox{\hyperlink{classsolver_1_1_linear_solver_a93d4eafccfb65d56255e7c000b9aaa81}{\texorpdfstring{$\sim$}{\string~}\+Linear\+Solver}} ()
+\item 
+void \mbox{\hyperlink{classsolver_1_1_linear_solver_a06cad797874373694b16809a61887b26}{construct}} (const \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} \&lhs\+\_\+mat)
+\item 
+virtual void \mbox{\hyperlink{classsolver_1_1_linear_solver_aa775a3b06c65eedc5618bf75be98c134}{Set\+Tolerance}} (double tolerance)
+\item 
+void \mbox{\hyperlink{classsolver_1_1_linear_solver_af8b281cce1dc38306916519629b12c97}{Set\+Max\+Iters}} (int niters)
+\item 
+std\+::tuple$<$ int, double $>$ \mbox{\hyperlink{classsolver_1_1_linear_solver_a801c5d38d430bb268385b0f8032adf18}{operator()}} (const std\+::vector$<$ double $>$ \&rhs, std\+::vector$<$ double $>$ \&x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver$<$ Mat\+Type $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classsolver_1_1_linear_solver_a551bf5c4443b636637c342a693937263}{Inner\+Product}} (const std\+::vector$<$ double $>$ \&rhs, const std\+::vector$<$ double $>$ \&x)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classsolver_1_1_linear_solver}{solver\+::\+Linear\+Solver$<$ Mat\+Type $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} \mbox{\hyperlink{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce}{lhs\+\_\+mat\+\_\+}}
+\item 
+double \mbox{\hyperlink{classsolver_1_1_linear_solver_a42c60219796ef9676d5c71f11f39fcc5}{tolerance\+\_\+}}
+\item 
+int \mbox{\hyperlink{classsolver_1_1_linear_solver_a653bc47bc35768ba93e2840762913f98}{iters\+\_\+max\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}}$>$\newline
+class solver\+::\+Bicgstab$<$ Mat\+Type $>$}
+
+
+Definition at line \mbox{\hyperlink{bicgstab_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{bicgstab_8hpp_source}{bicgstab.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classsolver_1_1_bicgstab_a58a366984e990c778f86958312ce4f5b}\label{classsolver_1_1_bicgstab_a58a366984e990c778f86958312ce4f5b} 
+\index{solver::Bicgstab$<$ MatType $>$@{solver::Bicgstab$<$ MatType $>$}!Bicgstab@{Bicgstab}}
+\index{Bicgstab@{Bicgstab}!solver::Bicgstab$<$ MatType $>$@{solver::Bicgstab$<$ MatType $>$}}
+\doxysubsubsection{\texorpdfstring{Bicgstab()}{Bicgstab()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} $>$ \\
+\mbox{\hyperlink{classsolver_1_1_bicgstab}{solver\+::\+Bicgstab}}$<$ \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} $>$\+::\+Bicgstab (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{bicgstab_8hpp_source}{bicgstab.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{classsolver_1_1_bicgstab_aa6c3f3ff88f2ff916e18480d14a43dd1}\label{classsolver_1_1_bicgstab_aa6c3f3ff88f2ff916e18480d14a43dd1} 
+\index{solver::Bicgstab$<$ MatType $>$@{solver::Bicgstab$<$ MatType $>$}!Bicgstab@{Bicgstab}}
+\index{Bicgstab@{Bicgstab}!solver::Bicgstab$<$ MatType $>$@{solver::Bicgstab$<$ MatType $>$}}
+\doxysubsubsection{\texorpdfstring{Bicgstab()}{Bicgstab()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} $>$ \\
+\mbox{\hyperlink{classsolver_1_1_bicgstab}{solver\+::\+Bicgstab}}$<$ \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} $>$\+::\+Bicgstab (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} \&}]{lhs\+\_\+mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{bicgstab_8hpp_source}{bicgstab.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ :\ LinearSolver<MatType>(lhs\_mat)\ \{\ \mbox{\hyperlink{classsolver_1_1_bicgstab_a108ebb86bdd220f7acb790e2389ac7af}{Init}}(lhs\_mat);\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bicgstab_8hpp_source_l00021}{solver\+::\+Bicgstab$<$ Mat\+Type $>$\+::\+Init()}}.
+
+\Hypertarget{classsolver_1_1_bicgstab_a920bf587703a7e5c720bd98631e79df0}\label{classsolver_1_1_bicgstab_a920bf587703a7e5c720bd98631e79df0} 
+\index{solver::Bicgstab$<$ MatType $>$@{solver::Bicgstab$<$ MatType $>$}!````~Bicgstab@{\texorpdfstring{$\sim$}{\string~}Bicgstab}}
+\index{````~Bicgstab@{\texorpdfstring{$\sim$}{\string~}Bicgstab}!solver::Bicgstab$<$ MatType $>$@{solver::Bicgstab$<$ MatType $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Bicgstab()}{\string~Bicgstab()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} $>$ \\
+virtual \mbox{\hyperlink{classsolver_1_1_bicgstab}{solver\+::\+Bicgstab}}$<$ \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classsolver_1_1_bicgstab}{Bicgstab}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{bicgstab_8hpp_source}{bicgstab.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsolver_1_1_bicgstab_a108ebb86bdd220f7acb790e2389ac7af}\label{classsolver_1_1_bicgstab_a108ebb86bdd220f7acb790e2389ac7af} 
+\index{solver::Bicgstab$<$ MatType $>$@{solver::Bicgstab$<$ MatType $>$}!Init@{Init}}
+\index{Init@{Init}!solver::Bicgstab$<$ MatType $>$@{solver::Bicgstab$<$ MatType $>$}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} $>$ \\
+void \mbox{\hyperlink{classsolver_1_1_bicgstab}{solver\+::\+Bicgstab}}$<$ \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} $>$\+::\+Init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} \&}]{lhs\+\_\+mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{bicgstab_8hpp_source}{bicgstab.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ this-\/>\mbox{\hyperlink{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce}{lhs\_mat\_}}\ =\ lhs\_mat;}
+\DoxyCodeLine{00023\ \ \ \ \ length\_\ =\ lhs\_mat.row();}
+\DoxyCodeLine{00024\ \ \ \ \ p\_.resize(length\_);}
+\DoxyCodeLine{00025\ \ \ \ \ r\_.resize(length\_);}
+\DoxyCodeLine{00026\ \ \ \ \ r2\_.resize(length\_);}
+\DoxyCodeLine{00027\ \ \ \ \ v\_.resize(length\_);}
+\DoxyCodeLine{00028\ \ \ \ \ ss\_.resize(length\_);}
+\DoxyCodeLine{00029\ \ \ \ \ t\_.resize(length\_);}
+\DoxyCodeLine{00030\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{linear__solver_8hpp_source_l00037}{solver\+::\+Linear\+Solver$<$ Mat\+Type $>$\+::lhs\+\_\+mat\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{bicgstab_8hpp_source_l00017}{solver\+::\+Bicgstab$<$ Mat\+Type $>$\+::\+Bicgstab()}}.
+
+\Hypertarget{classsolver_1_1_bicgstab_aedc3f56775bc40aa5f035addd2058c16}\label{classsolver_1_1_bicgstab_aedc3f56775bc40aa5f035addd2058c16} 
+\index{solver::Bicgstab$<$ MatType $>$@{solver::Bicgstab$<$ MatType $>$}!solve@{solve}}
+\index{solve@{solve}!solver::Bicgstab$<$ MatType $>$@{solver::Bicgstab$<$ MatType $>$}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} $>$ \\
+std\+::tuple$<$ int, double $>$ \mbox{\hyperlink{classsolver_1_1_bicgstab}{solver\+::\+Bicgstab}}$<$ \mbox{\hyperlink{pressure__mat_8hpp_a904dde7bcbc7c69f3529ba901eaff3c6}{Mat\+Type}} $>$\+::solve (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{rhs,  }\item[{std\+::vector$<$ double $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classsolver_1_1_linear_solver_afe2952917021d439028b569f2ce5398e}{solver\+::\+Linear\+Solver$<$ Mat\+Type $>$}}.
+
+
+
+Definition at line \mbox{\hyperlink{bicgstab_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{bicgstab_8hpp_source}{bicgstab.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ iters\{0\};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{double}\ norm\{0\};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ norm\_rhs\ =\ \mbox{\hyperlink{namespacemath_ad06f5b10b7545f42cbc6340a8e841709}{math::L2Norm}}(rhs);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ this-\/>\mbox{\hyperlink{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce}{lhs\_mat\_}}.Multiply(x,\ p\_);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ length\_;\ ++i)\ r\_[i]\ =\ rhs[i]\ -\/\ p\_[i];}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ length\_;\ ++i)\ r2\_[i]\ =\ r\_[i];}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ rho1\_\ =\ 1;}
+\DoxyCodeLine{00047\ \ \ \ \ alpha\_\ =\ 1;}
+\DoxyCodeLine{00048\ \ \ \ \ omega\_\ =\ 1;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ length\_;\ ++i)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ v\_[i]\ =\ 0.0;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ length\_;\ ++i)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ p\_[i]\ =\ 0.0;}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ norm\ =\ \mbox{\hyperlink{namespacemath_ad06f5b10b7545f42cbc6340a8e841709}{math::L2Norm}}(r\_)\ /\ norm\_rhs;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ iters\ =\ 0;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{while}\ (norm\ >\ this-\/>\mbox{\hyperlink{classsolver_1_1_linear_solver_a42c60219796ef9676d5c71f11f39fcc5}{tolerance\_}}\ \&\&\ iters\ <\ this-\/>\mbox{\hyperlink{classsolver_1_1_linear_solver_a653bc47bc35768ba93e2840762913f98}{iters\_max\_}})\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ ++iters;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ rho2\_\ =\ \ \mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{math::InnerProduct}}(r2\_,\ r\_);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ beta\_\ =\ (rho2\_\ /\ rho1\_)\ *\ (alpha\_\ /\ omega\_);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ length\_;\ ++i)}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ p\_[i]\ =\ r\_[i]\ +\ beta\_\ *\ (p\_[i]\ -\/\ omega\_\ *\ v\_[i]);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce}{lhs\_mat\_}}.Multiply(p\_,\ v\_);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ alpha\_\ =\ rho2\_\ /\ \mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{math::InnerProduct}}(r2\_,\ v\_);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ length\_;\ ++i)\ ss\_[i]\ =\ r\_[i]\ -\/\ alpha\_\ *\ v\_[i];}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classsolver_1_1_linear_solver_abd9f2b7267dd4150a8877555911b4cce}{lhs\_mat\_}}.Multiply(ss\_,\ t\_);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ omega\_\ =\ \ \mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{math::InnerProduct}}(t\_,\ ss\_)\ /\ \ \mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{math::InnerProduct}}(t\_,\ t\_);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ length\_;\ ++i)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ x[i]\ +=\ alpha\_\ *\ p\_[i]\ +\ omega\_\ *\ ss\_[i];}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ length\_;\ ++i)\ r\_[i]\ =\ ss\_[i]\ -\/\ omega\_\ *\ t\_[i];}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ rho1\_\ =\ rho2\_;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ norm\ =\ 0;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ norm\ =\ \ \mbox{\hyperlink{namespacemath_a39e84d12b2999ed9620ae1f9c26aae4e}{math::InnerProduct}}(r\_,\ r\_);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ norm\ =\ sqrt(norm)\ /\ norm\_rhs;}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(iters,\ norm);}
+\DoxyCodeLine{00095\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{math_8hpp_source_l00036}{math\+::\+Inner\+Product()}}, \mbox{\hyperlink{linear__solver_8hpp_source_l00039}{solver\+::\+Linear\+Solver$<$ Mat\+Type $>$\+::iters\+\_\+max\+\_\+}}, \mbox{\hyperlink{math_8hpp_source_l00053}{math\+::\+L2\+Norm()}}, \mbox{\hyperlink{linear__solver_8hpp_source_l00037}{solver\+::\+Linear\+Solver$<$ Mat\+Type $>$\+::lhs\+\_\+mat\+\_\+}}, and \mbox{\hyperlink{linear__solver_8hpp_source_l00038}{solver\+::\+Linear\+Solver$<$ Mat\+Type $>$\+::tolerance\+\_\+}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/matrix/solver/\mbox{\hyperlink{bicgstab_8hpp}{bicgstab.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,77 @@
+\doxysection{plot3d Namespace Reference}
+\hypertarget{namespaceplot3d}{}\label{namespaceplot3d}\index{plot3d@{plot3d}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{namespaceplot3d_a5084844e3ccf67c87859d8f85bc43c29}{write\+\_\+xfile}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceplot3d_a5084844e3ccf67c87859d8f85bc43c29}\label{namespaceplot3d_a5084844e3ccf67c87859d8f85bc43c29} 
+\index{plot3d@{plot3d}!write\_xfile@{write\_xfile}}
+\index{write\_xfile@{write\_xfile}!plot3d@{plot3d}}
+\doxysubsubsection{\texorpdfstring{write\_xfile()}{write\_xfile()}}
+{\footnotesize\ttfamily auto plot3d\+::write\+\_\+xfile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{write__xfile_8hpp_source_l00005}{5}} of file \mbox{\hyperlink{write__xfile_8hpp_source}{write\+\_\+xfile.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00006\ \ \ \ std::vector<std::vector<std::vector<float>\ >\ >\ x\_out(}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}},\ std::vector<std::vector<float>\ >(grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}},\ std::vector<float>(grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}})));}
+\DoxyCodeLine{00008\ \ \ std::vector<std::vector<std::vector<float>\ >\ >\ y\_out(}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}},\ std::vector<std::vector<float>\ >(grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}},\ std::vector<float>(grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}})));}
+\DoxyCodeLine{00010\ \ \ std::vector<std::vector<std::vector<float>\ >\ >\ z\_out(}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}},\ std::vector<std::vector<float>\ >(grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}},\ std::vector<float>(grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}})));}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{int}\ Nblock\ =\ 1,\ tempNX\ =\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}},\ tempNY\ =\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}},\ tempNZ\ =\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}};\ ++i)}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ \ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}};\ ++j)}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ \ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}};\ ++k)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ x\_out[i][j][k]\ =\ grid.\mbox{\hyperlink{class_structured_grid_a979f3af643473bf4276b54f80c94c4c0}{x\_cent\_pos}}.at(i);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ y\_out[i][j][k]\ =\ grid.\mbox{\hyperlink{class_structured_grid_aded2510763ccc9ca518132960c4b201e}{y\_cent\_pos}}.at(j);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ z\_out[i][j][k]\ =\ grid.\mbox{\hyperlink{class_structured_grid_ac73ad4634948af8e38c050642d7f6bfe}{z\_cent\_pos}}.at(k);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ FILE*\ fptr;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ fptr\ =\ fopen(\textcolor{stringliteral}{"{}mx\_out/P3D.x"{}},\ \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ fwrite(\&Nblock,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ fptr);}
+\DoxyCodeLine{00028\ \ \ fwrite(\&tempNX,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ fptr);}
+\DoxyCodeLine{00029\ \ \ fwrite(\&tempNY,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ fptr);}
+\DoxyCodeLine{00030\ \ \ fwrite(\&tempNZ,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ fptr);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}};\ ++k)}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}};\ ++j)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}};\ ++i)}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ fwrite(\&x\_out[i][j][k],\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ 1,\ fptr);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}};\ ++k)}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}};\ ++j)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}};\ ++i)}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ fwrite(\&y\_out[i][j][k],\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ 1,\ fptr);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}};\ ++k)}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}};\ ++j)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}};\ ++i)}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ fwrite(\&z\_out[i][j][k],\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ 1,\ fptr);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ fclose(fptr);}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+nz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{Structured\+Grid\+::x\+\_\+cent\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{Structured\+Grid\+::y\+\_\+cent\+\_\+pos}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{Structured\+Grid\+::z\+\_\+cent\+\_\+pos}}.
+
+
+
+Referenced by \mbox{\hyperlink{run__cpu_8hpp_source_l00029}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::\+Cpu\+Open\+Mp()}}, and \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}.
+

@@ -1,0 +1,230 @@
+\doxysection{projection\+\_\+method\+::Cpu\+Open\+Mp\+Mpi Class Reference}
+\hypertarget{classprojection__method_1_1_cpu_open_mp_mpi}{}\label{classprojection__method_1_1_cpu_open_mp_mpi}\index{projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}}
+
+
+{\ttfamily \#include $<$test\+\_\+run\+\_\+mpi.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp_mpi_a6f337bd0a2756dbe8c4fc0a339373f00}{\texorpdfstring{$\sim$}{\string~}\+Cpu\+Open\+Mp\+Mpi}} ()
+\item 
+\mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp_mpi_a087c54ab724c7b22183738b72c6c9728}{Cpu\+Open\+Mp\+Mpi}} (\mbox{\hyperlink{class_simulation}{Simulation}} \&simu, \mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\item 
+void \mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp_mpi_a9886e8f2c6835f3dfc9e0957ef9aea89}{solve}} ()
+\item 
+\mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp_mpi_a6f337bd0a2756dbe8c4fc0a339373f00}{\texorpdfstring{$\sim$}{\string~}\+Cpu\+Open\+Mp\+Mpi}} ()
+\item 
+\mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp_mpi_a087c54ab724c7b22183738b72c6c9728}{Cpu\+Open\+Mp\+Mpi}} (\mbox{\hyperlink{class_simulation}{Simulation}} \&simu, \mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\item 
+void \mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp_mpi_a9886e8f2c6835f3dfc9e0957ef9aea89}{solve}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{test__run__mpi_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{test__run__mpi_8hpp_source}{test\+\_\+run\+\_\+mpi.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classprojection__method_1_1_cpu_open_mp_mpi_a6f337bd0a2756dbe8c4fc0a339373f00}\label{classprojection__method_1_1_cpu_open_mp_mpi_a6f337bd0a2756dbe8c4fc0a339373f00} 
+\index{projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}!````~CpuOpenMpMpi@{\texorpdfstring{$\sim$}{\string~}CpuOpenMpMpi}}
+\index{````~CpuOpenMpMpi@{\texorpdfstring{$\sim$}{\string~}CpuOpenMpMpi}!projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CpuOpenMpMpi()}{\string~CpuOpenMpMpi()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\texorpdfstring{$\sim$}{\string~}\+Cpu\+Open\+Mp\+Mpi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{test__run__mpi_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{test__run__mpi_8hpp_source}{test\+\_\+run\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \{\ MPI\_Finalize();\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classprojection__method_1_1_cpu_open_mp_mpi_a087c54ab724c7b22183738b72c6c9728}\label{classprojection__method_1_1_cpu_open_mp_mpi_a087c54ab724c7b22183738b72c6c9728} 
+\index{projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}!CpuOpenMpMpi@{CpuOpenMpMpi}}
+\index{CpuOpenMpMpi@{CpuOpenMpMpi}!projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}}
+\doxysubsubsection{\texorpdfstring{CpuOpenMpMpi()}{CpuOpenMpMpi()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_simulation}{Simulation}} \&}]{simu,  }\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{test__run__mpi_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{test__run__mpi_8hpp_source}{test\+\_\+run\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ :\ simu\_(simu),}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ grid\_(\&grid),}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ vel\_(\mbox{\hyperlink{class_staggered_velocity}{StaggeredVelocity}}(grid)),}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ intermediate\_vel\_(\mbox{\hyperlink{class_staggered_velocity}{StaggeredVelocity}}(grid)),}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ mpi\_tool\_(\mbox{\hyperlink{classmpi_1_1_mpi_tool}{mpi::MpiTool}}(simu.\mbox{\hyperlink{class_simulation_a930b1b90dc8168669d3abb06832c4359}{GetArgc}}(),\ simu.\mbox{\hyperlink{class_simulation_a895f5e9cab430c1abe916c60afb33a46}{GetArgv}}(),\ grid)),}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ dfib\_(\mbox{\hyperlink{class_immersed_boundary}{ImmersedBoundary}}(grid)),}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ pressure\_mat\_(\mbox{\hyperlink{class_pressure_mat}{PressureMat}}(grid)),}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ local\_domain\_(\mbox{\hyperlink{class_local_domain}{LocalDomain}}(grid)),}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ global\_domain\_(\mbox{\hyperlink{class_local_domain}{LocalDomain}}(grid)),}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ pressure\_(\mbox{\hyperlink{class_pressure}{Pressure}}(grid))}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ vel\_.\mbox{\hyperlink{class_staggered_velocity_acd6d6687719729dd2471c7d38a491390}{FillVel}}(simu.\mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a7ecad27c8788de75fba00054344e1e51}{u}},\ simu.\mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a3757cb75d17cce3d01639636b4013f22}{v}},\ simu.\mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a78f3159a0ffda76ddf14ff853c44f0db}{w}});}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a3651f59eea5d673ef5cf4a687e303e78}{IsMaster}}())\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{io__tools_8hpp_ad260b2e85f87a72132c2334fd68658e4}{CreatOutputFile}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{print__openmp_8hpp_aa709c56e270fdd66da7b460d3d5458d7}{PrintIsOpenmpExist}}();}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ std::vector<int>\ grid\_size\{grid.\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}},\ grid.\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}},\ grid.\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ global\_domain\_.\mbox{\hyperlink{class_local_domain_ac68412c580480687954bf288211e8738}{Init}}(\{1,\ 1,\ 1\},\ \{0,\ 0,\ 0\});}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{namespacempi_ad5b31e1d84855c1a0d7bff0de7cd1cfb}{mpi::GetRank}}();}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ local\_domain\_.\mbox{\hyperlink{class_local_domain_ac68412c580480687954bf288211e8738}{Init}}(\{\mbox{\hyperlink{namespacempi_ab978162719907ffc69169c4b38025dce}{mpi::GetSize}}(),\ 1,\ 1\},\ \{\mbox{\hyperlink{namespacempi_ad5b31e1d84855c1a0d7bff0de7cd1cfb}{mpi::GetRank}}(),\ 0,\ 0\});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a8467369c8478cb4d0c6ea1c524746a68}{SetDomain}}(local\_domain\_);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ simu.\mbox{\hyperlink{class_simulation_a552d65e44cc0fc9c112f79f7cfe748a4}{pid}}\ =\ mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a1c8e38dc380b4ffcc0f17b478902f137}{GetRank}}();}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a3651f59eea5d673ef5cf4a687e303e78}{IsMaster}}())\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecsv_aa8b109dc693978cff7ee9f7bfae4f98d}{csv::WriteCsvFile}}(\textcolor{stringliteral}{"{}Information/grid.csv"{}},\ *grid\_);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceplot3d_a5084844e3ccf67c87859d8f85bc43c29}{plot3d::write\_xfile}}(grid);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \mbox{\hyperlink{boundary__condition_8hpp_aa5b54cd41544feeb005677e51641e66b}{UpdateAllVelocityOnBoundary}}(global\_domain\_,\ vel\_,\ pressure\_,\ grid);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \mbox{\hyperlink{boundary__condition__copy_8hpp_a66f2fed185f0de1d4e9de64db282f4fb}{CopyVelocityOnBoundary}}(global\_domain\_,\ vel\_,\ intermediate\_vel\_,\ grid);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [start,\ end]\ =\ local\_domain\_.\mbox{\hyperlink{class_local_domain_a674dcc8241efdc13a1db5af7d1d63914}{GetOneDimStartEnd}}();}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ pressure\_mat\_.\mbox{\hyperlink{class_pressure_mat_afe19e3c5c58a1e4b905d719e232b1e8b}{mat\_a}}.InitMpi(mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a32ac2770097984c242c888ed06d3da8f}{GetCommWorld}}(),\ start,\ end);}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{io__tools_8hpp_source_l00006}{Creat\+Output\+File()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00098}{Staggered\+Velocity\+::\+Fill\+Vel()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00166}{mpi\+::\+Mpi\+Tool\+::\+Get\+Comm\+World()}}, \mbox{\hyperlink{domain_8cpp_source_l00035}{Local\+Domain\+::\+Get\+One\+Dim\+Start\+End()}}, \mbox{\hyperlink{mpi__getter_8hpp_source_l00011}{mpi\+::\+Get\+Rank()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00030}{mpi\+::\+Mpi\+Tool\+::\+Get\+Rank()}}, \mbox{\hyperlink{mpi__getter_8hpp_source_l00017}{mpi\+::\+Get\+Size()}}, \mbox{\hyperlink{simulation_8hpp_source_l00053}{Simulation\+::ini\+\_\+condition}}, \mbox{\hyperlink{domain_8cpp_source_l00021}{Local\+Domain\+::\+Init()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00164}{mpi\+::\+Mpi\+Tool\+::\+Is\+Master()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00016}{Pressure\+Mat\+::mat\+\_\+a}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00064}{Structured\+Grid\+::nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00065}{Structured\+Grid\+::ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00066}{Structured\+Grid\+::nz}}, \mbox{\hyperlink{simulation_8hpp_source_l00020}{Simulation\+::pid}}, \mbox{\hyperlink{print__openmp_8hpp_source_l00004}{Print\+Is\+Openmp\+Exist()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00024}{mpi\+::\+Mpi\+Tool\+::\+Set\+Domain()}}, \mbox{\hyperlink{simulation_8hpp_source_l00011}{Ini\+Condition\+::u}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{simulation_8hpp_source_l00012}{Ini\+Condition\+::v}}, \mbox{\hyperlink{simulation_8hpp_source_l00013}{Ini\+Condition\+::w}}, \mbox{\hyperlink{write__xfile_8hpp_source_l00005}{plot3d\+::write\+\_\+xfile()}}, and \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}.
+
+\Hypertarget{classprojection__method_1_1_cpu_open_mp_mpi_a6f337bd0a2756dbe8c4fc0a339373f00}\label{classprojection__method_1_1_cpu_open_mp_mpi_a6f337bd0a2756dbe8c4fc0a339373f00} 
+\index{projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}!````~CpuOpenMpMpi@{\texorpdfstring{$\sim$}{\string~}CpuOpenMpMpi}}
+\index{````~CpuOpenMpMpi@{\texorpdfstring{$\sim$}{\string~}CpuOpenMpMpi}!projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CpuOpenMpMpi()}{\string~CpuOpenMpMpi()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\texorpdfstring{$\sim$}{\string~}\+Cpu\+Open\+Mp\+Mpi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{run__cpu__mpi_8hpp_source}{run\+\_\+cpu\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{\ MPI\_Finalize();\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classprojection__method_1_1_cpu_open_mp_mpi_a087c54ab724c7b22183738b72c6c9728}\label{classprojection__method_1_1_cpu_open_mp_mpi_a087c54ab724c7b22183738b72c6c9728} 
+\index{projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}!CpuOpenMpMpi@{CpuOpenMpMpi}}
+\index{CpuOpenMpMpi@{CpuOpenMpMpi}!projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}}
+\doxysubsubsection{\texorpdfstring{CpuOpenMpMpi()}{CpuOpenMpMpi()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_simulation}{Simulation}} \&}]{simu,  }\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{run__cpu__mpi_8hpp_source}{run\+\_\+cpu\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ :\ simu\_(simu),}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ grid\_(\&grid),}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ vel\_(\mbox{\hyperlink{class_staggered_velocity}{StaggeredVelocity}}(grid)),}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ intermediate\_vel\_(\mbox{\hyperlink{class_staggered_velocity}{StaggeredVelocity}}(grid)),}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ mpi\_tool\_(\mbox{\hyperlink{classmpi_1_1_mpi_tool}{mpi::MpiTool}}(simu.\mbox{\hyperlink{class_simulation_a930b1b90dc8168669d3abb06832c4359}{GetArgc}}(),\ simu.\mbox{\hyperlink{class_simulation_a895f5e9cab430c1abe916c60afb33a46}{GetArgv}}(),\ grid)),}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ dfib\_(\mbox{\hyperlink{class_immersed_boundary}{ImmersedBoundary}}(grid)),}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ pressure\_mat\_(\mbox{\hyperlink{class_pressure_mat}{PressureMat}}(grid)),}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ local\_domain\_(\mbox{\hyperlink{class_local_domain}{LocalDomain}}(grid)),}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ global\_domain\_(\mbox{\hyperlink{class_local_domain}{LocalDomain}}(grid)),}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ pressure\_(\mbox{\hyperlink{class_pressure}{Pressure}}(grid))}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ vel\_.\mbox{\hyperlink{class_staggered_velocity_acd6d6687719729dd2471c7d38a491390}{FillVel}}(simu.\mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a7ecad27c8788de75fba00054344e1e51}{u}},\ simu.\mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a3757cb75d17cce3d01639636b4013f22}{v}},\ simu.\mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a78f3159a0ffda76ddf14ff853c44f0db}{w}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a3651f59eea5d673ef5cf4a687e303e78}{IsMaster}}())\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{io__tools_8hpp_ad260b2e85f87a72132c2334fd68658e4}{CreatOutputFile}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{print__openmp_8hpp_aa709c56e270fdd66da7b460d3d5458d7}{PrintIsOpenmpExist}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ std::vector<int>\ grid\_size\{grid.\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}},\ grid.\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}},\ grid.\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}}\};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ global\_domain\_.\mbox{\hyperlink{class_local_domain_ac68412c580480687954bf288211e8738}{Init}}(\{1,\ 1,\ 1\},\ \{0,\ 0,\ 0\});}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{namespacempi_ad5b31e1d84855c1a0d7bff0de7cd1cfb}{mpi::GetRank}}();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ local\_domain\_.\mbox{\hyperlink{class_local_domain_ac68412c580480687954bf288211e8738}{Init}}(\{\mbox{\hyperlink{namespacempi_ab978162719907ffc69169c4b38025dce}{mpi::GetSize}}(),\ 1,\ 1\},\ \{\mbox{\hyperlink{namespacempi_ad5b31e1d84855c1a0d7bff0de7cd1cfb}{mpi::GetRank}}(),\ 0,\ 0\});}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a8467369c8478cb4d0c6ea1c524746a68}{SetDomain}}(local\_domain\_);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ simu.\mbox{\hyperlink{class_simulation_a552d65e44cc0fc9c112f79f7cfe748a4}{pid}}\ =\ mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a1c8e38dc380b4ffcc0f17b478902f137}{GetRank}}();}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a3651f59eea5d673ef5cf4a687e303e78}{IsMaster}}())\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecsv_aa8b109dc693978cff7ee9f7bfae4f98d}{csv::WriteCsvFile}}(\textcolor{stringliteral}{"{}Information/grid.csv"{}},\ *grid\_);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceplot3d_a5084844e3ccf67c87859d8f85bc43c29}{plot3d::write\_xfile}}(grid);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \mbox{\hyperlink{boundary__condition_8hpp_aa5b54cd41544feeb005677e51641e66b}{UpdateAllVelocityOnBoundary}}(global\_domain\_,\ vel\_,\ pressure\_,\ grid);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \mbox{\hyperlink{boundary__condition__copy_8hpp_a66f2fed185f0de1d4e9de64db282f4fb}{CopyVelocityOnBoundary}}(global\_domain\_,\ vel\_,\ intermediate\_vel\_,\ grid);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [start,\ end]\ =\ local\_domain\_.\mbox{\hyperlink{class_local_domain_a674dcc8241efdc13a1db5af7d1d63914}{GetOneDimStartEnd}}();}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ pressure\_mat\_.\mbox{\hyperlink{class_pressure_mat_afe19e3c5c58a1e4b905d719e232b1e8b}{mat\_a}}.InitMpi(mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a32ac2770097984c242c888ed06d3da8f}{GetCommWorld}}(),\ start,\ end);}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{boundary__condition__copy_8hpp_source_l00004}{Copy\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{io__tools_8hpp_source_l00006}{Creat\+Output\+File()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00098}{Staggered\+Velocity\+::\+Fill\+Vel()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00166}{mpi\+::\+Mpi\+Tool\+::\+Get\+Comm\+World()}}, \mbox{\hyperlink{domain_8cpp_source_l00035}{Local\+Domain\+::\+Get\+One\+Dim\+Start\+End()}}, \mbox{\hyperlink{mpi__getter_8hpp_source_l00011}{mpi\+::\+Get\+Rank()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00030}{mpi\+::\+Mpi\+Tool\+::\+Get\+Rank()}}, \mbox{\hyperlink{mpi__getter_8hpp_source_l00017}{mpi\+::\+Get\+Size()}}, \mbox{\hyperlink{simulation_8hpp_source_l00053}{Simulation\+::ini\+\_\+condition}}, \mbox{\hyperlink{domain_8cpp_source_l00021}{Local\+Domain\+::\+Init()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00164}{mpi\+::\+Mpi\+Tool\+::\+Is\+Master()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00016}{Pressure\+Mat\+::mat\+\_\+a}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00064}{Structured\+Grid\+::nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00065}{Structured\+Grid\+::ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00066}{Structured\+Grid\+::nz}}, \mbox{\hyperlink{simulation_8hpp_source_l00020}{Simulation\+::pid}}, \mbox{\hyperlink{print__openmp_8hpp_source_l00004}{Print\+Is\+Openmp\+Exist()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00024}{mpi\+::\+Mpi\+Tool\+::\+Set\+Domain()}}, \mbox{\hyperlink{simulation_8hpp_source_l00011}{Ini\+Condition\+::u}}, \mbox{\hyperlink{boundary__condition_8hpp_source_l00009}{Update\+All\+Velocity\+On\+Boundary()}}, \mbox{\hyperlink{simulation_8hpp_source_l00012}{Ini\+Condition\+::v}}, \mbox{\hyperlink{simulation_8hpp_source_l00013}{Ini\+Condition\+::w}}, \mbox{\hyperlink{write__xfile_8hpp_source_l00005}{plot3d\+::write\+\_\+xfile()}}, and \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{csv\+::\+Write\+Csv\+File()}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classprojection__method_1_1_cpu_open_mp_mpi_a9886e8f2c6835f3dfc9e0957ef9aea89}\label{classprojection__method_1_1_cpu_open_mp_mpi_a9886e8f2c6835f3dfc9e0957ef9aea89} 
+\index{projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}!solve@{solve}}
+\index{solve@{solve}!projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{run__cpu__mpi_8hpp_source}{run\+\_\+cpu\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ pressure\_solver\_\ =\ SolverType(pressure\_mat\_.\mbox{\hyperlink{class_pressure_mat_afe19e3c5c58a1e4b905d719e232b1e8b}{mat\_a}});}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ pressure\_solver\_.\mbox{\hyperlink{classsolver_1_1_linear_solver_mpi_abf96d54f187828d1baf7b6dde3fc1cd4}{SetTolerance}}(simu\_.\mbox{\hyperlink{class_simulation_a6b02d7d2dbfde2f1c3b222922c03dd1a}{poisson\_criteria}});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ CreatEta();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a3651f59eea5d673ef5cf4a687e303e78}{IsMaster}}())\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \mbox{\hyperlink{write__qfile_8hpp_a1f54031450601af74767a58a74c294f7}{WriteQfile}}(dfib\_,\ simu\_,\ pressure\_,\ vel\_,\ *grid\_);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ !simu\_.\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_ac5a83e4d494641e20fd80bdd72c2220c}{IsLoopFinish}}();\ simu\_.\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_a035684e3e9277b52ec73be73c2221362}{AddLoop}}())\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ CalProjectionMethod();}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a5466119e5d48979447c1c57f22c814bf}{Barrier}}();}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{time__variance__authority_8hpp_source_l00036}{Time\+Variance\+Authority\+::\+Add\+Loop()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00028}{mpi\+::\+Mpi\+Tool\+::\+Barrier()}}, \mbox{\hyperlink{time__variance__authority_8hpp_source_l00042}{Time\+Variance\+Authority\+::\+Is\+Loop\+Finish()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00164}{mpi\+::\+Mpi\+Tool\+::\+Is\+Master()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00016}{Pressure\+Mat\+::mat\+\_\+a}}, \mbox{\hyperlink{simulation_8hpp_source_l00039}{Simulation\+::poisson\+\_\+criteria}}, \mbox{\hyperlink{linear__solver__mpi_8hpp_source_l00030}{solver\+::\+Linear\+Solver\+Mpi$<$ Mat\+Type $>$\+::\+Set\+Tolerance()}}, \mbox{\hyperlink{simulation_8hpp_source_l00021}{Simulation\+::tva}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{classprojection__method_1_1_cpu_open_mp_mpi_a9886e8f2c6835f3dfc9e0957ef9aea89}\label{classprojection__method_1_1_cpu_open_mp_mpi_a9886e8f2c6835f3dfc9e0957ef9aea89} 
+\index{projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}!solve@{solve}}
+\index{solve@{solve}!projection\_method::CpuOpenMpMpi@{projection\_method::CpuOpenMpMpi}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{test__run__mpi_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{test__run__mpi_8hpp_source}{test\+\_\+run\+\_\+mpi.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ pressure\_solver\_\ =\ SolverType(pressure\_mat\_.\mbox{\hyperlink{class_pressure_mat_afe19e3c5c58a1e4b905d719e232b1e8b}{mat\_a}});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ pressure\_solver\_.\mbox{\hyperlink{classsolver_1_1_linear_solver_mpi_abf96d54f187828d1baf7b6dde3fc1cd4}{SetTolerance}}(simu\_.\mbox{\hyperlink{class_simulation_a6b02d7d2dbfde2f1c3b222922c03dd1a}{poisson\_criteria}});}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ CreatEta();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a3651f59eea5d673ef5cf4a687e303e78}{IsMaster}}())\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \mbox{\hyperlink{write__qfile_8hpp_a1f54031450601af74767a58a74c294f7}{WriteQfile}}(dfib\_,\ simu\_,\ pressure\_,\ vel\_,\ *grid\_);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ !simu\_.\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_ac5a83e4d494641e20fd80bdd72c2220c}{IsLoopFinish}}();\ simu\_.\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_a035684e3e9277b52ec73be73c2221362}{AddLoop}}())\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ CalProjectionMethod();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ mpi\_tool\_.\mbox{\hyperlink{classmpi_1_1_mpi_tool_a5466119e5d48979447c1c57f22c814bf}{Barrier}}();}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{time__variance__authority_8hpp_source_l00036}{Time\+Variance\+Authority\+::\+Add\+Loop()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00028}{mpi\+::\+Mpi\+Tool\+::\+Barrier()}}, \mbox{\hyperlink{time__variance__authority_8hpp_source_l00042}{Time\+Variance\+Authority\+::\+Is\+Loop\+Finish()}}, \mbox{\hyperlink{mpi__tool_8hpp_source_l00164}{mpi\+::\+Mpi\+Tool\+::\+Is\+Master()}}, \mbox{\hyperlink{pressure__mat_8hpp_source_l00016}{Pressure\+Mat\+::mat\+\_\+a}}, \mbox{\hyperlink{simulation_8hpp_source_l00039}{Simulation\+::poisson\+\_\+criteria}}, \mbox{\hyperlink{linear__solver__mpi_8hpp_source_l00030}{solver\+::\+Linear\+Solver\+Mpi$<$ Mat\+Type $>$\+::\+Set\+Tolerance()}}, \mbox{\hyperlink{simulation_8hpp_source_l00021}{Simulation\+::tva}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tests/run/\mbox{\hyperlink{test__run__mpi_8hpp}{test\+\_\+run\+\_\+mpi.\+hpp}}\item 
+cfd\+\_\+mx/inc/run/\mbox{\hyperlink{run__cpu__mpi_8hpp}{run\+\_\+cpu\+\_\+mpi.\+hpp}}\end{DoxyCompactItemize}

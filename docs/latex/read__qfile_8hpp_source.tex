@@ -1,0 +1,65 @@
+\doxysection{read\+\_\+qfile.\+hpp}
+\hypertarget{read__qfile_8hpp_source}{}\label{read__qfile_8hpp_source}\index{cfd\_mx/inc/io/plot3d/read\_qfile.hpp@{cfd\_mx/inc/io/plot3d/read\_qfile.hpp}}
+\mbox{\hyperlink{read__qfile_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <dirent.h>}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physical__variables_8hpp}{backend/physical\_variables.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{simulation_8hpp}{backend/simulation.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structured__grid_8hpp}{grid/structured\_grid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00011}\mbox{\hyperlink{read__qfile_8hpp_a80d09382f3c6298d513f877f6dd61a52}{00011}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{read__qfile_8hpp_a80d09382f3c6298d513f877f6dd61a52}{ReadQfile}}(\mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\ \&grid,\ std::string\ filename)\ \{}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00012}00012\ \ \ \textcolor{comment}{//*\ \ prepare\ the\ data\ to\ read}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00013}00013\ \ \ \textcolor{keywordtype}{float}\ mach,\ alpha,\ reyn,\ time;}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00014}00014\ \ \ \textcolor{keywordtype}{int}\ Nblock,\ nxCal,\ nyCal,\ nzCal;}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00015}00015\ \ \ \textcolor{keyword}{auto}\ cal\_nz\ =\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}};}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00016}00016\ \ \ \textcolor{keyword}{auto}\ cal\_ny\ =\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}};}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00017}00017\ \ \ \textcolor{keyword}{auto}\ cal\_nx\ =\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}};}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00018}00018\ \ \ \textcolor{keyword}{auto}\ gc\ =\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00020}00020\ \ \ \textcolor{keyword}{const}\ uint\ nodata\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00021}00021\ \ \ std::vector<std::vector<float>\ >\ data(}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00022}00022\ \ \ \ \ \ \ nodata,\ std::vector<float>(grid.\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}},\ 0.0));}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00023}00023\ \ \ \textcolor{comment}{//\ *\ read\ data;}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00025}00025\ \ \ std::ifstream\ file;}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00026}00026\ \ \ file.open(filename,\ std::ifstream::binary);}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00028}00028\ \ \ \textcolor{keyword}{auto}\ ii\ =\ [\&](\textcolor{keyword}{auto}\ i,\ \textcolor{keyword}{auto}\ j,\ \textcolor{keyword}{auto}\ k)\ \{}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{return}\ i\ *\ nzCal\ *\ nyCal\ +\ j\ *\ nzCal\ +\ k;}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00030}00030\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00032}00032\ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())\ \{}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00033}00033\ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}can't\ Read\ The\ File\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00035}00035\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00038}00038\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&Nblock),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00039}00039\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&nxCal),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00040}00040\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&nyCal),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00041}00041\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&nzCal),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00043}00043\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&mach),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00044}00044\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&alpha),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00045}00045\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&reyn),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00046}00046\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&time),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00048}00048\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&x\ :\ data)\ \{}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ nzCal;\ ++k)}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00050}00050\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ nyCal;\ ++j)}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ nxCal;\ ++i)}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&x[ii(i,\ j,\ k)]),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00053}00053\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00055}00055\ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00056}00056\ \ \ \textcolor{comment}{//\ float\ mach,\ alpha,\ reyn,\ time;}}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00058}00058\ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(Nblock,\ mach,\ alpha,\ reyn,\ time,\ data);}
+\DoxyCodeLine{\Hypertarget{read__qfile_8hpp_source_l00059}00059\ \}}
+
+\end{DoxyCode}

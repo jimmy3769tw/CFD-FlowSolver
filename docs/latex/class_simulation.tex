@@ -1,0 +1,316 @@
+\doxysection{Simulation Class Reference}
+\hypertarget{class_simulation}{}\label{class_simulation}\index{Simulation@{Simulation}}
+
+
+{\ttfamily \#include $<$simulation.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_simulation}{Simulation}} \& \mbox{\hyperlink{class_simulation_a525da8e9bae1d64dfb07f1de474be047}{Set\+Reynolds\+Number}} (double re)
+\item 
+auto \mbox{\hyperlink{class_simulation_a2baf0eae5a9ba6683c7d4b158d216bdd}{Get\+Reynolds\+Number}} ()
+\item 
+auto \mbox{\hyperlink{class_simulation_aa3d4cbe4be471b0056744cf027bb05cf}{Get\+Nu}} ()
+\item 
+\mbox{\hyperlink{class_simulation}{Simulation}} \& \mbox{\hyperlink{class_simulation_aad7abd4fb51d18f899b718eed57bf48b}{Set\+Boundary\+Condition}} (std\+::string str)
+\item 
+std\+::string \mbox{\hyperlink{class_simulation_ad2fd05aabd29bce8915db3a9c9a38dd1}{Get\+Boundary\+Condition}} ()
+\item 
+void \mbox{\hyperlink{class_simulation_a83e75427c4c89d3b68d4bde1d00f23ec}{Set\+Argc\+Argv}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\item 
+auto \mbox{\hyperlink{class_simulation_a930b1b90dc8168669d3abb06832c4359}{Get\+Argc}} ()
+\item 
+auto \mbox{\hyperlink{class_simulation_a895f5e9cab430c1abe916c60afb33a46}{Get\+Argv}} ()
+\item 
+\mbox{\hyperlink{class_simulation}{Simulation}} \& \mbox{\hyperlink{class_simulation_abdde6bad6626a28fffbb3171744ea774}{Set\+Velocity\+Initial\+Condition}} (double u, double v, double w)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_simulation_abff0b94f1ed13367ac7a4d742f4d3470}{io\+\_\+string}}
+\item 
+int \mbox{\hyperlink{class_simulation_a0c56f42f0039e96c6fe0d49e38f6ff61}{tid}} = 0
+\item 
+int \mbox{\hyperlink{class_simulation_a552d65e44cc0fc9c112f79f7cfe748a4}{pid}} = 0
+\item 
+\mbox{\hyperlink{class_time_variance_authority}{Time\+Variance\+Authority}} \mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}
+\item 
+size\+\_\+t \mbox{\hyperlink{class_simulation_adc2052c4f82ea58920e9e7b59626adc8}{poisson\+\_\+eq\+\_\+iter\+\_\+max\+\_\+}} = 5000
+\item 
+double \mbox{\hyperlink{class_simulation_a6b02d7d2dbfde2f1c3b222922c03dd1a}{poisson\+\_\+criteria}} = 1.e-\/3
+\item 
+\mbox{\hyperlink{struct_ini_condition}{Ini\+Condition}} \mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\+\_\+condition}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_simulation_a930b1b90dc8168669d3abb06832c4359}\label{class_simulation_a930b1b90dc8168669d3abb06832c4359} 
+\index{Simulation@{Simulation}!GetArgc@{GetArgc}}
+\index{GetArgc@{GetArgc}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{GetArgc()}{GetArgc()}}
+{\footnotesize\ttfamily auto Simulation\+::\+Get\+Argc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \{\ \textcolor{keywordflow}{return}\ argc\_;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_simulation_a895f5e9cab430c1abe916c60afb33a46}\label{class_simulation_a895f5e9cab430c1abe916c60afb33a46} 
+\index{Simulation@{Simulation}!GetArgv@{GetArgv}}
+\index{GetArgv@{GetArgv}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{GetArgv()}{GetArgv()}}
+{\footnotesize\ttfamily auto Simulation\+::\+Get\+Argv (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \{\ \textcolor{keywordflow}{return}\ argv\_;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_simulation_ad2fd05aabd29bce8915db3a9c9a38dd1}\label{class_simulation_ad2fd05aabd29bce8915db3a9c9a38dd1} 
+\index{Simulation@{Simulation}!GetBoundaryCondition@{GetBoundaryCondition}}
+\index{GetBoundaryCondition@{GetBoundaryCondition}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{GetBoundaryCondition()}{GetBoundaryCondition()}}
+{\footnotesize\ttfamily std\+::string Simulation\+::\+Get\+Boundary\+Condition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \{\ \textcolor{keywordflow}{return}\ boundaryConditionName\_;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_simulation_aa3d4cbe4be471b0056744cf027bb05cf}\label{class_simulation_aa3d4cbe4be471b0056744cf027bb05cf} 
+\index{Simulation@{Simulation}!GetNu@{GetNu}}
+\index{GetNu@{GetNu}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{GetNu()}{GetNu()}}
+{\footnotesize\ttfamily auto Simulation\+::\+Get\+Nu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{\ \textcolor{keywordflow}{return}\ nu\_;\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}.
+
+\Hypertarget{class_simulation_a2baf0eae5a9ba6683c7d4b158d216bdd}\label{class_simulation_a2baf0eae5a9ba6683c7d4b158d216bdd} 
+\index{Simulation@{Simulation}!GetReynoldsNumber@{GetReynoldsNumber}}
+\index{GetReynoldsNumber@{GetReynoldsNumber}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{GetReynoldsNumber()}{GetReynoldsNumber()}}
+{\footnotesize\ttfamily auto Simulation\+::\+Get\+Reynolds\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \{\ \textcolor{keywordflow}{return}\ reynolds\_no\_;\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{central__profile_8hpp_source_l00007}{get\+Cent\+Profile()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_simulation_a83e75427c4c89d3b68d4bde1d00f23ec}\label{class_simulation_a83e75427c4c89d3b68d4bde1d00f23ec} 
+\index{Simulation@{Simulation}!SetArgcArgv@{SetArgcArgv}}
+\index{SetArgcArgv@{SetArgcArgv}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{SetArgcArgv()}{SetArgcArgv()}}
+{\footnotesize\ttfamily void Simulation\+::\+Set\+Argc\+Argv (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ argc\_\ =\ argc;}
+\DoxyCodeLine{00045\ \ \ \ \ argv\_\ =\ argv;}
+\DoxyCodeLine{00046\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_simulation_aad7abd4fb51d18f899b718eed57bf48b}\label{class_simulation_aad7abd4fb51d18f899b718eed57bf48b} 
+\index{Simulation@{Simulation}!SetBoundaryCondition@{SetBoundaryCondition}}
+\index{SetBoundaryCondition@{SetBoundaryCondition}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{SetBoundaryCondition()}{SetBoundaryCondition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_simulation}{Simulation}} \& Simulation\+::\+Set\+Boundary\+Condition (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ boundaryConditionName\_\ =\ str;}
+\DoxyCodeLine{00033\ \ \ \ \ isSetBoundaryCondition\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00035\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_simulation_a525da8e9bae1d64dfb07f1de474be047}\label{class_simulation_a525da8e9bae1d64dfb07f1de474be047} 
+\index{Simulation@{Simulation}!SetReynoldsNumber@{SetReynoldsNumber}}
+\index{SetReynoldsNumber@{SetReynoldsNumber}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{SetReynoldsNumber()}{SetReynoldsNumber()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_simulation}{Simulation}} \& Simulation\+::\+Set\+Reynolds\+Number (\begin{DoxyParamCaption}\item[{double}]{re }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ reynolds\_no\_\ =\ re;}
+\DoxyCodeLine{00024\ \ \ \ \ nu\_\ =\ 1.0\ /\ re;}
+\DoxyCodeLine{00025\ \ \ \ \ isSetRe\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00027\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{validation_re100_cavity_2test_8cpp_source_l00011}{TEST()}}, and \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{TEST()}}.
+
+\Hypertarget{class_simulation_abdde6bad6626a28fffbb3171744ea774}\label{class_simulation_abdde6bad6626a28fffbb3171744ea774} 
+\index{Simulation@{Simulation}!SetVelocityInitialCondition@{SetVelocityInitialCondition}}
+\index{SetVelocityInitialCondition@{SetVelocityInitialCondition}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{SetVelocityInitialCondition()}{SetVelocityInitialCondition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_simulation}{Simulation}} \& Simulation\+::\+Set\+Velocity\+Initial\+Condition (\begin{DoxyParamCaption}\item[{double}]{u,  }\item[{double}]{v,  }\item[{double}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a7ecad27c8788de75fba00054344e1e51}{u}}\ =\ u;}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a3757cb75d17cce3d01639636b4013f22}{v}}\ =\ v;}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}{ini\_condition}}.\mbox{\hyperlink{struct_ini_condition_a78f3159a0ffda76ddf14ff853c44f0db}{w}}\ =\ w;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00060\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{simulation_8hpp_source_l00053}{ini\+\_\+condition}}, \mbox{\hyperlink{simulation_8hpp_source_l00011}{Ini\+Condition\+::u}}, \mbox{\hyperlink{simulation_8hpp_source_l00012}{Ini\+Condition\+::v}}, and \mbox{\hyperlink{simulation_8hpp_source_l00013}{Ini\+Condition\+::w}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_simulation_a77d6d9b3341eb11c799d06ebbb774780}\label{class_simulation_a77d6d9b3341eb11c799d06ebbb774780} 
+\index{Simulation@{Simulation}!ini\_condition@{ini\_condition}}
+\index{ini\_condition@{ini\_condition}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{ini\_condition}{ini\_condition}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_ini_condition}{Ini\+Condition}} Simulation\+::ini\+\_\+condition}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{run__cpu_8hpp_source_l00029}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::\+Cpu\+Open\+Mp()}}, \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}, and \mbox{\hyperlink{simulation_8hpp_source_l00055}{Set\+Velocity\+Initial\+Condition()}}.
+
+\Hypertarget{class_simulation_abff0b94f1ed13367ac7a4d742f4d3470}\label{class_simulation_abff0b94f1ed13367ac7a4d742f4d3470} 
+\index{Simulation@{Simulation}!io\_string@{io\_string}}
+\index{io\_string@{io\_string}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{io\_string}{io\_string}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Simulation\+::io\+\_\+string}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+\Hypertarget{class_simulation_a552d65e44cc0fc9c112f79f7cfe748a4}\label{class_simulation_a552d65e44cc0fc9c112f79f7cfe748a4} 
+\index{Simulation@{Simulation}!pid@{pid}}
+\index{pid@{pid}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{pid}{pid}}
+{\footnotesize\ttfamily int Simulation\+::pid = 0}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}.
+
+\Hypertarget{class_simulation_a6b02d7d2dbfde2f1c3b222922c03dd1a}\label{class_simulation_a6b02d7d2dbfde2f1c3b222922c03dd1a} 
+\index{Simulation@{Simulation}!poisson\_criteria@{poisson\_criteria}}
+\index{poisson\_criteria@{poisson\_criteria}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{poisson\_criteria}{poisson\_criteria}}
+{\footnotesize\ttfamily double Simulation\+::poisson\+\_\+criteria = 1.e-\/3}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{run__cpu_8hpp_source_l00052}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::solve()}}, and \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00054}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::solve()}}.
+
+\Hypertarget{class_simulation_adc2052c4f82ea58920e9e7b59626adc8}\label{class_simulation_adc2052c4f82ea58920e9e7b59626adc8} 
+\index{Simulation@{Simulation}!poisson\_eq\_iter\_max\_@{poisson\_eq\_iter\_max\_}}
+\index{poisson\_eq\_iter\_max\_@{poisson\_eq\_iter\_max\_}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{poisson\_eq\_iter\_max\_}{poisson\_eq\_iter\_max\_}}
+{\footnotesize\ttfamily size\+\_\+t Simulation\+::poisson\+\_\+eq\+\_\+iter\+\_\+max\+\_\+ = 5000}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+\Hypertarget{class_simulation_a0c56f42f0039e96c6fe0d49e38f6ff61}\label{class_simulation_a0c56f42f0039e96c6fe0d49e38f6ff61} 
+\index{Simulation@{Simulation}!tid@{tid}}
+\index{tid@{tid}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{tid}{tid}}
+{\footnotesize\ttfamily int Simulation\+::tid = 0}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+\Hypertarget{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}\label{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17} 
+\index{Simulation@{Simulation}!tva@{tva}}
+\index{tva@{tva}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{tva}{tva}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_time_variance_authority}{Time\+Variance\+Authority}} Simulation\+::tva}
+
+
+
+Definition at line \mbox{\hyperlink{simulation_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{simulation_8hpp_source}{simulation.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}, \mbox{\hyperlink{run__cpu_8hpp_source_l00052}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::solve()}}, \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00054}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::solve()}}, \mbox{\hyperlink{validation_re100_cavity_2test_8cpp_source_l00011}{TEST()}}, \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{TEST()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/backend/\mbox{\hyperlink{simulation_8hpp}{simulation.\+hpp}}\end{DoxyCompactItemize}

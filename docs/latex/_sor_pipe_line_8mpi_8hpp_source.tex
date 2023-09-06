@@ -1,0 +1,108 @@
+\doxysection{Sor\+Pipe\+Line.\+mpi.\+hpp}
+\hypertarget{_sor_pipe_line_8mpi_8hpp_source}{}\label{_sor_pipe_line_8mpi_8hpp_source}\index{cfd\_mx/inc/pressure/solver/SorPipeLine.mpi.hpp@{cfd\_mx/inc/pressure/solver/SorPipeLine.mpi.hpp}}
+\mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#\ include\ "{}mpi\_tool/init\_mpi.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00004}\mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp_adcee1014563655f9ddb402d97d01139e}{00004}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_sor_pipe_line_8mpi_8hpp_adcee1014563655f9ddb402d97d01139e}{SorPipeLine\_mpi\_hybrid\_omp}}(}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00005}00005\ \ \ \ \ MPI\_Comm\ comm\_world,}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00006}00006\ \ \ \ \ std::vector<int>\ \&mpi\_neighborhood,}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00007}00007\ \ \ \ \ SORcoefficient\&\ Sor,}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\&\ simu,}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00009}00009\ \ \ \ \ velocity\&\ T1,}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00010}00010\ \ \ \ \ pressure\&\ t1,}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{class_local_domain}{LocalDomain}}\&\ Lo,}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00012}00012\ \ \ \ \ grid\&\ gA}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00013}00013\ )\{}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ word\_size\ =\ Lo.word\_size;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ [nx,\ ny,\ nz,\ gC]\ =\ gA.nxyzgC;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{double}\ omega\ =\ simu.p\_sor\_omega;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{double}\ mChangeMax;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{int}\ itmax\ =\ simu.p\_sor\_iter\_max;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{double}\ rdt\ =\ 1.0\ /\ simu.dt;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (simu.firstSOR)\ \{}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ simu.firstSOR\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ Sor.cf.resize(gA.iceltotCal\ *\ 8);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#pragma\ omp\ parallel\ for\ firstprivate(Lo,\ rdt)}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}}\ ;\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}}\ ;\ ++i\ )}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}}\ ;\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}}\ ;\ ++j\ )}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}}\ ;\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}}\ ;\ ++k\ )}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ii\ =\ \ 8*gA.icelCal(i,j,k);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coef\ =\ gA.dy[j]\ *\ gA.dz[k]\ /\ gA.staggered\_dx[i]\ +}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gA.dy[j]\ *\ gA.dz[k]\ /\ gA.staggered\_dx[i\ -\/\ 1]\ +}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gA.dx[i]\ *\ gA.dz[k]\ /\ gA.staggered\_dy[j]\ +}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gA.dx[i]\ *\ gA.dz[k]\ /\ gA.staggered\_dy[j\ -\/\ 1]\ +}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gA.dx[i]\ *\ gA.dy[j]\ /\ gA.staggered\_dz[k]\ +}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gA.dx[i]\ *\ gA.dy[j]\ /\ gA.staggered\_dz[k\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii\ \ ]\ =\ gA.Dy[j]\ *\ gA.Dz[k]\ /\ gA.Dxs[i]\ \ ;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+1]\ =\ gA.Dy[j]\ *\ gA.Dz[k]\ /\ gA.Dxs[i-\/1];}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+2]\ =\ gA.Dx[i]\ *\ gA.Dz[k]\ /\ gA.Dys[j]\ \ ;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+3]\ =\ gA.Dx[i]\ *\ gA.Dz[k]\ /\ gA.Dys[j-\/1];}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+4]\ =\ gA.Dx[i]\ *\ gA.Dy[j]\ /\ gA.Dzs[k]\ \ ;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+5]\ =\ gA.Dx[i]\ *\ gA.Dy[j]\ /\ gA.Dzs[k-\/1];}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ Sor.cf[ii+7]\ =\ -\/\ 1.0\ /\ coef;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00043}00043\ \ \ \ \ \}\ \ }
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{double}\ norm\_rhs\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00047}00047\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ omp\ parallel\ for\ firstprivate(Lo,\ rdt)\ reduction(+\ :\ norm\_rhs)}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}}\ ;\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}}\ ;\ ++i\ )}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}}\ ;\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}}\ ;\ ++j\ )}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}}\ ;\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}}\ ;\ ++k\ )}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00051}00051\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ icel\ =\ gA.icel(i,j,k);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ii\ =\ gA.icelCal(i,j,k)*8;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ mChange\ =\ (\ T1.u[icel]\ -\/\ T1.u[gA.icel(i-\/1,j,k)]\ )\ *\ gA.Dy[j]\ *\ gA.Dz[k]\ }
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ (\ T1.v[icel]\ -\/\ T1.v[gA.icel(i,j-\/1,k)]\ )\ *\ gA.Dx[i]\ *\ gA.Dz[k]\ }
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ (\ T1.w[icel]\ -\/\ T1.w[gA.icel(i,j,k-\/1)]\ )\ *\ gA.Dx[i]\ *\ gA.Dy[j];}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ Sor.cf[ii+6]\ =\ mChange\ *\ rdt;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ norm\_rhs\ +=\ std::pow(\ mChange\ *\ rdt,\ 2);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00061}00061\ \ \ \ \ \textcolor{keyword}{auto}\ snetBuf\_norm\_rhs\ =\ sqrt(norm\_rhs);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00062}00062\ \ \ \ \ MPI\_Allreduce(\&snetBuf\_norm\_rhs,\ \&norm\_rhs,\ 1,\ MPI\_DOUBLE,\ MPI\_SUM,\ comm\_world);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{double}\ interTime\ =\ omp\_get\_wtime();}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{double}\ residual;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{auto}\ recvbuf\ =\ residual;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{for}\ (simu.iters\ =\ 0;\ \ simu.iters\ <\ simu.p\_sor\_iter\_max;\ ++simu.iters)\ \{}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ !\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ \ MPI\ no-\/blocking\ send\ \&\ recv\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00068}00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ MPI\_DEBUG}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ mpi\_iSR\_double\_x\_debugger(word\_size,\ simu.TID,\ comm\_world,\ mpi\_neighborhood,\ t1.p,\ Lo,\ gA);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00070}00070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#else}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ mpi\_iSR\_double\_x(1,\ comm\_world,\ mpi\_neighborhood,\ t1.p,\ Lo,\ gA\ );}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00072}00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ MPI\_Barrier(comm\_world);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ !\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ \ MPI\ no-\/blocking\ send\ \&\ recv\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ residual\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00076}00076\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#pragma\ omp\ parallel\ for\ reduction(+:residual)\ firstprivate(Lo,\ norm\_rhs)\ }}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}}\ ;\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}}\ ;\ ++i\ )}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}}\ ;\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}}\ ;\ ++j\ )}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}}\ ;\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}}\ ;\ ++k\ )}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ icel\ =\ gA.icel(i,j,k);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ii8\ =\ gA.icelCal(i,j,k)*8;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pNEW\ =(-\/\ t1.p[gA.icel(i+1,j,k)]\ *\ Sor.cf[ii8\ \ ]}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ t1.p[gA.icel(i-\/1,j,k)]\ *\ Sor.cf[ii8+1]}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ t1.p[gA.icel(i,j+1,k)]\ *\ Sor.cf[ii8+2]}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ t1.p[gA.icel(i,j-\/1,k)]\ *\ Sor.cf[ii8+3]}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ t1.p[gA.icel(i,j,k+1)]\ *\ Sor.cf[ii8+4]}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ t1.p[gA.icel(i,j,k-\/1)]\ *\ Sor.cf[ii8+5]}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ Sor.cf[ii8+6])\ *\ Sor.cf[ii8+7];}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pChange\ =\ std::abs(pNEW\ -\/\ t1.p[icel]);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ t1.p[icel]\ +=\ omega\ *\ (pNEW\ -\/\ t1.p[icel]);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ residual\ +=\ pChange/norm\_rhs;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ sendbuf\ =\ residual;}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ MPI\_Allreduce(\&sendbuf,\ \&recvbuf,1,\ MPI\_DOUBLE,\ MPI\_SUM,\ comm\_world);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sqrt(recvbuf)\ <\ simu.p\_criteria)\{\textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00099}00099\ \ \ \ \ simu.error\ =\ \ sqrt(recvbuf);}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_sor_pipe_line_8mpi_8hpp_source_l00102}00102\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,54 @@
+\doxysection{tests/validation\+\_\+tool/random\+\_\+vector.hpp File Reference}
+\hypertarget{random__vector_8hpp}{}\label{random__vector_8hpp}\index{tests/validation\_tool/random\_vector.hpp@{tests/validation\_tool/random\_vector.hpp}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{random__vector_8hpp_acc8e0b75bce186a5b89326ec06f030bc}{Get\+Random\+Vector\+Int}} (int size, int range\+\_\+begin=0)
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{random__vector_8hpp_adab668efcccb873ca7c1f6e509571955}{Get\+Random\+Vector\+Double}} (int size, int range\+\_\+begin=0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{random__vector_8hpp_adab668efcccb873ca7c1f6e509571955}\label{random__vector_8hpp_adab668efcccb873ca7c1f6e509571955} 
+\index{random\_vector.hpp@{random\_vector.hpp}!GetRandomVectorDouble@{GetRandomVectorDouble}}
+\index{GetRandomVectorDouble@{GetRandomVectorDouble}!random\_vector.hpp@{random\_vector.hpp}}
+\doxysubsubsection{\texorpdfstring{GetRandomVectorDouble()}{GetRandomVectorDouble()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Get\+Random\+Vector\+Double (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{range\+\_\+begin = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{random__vector_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{random__vector_8hpp_source}{random\+\_\+vector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ std::vector<double>\ result(size);}
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ x\ :\ result)\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ x\ =\ rand()\ \%\ size\ +\ range\_begin\ +\ rand()\ /\ size;}
+\DoxyCodeLine{00015\ \ \ \}}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}
+\Hypertarget{random__vector_8hpp_acc8e0b75bce186a5b89326ec06f030bc}\label{random__vector_8hpp_acc8e0b75bce186a5b89326ec06f030bc} 
+\index{random\_vector.hpp@{random\_vector.hpp}!GetRandomVectorInt@{GetRandomVectorInt}}
+\index{GetRandomVectorInt@{GetRandomVectorInt}!random\_vector.hpp@{random\_vector.hpp}}
+\doxysubsubsection{\texorpdfstring{GetRandomVectorInt()}{GetRandomVectorInt()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Get\+Random\+Vector\+Int (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{range\+\_\+begin = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{random__vector_8hpp_source_l00003}{3}} of file \mbox{\hyperlink{random__vector_8hpp_source}{random\+\_\+vector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00004\ \ \ std::vector<int>\ result(size);}
+\DoxyCodeLine{00005\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ x\ :\ result)\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ x\ =\ rand()\ \%\ size\ +\ range\_begin;}
+\DoxyCodeLine{00007\ \ \ \}}
+\DoxyCodeLine{00008\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00009\ \}}
+
+\end{DoxyCode}

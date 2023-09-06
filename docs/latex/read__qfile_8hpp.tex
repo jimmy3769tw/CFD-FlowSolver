@@ -1,0 +1,88 @@
+\doxysection{cfd\+\_\+mx/inc/io/plot3d/read\+\_\+qfile.hpp File Reference}
+\hypertarget{read__qfile_8hpp}{}\label{read__qfile_8hpp}\index{cfd\_mx/inc/io/plot3d/read\_qfile.hpp@{cfd\_mx/inc/io/plot3d/read\_qfile.hpp}}
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include "{}backend/physical\+\_\+variables.\+hpp"{}}\newline
+{\ttfamily \#include "{}backend/simulation.\+hpp"{}}\newline
+{\ttfamily \#include "{}grid/structured\+\_\+grid.\+hpp"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{read__qfile_8hpp_a80d09382f3c6298d513f877f6dd61a52}{Read\+Qfile}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid, std\+::string filename)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{read__qfile_8hpp_a80d09382f3c6298d513f877f6dd61a52}\label{read__qfile_8hpp_a80d09382f3c6298d513f877f6dd61a52} 
+\index{read\_qfile.hpp@{read\_qfile.hpp}!ReadQfile@{ReadQfile}}
+\index{ReadQfile@{ReadQfile}!read\_qfile.hpp@{read\_qfile.hpp}}
+\doxysubsubsection{\texorpdfstring{ReadQfile()}{ReadQfile()}}
+{\footnotesize\ttfamily auto Read\+Qfile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid,  }\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{read__qfile_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{read__qfile_8hpp_source}{read\+\_\+qfile.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{comment}{//*\ \ prepare\ the\ data\ to\ read}}
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{float}\ mach,\ alpha,\ reyn,\ time;}
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{int}\ Nblock,\ nxCal,\ nyCal,\ nzCal;}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{auto}\ cal\_nz\ =\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}};}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{auto}\ cal\_ny\ =\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}};}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{auto}\ cal\_nx\ =\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}};}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{auto}\ gc\ =\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{const}\ uint\ nodata\ =\ 5;}
+\DoxyCodeLine{00021\ \ \ std::vector<std::vector<float>\ >\ data(}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ nodata,\ std::vector<float>(grid.\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}},\ 0.0));}
+\DoxyCodeLine{00023\ \ \ \textcolor{comment}{//\ *\ read\ data;}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ std::ifstream\ file;}
+\DoxyCodeLine{00026\ \ \ file.open(filename,\ std::ifstream::binary);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{auto}\ ii\ =\ [\&](\textcolor{keyword}{auto}\ i,\ \textcolor{keyword}{auto}\ j,\ \textcolor{keyword}{auto}\ k)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ i\ *\ nzCal\ *\ nyCal\ +\ j\ *\ nzCal\ +\ k;}
+\DoxyCodeLine{00030\ \ \ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ file.close();}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}can't\ Read\ The\ File\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{00035\ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&Nblock),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00039\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&nxCal),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00040\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&nyCal),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00041\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&nzCal),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&mach),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{00044\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&alpha),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{00045\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&reyn),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{00046\ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&time),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&x\ :\ data)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ nzCal;\ ++k)}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ nyCal;\ ++j)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ nxCal;\ ++i)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ file.read((\textcolor{keywordtype}{char}\ *)(\&x[ii(i,\ j,\ k)]),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{00053\ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ file.close();}
+\DoxyCodeLine{00056\ \ \ \textcolor{comment}{//\ float\ mach,\ alpha,\ reyn,\ time;}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(Nblock,\ mach,\ alpha,\ reyn,\ time,\ data);}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00062}{Structured\+Grid\+::cal\+\_\+no\+\_\+grid}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00060}{Structured\+Grid\+::cal\+\_\+nz}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{Structured\+Grid\+::no\+\_\+ghost\+\_\+cell}}.
+
+
+
+Referenced by \mbox{\hyperlink{validation_re100_cavity_2test_8cpp_source_l00011}{TEST()}}, and \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{TEST()}}.
+

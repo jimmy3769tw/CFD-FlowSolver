@@ -1,0 +1,78 @@
+\doxysection{parital\+\_\+uniform\+\_\+structured\+\_\+gird.\+hpp}
+\hypertarget{parital__uniform__structured__gird_8hpp_source}{}\label{parital__uniform__structured__gird_8hpp_source}\index{cfd\_mx/inc/grid/parital\_uniform\_structured\_gird.hpp@{cfd\_mx/inc/grid/parital\_uniform\_structured\_gird.hpp}}
+\mbox{\hyperlink{parital__uniform__structured__gird_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structured__grid_8hpp}{structured\_grid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00005}00005\ \textcolor{comment}{//\ UniformStructuredGrid}}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00006}\mbox{\hyperlink{class_partial_uniform_structured_grid}{00006}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_partial_uniform_structured_grid}{PartialUniformStructuredGrid}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\ \{}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00007}00007\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00008}\mbox{\hyperlink{class_partial_uniform_structured_grid_ab7676d63688cbcc34438c84f5e9cec4a}{00008}}\ \ \ \mbox{\hyperlink{class_partial_uniform_structured_grid_ab7676d63688cbcc34438c84f5e9cec4a}{PartialUniformStructuredGrid}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}})}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00009}00009\ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}(\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}},\ \mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}},\ \mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00011}00011\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00012}00012\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ InitPos()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ lx\_small\ =\ 0.3\ *\ \mbox{\hyperlink{class_structured_grid_a605b755757c4c9a89d389a928de32ea5}{lx\_}},\ ly\_small\ =\ 0.3\ *\ \mbox{\hyperlink{class_structured_grid_a9717518703f5cb504c5845cd4de10cec}{ly\_}},\ lz\_small\ =\ 0.5\ *\ \mbox{\hyperlink{class_structured_grid_a3c67ad5fce86033d89bc6ff2b10609eb}{lz\_}};}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ nx\_small\ =\ \mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ -\/\ (0.5\ *\ \mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}}\ /\ 2\ *\ 2),}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ny\_small\ =\ \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ -\/\ (0.5\ *\ \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}}\ /\ 2\ *\ 2),\ nz\_small\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ offset\_nx\_small\ =\ -\/4,\ offset\_ny\_small\ =\ 0,\ offset\_nz\_small\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00018}00018\ \ \ \ \ PartialUniformConstruct(\mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}},\ lx\_small,\ nx\_small,\ offset\_nx\_small,\ \mbox{\hyperlink{class_structured_grid_a605b755757c4c9a89d389a928de32ea5}{lx\_}},\ \mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}});}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00019}00019\ \ \ \ \ PartialUniformConstruct(\mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}},\ ly\_small,\ ny\_small,\ offset\_ny\_small,\ \mbox{\hyperlink{class_structured_grid_a9717518703f5cb504c5845cd4de10cec}{ly\_}},\ \mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}});}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00020}00020\ \ \ \ \ PartialUniformConstruct(\mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}},\ lz\_small,\ nz\_small,\ offset\_nz\_small,\ \mbox{\hyperlink{class_structured_grid_a3c67ad5fce86033d89bc6ff2b10609eb}{lz\_}},\ \mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}});}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00021}00021\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00023}00023\ \ \ \textcolor{keywordtype}{void}\ PartialUniformConstruct(std::vector<double>\ \&pos,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ small\_len,}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ small\_grid,\ \textcolor{keywordtype}{int}\ offset\_small\_grid,}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ total\_len,\ \textcolor{keywordtype}{int}\ total\_grid)\ \{}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{auto}\ cal\_grid\ =\ total\_grid\ -\/\ 2\ *\ this-\/>\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00028}00028\ \ \ \ \ pos.at(this-\/>no\_ghost\_cell)\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (small\_grid\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00030}00030\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ this-\/>no\_ghost\_cell;\ i\ <\ total\_grid\ -\/\ this-\/>\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ pos.at(i\ +\ 1)\ =\ pos.at(i)\ +\ total\_len\ /\ cal\_grid;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00033}00033\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00034}00034\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (small\_grid\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00038}00038\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((total\_grid\ -\/\ small\_grid)\ \%\ 2\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ small\_grid++;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ throw\ std::invalid\_argument("{}(total\_grid-\/n\_sml)\%2\ !=\ 0"{});}}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00041}00041\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00043}00043\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ diff\_small\ =\ small\_len\ /\ small\_grid;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00044}00044\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ diff\ =\ (total\_len\ -\/\ small\_len)\ /\ (cal\_grid\ -\/\ small\_grid);}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00046}00046\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ domain[3];}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00047}00047\ \ \ \ \ \ \ domain[0]\ =\ (cal\_grid\ -\/\ small\_grid)\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00048}00048\ \ \ \ \ \ \ domain[1]\ =\ domain[0]\ +\ small\_grid;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00049}00049\ \ \ \ \ \ \ domain[2]\ =\ domain[1]\ +\ domain[0];}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00051}00051\ \ \ \ \ \ \ domain[0]\ +=\ offset\_small\_grid;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00052}00052\ \ \ \ \ \ \ domain[1]\ +=\ offset\_small\_grid;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00054}00054\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (domain[0]\ <=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}cal\_grid\ <=\ small\_grid"{}});}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00056}00056\ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00058}00058\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ domain[0];\ i++)}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ pos.at(i\ +\ this-\/>no\_ghost\_cell\ +\ 1)\ =}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ pos.at(i\ +\ this-\/>no\_ghost\_cell)\ +\ diff;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00062}00062\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ domain[0];\ i\ <\ domain[1];\ ++i)}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ pos.at(i\ +\ this-\/>no\_ghost\_cell\ +\ 1)\ =}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ pos.at(i\ +\ this-\/>no\_ghost\_cell)\ +\ diff\_small;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00066}00066\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ domain[1];\ i\ <\ domain[2];\ i++)}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ pos.at(i\ +\ this-\/>no\_ghost\_cell\ +\ 1)\ =}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ pos.at(i\ +\ this-\/>no\_ghost\_cell)\ +\ diff;}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00071}00071\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parital__uniform__structured__gird_8hpp_source_l00072}00072\ \};}
+
+\end{DoxyCode}

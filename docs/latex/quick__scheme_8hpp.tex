@@ -1,0 +1,103 @@
+\doxysection{cfd\+\_\+mx/inc/source/quick\+\_\+scheme.hpp File Reference}
+\hypertarget{quick__scheme_8hpp}{}\label{quick__scheme_8hpp}\index{cfd\_mx/inc/source/quick\_scheme.hpp@{cfd\_mx/inc/source/quick\_scheme.hpp}}
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{quick__scheme_8hpp_a027671ecda6df35cc978ce7fe3c7ed1a}{Cal\+Quick\+Spanwise}} (const double \&Up, const double \&Un, const int \&pp, const int \&p, const int \&ic, const int \&n, const int \&nn, const std\+::vector$<$ double $>$ \&Di, const std\+::vector$<$ double $>$ \&Ds, const int \&Idx, const std\+::vector$<$ double $>$ \&phi)
+\item 
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{quick__scheme_8hpp_ace386eb40a7044f442afc3f8385e1278}{Cal\+Quick\+Chordwise}} (const double \&Up, const double \&Un, const int \&pp, const int \&p, const int \&ic, const int \&n, const int \&nn, const std\+::vector$<$ double $>$ \&Di, const std\+::vector$<$ double $>$ \&Ds, const int \&Idx, std\+::vector$<$ double $>$ \&phi)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{quick__scheme_8hpp_ace386eb40a7044f442afc3f8385e1278}\label{quick__scheme_8hpp_ace386eb40a7044f442afc3f8385e1278} 
+\index{quick\_scheme.hpp@{quick\_scheme.hpp}!CalQuickChordwise@{CalQuickChordwise}}
+\index{CalQuickChordwise@{CalQuickChordwise}!quick\_scheme.hpp@{quick\_scheme.hpp}}
+\doxysubsubsection{\texorpdfstring{CalQuickChordwise()}{CalQuickChordwise()}}
+{\footnotesize\ttfamily std\+::pair$<$ double, double $>$ Cal\+Quick\+Chordwise (\begin{DoxyParamCaption}\item[{const double \&}]{Up,  }\item[{const double \&}]{Un,  }\item[{const int \&}]{pp,  }\item[{const int \&}]{p,  }\item[{const int \&}]{ic,  }\item[{const int \&}]{n,  }\item[{const int \&}]{nn,  }\item[{const std\+::vector$<$ double $>$ \&}]{Di,  }\item[{const std\+::vector$<$ double $>$ \&}]{Ds,  }\item[{const int \&}]{Idx,  }\item[{std\+::vector$<$ double $>$ \&}]{phi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{quick__scheme_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{quick__scheme_8hpp_source}{quick\+\_\+scheme.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{double}\ phi\_P,\ phi\_N;}
+\DoxyCodeLine{00043\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordflow}{if}\ (Up\ >\ 0.0)}
+\DoxyCodeLine{00045\ \ \ \ \ phi\_P\ =\ 0.5\ *\ (phi[ic]\ +\ phi[p])\ -\/\ 0.125\ *\ Ds[Idx]\ *\ Ds[Idx]\ /\ Di[Idx]\ *}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((phi[p]\ -\/\ phi[ic])\ /\ Ds[Idx]\ -\/}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (phi[ic]\ -\/\ phi[n])\ /\ Ds[Idx\ -\/\ 1]);}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00049\ \ \ \ \ phi\_P\ =\ 0.5\ *\ (phi[ic]\ +\ phi[p])\ -\/\ 0.125\ *\ Ds[Idx]\ *\ Ds[Idx]\ /\ Di[Idx\ +\ 1]\ *}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((phi[pp]\ -\/\ phi[p])\ /\ Ds[Idx\ +\ 1]\ -\/}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (phi[p]\ -\/\ phi[ic])\ /\ Ds[Idx]);}
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordflow}{if}\ (Un\ >\ 0.0)}
+\DoxyCodeLine{00056\ \ \ \ \ phi\_N\ =\ 0.5\ *\ (phi[n]\ +\ phi[ic])\ -\/\ 0.125\ *\ Ds[Idx\ -\/\ 1]\ *\ Ds[Idx\ -\/\ 1]\ /}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Di[Idx\ -\/\ 1]\ *}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((phi[ic]\ -\/\ phi[n])\ /\ Ds[Idx\ -\/\ 1]\ -\/}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (phi[n]\ -\/\ phi[nn])\ /\ Ds[Idx\ -\/\ 2]);}
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00061\ \ \ \ \ phi\_N\ =}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ 0.5\ *\ (phi[n]\ +\ phi[ic])\ -\/}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ 0.125\ *\ Ds[Idx\ -\/\ 1]\ *\ Ds[Idx\ -\/\ 1]\ /\ Di[Idx]\ *}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ ((phi[p]\ -\/\ phi[ic])\ /\ Ds[Idx]\ -\/\ (phi[ic]\ -\/\ phi[n])\ /\ Ds[Idx\ -\/\ 1]);}
+\DoxyCodeLine{00065\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(phi\_P,\ phi\_N);}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}.
+
+\Hypertarget{quick__scheme_8hpp_a027671ecda6df35cc978ce7fe3c7ed1a}\label{quick__scheme_8hpp_a027671ecda6df35cc978ce7fe3c7ed1a} 
+\index{quick\_scheme.hpp@{quick\_scheme.hpp}!CalQuickSpanwise@{CalQuickSpanwise}}
+\index{CalQuickSpanwise@{CalQuickSpanwise}!quick\_scheme.hpp@{quick\_scheme.hpp}}
+\doxysubsubsection{\texorpdfstring{CalQuickSpanwise()}{CalQuickSpanwise()}}
+{\footnotesize\ttfamily std\+::pair$<$ double, double $>$ Cal\+Quick\+Spanwise (\begin{DoxyParamCaption}\item[{const double \&}]{Up,  }\item[{const double \&}]{Un,  }\item[{const int \&}]{pp,  }\item[{const int \&}]{p,  }\item[{const int \&}]{ic,  }\item[{const int \&}]{n,  }\item[{const int \&}]{nn,  }\item[{const std\+::vector$<$ double $>$ \&}]{Di,  }\item[{const std\+::vector$<$ double $>$ \&}]{Ds,  }\item[{const int \&}]{Idx,  }\item[{const std\+::vector$<$ double $>$ \&}]{phi }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{quick__scheme_8hpp_source_l00007}{7}} of file \mbox{\hyperlink{quick__scheme_8hpp_source}{quick\+\_\+scheme.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{double}\ phi\_P,\ phi\_N;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordflow}{if}\ (Up\ >\ 0.0)}
+\DoxyCodeLine{00016\ \ \ \ \ phi\_P\ =}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ 0.5\ *\ (phi[ic]\ +\ phi[p])\ -\/}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ 0.125\ *\ Di[Idx\ +\ 1]\ *\ Di[Idx\ +\ 1]\ /\ Ds[Idx]\ *}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ ((phi[p]\ -\/\ phi[ic])\ /\ Di[Idx\ +\ 1]\ -\/\ (phi[ic]\ -\/\ phi[n])\ /\ Di[Idx]);}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00021\ \ \ \ \ phi\_P\ =\ 0.5\ *\ (phi[ic]\ +\ phi[p])\ -\/\ 0.125\ *\ Di[Idx\ +\ 1]\ *\ Di[Idx\ +\ 1]\ /}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Ds[Idx\ +\ 1]\ *}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((phi[pp]\ -\/\ phi[p])\ /\ Di[Idx\ +\ 2]\ -\/}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (phi[p]\ -\/\ phi[ic])\ /\ Di[Idx\ +\ 1]);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordflow}{if}\ (Un\ >\ 0.0)}
+\DoxyCodeLine{00027\ \ \ \ \ phi\_N\ =\ 0.5\ *\ (phi[n]\ +\ phi[ic])\ -\/\ 0.125\ *\ Di[Idx]\ *\ Di[Idx]\ /\ Ds[Idx\ -\/\ 1]\ *}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((phi[ic]\ -\/\ phi[n])\ /\ Di[Idx]\ -\/}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (phi[n]\ -\/\ phi[nn])\ /\ Di[Idx\ -\/\ 1]);}
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00031\ \ \ \ \ phi\_N\ =\ 0.5\ *\ (phi[n]\ +\ phi[ic])\ -\/\ 0.125\ *\ Di[Idx]\ *\ Di[Idx]\ /\ Ds[Idx]\ *}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((phi[p]\ -\/\ phi[ic])\ /\ Di[Idx\ +\ 1]\ -\/}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (phi[ic]\ -\/\ phi[n])\ /\ Di[Idx]);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(phi\_P,\ phi\_N);}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{convection__and__difussion_8hpp_source_l00015}{Cal\+Convection\+And\+Diffusion()}}.
+

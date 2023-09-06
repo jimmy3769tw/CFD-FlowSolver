@@ -1,0 +1,405 @@
+\doxysection{mat\+::Mpi\+Vector\+Tool Class Reference}
+\hypertarget{classmat_1_1_mpi_vector_tool}{}\label{classmat_1_1_mpi_vector_tool}\index{mat::MpiVectorTool@{mat::MpiVectorTool}}
+
+
+{\ttfamily \#include $<$mat\+\_\+mpi\+\_\+tool.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a7d0663d59722a4d1912aad72c89bbcef}{Mpi\+Vector\+Tool}} ()
+\item 
+int \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad}{beg}} ()
+\item 
+int \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}} ()
+\item 
+void \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a592c497379216c4f13b616348e124e84}{Barrier}} ()
+\item 
+void \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4cd02e9026ef49dee1988fc763b1cd37}{Init}} (MPI\+\_\+\+Comm comm\+\_\+world, std\+::vector$<$ int $>$ start, std\+::vector$<$ int $>$ \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}})
+\item 
+void \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a766317a92cf624bcf97d6b8f7e22ec33}{Init}} (MPI\+\_\+\+Comm \&comm\+\_\+world, int vec\+\_\+size)
+\item 
+bool \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a58ce1e0542de092a83205fb46878c67a}{Empty}} ()
+\item 
+void \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a856ccc1e4a26ee063be8e9a68d6a4365}{Allocate}} (std\+::vector$<$ double $>$ \&x)
+\item 
+double \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_ad7d2cd3627ae898e6ec78ed4da113f00}{Allreduce\+Sum}} (double \&x)
+\item 
+int \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a04729ef4306e324adda55a90a236d9a2}{Allreduce\+Sum}} (int \&x)
+\item 
+double \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a56e1349089c84c584b20a2b5b63a43d5}{Inner\+Product}} (const std\+::vector$<$ double $>$ \&a, const std\+::vector$<$ double $>$ \&b)
+\item 
+double \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a7a0bf700f5de3ea338ba58f42c0b646f}{L2\+Norm}} (const std\+::vector$<$ double $>$ \&a)
+\item 
+void \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_aa4cc93d5063055f750357ecfe74eff3c}{init}} (std\+::vector$<$ double $>$ \&a, const double val)
+\item 
+void \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a349ace681657dfa8c58217f1fb83d5b0}{init}} (std\+::vector$<$ double $>$ \&a, const std\+::vector$<$ double $>$ \&b)
+\item 
+void \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_aef3acb132881e158a46e7693258ff44c}{zero}} (std\+::vector$<$ double $>$ \&a)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmat_1_1_mpi_vector_tool_a7d0663d59722a4d1912aad72c89bbcef}\label{classmat_1_1_mpi_vector_tool_a7d0663d59722a4d1912aad72c89bbcef} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!MpiVectorTool@{MpiVectorTool}}
+\index{MpiVectorTool@{MpiVectorTool}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{MpiVectorTool()}{MpiVectorTool()}}
+{\footnotesize\ttfamily mat\+::\+Mpi\+Vector\+Tool\+::\+Mpi\+Vector\+Tool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ empty\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00016\ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmat_1_1_mpi_vector_tool_a856ccc1e4a26ee063be8e9a68d6a4365}\label{classmat_1_1_mpi_vector_tool_a856ccc1e4a26ee063be8e9a68d6a4365} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!Allocate@{Allocate}}
+\index{Allocate@{Allocate}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{Allocate()}{Allocate()}}
+{\footnotesize\ttfamily void mat\+::\+Mpi\+Vector\+Tool\+::\+Allocate (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ size\_;\ ++i)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ MPI\_Bcast((\textcolor{keywordtype}{void}\ *)\&x[table\_beg\_[i]],\ table\_len\_[i],\ MPI\_DOUBLE,\ i,\ comm\_world\_);}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ MPI\_Barrier(comm\_world\_);}
+\DoxyCodeLine{00063\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{csr__sparse__mat_8hpp_source_l00046}{mat\+::\+Csr\+Mat$<$ T $>$\+::\+Multiply\+Mpi()}}, \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00051}{mat\+::\+Ell\+Mat$<$ T $>$\+::\+Multiply\+Mpi()}}, and \mbox{\hyperlink{bicgstab__mpi_8hpp_source_l00035}{solver\+::\+Bicgstab\+Mpi$<$ matrix\+T $>$\+::solve()}}.
+
+\Hypertarget{classmat_1_1_mpi_vector_tool_ad7d2cd3627ae898e6ec78ed4da113f00}\label{classmat_1_1_mpi_vector_tool_ad7d2cd3627ae898e6ec78ed4da113f00} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!AllreduceSum@{AllreduceSum}}
+\index{AllreduceSum@{AllreduceSum}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{AllreduceSum()}{AllreduceSum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double mat\+::\+Mpi\+Vector\+Tool\+::\+Allreduce\+Sum (\begin{DoxyParamCaption}\item[{double \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00065}{65}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{double}\ temp\_g\ =\ x;}
+\DoxyCodeLine{00067\ \ \ \ \ MPI\_Allreduce(\&x,\ \&temp\_g,\ 1,\ MPI\_DOUBLE,\ MPI\_SUM,\ comm\_world\_);}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ temp\_g;}
+\DoxyCodeLine{00069\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00077}{Inner\+Product()}}.
+
+\Hypertarget{classmat_1_1_mpi_vector_tool_a04729ef4306e324adda55a90a236d9a2}\label{classmat_1_1_mpi_vector_tool_a04729ef4306e324adda55a90a236d9a2} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!AllreduceSum@{AllreduceSum}}
+\index{AllreduceSum@{AllreduceSum}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{AllreduceSum()}{AllreduceSum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int mat\+::\+Mpi\+Vector\+Tool\+::\+Allreduce\+Sum (\begin{DoxyParamCaption}\item[{int \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ temp\_g\ =\ x;}
+\DoxyCodeLine{00073\ \ \ \ \ MPI\_Allreduce(\&x,\ \&temp\_g,\ 1,\ MPI\_INT,\ MPI\_SUM,\ comm\_world\_);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ temp\_g;}
+\DoxyCodeLine{00075\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_mpi_vector_tool_a592c497379216c4f13b616348e124e84}\label{classmat_1_1_mpi_vector_tool_a592c497379216c4f13b616348e124e84} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!Barrier@{Barrier}}
+\index{Barrier@{Barrier}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{Barrier()}{Barrier()}}
+{\footnotesize\ttfamily void mat\+::\+Mpi\+Vector\+Tool\+::\+Barrier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{\ MPI\_Barrier(comm\_world\_);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad}\label{classmat_1_1_mpi_vector_tool_a06add3f20d2d647e11c111ba6f7d89ad} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!beg@{beg}}
+\index{beg@{beg}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{beg()}{beg()}}
+{\footnotesize\ttfamily int mat\+::\+Mpi\+Vector\+Tool\+::beg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \{\ \textcolor{keywordflow}{return}\ beg\_;\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{csr__sparse__mat_8hpp_source_l00046}{mat\+::\+Csr\+Mat$<$ T $>$\+::\+Multiply\+Mpi()}}, \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00051}{mat\+::\+Ell\+Mat$<$ T $>$\+::\+Multiply\+Mpi()}}, and \mbox{\hyperlink{bicgstab__mpi_8hpp_source_l00035}{solver\+::\+Bicgstab\+Mpi$<$ matrix\+T $>$\+::solve()}}.
+
+\Hypertarget{classmat_1_1_mpi_vector_tool_a58ce1e0542de092a83205fb46878c67a}\label{classmat_1_1_mpi_vector_tool_a58ce1e0542de092a83205fb46878c67a} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!Empty@{Empty}}
+\index{Empty@{Empty}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{Empty()}{Empty()}}
+{\footnotesize\ttfamily bool mat\+::\+Mpi\+Vector\+Tool\+::\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \{\ \textcolor{keywordflow}{return}\ empty\_;\}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}\label{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!end@{end}}
+\index{end@{end}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily int mat\+::\+Mpi\+Vector\+Tool\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{\ \textcolor{keywordflow}{return}\ end\_;\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00031}{Init()}}, \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00021}{Init()}}, \mbox{\hyperlink{csr__sparse__mat_8hpp_source_l00046}{mat\+::\+Csr\+Mat$<$ T $>$\+::\+Multiply\+Mpi()}}, \mbox{\hyperlink{ell__sparse__mat_8hpp_source_l00051}{mat\+::\+Ell\+Mat$<$ T $>$\+::\+Multiply\+Mpi()}}, and \mbox{\hyperlink{bicgstab__mpi_8hpp_source_l00035}{solver\+::\+Bicgstab\+Mpi$<$ matrix\+T $>$\+::solve()}}.
+
+\Hypertarget{classmat_1_1_mpi_vector_tool_a766317a92cf624bcf97d6b8f7e22ec33}\label{classmat_1_1_mpi_vector_tool_a766317a92cf624bcf97d6b8f7e22ec33} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!Init@{Init}}
+\index{Init@{Init}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void mat\+::\+Mpi\+Vector\+Tool\+::\+Init (\begin{DoxyParamCaption}\item[{MPI\+\_\+\+Comm \&}]{comm\+\_\+world,  }\item[{int}]{vec\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ size\_\ =\ \mbox{\hyperlink{namespacempi_ab978162719907ffc69169c4b38025dce}{mpi::GetSize}}(comm\_world);}
+\DoxyCodeLine{00033\ \ \ \ \ std::vector<int>\ len(size\_);}
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<int>\ start(size\_);}
+\DoxyCodeLine{00035\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}}(size\_);}
+\DoxyCodeLine{00036\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}size\_"{}}\ <<\ size\_;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size\_;\ i++)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ len[i]\ =\ vec\_size\ /\ size\_;}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ vec\_size\ \%\ size\_;\ i++)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ len[i]++;}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ start[0]\ =\ 0;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ size\_;\ i++)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ start[i]\ =\ start[i\ -\/\ 1]\ +\ len[i\ -\/\ 1];}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size\_;\ i++)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}}[i]\ =\ start[i]\ +\ len[i];}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4cd02e9026ef49dee1988fc763b1cd37}{Init}}(comm\_world,\ start,\ \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}});}
+\DoxyCodeLine{00054\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00018}{end()}}, \mbox{\hyperlink{mpi__getter_8hpp_source_l00017}{mpi\+::\+Get\+Size()}}, and \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00021}{Init()}}.
+
+\Hypertarget{classmat_1_1_mpi_vector_tool_a4cd02e9026ef49dee1988fc763b1cd37}\label{classmat_1_1_mpi_vector_tool_a4cd02e9026ef49dee1988fc763b1cd37} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!Init@{Init}}
+\index{Init@{Init}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void mat\+::\+Mpi\+Vector\+Tool\+::\+Init (\begin{DoxyParamCaption}\item[{MPI\+\_\+\+Comm}]{comm\+\_\+world,  }\item[{std\+::vector$<$ int $>$}]{start,  }\item[{std\+::vector$<$ int $>$}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ empty\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00024\ \ \ \ \ comm\_world\_\ =\ comm\_world;}
+\DoxyCodeLine{00025\ \ \ \ \ rank\_\ =\ \mbox{\hyperlink{namespacempi_ad5b31e1d84855c1a0d7bff0de7cd1cfb}{mpi::GetRank}}(comm\_world\_);}
+\DoxyCodeLine{00026\ \ \ \ \ size\_\ =\ \mbox{\hyperlink{namespacempi_ab978162719907ffc69169c4b38025dce}{mpi::GetSize}}(comm\_world\_);}
+\DoxyCodeLine{00027\ \ \ \ \ InitLocal(start,\ \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}});}
+\DoxyCodeLine{00028\ \ \ \ \ InitGlobal(start,\ \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a4b981138aed55a76705c9cc267f92d52}{end}});}
+\DoxyCodeLine{00029\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00018}{end()}}, \mbox{\hyperlink{mpi__getter_8hpp_source_l00011}{mpi\+::\+Get\+Rank()}}, and \mbox{\hyperlink{mpi__getter_8hpp_source_l00017}{mpi\+::\+Get\+Size()}}.
+
+
+
+Referenced by \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00031}{Init()}}, \mbox{\hyperlink{sparse__mat_8hpp_source_l00047}{mat\+::\+Sparse\+Mat$<$ T $>$\+::\+Init\+Mpi()}}, and \mbox{\hyperlink{sparse__mat_8hpp_source_l00041}{mat\+::\+Sparse\+Mat$<$ T $>$\+::\+Init\+Mpi()}}.
+
+\Hypertarget{classmat_1_1_mpi_vector_tool_aa4cc93d5063055f750357ecfe74eff3c}\label{classmat_1_1_mpi_vector_tool_aa4cc93d5063055f750357ecfe74eff3c} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!init@{init}}
+\index{init@{init}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void mat\+::\+Mpi\+Vector\+Tool\+::init (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{a,  }\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00092}{92}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{auto}\ A\ =\ a.data()\ +\ beg\_;}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ simd\ default(none)\ firstprivate(A,\ val,\ len\_)\ \(\backslash\)}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ schedule(static)}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ len\_;\ ++i)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ *(A\ +\ i)\ =\ val;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00111}{zero()}}.
+
+\Hypertarget{classmat_1_1_mpi_vector_tool_a349ace681657dfa8c58217f1fb83d5b0}\label{classmat_1_1_mpi_vector_tool_a349ace681657dfa8c58217f1fb83d5b0} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!init@{init}}
+\index{init@{init}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void mat\+::\+Mpi\+Vector\+Tool\+::init (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{a,  }\item[{const std\+::vector$<$ double $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00101}{101}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{auto}\ A\ =\ a.data()\ +\ beg\_;}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{auto}\ B\ =\ b.data()\ +\ beg\_;}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ simd\ default(none)\ firstprivate(A,\ len\_,\ B)\ \(\backslash\)}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\ \ \ \ schedule(static)}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ len\_;\ ++i)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ *(A\ +\ i)\ =\ *(B\ +\ i);}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmat_1_1_mpi_vector_tool_a56e1349089c84c584b20a2b5b63a43d5}\label{classmat_1_1_mpi_vector_tool_a56e1349089c84c584b20a2b5b63a43d5} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!InnerProduct@{InnerProduct}}
+\index{InnerProduct@{InnerProduct}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{InnerProduct()}{InnerProduct()}}
+{\footnotesize\ttfamily double mat\+::\+Mpi\+Vector\+Tool\+::\+Inner\+Product (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{a,  }\item[{const std\+::vector$<$ double $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00077}{77}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{double}\ temp\_l\{0.0\};}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{auto}\ A\ =\ a.data()\ +\ beg\_;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{auto}\ B\ =\ b.data()\ +\ beg\_;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#pragma\ omp\ parallel\ for\ simd\ reduction(+:temp\_l)\ default(none)\ \(\backslash\)}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ firstprivate(A,\ B,\ len\_)\ schedule(static)}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ len\_;\ ++i)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ temp\_l\ +=\ *(A\ +\ i)\ *\ *(B\ +\ i);}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_ad7d2cd3627ae898e6ec78ed4da113f00}{AllreduceSum}}(temp\_l);}
+\DoxyCodeLine{00088\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00065}{Allreduce\+Sum()}}.
+
+
+
+Referenced by \mbox{\hyperlink{linear__solver__mpi_8hpp_source_l00048}{solver\+::\+Linear\+Solver\+Mpi$<$ Mat\+Type $>$\+::\+Inner\+Product()}}, and \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00090}{L2\+Norm()}}.
+
+\Hypertarget{classmat_1_1_mpi_vector_tool_a7a0bf700f5de3ea338ba58f42c0b646f}\label{classmat_1_1_mpi_vector_tool_a7a0bf700f5de3ea338ba58f42c0b646f} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!L2Norm@{L2Norm}}
+\index{L2Norm@{L2Norm}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{L2Norm()}{L2Norm()}}
+{\footnotesize\ttfamily double mat\+::\+Mpi\+Vector\+Tool\+::\+L2\+Norm (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00090}{90}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \{\ \textcolor{keywordflow}{return}\ sqrt(\mbox{\hyperlink{classmat_1_1_mpi_vector_tool_a56e1349089c84c584b20a2b5b63a43d5}{InnerProduct}}(a,\ a));\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00077}{Inner\+Product()}}.
+
+
+
+Referenced by \mbox{\hyperlink{bicgstab__restart__mpi_8hpp_source_l00086}{solver\+::\+Bicgstab\+Restart\+Mpi$<$ matrix\+T $>$\+::solve()}}, and \mbox{\hyperlink{bicgstab__mpi_8hpp_source_l00035}{solver\+::\+Bicgstab\+Mpi$<$ matrix\+T $>$\+::solve()}}.
+
+\Hypertarget{classmat_1_1_mpi_vector_tool_aef3acb132881e158a46e7693258ff44c}\label{classmat_1_1_mpi_vector_tool_aef3acb132881e158a46e7693258ff44c} 
+\index{mat::MpiVectorTool@{mat::MpiVectorTool}!zero@{zero}}
+\index{zero@{zero}!mat::MpiVectorTool@{mat::MpiVectorTool}}
+\doxysubsubsection{\texorpdfstring{zero()}{zero()}}
+{\footnotesize\ttfamily void mat\+::\+Mpi\+Vector\+Tool\+::zero (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00111}{111}} of file \mbox{\hyperlink{mat__mpi__tool_8hpp_source}{mat\+\_\+mpi\+\_\+tool.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \{\ \mbox{\hyperlink{classmat_1_1_mpi_vector_tool_aa4cc93d5063055f750357ecfe74eff3c}{init}}(a,\ 0.0);\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mat__mpi__tool_8hpp_source_l00092}{init()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/matrix/\mbox{\hyperlink{mat__mpi__tool_8hpp}{mat\+\_\+mpi\+\_\+tool.\+hpp}}\end{DoxyCompactItemize}

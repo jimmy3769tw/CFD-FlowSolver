@@ -1,0 +1,134 @@
+\doxysection{csv Namespace Reference}
+\hypertarget{namespacecsv}{}\label{namespacecsv}\index{csv@{csv}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacecsv_aa8b109dc693978cff7ee9f7bfae4f98d}{Write\+Csv\+File}} (std\+::string filename, \mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacecsv_aa8b109dc693978cff7ee9f7bfae4f98d}\label{namespacecsv_aa8b109dc693978cff7ee9f7bfae4f98d} 
+\index{csv@{csv}!WriteCsvFile@{WriteCsvFile}}
+\index{WriteCsvFile@{WriteCsvFile}!csv@{csv}}
+\doxysubsubsection{\texorpdfstring{WriteCsvFile()}{WriteCsvFile()}}
+{\footnotesize\ttfamily bool csv\+::\+Write\+Csv\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{csv__structured__grid_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{csv__structured__grid_8hpp_source}{csv\+\_\+structured\+\_\+grid.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ std::ofstream\ file;}
+\DoxyCodeLine{00010\ \ \ \textcolor{keyword}{auto}\ nx\ =\ grid.\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}};}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{auto}\ ny\ =\ grid.\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}};}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{auto}\ nz\ =\ grid.\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}};}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{auto}\ no\_ghost\_cell\ =\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{auto}\ dy\ =\ grid.\mbox{\hyperlink{class_structured_grid_af91cfb2a32fb227799d711ca40e142bd}{dy}};}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{auto}\ dx\ =\ grid.\mbox{\hyperlink{class_structured_grid_ac7af8cd53305a45437ed0e44a1a8cc27}{dx}};}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{auto}\ dz\ =\ grid.\mbox{\hyperlink{class_structured_grid_a25d0c536386f68b300f51e54a57743bb}{dz}};}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{auto}\ y\_cent\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_aded2510763ccc9ca518132960c4b201e}{y\_cent\_pos}};}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{auto}\ x\_cent\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_a979f3af643473bf4276b54f80c94c4c0}{x\_cent\_pos}};}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{auto}\ z\_cent\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_ac73ad4634948af8e38c050642d7f6bfe}{z\_cent\_pos}};}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{auto}\ staggered\_dx\ =\ grid.\mbox{\hyperlink{class_structured_grid_a5bd12a20ac073c97474ce70974b4462a}{staggered\_dx}};}
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{auto}\ staggered\_dy\ =\ grid.\mbox{\hyperlink{class_structured_grid_af7c6335a3ff2f6b7b7906bab19ad4e9c}{staggered\_dy}};}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{auto}\ staggered\_dz\ =\ grid.\mbox{\hyperlink{class_structured_grid_aac82704de7801674619cdfd14c51200d}{staggered\_dz}};}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{auto}\ x\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_a0dbb96c38939e69f88663cad4d9cb5a3}{x\_pos}};}
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{auto}\ y\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_a02b03f77139a7ce22b75dd106a249022}{y\_pos}};}
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{auto}\ z\_pos\ =\ grid.\mbox{\hyperlink{class_structured_grid_a3739366a430408c26bb0d16f33bea8f9}{z\_pos}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ file.open(filename,\ std::ios::out);\ \ \textcolor{comment}{//\ |\ ios::app}}
+\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ x-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ nx\ +\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}x\_pos["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}};}
+\DoxyCodeLine{00031\ \ \ \ \ file\ <<\ x\_pos[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ nx\ -\/\ no\_ghost\_cell\ +\ 2)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 2)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}x\_cent\_pos[no\_ghost\_cell],\ not\ define,\ "{}};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ <\ nx\ -\/\ no\_ghost\_cell)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}xc["{}}\ <<\ i\ -\/\ 2\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ x\_cent\_pos[i\ -\/\ 2]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}x\_cent\_pos[no\_ghost\_cell],\ not\ define,\ "{}};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ nx)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}dx["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ dx[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}staggered\_dx["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ staggered\_dx[i];}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ file\ <<\ std::endl;}
+\DoxyCodeLine{00052\ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ file\ <<\ std::endl;}
+\DoxyCodeLine{00055\ \ \ \textcolor{comment}{//\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ y-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ ny\ +\ 1;\ ++j)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}y\_pos["{}}\ <<\ j\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}};}
+\DoxyCodeLine{00058\ \ \ \ \ file\ <<\ y\_pos[j]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <\ ny\ -\/\ no\_ghost\_cell\ +\ 2)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <\ 2)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}y\_cent\_pos[no\_ghost\_cell],\ not\ define,\ "{}};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (j\ <\ ny\ -\/\ no\_ghost\_cell)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}y\_cent\_pos["{}}\ <<\ j\ -\/\ 2\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ y\_cent\_pos[j\ -\/\ 2]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}y\_cent\_pos[no\_ghost\_cell],\ not\ define,\ "{}};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <\ ny)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}dy["{}}\ <<\ j\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ dy[j]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}staggered\_dy["{}}\ <<\ j\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ staggered\_dy[j];}
+\DoxyCodeLine{00076\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ file\ <<\ std::endl;}
+\DoxyCodeLine{00081\ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ file\ <<\ std::endl;}
+\DoxyCodeLine{00084\ \ \ \textcolor{comment}{//\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ z\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ nz\ +\ 1;\ ++k)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}z\_pos["{}}\ <<\ k\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ z\_pos[k]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ <\ nz\ -\/\ no\_ghost\_cell\ +\ 2)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ >\ 1\ ||\ k\ <\ nz\ -\/\ no\_ghost\_cell)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}zc["{}}\ <<\ k\ -\/\ 2\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ z\_cent\_pos[k\ -\/\ 2]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}dzs[no\_ghost\_cell],\ not\ define,"{}};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ <\ nz)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}dz["{}}\ <<\ k\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ dz[k]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}dzs["{}}\ <<\ k\ <<\ \textcolor{stringliteral}{"{}]\ ,"{}}\ <<\ staggered\_dz[k];}
+\DoxyCodeLine{00102\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}\ ,\ ,\ "{}};}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ file\ <<\ std::endl;}
+\DoxyCodeLine{00107\ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00109\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{Structured\+Grid\+::dx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{Structured\+Grid\+::dy}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00071}{Structured\+Grid\+::dz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00061}{Structured\+Grid\+::no\+\_\+ghost\+\_\+cell}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00064}{Structured\+Grid\+::nx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00065}{Structured\+Grid\+::ny}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00066}{Structured\+Grid\+::nz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{Structured\+Grid\+::staggered\+\_\+dx}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{Structured\+Grid\+::staggered\+\_\+dy}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00072}{Structured\+Grid\+::staggered\+\_\+dz}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{Structured\+Grid\+::x\+\_\+cent\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{Structured\+Grid\+::x\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{Structured\+Grid\+::y\+\_\+cent\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{Structured\+Grid\+::y\+\_\+pos}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00074}{Structured\+Grid\+::z\+\_\+cent\+\_\+pos}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00073}{Structured\+Grid\+::z\+\_\+pos}}.
+
+
+
+Referenced by \mbox{\hyperlink{run__cpu_8hpp_source_l00029}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+::\+Cpu\+Open\+Mp()}}, and \mbox{\hyperlink{run__cpu__mpi_8hpp_source_l00020}{projection\+\_\+method\+::\+Cpu\+Open\+Mp\+Mpi\+::\+Cpu\+Open\+Mp\+Mpi()}}.
+

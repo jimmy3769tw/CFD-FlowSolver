@@ -1,0 +1,95 @@
+\doxysection{write\+\_\+qfile.\+hpp}
+\hypertarget{write__qfile_8hpp_source}{}\label{write__qfile_8hpp_source}\index{cfd\_mx/inc/io/plot3d/write\_qfile.hpp@{cfd\_mx/inc/io/plot3d/write\_qfile.hpp}}
+\mbox{\hyperlink{write__qfile_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <dirent.h>}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structured__grid_8hpp}{grid/structured\_grid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physical__variables_8hpp}{backend/physical\_variables.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{simulation_8hpp}{backend/simulation.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00009}\mbox{\hyperlink{write__qfile_8hpp_a1f54031450601af74767a58a74c294f7}{00009}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{write__qfile_8hpp_a1f54031450601af74767a58a74c294f7}{WriteQfile}}(\mbox{\hyperlink{class_immersed_boundary}{ImmersedBoundary}}\ \&dfib,\ \mbox{\hyperlink{class_simulation}{Simulation}}\ \&simu,\ \mbox{\hyperlink{class_pressure}{Pressure}}\ \&pressure,}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_staggered_velocity}{StaggeredVelocity}}\ \&curr\_vel,\ \mbox{\hyperlink{class_structured_grid}{StructuredGrid}}\ \&grid)\ \{}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00011}00011\ \ \ \textcolor{keyword}{auto}\ gc\ =\ grid.\mbox{\hyperlink{class_structured_grid_a588ce27c2f4a42580d8c7ea85524a427}{no\_ghost\_cell}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00012}00012\ \ \ \textcolor{keyword}{auto}\ nx\ =\ grid.\mbox{\hyperlink{class_structured_grid_a729ba22ec783944242e7279c7edbd9d3}{nx}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00013}00013\ \ \ \textcolor{keyword}{auto}\ ny\ =\ grid.\mbox{\hyperlink{class_structured_grid_acd2c4a5c87de501e98173c83838978b6}{ny}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00014}00014\ \ \ \textcolor{keyword}{auto}\ nz\ =\ grid.\mbox{\hyperlink{class_structured_grid_a6d376bf512f0064c82b1af557dd59dd3}{nz}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00015}00015\ \ \ \textcolor{keyword}{auto}\ cal\_nx\ =\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00016}00016\ \ \ \textcolor{keyword}{auto}\ cal\_ny\ =\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00017}00017\ \ \ \textcolor{keyword}{auto}\ cal\_nz\ =\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00019}00019\ \ \ \textcolor{comment}{//\ double\ temp\ =\ 1.0;}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00020}00020\ \ \ \textcolor{keywordtype}{float}\ mach\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00021}00021\ \ \ \textcolor{keywordtype}{float}\ alpha\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00022}00022\ \ \ \textcolor{keywordtype}{float}\ reyn\ =\ simu.\mbox{\hyperlink{class_simulation_a2baf0eae5a9ba6683c7d4b158d216bdd}{GetReynoldsNumber}}();}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00023}00023\ \ \ \textcolor{keywordtype}{float}\ time\ =\ simu.\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_af075e1d566655fdc2667ca7008c54341}{GetTime}}();}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00024}00024\ \ \ \textcolor{keywordtype}{int}\ io\ =\ simu.\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_acd9b1260ec98d9e1b5bddcca1944c849}{GetFileNo}}();}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00026}00026\ \ \ std::ofstream\ file;}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00028}00028\ \ \ \textcolor{keywordtype}{int}\ no\_block\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00029}00029\ \ \ \textcolor{keywordtype}{int}\ temp\_nx\ =\ grid.\mbox{\hyperlink{class_structured_grid_af615b1cdf8952af8bccbfc688410a3e5}{cal\_nx}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00030}00030\ \ \ \textcolor{keywordtype}{int}\ temp\_ny\ =\ grid.\mbox{\hyperlink{class_structured_grid_ab981c1b7d078c3c3167ee0f7f1ccb89c}{cal\_ny}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00031}00031\ \ \ \textcolor{keywordtype}{int}\ temp\_nz\ =\ grid.\mbox{\hyperlink{class_structured_grid_a5a19d04b23d10dae669d3b0552088fd8}{cal\_nz}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00033}00033\ \ \ std::string\ filename\ =\ \textcolor{stringliteral}{"{}mx\_out/P3D"{}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00035}00035\ \ \ \textcolor{keywordflow}{if}\ (io\ <\ 10)\ \{}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00036}00036\ \ \ \ \ filename\ +=\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00037}00037\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00039}00039\ \ \ filename\ +=\ std::to\_string(io);}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00040}00040\ \ \ filename\ +=\ \textcolor{stringliteral}{"{}.q"{}};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00041}00041\ \ \ file.open(filename,\ std::ofstream::binary);}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00042}00042\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}(Output\ Plaot3D):"{}}\ <<\ io\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00044}00044\ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&no\_block),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00045}00045\ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&temp\_nx),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00046}00046\ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&temp\_ny),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00047}00047\ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&temp\_nz),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00049}00049\ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&mach),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00050}00050\ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&alpha),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00051}00051\ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&reyn),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00052}00052\ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&time),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00054}00054\ \ \ \textcolor{keyword}{auto}\ ii\ =\ [\&](\textcolor{keyword}{auto}\ i,\ \textcolor{keyword}{auto}\ j,\ \textcolor{keyword}{auto}\ k)\ \{\ \textcolor{keywordflow}{return}\ grid.\mbox{\hyperlink{class_structured_grid_acab922cc8855e08a3e6d94fa7496231f}{icel}}(i,\ j,\ k);\ \};}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00056}00056\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ gc;\ k\ <\ cal\_nz\ +\ gc;\ ++k)}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ gc;\ j\ <\ cal\_ny\ +\ gc;\ ++j)}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00058}00058\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ gc;\ i\ <\ cal\_nx\ +\ gc;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ out\ =\ pressure.\mbox{\hyperlink{class_pressure_aed42bb81b78185a0323339242169d7f6}{p}}[ii(i,\ j,\ k)];}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&out),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00061}00061\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00063}00063\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ gc;\ k\ <\ cal\_nz\ +\ gc;\ ++k)}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ gc;\ j\ <\ cal\_ny\ +\ gc;\ ++j)}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00065}00065\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ gc;\ i\ <\ cal\_nx\ +\ gc;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ out\ =\ 0.5\ *\ (curr\_vel.\mbox{\hyperlink{class_staggered_velocity_afb5848ce19415f798e8d57b85f8d7d57}{u}}[ii(i\ -\/\ 1,\ j,\ k)]\ +\ curr\_vel.\mbox{\hyperlink{class_staggered_velocity_afb5848ce19415f798e8d57b85f8d7d57}{u}}[ii(i,\ j,\ k)]);}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&out),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00068}00068\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00070}00070\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ gc;\ k\ <\ cal\_nz\ +\ gc;\ ++k)}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ gc;\ j\ <\ cal\_ny\ +\ gc;\ ++j)}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00072}00072\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ gc;\ i\ <\ cal\_nx\ +\ gc;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ out\ =\ 0.5\ *\ (curr\_vel.\mbox{\hyperlink{class_staggered_velocity_acc058b10021080e0d80c459251be2c7f}{v}}[ii(i,\ j\ -\/\ 1,\ k)]\ +\ curr\_vel.\mbox{\hyperlink{class_staggered_velocity_acc058b10021080e0d80c459251be2c7f}{v}}[ii(i,\ j,\ k)]);}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&out),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00075}00075\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00076}00076\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ gc;\ k\ <\ cal\_nz\ +\ gc;\ ++k)}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ gc;\ j\ <\ cal\_ny\ +\ gc;\ ++j)}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00078}00078\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ gc;\ i\ <\ cal\_nx\ +\ gc;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ out\ =\ 0.5\ *\ (curr\_vel.\mbox{\hyperlink{class_staggered_velocity_abf894ea9fea0fbe62aea732c3cb94174}{w}}[ii(i,\ j,\ k\ -\/\ 1)]\ +\ curr\_vel.\mbox{\hyperlink{class_staggered_velocity_abf894ea9fea0fbe62aea732c3cb94174}{w}}[ii(i,\ j,\ k)]);}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&out),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00081}00081\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00083}00083\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ gc;\ k\ <\ cal\_nz\ +\ gc;\ ++k)}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ gc;\ j\ <\ cal\_ny\ +\ gc;\ ++j)}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00085}00085\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ gc;\ i\ <\ cal\_nx\ +\ gc;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ out\ =\ dfib.\mbox{\hyperlink{class_immersed_boundary_a6e64d44d2ae6364fdc6c131fea6c15ab}{eta}}[ii(i,\ j,\ k)];}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ file.write((\textcolor{keywordtype}{char}\ *)(\&out),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00088}00088\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write__qfile_8hpp_source_l00089}00089\ \}}
+
+\end{DoxyCode}

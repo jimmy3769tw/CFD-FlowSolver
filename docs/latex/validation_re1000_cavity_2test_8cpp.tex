@@ -1,0 +1,76 @@
+\doxysection{tests/validation\+Re1000\+Cavity/test.cpp File Reference}
+\hypertarget{validation_re1000_cavity_2test_8cpp}{}\label{validation_re1000_cavity_2test_8cpp}\index{tests/validationRe1000Cavity/test.cpp@{tests/validationRe1000Cavity/test.cpp}}
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/backend/simulation.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/grid/structured\+\_\+grid.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/grid/uniform\+\_\+structured\+\_\+grid.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/io/plot3d/read\+\_\+qfile.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../cfd\+\_\+mx/inc/run/run\+\_\+cpu.\+hpp"{}}\newline
+{\ttfamily \#include "{}../validation\+\_\+tool/l2norm\+\_\+validation.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_ad586ba2bfe099c6cb29e82980cdfabbf}{TEST}} (re1000, test1)
+\item 
+int \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{validation_re1000_cavity_2test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{validation_re1000_cavity_2test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{test.cpp@{test.cpp}!main@{main}}
+\index{main@{main}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source}{test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ testing::InitGoogleTest(\&argc,\ argv);}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordflow}{return}\ RUN\_ALL\_TESTS();}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{validation_re1000_cavity_2test_8cpp_ad586ba2bfe099c6cb29e82980cdfabbf}\label{validation_re1000_cavity_2test_8cpp_ad586ba2bfe099c6cb29e82980cdfabbf} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{re1000}]{,  }\item[{test1}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{validation_re1000_cavity_2test_8cpp_source}{test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{class_simulation}{Simulation}}\ simu;}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{class_uniform_structured_grid}{UniformStructuredGrid}}\ grid(80,\ 80,\ 80);}
+\DoxyCodeLine{00014\ \ \ grid.setLen(1,\ 1,\ 1).Init();}
+\DoxyCodeLine{00015\ \ \ simu.\mbox{\hyperlink{class_simulation_a525da8e9bae1d64dfb07f1de474be047}{SetReynoldsNumber}}(1000.0)}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ .\mbox{\hyperlink{class_simulation_a618fe1caf62de3f4e789ae2b8da4fa17}{tva}}.\mbox{\hyperlink{class_time_variance_authority_a30e93689cb329e0fc515266b639f1c7a}{SetDt}}(0.001)}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ .\mbox{\hyperlink{class_time_variance_authority_a78ee6630c0b3c7d5251d6cff62026983}{SetWritingDt}}(1)}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ .\mbox{\hyperlink{class_time_variance_authority_a0e6c2d297508505bf8e3e0fa0cba42e5}{SetTerminalTime}}(2);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ grid.bc\_selector.CavityFlow();}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classprojection__method_1_1_cpu_open_mp}{projection\_method::CpuOpenMp}}\ \mbox{\hyperlink{namespaceprojection__method}{projection\_method}}(simu,\ grid);}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{namespaceprojection__method}{projection\_method}}.solve();}
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{auto}\ validation\ =\ get<5>(\mbox{\hyperlink{read__qfile_8hpp_a80d09382f3c6298d513f877f6dd61a52}{ReadQfile}}(grid,\ \textcolor{stringliteral}{"{}P3D40.q"{}}));}
+\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{auto}\ result\ =\ get<5>(\mbox{\hyperlink{read__qfile_8hpp_a80d09382f3c6298d513f877f6dd61a52}{ReadQfile}}(grid,\ \textcolor{stringliteral}{"{}mx\_out/P3D02.q"{}}));}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ result.size();\ i++)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{l2norm__validation_8hpp_ad450bf6e2ffe05cd75e5bfd6c6d965bf}{L2Norm}}(validation[i],\ result[i])\ <\ 1.0e-\/15);}
+\DoxyCodeLine{00030\ \ \ \}}
+\DoxyCodeLine{00031\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00034}{Structured\+Grid\+::bc\+\_\+selector}}, \mbox{\hyperlink{boundary__condition__selector_8hpp_source_l00038}{Boundary\+Condition\+Selector\+::\+Cavity\+Flow()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00052}{Structured\+Grid\+::\+Init()}}, \mbox{\hyperlink{l2norm__validation_8hpp_source_l00004}{L2\+Norm()}}, \mbox{\hyperlink{read__qfile_8hpp_source_l00011}{Read\+Qfile()}}, \mbox{\hyperlink{time__variance__authority_8hpp_source_l00013}{Time\+Variance\+Authority\+::\+Set\+Dt()}}, \mbox{\hyperlink{structured__grid_8hpp_source_l00038}{Structured\+Grid\+::set\+Len()}}, \mbox{\hyperlink{simulation_8hpp_source_l00022}{Simulation\+::\+Set\+Reynolds\+Number()}}, \mbox{\hyperlink{time__variance__authority_8hpp_source_l00008}{Time\+Variance\+Authority\+::\+Set\+Terminal\+Time()}}, \mbox{\hyperlink{time__variance__authority_8hpp_source_l00019}{Time\+Variance\+Authority\+::\+Set\+Writing\+Dt()}}, and \mbox{\hyperlink{simulation_8hpp_source_l00021}{Simulation\+::tva}}.
+

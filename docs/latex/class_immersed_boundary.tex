@@ -1,0 +1,379 @@
+\doxysection{Immersed\+Boundary Class Reference}
+\hypertarget{class_immersed_boundary}{}\label{class_immersed_boundary}\index{ImmersedBoundary@{ImmersedBoundary}}
+
+
+{\ttfamily \#include $<$physical\+\_\+variables.\+hpp$>$}
+
+Inheritance diagram for Immersed\+Boundary\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_immersed_boundary}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_immersed_boundary_ac60f5e5736d999fda26eb9da73294edf}{Immersed\+Boundary}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{class_immersed_boundary_a568875b9c29c693ec5fc4c49393dff44}{Fx}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{class_immersed_boundary_a54124ae85a875883cc3db0dcd8f6a825}{Fy}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{class_immersed_boundary_a52d07f96ae0fc1778f2c9f67a65d68be}{Fz}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{class_immersed_boundary_aeebacdcadece1a8a11d9fcdf61971671}{Eta}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \& \mbox{\hyperlink{class_immersed_boundary_a20b2d814a0499dcc9aa175828dde876c}{Fx}} (T i, T j, T k)
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \& \mbox{\hyperlink{class_immersed_boundary_aa5f1b21bdadc46b795acd425d156e0db}{Fy}} (T i, T j, T k)
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \& \mbox{\hyperlink{class_immersed_boundary_a1067eb4e2626dea8eea509b70c6e47d3}{Fz}} (T i, T j, T k)
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \& \mbox{\hyperlink{class_immersed_boundary_af91d02c0ea077d01841d18797a8abb54}{Eta}} (T i, T j, T k)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_physical_val}{Physical\+Val}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_physical_val_a7bae48cf70539f3c9d73e0c14ed2602f}{Physical\+Val}} (\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&grid)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb}{f}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_immersed_boundary_a6e64d44d2ae6364fdc6c131fea6c15ab}{eta}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_immersed_boundary_abbf27787e68b763c1a4d09a9c6e26770}{Val\+\_\+sumz}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_immersed_boundary_ac98fa2bb8bddc652f502379cebd77f37}{Val\+\_\+sumz\+\_\+sumy}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5}{Val\+Sum}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_immersed_boundary_a1ca8874477fb1463c82f7e47611d518c}{cylinder\+Center}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_physical_val}{Physical\+Val}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{class_physical_val_aba92f84eb9e0c541a5d6ba7f442a195e}{icel\+Cal}} (T i, T j, T k) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}} (T i, T j, T k) const
+\item 
+void \mbox{\hyperlink{class_physical_val_a32c5025afe89e3f30aa97af45128b6bf}{Fill}} (std\+::vector$<$ double $>$ \&v, double val)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_physical_val}{Physical\+Val}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00132}{132}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_immersed_boundary_ac60f5e5736d999fda26eb9da73294edf}\label{class_immersed_boundary_ac60f5e5736d999fda26eb9da73294edf} 
+\index{ImmersedBoundary@{ImmersedBoundary}!ImmersedBoundary@{ImmersedBoundary}}
+\index{ImmersedBoundary@{ImmersedBoundary}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{ImmersedBoundary()}{ImmersedBoundary()}}
+{\footnotesize\ttfamily Immersed\+Boundary\+::\+Immersed\+Boundary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_structured_grid}{Structured\+Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{physical__variables_8cpp_source}{physical\+\_\+variables.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_physical_val}{PhysicalVal}}(grid)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_immersed_boundary_a6e64d44d2ae6364fdc6c131fea6c15ab}{eta}}.resize(\mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\_}}-\/>\mbox{\hyperlink{class_structured_grid_a2cf335daeaa6f3319a8f15f557cd3bf9}{no\_grid}});}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb}{f}}.resize(\mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\_}}-\/>\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}}\ *\ 3);}
+\DoxyCodeLine{00019\ \ \ \ \ yShift\_\ =\ \mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\_}}-\/>\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}};}
+\DoxyCodeLine{00020\ \ \ \ \ zShift\_\ =\ 2\ *\ \mbox{\hyperlink{class_physical_val_a1491bb907e12158cdb761698f02bf809}{grid\_}}-\/>\mbox{\hyperlink{class_structured_grid_acf40aface0caef29608141965cd536d8}{cal\_no\_grid}};}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{structured__grid_8hpp_source_l00062}{Structured\+Grid\+::cal\+\_\+no\+\_\+grid}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{eta}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{f}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00013}{Physical\+Val\+::grid\+\_\+}}, and \mbox{\hyperlink{structured__grid_8hpp_source_l00069}{Structured\+Grid\+::no\+\_\+grid}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_immersed_boundary_af91d02c0ea077d01841d18797a8abb54}\label{class_immersed_boundary_af91d02c0ea077d01841d18797a8abb54} 
+\index{ImmersedBoundary@{ImmersedBoundary}!Eta@{Eta}}
+\index{Eta@{Eta}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{Eta()}{Eta()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto \& Immersed\+Boundary\+::\+Eta (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00176}{176}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_immersed_boundary_a6e64d44d2ae6364fdc6c131fea6c15ab}{eta}}[\mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}}(i,\ j,\ k)];}
+\DoxyCodeLine{00178\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{eta}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00032}{Physical\+Val\+::icel()}}.
+
+\Hypertarget{class_immersed_boundary_aeebacdcadece1a8a11d9fcdf61971671}\label{class_immersed_boundary_aeebacdcadece1a8a11d9fcdf61971671} 
+\index{ImmersedBoundary@{ImmersedBoundary}!Eta@{Eta}}
+\index{Eta@{Eta}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{Eta()}{Eta()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto Immersed\+Boundary\+::\+Eta (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00156}{156}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_immersed_boundary_a6e64d44d2ae6364fdc6c131fea6c15ab}{eta}}[\mbox{\hyperlink{class_physical_val_a58f07895f99e8445fbc6ce3e5bdb646d}{icel}}(i,\ j,\ k)];}
+\DoxyCodeLine{00158\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{eta}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00032}{Physical\+Val\+::icel()}}.
+
+
+
+Referenced by \mbox{\hyperlink{update__u__and__force_8hpp_source_l00075}{Remove\+Velocity()}}, \mbox{\hyperlink{set__eta__cylinder_8cpp_source_l00003}{Cylinder\+Z\+::solver()}}, and \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}.
+
+\Hypertarget{class_immersed_boundary_a20b2d814a0499dcc9aa175828dde876c}\label{class_immersed_boundary_a20b2d814a0499dcc9aa175828dde876c} 
+\index{ImmersedBoundary@{ImmersedBoundary}!Fx@{Fx}}
+\index{Fx@{Fx}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{Fx()}{Fx()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto \& Immersed\+Boundary\+::\+Fx (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00161}{161}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb}{f}}[\mbox{\hyperlink{class_physical_val_aba92f84eb9e0c541a5d6ba7f442a195e}{icelCal}}(i,\ j,\ k)];}
+\DoxyCodeLine{00163\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{f}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00038}{Physical\+Val\+::icel\+Cal()}}.
+
+\Hypertarget{class_immersed_boundary_a568875b9c29c693ec5fc4c49393dff44}\label{class_immersed_boundary_a568875b9c29c693ec5fc4c49393dff44} 
+\index{ImmersedBoundary@{ImmersedBoundary}!Fx@{Fx}}
+\index{Fx@{Fx}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{Fx()}{Fx()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto Immersed\+Boundary\+::\+Fx (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb}{f}}[\mbox{\hyperlink{class_physical_val_aba92f84eb9e0c541a5d6ba7f442a195e}{icelCal}}(i,\ j,\ k)];}
+\DoxyCodeLine{00143\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{f}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00038}{Physical\+Val\+::icel\+Cal()}}.
+
+
+
+Referenced by \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}.
+
+\Hypertarget{class_immersed_boundary_aa5f1b21bdadc46b795acd425d156e0db}\label{class_immersed_boundary_aa5f1b21bdadc46b795acd425d156e0db} 
+\index{ImmersedBoundary@{ImmersedBoundary}!Fy@{Fy}}
+\index{Fy@{Fy}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{Fy()}{Fy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto \& Immersed\+Boundary\+::\+Fy (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00166}{166}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb}{f}}[\mbox{\hyperlink{class_physical_val_aba92f84eb9e0c541a5d6ba7f442a195e}{icelCal}}(i,\ j,\ k)\ +\ yShift\_];}
+\DoxyCodeLine{00168\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{f}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00038}{Physical\+Val\+::icel\+Cal()}}.
+
+\Hypertarget{class_immersed_boundary_a54124ae85a875883cc3db0dcd8f6a825}\label{class_immersed_boundary_a54124ae85a875883cc3db0dcd8f6a825} 
+\index{ImmersedBoundary@{ImmersedBoundary}!Fy@{Fy}}
+\index{Fy@{Fy}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{Fy()}{Fy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto Immersed\+Boundary\+::\+Fy (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00146}{146}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb}{f}}[\mbox{\hyperlink{class_physical_val_aba92f84eb9e0c541a5d6ba7f442a195e}{icelCal}}(i,\ j,\ k)\ +\ yShift\_];}
+\DoxyCodeLine{00148\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{f}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00038}{Physical\+Val\+::icel\+Cal()}}.
+
+
+
+Referenced by \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}.
+
+\Hypertarget{class_immersed_boundary_a1067eb4e2626dea8eea509b70c6e47d3}\label{class_immersed_boundary_a1067eb4e2626dea8eea509b70c6e47d3} 
+\index{ImmersedBoundary@{ImmersedBoundary}!Fz@{Fz}}
+\index{Fz@{Fz}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{Fz()}{Fz()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto \& Immersed\+Boundary\+::\+Fz (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00171}{171}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb}{f}}[\mbox{\hyperlink{class_physical_val_aba92f84eb9e0c541a5d6ba7f442a195e}{icelCal}}(i,\ j,\ k)\ +\ zShift\_];}
+\DoxyCodeLine{00173\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{f}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00038}{Physical\+Val\+::icel\+Cal()}}.
+
+\Hypertarget{class_immersed_boundary_a52d07f96ae0fc1778f2c9f67a65d68be}\label{class_immersed_boundary_a52d07f96ae0fc1778f2c9f67a65d68be} 
+\index{ImmersedBoundary@{ImmersedBoundary}!Fz@{Fz}}
+\index{Fz@{Fz}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{Fz()}{Fz()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto Immersed\+Boundary\+::\+Fz (\begin{DoxyParamCaption}\item[{T}]{i,  }\item[{T}]{j,  }\item[{T}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00151}{151}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb}{f}}[\mbox{\hyperlink{class_physical_val_aba92f84eb9e0c541a5d6ba7f442a195e}{icelCal}}(i,\ j,\ k)\ +\ zShift\_];}
+\DoxyCodeLine{00153\ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{f}}, and \mbox{\hyperlink{physical__variables_8hpp_source_l00038}{Physical\+Val\+::icel\+Cal()}}.
+
+
+
+Referenced by \mbox{\hyperlink{update__u__and__force_8hpp_source_l00007}{Update\+Force\+And\+Velocity()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_immersed_boundary_a1ca8874477fb1463c82f7e47611d518c}\label{class_immersed_boundary_a1ca8874477fb1463c82f7e47611d518c} 
+\index{ImmersedBoundary@{ImmersedBoundary}!cylinderCenter@{cylinderCenter}}
+\index{cylinderCenter@{cylinderCenter}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{cylinderCenter}{cylinderCenter}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Immersed\+Boundary\+::cylinder\+Center}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00184}{184}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+\Hypertarget{class_immersed_boundary_a6e64d44d2ae6364fdc6c131fea6c15ab}\label{class_immersed_boundary_a6e64d44d2ae6364fdc6c131fea6c15ab} 
+\index{ImmersedBoundary@{ImmersedBoundary}!eta@{eta}}
+\index{eta@{eta}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{eta}{eta}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Immersed\+Boundary\+::eta}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{180}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{physical__variables_8hpp_source_l00176}{Eta()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00156}{Eta()}}, \mbox{\hyperlink{physical__variables_8cpp_source_l00015}{Immersed\+Boundary()}}, and \mbox{\hyperlink{write__qfile_8hpp_source_l00009}{Write\+Qfile()}}.
+
+\Hypertarget{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb}\label{class_immersed_boundary_a60da2f1d9e5896163a0b7a56caedb8bb} 
+\index{ImmersedBoundary@{ImmersedBoundary}!f@{f}}
+\index{f@{f}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{f}{f}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Immersed\+Boundary\+::f}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00180}{180}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{physical__variables_8hpp_source_l00161}{Fx()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00141}{Fx()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00166}{Fy()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00146}{Fy()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00171}{Fz()}}, \mbox{\hyperlink{physical__variables_8hpp_source_l00151}{Fz()}}, \mbox{\hyperlink{physical__variables_8cpp_source_l00015}{Immersed\+Boundary()}}, and \mbox{\hyperlink{force__integration_8hpp_source_l00005}{virtual\+F\+\_\+\+Int()}}.
+
+\Hypertarget{class_immersed_boundary_abbf27787e68b763c1a4d09a9c6e26770}\label{class_immersed_boundary_abbf27787e68b763c1a4d09a9c6e26770} 
+\index{ImmersedBoundary@{ImmersedBoundary}!Val\_sumz@{Val\_sumz}}
+\index{Val\_sumz@{Val\_sumz}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{Val\_sumz}{Val\_sumz}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Immersed\+Boundary\+::\+Val\+\_\+sumz}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00181}{181}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+\Hypertarget{class_immersed_boundary_ac98fa2bb8bddc652f502379cebd77f37}\label{class_immersed_boundary_ac98fa2bb8bddc652f502379cebd77f37} 
+\index{ImmersedBoundary@{ImmersedBoundary}!Val\_sumz\_sumy@{Val\_sumz\_sumy}}
+\index{Val\_sumz\_sumy@{Val\_sumz\_sumy}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{Val\_sumz\_sumy}{Val\_sumz\_sumy}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Immersed\+Boundary\+::\+Val\+\_\+sumz\+\_\+sumy}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00182}{182}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+\Hypertarget{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5}\label{class_immersed_boundary_a7d7dc25e89e177165f4ea4208c86c4f5} 
+\index{ImmersedBoundary@{ImmersedBoundary}!ValSum@{ValSum}}
+\index{ValSum@{ValSum}!ImmersedBoundary@{ImmersedBoundary}}
+\doxysubsubsection{\texorpdfstring{ValSum}{ValSum}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Immersed\+Boundary\+::\+Val\+Sum}
+
+
+
+Definition at line \mbox{\hyperlink{physical__variables_8hpp_source_l00183}{183}} of file \mbox{\hyperlink{physical__variables_8hpp_source}{physical\+\_\+variables.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{force__integration_8hpp_source_l00071}{Delay\+\_\+\+IO\+\_\+\+CD\+\_\+\+CL()}}, \mbox{\hyperlink{force__integration__mpi_8hpp_source_l00005}{get\+CD\+\_\+\+CL\+\_\+mpi()}}, \mbox{\hyperlink{force__integration_8hpp_source_l00025}{no\+Delay\+\_\+\+IO\+\_\+\+CD\+\_\+\+CL()}}, and \mbox{\hyperlink{force__integration_8hpp_source_l00005}{virtual\+F\+\_\+\+Int()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+cfd\+\_\+mx/inc/backend/\mbox{\hyperlink{physical__variables_8hpp}{physical\+\_\+variables.\+hpp}}\item 
+cfd\+\_\+mx/src/backend/\mbox{\hyperlink{physical__variables_8cpp}{physical\+\_\+variables.\+cpp}}\end{DoxyCompactItemize}

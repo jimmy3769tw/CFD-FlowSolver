@@ -1,0 +1,67 @@
+\doxysection{cfd\+\_\+mx/inc/backend/\+Inition\+\_\+condition.hpp File Reference}
+\hypertarget{_inition__condition_8hpp}{}\label{_inition__condition_8hpp}\index{cfd\_mx/inc/backend/Inition\_condition.hpp@{cfd\_mx/inc/backend/Inition\_condition.hpp}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_inition__condition_8hpp_ac6d8e7dbbcabfb02a35eed15042665af}{Locality}} (\mbox{\hyperlink{class_simulation}{Simulation}} \&simu, \mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&Lo, velocity \&T0, velocity \&T1, velocity \&T3, pressure \&t1, grid \&gridA)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_inition__condition_8hpp_ac6d8e7dbbcabfb02a35eed15042665af}\label{_inition__condition_8hpp_ac6d8e7dbbcabfb02a35eed15042665af} 
+\index{Inition\_condition.hpp@{Inition\_condition.hpp}!Locality@{Locality}}
+\index{Locality@{Locality}!Inition\_condition.hpp@{Inition\_condition.hpp}}
+\doxysubsubsection{\texorpdfstring{Locality()}{Locality()}}
+{\footnotesize\ttfamily void Locality (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_simulation}{Simulation}} \&}]{simu,  }\item[{\mbox{\hyperlink{class_local_domain}{Local\+Domain}} \&}]{Lo,  }\item[{velocity \&}]{T0,  }\item[{velocity \&}]{T1,  }\item[{velocity \&}]{T3,  }\item[{pressure \&}]{t1,  }\item[{grid \&}]{gridA }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_inition__condition_8hpp_source_l00003}{3}} of file \mbox{\hyperlink{_inition__condition_8hpp_source}{Inition\+\_\+condition.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ [nx,\ ny,\ nz,\ gC]\ =\ gridA.nxyzgC;\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ Lo.\mbox{\hyperlink{class_local_domain_a47ac8bc4ed8a90613309ddced1869785}{x\_start}}\ \ ;\ i\ <\ Lo.\mbox{\hyperlink{class_local_domain_a85bd90711f78af744bae30e52241d018}{x\_end}}\ ;\ ++i\ )}
+\DoxyCodeLine{00016\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ Lo.\mbox{\hyperlink{class_local_domain_af8a435144ad06a2bb6a290a341dab55e}{y\_start}}\ \ ;\ j\ <\ Lo.\mbox{\hyperlink{class_local_domain_ab829648563fa006676434a7e9ca478d0}{y\_end}}\ ;\ ++j\ )}
+\DoxyCodeLine{00017\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ Lo.\mbox{\hyperlink{class_local_domain_a7a4df338f67d20b9780e909913e93d10}{z\_start}}\ \ ;\ k\ <\ Lo.\mbox{\hyperlink{class_local_domain_a18b65e119ec8720a8c297706db7e8a8c}{z\_end}}\ ;\ ++k\ )}
+\DoxyCodeLine{00018\ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ icel\ =\ i*nz*ny\ +\ j*nz\ +\ k;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ T0.u[icel]\ =\ 0.;\ \ \ \ \ \ \ \ \ T0.v[icel]\ =\ 0.;\ \ \ \ \ \ \ \ \ T0.w[icel]\ =\ 0.;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ T1.u[icel]\ =\ 0.;\ \ \ \ \ \ \ \ \ T1.v[icel]\ =\ 0.;\ \ \ \ \ \ \ \ \ T1.w[icel]\ =\ 0.;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ T3.u[icel]\ =\ 0.;\ \ \ \ \ \ \ \ \ T3.v[icel]\ =\ 0.;\ \ \ \ \ \ \ \ \ T3.w[icel]\ =\ 0.;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ t1.p[icel]\ =\ 0.;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 2)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ T0.u[icel\ -\/\ nz*ny]\ =\ 0.;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ T0.u[icel\ -\/\ 2*nz*ny]\ =\ 0.;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ nx\ -\/3\ )\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ T0.u[icel\ +\ nz*ny]\ =\ 0.;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ T0.u[icel\ +\ 2*nz*ny]\ =\ 0.;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 2)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ T0.u[icel-\/nz]\ =\ 0.;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ T0.u[icel-\/2*nz]\ =\ 0.;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ nx\ -\/3\ )\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ T0.u[icel\ +\ nz]\ =\ 0.;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ T0.u[icel\ +\ 2*nz]\ =\ 0.;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ 2)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ T0.u[icel\ -\/\ 1]\ =\ 0.;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ T0.u[icel\ -\/\ 2]\ =\ 0.;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ nz\ -\/3\ )\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ T0.u[\ icel\ +\ 1]\ =\ 0.;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ T0.u[\ icel\ +\ 2]\ =\ 0.;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \}}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+end}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::x\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+end}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::y\+\_\+start}}, \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+end}}, and \mbox{\hyperlink{domain_8hpp_source_l00042}{Local\+Domain\+::z\+\_\+start}}.
+
